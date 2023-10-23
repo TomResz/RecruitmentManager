@@ -12,8 +12,8 @@ using RecruitmentManager.Infrastructure.EF.Context;
 namespace RecruitmentManager.Infrastructure.Migrations
 {
     [DbContext(typeof(RecruitmentManagerDbContext))]
-    [Migration("20231023151039_Initialize")]
-    partial class Initialize
+    [Migration("20231023171239_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -226,6 +226,66 @@ namespace RecruitmentManager.Infrastructure.Migrations
                     b.ToTable("Experiences");
                 });
 
+            modelBuilder.Entity("RecruitmentManager.Domain.Entities.JobApplication", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CandidateId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("InterviewQualified")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("JobPostingId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CandidateId");
+
+                    b.HasIndex("JobPostingId");
+
+                    b.ToTable("JobApplications");
+                });
+
+            modelBuilder.Entity("RecruitmentManager.Domain.Entities.JobPosting", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AddedByEmployeeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("EmployeeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("NumberOfPositions")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("JobPostings");
+                });
+
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.KnowledgeOfLanguage", b =>
                 {
                     b.Property<Guid>("Id")
@@ -265,6 +325,37 @@ namespace RecruitmentManager.Infrastructure.Migrations
                     b.ToTable("LanguageProficiencies");
                 });
 
+            modelBuilder.Entity("RecruitmentManager.Domain.Entities.RecruitmentStage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("EmployeeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("GradeWeight")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("JobPostingId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StageName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.HasIndex("JobPostingId");
+
+                    b.ToTable("RecruitmentStages");
+                });
+
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.Role", b =>
                 {
                     b.Property<int>("Id")
@@ -277,6 +368,27 @@ namespace RecruitmentManager.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
+                });
+
+            modelBuilder.Entity("RecruitmentManager.Domain.Entities.SelectedCandidatesToJob", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CandidateId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("JobPostingId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CandidateId");
+
+                    b.HasIndex("JobPostingId");
+
+                    b.ToTable("SelectedCandidatesToJobs");
                 });
 
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.CandidateData", b =>
@@ -353,6 +465,36 @@ namespace RecruitmentManager.Infrastructure.Migrations
                     b.Navigation("Candidate");
                 });
 
+            modelBuilder.Entity("RecruitmentManager.Domain.Entities.JobApplication", b =>
+                {
+                    b.HasOne("RecruitmentManager.Domain.Entities.Candidate", "Candidate")
+                        .WithMany("JobApplications")
+                        .HasForeignKey("CandidateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RecruitmentManager.Domain.Entities.JobPosting", "JobPosting")
+                        .WithMany("JobApplications")
+                        .HasForeignKey("JobPostingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Candidate");
+
+                    b.Navigation("JobPosting");
+                });
+
+            modelBuilder.Entity("RecruitmentManager.Domain.Entities.JobPosting", b =>
+                {
+                    b.HasOne("RecruitmentManager.Domain.Entities.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+                });
+
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.KnowledgeOfLanguage", b =>
                 {
                     b.HasOne("RecruitmentManager.Domain.Entities.Candidate", "Candidate")
@@ -372,6 +514,44 @@ namespace RecruitmentManager.Infrastructure.Migrations
                     b.Navigation("LanguageProficiencyLevel");
                 });
 
+            modelBuilder.Entity("RecruitmentManager.Domain.Entities.RecruitmentStage", b =>
+                {
+                    b.HasOne("RecruitmentManager.Domain.Entities.Employee", "Employee")
+                        .WithMany("RecruitmentStages")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RecruitmentManager.Domain.Entities.JobPosting", "JobPosting")
+                        .WithMany("RecruitmentStages")
+                        .HasForeignKey("JobPostingId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+
+                    b.Navigation("JobPosting");
+                });
+
+            modelBuilder.Entity("RecruitmentManager.Domain.Entities.SelectedCandidatesToJob", b =>
+                {
+                    b.HasOne("RecruitmentManager.Domain.Entities.Candidate", "Candidate")
+                        .WithMany("SelectedCandidatesToJobs")
+                        .HasForeignKey("CandidateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RecruitmentManager.Domain.Entities.JobPosting", "JobPosting")
+                        .WithMany("SelectedCandidatesToJobs")
+                        .HasForeignKey("JobPostingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Candidate");
+
+                    b.Navigation("JobPosting");
+                });
+
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.Candidate", b =>
                 {
                     b.Navigation("CandidateData")
@@ -379,7 +559,11 @@ namespace RecruitmentManager.Infrastructure.Migrations
 
                     b.Navigation("Experiences");
 
+                    b.Navigation("JobApplications");
+
                     b.Navigation("KnowledgeOfLanguages");
+
+                    b.Navigation("SelectedCandidatesToJobs");
 
                     b.Navigation("Skills");
                 });
@@ -393,6 +577,17 @@ namespace RecruitmentManager.Infrastructure.Migrations
                 {
                     b.Navigation("EmployeeData")
                         .IsRequired();
+
+                    b.Navigation("RecruitmentStages");
+                });
+
+            modelBuilder.Entity("RecruitmentManager.Domain.Entities.JobPosting", b =>
+                {
+                    b.Navigation("JobApplications");
+
+                    b.Navigation("RecruitmentStages");
+
+                    b.Navigation("SelectedCandidatesToJobs");
                 });
 
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.LanguageProficiencyLevel", b =>

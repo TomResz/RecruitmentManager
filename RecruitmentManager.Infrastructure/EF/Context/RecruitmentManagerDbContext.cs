@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DocumentFormat.OpenXml.ExtendedProperties;
+using Microsoft.EntityFrameworkCore;
 using RecruitmentManager.Domain.Entities;
 using RecruitmentManager.Domain.Entities.Candidate_Elements;
 
@@ -17,9 +18,12 @@ public class RecruitmentManagerDbContext : DbContext
 	public DbSet<Employee> Employees { get; set; }
 	public DbSet<EmployeeData> EmployeeData { get; set; }
 	public DbSet<Role> Roles { get; set; }
+	public DbSet<JobPosting> JobPostings { get; set; }
+	public DbSet<RecruitmentStage> RecruitmentStages { get; set; }
+    public DbSet<JobApplication> JobApplications { get; set; }
+    public DbSet<SelectedCandidatesToJob> SelectedCandidatesToJobs { get; set; }
 
-
-	public RecruitmentManagerDbContext(
+    public RecruitmentManagerDbContext(
 		DbContextOptions<RecruitmentManagerDbContext> options)
 		: base(options)
 	{

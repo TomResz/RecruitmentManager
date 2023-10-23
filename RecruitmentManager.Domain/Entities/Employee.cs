@@ -9,4 +9,6 @@ public class Employee
     public EmployeeData EmployeeData { get; set; }
     public int RoleId { get; set; }
     public Role Role { get; set; }
+
+    public ICollection<RecruitmentStage> RecruitmentStages { get; set; }
 }
