@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecruitmentManager", "RecruitmentManager\RecruitmentManager.csproj", "{74D267A2-BE8F-407C-97F9-D7FA241B00F8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecruitmentManager.Infrastructure", "RecruitmentManager.Infrastructure\RecruitmentManager.Infrastructure.csproj", "{F01959CE-CACB-41CD-A334-FE729D7FEE94}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecruitmentManager.Domain", "RecruitmentManager.Domain\RecruitmentManager.Domain.csproj", "{E0F4FC49-88DA-41B0-BC96-95407DC398DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1C7132EA-B4F9-4B8B-91A1-5536132A0D1B}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecruitmentManager.Application", "RecruitmentManager.Application\RecruitmentManager.Application.csproj", "{2F7C0911-469D-43BF-B022-EB4F65395308}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74D267A2-BE8F-407C-97F9-D7FA241B00F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74D267A2-BE8F-407C-97F9-D7FA241B00F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74D267A2-BE8F-407C-97F9-D7FA241B00F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74D267A2-BE8F-407C-97F9-D7FA241B00F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F01959CE-CACB-41CD-A334-FE729D7FEE94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F01959CE-CACB-41CD-A334-FE729D7FEE94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F01959CE-CACB-41CD-A334-FE729D7FEE94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F01959CE-CACB-41CD-A334-FE729D7FEE94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0F4FC49-88DA-41B0-BC96-95407DC398DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0F4FC49-88DA-41B0-BC96-95407DC398DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0F4FC49-88DA-41B0-BC96-95407DC398DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0F4FC49-88DA-41B0-BC96-95407DC398DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F7C0911-469D-43BF-B022-EB4F65395308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F7C0911-469D-43BF-B022-EB4F65395308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F7C0911-469D-43BF-B022-EB4F65395308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F7C0911-469D-43BF-B022-EB4F65395308}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91B80D13-EA8C-4E4E-A967-40EE23F0D828}
+	EndGlobalSection
+EndGlobal
