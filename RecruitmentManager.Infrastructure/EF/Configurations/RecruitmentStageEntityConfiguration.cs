@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using RecruitmentManager.Domain.Entities;
-using System.Reflection.Emit;
 
 namespace RecruitmentManager.Infrastructure.EF.Configurations;
 
