@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using RecruitmentManager.Application.Functions.Candidate.Register;
+using RecruitmentManager.Application.Functions.Candidate_Functions.Register;
 
 namespace RecruitmentManager;
 

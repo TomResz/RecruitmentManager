@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using RecruitmentManager.Application.Functions.Candidate.Login;
+using RecruitmentManager.Application.Functions.Candidate_Functions.Login;
+using RecruitmentManager.Application.Interfaces.Context;
 
 namespace RecruitmentManager;
 
@@ -8,18 +9,21 @@ public partial class LoginCandidateForm : Form
 {
 	private readonly IMediator _mediator;
 	private readonly IServiceProvider _serviceProvider;
+	private readonly ICandidateSessionContext _candidateSessionContext;
 
 	private const string PasswordText = "Hasło";
 	private const string EmailText = "E-Mail";
 	private const char PasswordChar = '●';
 	public LoginCandidateForm(
 		IMediator mediator,
-		IServiceProvider serviceProvider)
+		IServiceProvider serviceProvider,
+		ICandidateSessionContext candidateSessionContext)
 	{
 		InitializeComponent();
 		InitializeTextBoxesAndLabels();
 		_mediator = mediator;
 		_serviceProvider = serviceProvider;
+		_candidateSessionContext = candidateSessionContext;
 	}
 
 	private void InitializeTextBoxesAndLabels()
@@ -57,7 +61,16 @@ public partial class LoginCandidateForm : Form
 		var loginCommand = new LoginCandidateCommand(
 			  Email: emailTb.Text,
 			Password: passwordTb.Text);
-		var id = await _mediator.Send(loginCommand);
+		try
+		{
+			var id = await _mediator.Send(loginCommand);
+			_candidateSessionContext.SetId(id);
+			MessageBox.Show("Zalogowales sie!");
+		}
+		catch (Exception ex)
+		{
+			MessageBox.Show(ex.Message);
+		}
 	}
 
 	private void backToMainFormLabel_Click(object sender, EventArgs e)

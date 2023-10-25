@@ -1,5 +1,4 @@
-﻿using DocumentFormat.OpenXml.ExtendedProperties;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using RecruitmentManager.Domain.Entities;
 using RecruitmentManager.Domain.Entities.Candidate_Elements;
 

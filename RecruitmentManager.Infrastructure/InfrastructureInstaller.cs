@@ -5,7 +5,7 @@ using RecruitmentManager.Application.Interfaces.Repositories;
 using RecruitmentManager.Infrastructure.EF.Context;
 using RecruitmentManager.Infrastructure.EF.Repositories;
 using RecruitmentManager.Infrastructure.EF.Seeders;
-using RecruitmentManager.Infrastructure.Services.Candidate;
+using RecruitmentManager.Infrastructure.EF.Services.Candidate;
 
 namespace RecruitmentManager.Infrastructure;
 
@@ -19,6 +19,8 @@ public static class InfrastructureInstaller
 			options.UseSqlServer(connectionString);
 		});
         services.AddScoped(typeof(IAsyncRepository<>), typeof(AsyncRepository<>));
+        services.AddScoped<ICandidateRepository,CandidateRepository>(); 
+
         services.AddSingleton<ICandidateSessionContext, CandidateSessionContext>();
         services.AddSingleton<IWorkerSessionContext, WorkerSessionContext>();
         services.AddTransient<MainSeeder>();

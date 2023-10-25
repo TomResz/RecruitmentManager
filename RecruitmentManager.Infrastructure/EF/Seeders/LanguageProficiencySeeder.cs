@@ -14,7 +14,6 @@ public class LanguageProficiencySeeder
 
 	public void Seed()
 	{
-		var ida = !_context.LanguageProficiencies.Any();
 		if (!_context.LanguageProficiencies.Any())
 		{
 			_context.AddRange(Get());

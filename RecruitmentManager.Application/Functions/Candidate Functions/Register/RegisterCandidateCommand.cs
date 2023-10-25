@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace RecruitmentManager.Application.Functions.Candidate.Register;
+namespace RecruitmentManager.Application.Functions.Candidate_Functions.Register;
 
 public sealed record RegisterCandidateCommand(
     string Email,
