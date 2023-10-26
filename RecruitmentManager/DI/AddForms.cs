@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.Forms;
+using RecruitmentManager.Forms.Admin;
 using RecruitmentManager.Forms.Candidate;
 
 namespace RecruitmentManager.DI;
@@ -14,6 +15,7 @@ public static class AddForms
 		services.AddTransient<MainForm>();
 		services.AddTransient<LoginWorkerForm>();
 		services.AddTransient<AdminForm>();
+		services.AddTransient<AddWorkerForm>();
 		return services;
 	}
 }

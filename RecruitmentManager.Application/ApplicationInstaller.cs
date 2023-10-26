@@ -13,6 +13,7 @@ public static class ApplicationInstaller
 		services.AddMediatR(cfg =>
 			cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 		services.AddScoped<IPasswordHasher<Candidate>,PasswordHasher<Candidate>>();
+		services.AddScoped<IPasswordHasher<Employee>, PasswordHasher<Employee>>();
 		return services;
 	}
 }

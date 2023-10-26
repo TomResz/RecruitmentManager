@@ -1,0 +1,26 @@
+﻿using Microsoft.EntityFrameworkCore;
+using RecruitmentManager.Application.Interfaces.Repositories;
+using RecruitmentManager.Domain.Entities;
+using RecruitmentManager.Infrastructure.EF.Context;
+
+namespace RecruitmentManager.Infrastructure.EF.Repositories;
+
+public class EmployeeRepository : AsyncRepository<Employee>	
+	, IEmployeeRepository
+{
+	private readonly RecruitmentManagerDbContext _context;
+
+	public EmployeeRepository(RecruitmentManagerDbContext context)
+		: base(context)
+	{
+		_context = context;
+	}
+
+	public async Task<Employee?> GetByEmailAsync(string email)
+	{
+		return await _context
+			.Employees
+			.FirstOrDefaultAsync(x=>x.Email.ToLower() ==  email.ToLower());
+	}
+
+}

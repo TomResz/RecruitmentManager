@@ -8,7 +8,7 @@ public class MainSeeder
 	private readonly RolesSeeder _rolesSeeder;
 	private readonly LanguageProficiencySeeder _languageProficiencySeeder;
 	private readonly LevelOfEducationSeeder _levelOfEducationSeeder;
-
+	private readonly WorkersSeed _workerSeed;
 
 
 	public MainSeeder(RecruitmentManagerDbContext context)
@@ -17,6 +17,7 @@ public class MainSeeder
 		_rolesSeeder = new RolesSeeder(context);
 		_languageProficiencySeeder = new LanguageProficiencySeeder(context);
 		_levelOfEducationSeeder = new LevelOfEducationSeeder(context);
+		_workerSeed = new WorkersSeed(context);
 	}
 
 	public void Initialize()
@@ -24,5 +25,6 @@ public class MainSeeder
 		_rolesSeeder.Seed();
 		_levelOfEducationSeeder.Seed();
 		_languageProficiencySeeder.Seed();
+		_workerSeed.Seed();
 	}
 }

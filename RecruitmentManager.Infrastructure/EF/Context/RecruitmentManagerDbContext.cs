@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Domain.Entities;
 using RecruitmentManager.Domain.Entities.Candidate_Elements;
 
 namespace RecruitmentManager.Infrastructure.EF.Context;
 
-public class RecruitmentManagerDbContext : DbContext
+public class RecruitmentManagerDbContext : DbContext, IDbContext
 {
 	public DbSet<CandidateData> CandidateData { get; set; }
 	public DbSet<Education> Education { get; set; }
@@ -34,5 +35,9 @@ public class RecruitmentManagerDbContext : DbContext
 			  typeof(RecruitmentManagerDbContext).Assembly);
 	}
 
+	public IQueryable<TEntity> Get<TEntity>() where TEntity : class
+	{
+		return base.Set<TEntity>().AsQueryable();
+	}
 }
 

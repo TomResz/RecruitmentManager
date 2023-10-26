@@ -1,6 +1,6 @@
 ﻿using RecruitmentManager.Application.Interfaces.Context;
 
-namespace RecruitmentManager.Infrastructure.EF.Services.Candidate;
+namespace RecruitmentManager.Infrastructure.Services.Candidate;
 
 public class CandidateSessionContext
     : ICandidateSessionContext

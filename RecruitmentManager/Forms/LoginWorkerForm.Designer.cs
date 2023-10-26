@@ -52,7 +52,7 @@
 			loginBtn.TabIndex = 17;
 			loginBtn.Text = "Zaloguj się";
 			loginBtn.UseVisualStyleBackColor = true;
-			loginBtn.Click += loginBtn_Click;
+			loginBtn.Click += loginBtn_ClickAsync;
 			// 
 			// showPasswdCB
 			// 

@@ -1,19 +1,32 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
+using RecruitmentManager.Application.Functions.Worker_Functions.Login;
+using RecruitmentManager.Application.Interfaces.Context;
+using RecruitmentManager.Domain.Enums;
 
 namespace RecruitmentManager.Forms;
 
 public partial class LoginWorkerForm : Form
 {
+
+	private readonly IMediator _mediator;
+	private readonly IWorkerSessionContext _workerSession;
+
 	private const string Password = "Hasło";
 	private const string Email = "E-Mail";
 	private const char PasswordChar = '●';
 
 	private readonly IServiceProvider _serviceProvider;
-	public LoginWorkerForm(IServiceProvider serviceProvider)
+	public LoginWorkerForm(
+		IServiceProvider serviceProvider,
+		IMediator mediator,
+		IWorkerSessionContext workerSession)
 	{
 		InitializeComponent();
 		InitializeTextboxesLabels();
 		_serviceProvider = serviceProvider;
+		_mediator = mediator;
+		_workerSession = workerSession;
 	}
 
 	private void InitializeTextboxesLabels()
@@ -41,9 +54,32 @@ public partial class LoginWorkerForm : Form
 		=> passwordLabel.Text = string.IsNullOrEmpty(passwordTb.Text)
 		? Password : "";
 
-	private void loginBtn_Click(object sender, EventArgs e)
+	private async void loginBtn_ClickAsync(object sender, EventArgs e)
 	{
-		OpenAdminForm();
+		var loginRequest = new LoginWorkerCommand(
+			Email: emailTb.Text, 
+			Password: passwordTb.Text);
+		try
+		{
+			var response = await _mediator.Send(loginRequest);	
+			_workerSession.SetId(response.Id);
+			_workerSession.SetRole(response.Role);
+			switch(response.Role)	
+			{
+				case Roles.Admin:
+					OpenAdminForm();
+					break;
+				default:
+					break;
+			}
+		}
+		catch(Exception ex) 
+		{
+			MessageBox.Show(text: ex.Message,
+						caption: "Logowanie się nie powiodło!",
+						  buttons: MessageBoxButtons.OK,
+						  icon: MessageBoxIcon.Error);
+		}
 	}
 
 	private void OpenAdminForm()

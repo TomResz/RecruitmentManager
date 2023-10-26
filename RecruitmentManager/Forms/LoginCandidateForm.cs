@@ -65,11 +65,14 @@ public partial class LoginCandidateForm : Form
 		{
 			var id = await _mediator.Send(loginCommand);
 			_candidateSessionContext.SetId(id);
-			MessageBox.Show("Zalogowales sie!");
+			MessageBox.Show("Zalogowano!");
 		}
 		catch (Exception ex)
 		{
-			MessageBox.Show(ex.Message);
+			MessageBox.Show(text: ex.Message,
+				caption: "Logowanie się nie powiodło!",
+				  buttons: MessageBoxButtons.OK,
+				  icon: MessageBoxIcon.Error);
 		}
 	}
 

@@ -1,0 +1,48 @@
+﻿using MediatR;
+using Microsoft.AspNetCore.Identity;
+using RecruitmentManager.Application.Error_Serializer;
+using RecruitmentManager.Application.Interfaces.Repositories;
+using RecruitmentManager.Domain.Entities;
+using RecruitmentManager.Domain.Enums;
+
+namespace RecruitmentManager.Application.Functions.Worker_Functions.Login;
+
+public class LoginWorkerCommandHandler
+	: IRequestHandler<LoginWorkerCommand, LoginWorkerResponse>
+{
+	private readonly IEmployeeRepository _repository;
+	private readonly IPasswordHasher<Employee> _passwordHasher;
+
+	public LoginWorkerCommandHandler(
+		IEmployeeRepository repository,
+		IPasswordHasher<Employee> passwordHasher)
+	{
+		_repository = repository;
+		_passwordHasher = passwordHasher;
+	}
+
+	public async Task<LoginWorkerResponse> Handle(
+		LoginWorkerCommand request, 
+		CancellationToken cancellationToken)
+	{
+		var validation = new LoginWorkerCommandValidation();
+		var result  = await validation.ValidateAsync(request, cancellationToken);
+		if(!result.IsValid)
+		{
+			throw new ArgumentException(
+				 FVErrorSerializer.SerializeToString(result.Errors));
+		}
+		var employee = await _repository.GetByEmailAsync(request.Email);
+		if( employee is null)
+		{
+			throw new ArgumentException("Nieprawidłowy adres email!");
+		}
+		var passwordValidation = _passwordHasher.
+			VerifyHashedPassword(employee, employee.PasswordHash, request.Password);
+		if(passwordValidation == PasswordVerificationResult.Failed)
+		{
+			throw new ArgumentException("Nieprawidłowe hasło!");
+		}
+		return new LoginWorkerResponse(employee.Id, (Roles)employee.RoleId);
+	}
+}

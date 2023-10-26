@@ -1,7 +1,7 @@
 ﻿using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Domain.Enums;
 
-namespace RecruitmentManager.Infrastructure.EF.Services.Candidate;
+namespace RecruitmentManager.Infrastructure.Services.Candidate;
 
 public class WorkerSessionContext
     : IWorkerSessionContext
