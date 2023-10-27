@@ -2,6 +2,7 @@
 using RecruitmentManager.Application;
 using RecruitmentManager.Infrastructure;
 using System.Configuration;
+using System.Globalization;
 
 namespace RecruitmentManager.DI;
 
@@ -16,6 +17,7 @@ public static class DIExtension
 			.CreateDefaultBuilder()
 			.ConfigureServices(services =>
 			{
+				services.AddLanguage();
 				services.AddInfrastructure(connectionString);
 				services.AddApplication();
 				services.AddFormsToDI();

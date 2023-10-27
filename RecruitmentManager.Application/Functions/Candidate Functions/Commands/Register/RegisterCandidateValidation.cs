@@ -8,6 +8,12 @@ public class RegisterCandidateValidation
 {
 	public RegisterCandidateValidation()
 	{
+		RuleFor(x=>x.FirstName)
+			.NotEmpty()
+			.WithMessage("Imię nie może być puste!");
+		RuleFor(x => x.LastName)
+			.NotEmpty()
+			.WithMessage("Nazwisko nie może być puste!");
 		RuleFor(x => x.Email)
 			.Cascade(CascadeMode.Stop)
 			.NotNull()

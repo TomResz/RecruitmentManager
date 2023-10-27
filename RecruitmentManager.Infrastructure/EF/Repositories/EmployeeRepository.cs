@@ -20,6 +20,7 @@ public class EmployeeRepository : AsyncRepository<Employee>
 	{
 		return await _context
 			.Employees
+			.Include(e=>e.EmployeeData)
 			.FirstOrDefaultAsync(x=>x.Email.ToLower() ==  email.ToLower());
 	}
 

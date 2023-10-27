@@ -46,11 +46,10 @@ namespace RecruitmentManager.Infrastructure.Migrations
                     b.Property<Guid>("CandidateId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("BirthDate")
+                    b.Property<DateTime?>("BirthDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("City")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
@@ -62,7 +61,6 @@ namespace RecruitmentManager.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CandidateId");

@@ -43,6 +43,8 @@ public class LoginWorkerCommandHandler
 		{
 			throw new ArgumentException("Nieprawidłowe hasło!");
 		}
-		return new LoginWorkerResponse(employee.Id, (Roles)employee.RoleId);
+		return new LoginWorkerResponse(employee.Id, 
+			 string.Join(" ",employee.EmployeeData.FirstName,employee.EmployeeData.LastName)
+			 ,(Roles)employee.RoleId);
 	}
 }

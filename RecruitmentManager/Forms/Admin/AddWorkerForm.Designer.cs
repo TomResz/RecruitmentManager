@@ -309,7 +309,7 @@
 			MaximumSize = new Size(557, 700);
 			MinimumSize = new Size(557, 700);
 			Name = "AddWorkerForm";
-			Text = "AddWorkerForm";
+			Text = "Rejestracja Nowych Pracowników";
 			((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

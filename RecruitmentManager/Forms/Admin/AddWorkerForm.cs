@@ -1,57 +1,52 @@
 ﻿using MediatR;
 using RecruitmentManager.Application.Functions.Worker_Functions.Admin_Functions.Commands.CreateWorker;
 using RecruitmentManager.Domain.Enums;
+using RecruitmentManager.Subtitles;
 
 namespace RecruitmentManager.Forms.Admin;
 
 public partial class AddWorkerForm : Form
 {
-
-	private const string Email = "E-Mail";
-	private const string FirstName = "Imię";
-	private const string LastName = "Nazwisko";
-	private const string Password = "Hasło";
-	private const string ConfirmedPassword = "Powtórz hasło";
-
-	private IMediator _mediator;
-
-	public AddWorkerForm(IMediator mediator)
+	private readonly IMediator _mediator;
+	private readonly ISubtitles _label;
+	public AddWorkerForm(IMediator mediator, ISubtitles labels)
 	{
 		InitializeComponent();
 		InitializeTextBoxesAndLabels();
 		adminRb.Checked = true;
 		_mediator = mediator;
+		_label = labels;
 	}
 
 	private void InitializeTextBoxesAndLabels()
 	{
-		emailLabel.Text = Email;
-		firstNameLabel.Text = FirstName;
-		lastNameLabel.Text = LastName;
-		passwordLabel.Text = Password;
-		confirmedPasswdLabel.Text = ConfirmedPassword;
-		confirmedPasswdTb.PasswordChar = '●';
-		passwordTb.PasswordChar = '●';
+		emailLabel.Text = _label.Email;
+		firstNameLabel.Text = _label.FirstName;
+		lastNameLabel.Text = _label.LastName;
+		passwordLabel.Text = _label.Password;
+		confirmedPasswdLabel.Text = _label.RepeatNewPassword;
+		confirmedPasswdTb.PasswordChar = _label.PasswordSym;
+		passwordTb.PasswordChar = _label.PasswordSym;
 	}
 
 	private void confirmedPasswdTb_TextChanged(object sender, EventArgs e)
 		=> confirmedPasswdLabel.Text = string.IsNullOrEmpty(confirmedPasswdTb.Text)
-		? ConfirmedPassword : "";
+		? _label.RepeatPassword : "";
 
 	private void passwordTb_TextChanged(object sender, EventArgs e)
 		=> passwordLabel.Text = string.IsNullOrEmpty(passwordTb.Text)
-		? Password : "";
+		? _label.Password : "";
 
 	private void emailTb_TextChanged(object sender, EventArgs e)
 		=> emailLabel.Text = string.IsNullOrEmpty(emailTb.Text)
-		? Email : "";
+		? _label.Email : "";
 	private void lastNameTb_TextChanged(object sender, EventArgs e)
 		=> lastNameLabel.Text = string.IsNullOrEmpty(lastNameTb.Text)
-		? LastName : "";
+		? _label.LastName : "";
 
 	private void firstNameTb_TextChanged(object sender, EventArgs e)
 		=> firstNameLabel.Text = string.IsNullOrEmpty(firstNameTb.Text)
-		? FirstName : "";
+		? _label.FirstName : "";
 
 	private Roles GetRole()
 	{

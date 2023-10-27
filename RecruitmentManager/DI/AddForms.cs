@@ -16,6 +16,8 @@ public static class AddForms
 		services.AddTransient<LoginWorkerForm>();
 		services.AddTransient<AdminForm>();
 		services.AddTransient<AddWorkerForm>();
+		services.AddTransient<ResetWorkerPasswordForm>();
+		services.AddTransient<ResetCandidatePasswordForm>();
 		return services;
 	}
 }

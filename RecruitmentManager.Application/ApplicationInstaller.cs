@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
+using RecruitmentManager.Application.Mapper;
 using RecruitmentManager.Domain.Entities;
 using System.Reflection;
 
@@ -12,6 +13,10 @@ public static class ApplicationInstaller
 	{
 		services.AddMediatR(cfg =>
 			cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+		services.AddAutoMapper(cfg =>
+		{
+			cfg.AddProfile(typeof(MapperProfile));
+		});
 		services.AddScoped<IPasswordHasher<Candidate>,PasswordHasher<Candidate>>();
 		services.AddScoped<IPasswordHasher<Employee>, PasswordHasher<Employee>>();
 		return services;

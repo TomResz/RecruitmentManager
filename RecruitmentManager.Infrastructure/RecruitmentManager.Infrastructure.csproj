@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="EF\Context\" />
+    <Folder Include="Services\Worker\" />
   </ItemGroup>
 
   <ItemGroup>

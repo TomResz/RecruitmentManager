@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.Application.Functions.Candidate_Functions.Login;
 using RecruitmentManager.Application.Interfaces.Context;
+using RecruitmentManager.Subtitles;
 
 namespace RecruitmentManager;
 
@@ -10,42 +11,41 @@ public partial class LoginCandidateForm : Form
 	private readonly IMediator _mediator;
 	private readonly IServiceProvider _serviceProvider;
 	private readonly ICandidateSessionContext _candidateSessionContext;
-
-	private const string PasswordText = "Hasło";
-	private const string EmailText = "E-Mail";
-	private const char PasswordChar = '●';
+	private readonly ISubtitles _label;
 	public LoginCandidateForm(
 		IMediator mediator,
 		IServiceProvider serviceProvider,
-		ICandidateSessionContext candidateSessionContext)
+		ICandidateSessionContext candidateSessionContext,
+		ISubtitles label)
 	{
 		InitializeComponent();
-		InitializeTextBoxesAndLabels();
 		_mediator = mediator;
 		_serviceProvider = serviceProvider;
 		_candidateSessionContext = candidateSessionContext;
+		_label = label;
+		InitializeTextBoxesAndLabels();
 	}
 
 	private void InitializeTextBoxesAndLabels()
 	{
-		passwordLabel.Text = PasswordText;
-		emailLabel.Text = EmailText;
-		passwordTb.PasswordChar = PasswordChar;
+		passwordLabel.Text = _label.Password;
+		emailLabel.Text = _label.Email;
+		passwordTb.PasswordChar = _label.PasswordSym;
 	}
 
 	private void emailTb_TextChanged(object sender, EventArgs e)
 		=> emailLabel.Text = string.IsNullOrEmpty(emailTb.Text)
-		? EmailText
+		? _label.Email
 		: "";
 
 	private void passwordTb_TextChanged(object sender, EventArgs e)
 		=> passwordLabel.Text = string.IsNullOrEmpty(passwordTb.Text)
-		? PasswordText
+		? _label.Password
 		: "";
 
 	private void showPasswdCB_CheckedChanged(object sender, EventArgs e)
 		=> passwordTb.PasswordChar = !showPasswdCB.Checked
-		? PasswordChar
+		? _label.PasswordSym
 		: default(char);
 
 	private void label2_Click(object sender, EventArgs e)

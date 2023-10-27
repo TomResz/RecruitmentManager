@@ -9,6 +9,7 @@ public static class AddUserControls
 		this IServiceCollection services)
 	{
 		services.AddTransient<WorkersManagementView>();
+		services.AddTransient<CandidateManagementView>();
 		return services;
 	}
 }

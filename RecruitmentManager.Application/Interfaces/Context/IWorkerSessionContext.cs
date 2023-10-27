@@ -5,9 +5,7 @@ namespace RecruitmentManager.Application.Interfaces.Context;
 public interface IWorkerSessionContext
 {
 	Guid? WorkerId { get; }
-	
-	Roles? GetRole { get; }
-	void SetId(Guid candidateId);
-	void SetRole(Roles role);	
+	string FullName { get; }
+	void SetWorker(Guid Id, Roles role, string FullName);
 	void Logout();
 }

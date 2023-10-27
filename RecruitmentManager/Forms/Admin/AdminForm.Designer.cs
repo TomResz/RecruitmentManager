@@ -132,6 +132,7 @@
 			usersBtn.TextAlign = ContentAlignment.MiddleRight;
 			usersBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
 			usersBtn.UseVisualStyleBackColor = false;
+			usersBtn.Click += usersBtn_Click;
 			// 
 			// candidatesBtn
 			// 
@@ -149,6 +150,7 @@
 			candidatesBtn.TextAlign = ContentAlignment.MiddleRight;
 			candidatesBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
 			candidatesBtn.UseVisualStyleBackColor = false;
+			candidatesBtn.Click += candidatesBtn_Click;
 			// 
 			// AdminForm
 			// 
@@ -157,7 +159,7 @@
 			ClientSize = new Size(1358, 627);
 			Controls.Add(mainLayout);
 			Name = "AdminForm";
-			Text = "AdminForm";
+			Text = "Formularz Administratora";
 			mainLayout.ResumeLayout(false);
 			tableLayoutPanel1.ResumeLayout(false);
 			tableLayoutPanel1.PerformLayout();

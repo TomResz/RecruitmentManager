@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.Application.Functions.Worker_Functions.Login;
 using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Domain.Enums;
+using RecruitmentManager.Subtitles;
 
 namespace RecruitmentManager.Forms;
 
@@ -11,36 +12,35 @@ public partial class LoginWorkerForm : Form
 
 	private readonly IMediator _mediator;
 	private readonly IWorkerSessionContext _workerSession;
-
-	private const string Password = "Hasło";
-	private const string Email = "E-Mail";
-	private const char PasswordChar = '●';
+	private readonly ISubtitles _label;
 
 	private readonly IServiceProvider _serviceProvider;
 	public LoginWorkerForm(
 		IServiceProvider serviceProvider,
 		IMediator mediator,
-		IWorkerSessionContext workerSession)
+		IWorkerSessionContext workerSession,
+		ISubtitles label)
 	{
 		InitializeComponent();
-		InitializeTextboxesLabels();
+		_label = label;
 		_serviceProvider = serviceProvider;
 		_mediator = mediator;
 		_workerSession = workerSession;
+		InitializeTextboxesLabels();
 	}
 
 	private void InitializeTextboxesLabels()
 	{
-		passwordLabel.Text = Password;
-		emailLabel.Text = Email;
-		passwordTb.PasswordChar = PasswordChar;
+		passwordLabel.Text = _label.Password;
+		emailLabel.Text = _label.Email;
+		passwordTb.PasswordChar = _label.PasswordSym;
 	}
 
 	private void showPasswdCB_CheckedChanged(object sender, EventArgs e)
 	{
 		if (!showPasswdCB.Checked)
 		{
-			passwordTb.PasswordChar = PasswordChar;
+			passwordTb.PasswordChar = _label.PasswordSym;
 			return;
 		}
 		passwordTb.PasswordChar = default;
@@ -48,11 +48,11 @@ public partial class LoginWorkerForm : Form
 
 	private void emailTb_TextChanged(object sender, EventArgs e)
 		=> emailLabel.Text = string.IsNullOrEmpty(emailTb.Text)
-		? Email : "";
+		? _label.Email : "";
 
 	private void passwordTb_TextChanged(object sender, EventArgs e)
 		=> passwordLabel.Text = string.IsNullOrEmpty(passwordTb.Text)
-		? Password : "";
+		? _label.Password : "";
 
 	private async void loginBtn_ClickAsync(object sender, EventArgs e)
 	{
@@ -61,9 +61,8 @@ public partial class LoginWorkerForm : Form
 			Password: passwordTb.Text);
 		try
 		{
-			var response = await _mediator.Send(loginRequest);	
-			_workerSession.SetId(response.Id);
-			_workerSession.SetRole(response.Role);
+			var response = await _mediator.Send(loginRequest);
+			_workerSession.SetWorker(response.Id, response.Role,response.FullName);
 			switch(response.Role)	
 			{
 				case Roles.Admin:
