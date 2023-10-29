@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.DI;
+using RecruitmentManager.Forms;
 using RecruitmentManager.Infrastructure.EF.Seeders;
 
 namespace RecruitmentManager;
@@ -18,10 +19,7 @@ internal static class Program
 			.CreateHostBuilder()
 			.Build()
 			.Services;
-		var db = ServiceProvider.GetRequiredService<MainSeeder>();
-		db.Initialize();
-
-		var form = ServiceProvider.GetRequiredService<MainForm>();
+		var form = ServiceProvider.GetRequiredService<LoadingForm>();
 		System.Windows.Forms.Application.Run(form);
 	}
 }

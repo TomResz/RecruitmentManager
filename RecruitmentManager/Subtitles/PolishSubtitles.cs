@@ -11,4 +11,6 @@ public class PolishSubtitles : ISubtitles
 	public string RepeatNewPassword => "Powtórz Nowe Hasło";
 	public string Email => "E-Mail";
 	public string AdminForm => "Formularz Administratora";
+
+	public string PhoneNumber => "Numer Telefonu";
 }

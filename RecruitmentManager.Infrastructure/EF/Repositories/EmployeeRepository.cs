@@ -24,4 +24,11 @@ public class EmployeeRepository : AsyncRepository<Employee>
 			.FirstOrDefaultAsync(x=>x.Email.ToLower() ==  email.ToLower());
 	}
 
+	public async Task<Employee?> GetByIdFullDataAsync(Guid Id)
+	{
+		return await _context
+			.Employees
+			.Include(e=>e.EmployeeData)
+			.FirstOrDefaultAsync(x=>x.Id == Id);
+	}
 }

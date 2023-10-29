@@ -26,6 +26,7 @@ public static class InfrastructureInstaller
         services.AddSingleton<ICandidateSessionContext, CandidateSessionContext>();
         services.AddSingleton<IWorkerSessionContext, WorkerSessionContext>();
         services.AddSingleton<IUserDataToEditContext,UserDataToEditContext>();
+        services.ScanForDbSeeders();
         services.AddTransient<MainSeeder>();
         return services;
     }

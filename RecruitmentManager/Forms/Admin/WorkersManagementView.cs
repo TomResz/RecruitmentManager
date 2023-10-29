@@ -15,7 +15,6 @@ public partial class WorkersManagementView : UserControl
 	private readonly IMediator _mediator;
 	private readonly IServiceProvider _serviceProvider;
 	private readonly IUserDataToEditContext _workerDataToEditContext;
-
 	private int _page = 1;
 	private int _pageSize = 10;
 
@@ -157,4 +156,5 @@ public partial class WorkersManagementView : UserControl
 
 		}
 	}
+
 }

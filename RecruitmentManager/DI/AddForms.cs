@@ -18,6 +18,8 @@ public static class AddForms
 		services.AddTransient<AddWorkerForm>();
 		services.AddTransient<ResetWorkerPasswordForm>();
 		services.AddTransient<ResetCandidatePasswordForm>();
+		services.AddTransient<LoadingForm>();
+		services.AddTransient<EditEmployeeDataForm>();
 		return services;
 	}
 }

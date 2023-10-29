@@ -11,4 +11,6 @@ public class EnglishSubtitles : ISubtitles
 	public string RepeatNewPassword => "Repeat New Password";
 	public string Email => "E-Mail";
 	public string AdminForm => "Admin Form";
+
+	public string PhoneNumber => "Phone Number";
 }

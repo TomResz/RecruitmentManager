@@ -1,30 +1,24 @@
-﻿using RecruitmentManager.Infrastructure.EF.Context;
+﻿using Microsoft.Extensions.DependencyInjection;
+using RecruitmentManager.Infrastructure.EF.Context;
+using RecruitmentManager.Infrastructure.EF.Seeders.Interface;
 
 namespace RecruitmentManager.Infrastructure.EF.Seeders;
 
 public class MainSeeder
 {
-	private readonly RecruitmentManagerDbContext _context;
-	private readonly RolesSeeder _rolesSeeder;
-	private readonly LanguageProficiencySeeder _languageProficiencySeeder;
-	private readonly LevelOfEducationSeeder _levelOfEducationSeeder;
-	private readonly WorkersSeed _workerSeed;
+	private readonly IServiceProvider _serviceProvider;
 
-
-	public MainSeeder(RecruitmentManagerDbContext context)
+	public MainSeeder(IServiceProvider serviceProvider)
 	{
-		_context = context;
-		_rolesSeeder = new RolesSeeder(context);
-		_languageProficiencySeeder = new LanguageProficiencySeeder(context);
-		_levelOfEducationSeeder = new LevelOfEducationSeeder(context);
-		_workerSeed = new WorkersSeed(context);
+		_serviceProvider = serviceProvider;
 	}
 
-	public void Initialize()
+	public async Task Initialize()
 	{
-		_rolesSeeder.Seed();
-		_levelOfEducationSeeder.Seed();
-		_languageProficiencySeeder.Seed();
-		_workerSeed.Seed();
+		var services = _serviceProvider.GetServices<IAsyncDbSeeder>();
+		foreach(var service in services)
+		{
+			await service.Seed();
+		}
 	}
 }

@@ -2,6 +2,7 @@
 
 public interface ISubtitles
 {
+	string PhoneNumber { get; }
 	string AdminForm { get; }
 	string Email { get; }
 	string FirstName { get; }

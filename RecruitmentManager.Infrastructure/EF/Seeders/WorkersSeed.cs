@@ -2,10 +2,11 @@
 using RecruitmentManager.Domain.Entities;
 using RecruitmentManager.Domain.Enums;
 using RecruitmentManager.Infrastructure.EF.Context;
+using RecruitmentManager.Infrastructure.EF.Seeders.Interface;
 
 namespace RecruitmentManager.Infrastructure.EF.Seeders;
 
-public class WorkersSeed
+public class WorkersSeed : IAsyncDbSeeder
 {
 	private readonly RecruitmentManagerDbContext _context;
 	public WorkersSeed(RecruitmentManagerDbContext context)
@@ -13,7 +14,7 @@ public class WorkersSeed
 		_context = context;
 	}
 
-	public void Seed()
+	public async Task Seed()
 	{
 		var passwdHasher = new PasswordHasher<Employee>();
 		if(_context.Database.CanConnect())
@@ -25,11 +26,16 @@ public class WorkersSeed
 					Id = Guid.NewGuid(),
 					Email = "admin@gmail.com",
 					RoleId = (int)Roles.Admin,
+					EmployeeData = new EmployeeData
+					{
+						FirstName = "Admin",
+						LastName = "Adminowski"
+					}
 				};
 				var hash = passwdHasher.HashPassword(admin, "adminadmin");
 				admin.PasswordHash = hash;
-				_context.Employees.Add(admin);	
-				_context.SaveChanges();
+				await _context.Employees.AddAsync(admin);	
+				await _context.SaveChangesAsync();
 			}
 		}
 	}

@@ -1,9 +1,10 @@
 ﻿using RecruitmentManager.Domain.Entities;
 using RecruitmentManager.Infrastructure.EF.Context;
+using RecruitmentManager.Infrastructure.EF.Seeders.Interface;
 
 namespace RecruitmentManager.Infrastructure.EF.Seeders;
 
-public class RolesSeeder
+public class RolesSeeder : IAsyncDbSeeder
 {
 	private readonly RecruitmentManagerDbContext _context;
 
@@ -12,12 +13,12 @@ public class RolesSeeder
 		_context = context;
 	}
 
-	public void Seed()
+	public async Task Seed()
 	{
 		if(!_context.Roles.Any()) 
 		{
-			_context.Roles.AddRange(GetRoles());
-			_context.SaveChanges();
+			await _context.Roles.AddRangeAsync(GetRoles());
+			await _context.SaveChangesAsync();
 		}
 	}
 	private static List<Role> GetRoles()

@@ -12,10 +12,10 @@ public partial class AddWorkerForm : Form
 	public AddWorkerForm(IMediator mediator, ISubtitles labels)
 	{
 		InitializeComponent();
-		InitializeTextBoxesAndLabels();
 		adminRb.Checked = true;
 		_mediator = mediator;
 		_label = labels;
+		InitializeTextBoxesAndLabels();
 	}
 
 	private void InitializeTextBoxesAndLabels()

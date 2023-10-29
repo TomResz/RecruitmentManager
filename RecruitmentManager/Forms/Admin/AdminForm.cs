@@ -25,8 +25,13 @@ public partial class AdminForm : Form
 		_serviceProvider = serviceProvider;
 		Init();
 		_workerSessionContext = workerSessionContext;
-		userLabel.Text += "\r\n" + _workerSessionContext.FullName;
+		SetLabel();
 	}
+
+	private void SetLabel()
+		=> userLabel.Text = "Zalogowano:\r\n" + _workerSessionContext.FullName;
+
+
 	private void Init()
 	{
 		this.Text = FormName + "\t\t\tZarządzanie Pracownikami";
@@ -71,7 +76,7 @@ public partial class AdminForm : Form
 	private void usersBtn_Click(object sender, EventArgs e)
 	{
 
-		this.Text= FormName + "\t\t\tZarządzanie Pracownikami";
+		this.Text = FormName + "\t\t\tZarządzanie Pracownikami";
 		_workersManagementView = _serviceProvider.GetRequiredService<WorkersManagementView>();
 		ShowControl(_workersManagementView);
 	}
@@ -81,5 +86,12 @@ public partial class AdminForm : Form
 		this.Text = FormName + "\t\t\tZarządzanie Kandydatami";
 		_candidateManagementView = _serviceProvider.GetRequiredService<CandidateManagementView>();
 		ShowControl(_candidateManagementView);
+	}
+
+	private void edytujDaneToolStripMenuItem_Click(object sender, EventArgs e)
+	{
+		var form = _serviceProvider.GetRequiredService<EditEmployeeDataForm>();
+		form.ShowDialog();
+		SetLabel();
 	}
 }

@@ -1,9 +1,10 @@
 ﻿using RecruitmentManager.Domain.Entities;
 using RecruitmentManager.Infrastructure.EF.Context;
+using RecruitmentManager.Infrastructure.EF.Seeders.Interface;
 
 namespace RecruitmentManager.Infrastructure.EF.Seeders;
 
-public class LanguageProficiencySeeder
+public class LanguageProficiencySeeder : IAsyncDbSeeder
 {
 	private readonly RecruitmentManagerDbContext _context;
 
@@ -12,12 +13,12 @@ public class LanguageProficiencySeeder
 		_context = context;
 	}
 
-	public void Seed()
+	public async Task Seed()
 	{
 		if (!_context.LanguageProficiencies.Any())
 		{
-			_context.AddRange(Get());
-			_context.SaveChanges();
+			await _context.AddRangeAsync(Get());
+			await _context.SaveChangesAsync();
 		}
 	}
 

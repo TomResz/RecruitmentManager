@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using RecruitmentManager.Application.Functions.Worker_Functions.Admin_Functions.Queries;
+using RecruitmentManager.Application.Functions.Worker_Functions.Common;
 using RecruitmentManager.Application.Pagination;
 using RecruitmentManager.Domain.Entities;
 using RecruitmentManager.Domain.Enums;
@@ -19,6 +20,14 @@ public class MapperProfile : Profile
 		CreateMap<Candidate, CandidateViewDTO>()
 			.ForMember(dest => dest.FullName, 
 			opt => opt.MapFrom(src => src.CandidateData.FirstName + " " + src.CandidateData.LastName));
+		
+		CreateMap<Employee, EmployeeDataDto>()
+			.ForMember(dest => dest.FirstName, o => o.MapFrom(src => src.EmployeeData.FirstName))
+			.ForMember(dest => dest.LastName, o => o.MapFrom(src => src.EmployeeData.LastName))
+			.ForMember(dest => dest.BirthDate, o => o.MapFrom(src => src.EmployeeData.BirthDate))
+			.ForMember(dest => dest.PhoneNumber, o => o.MapFrom(src => src.EmployeeData.PhoneNumber))
+			.ReverseMap();
+
 		CreateMap<PagedList<Candidate>, PagedList<CandidateViewDTO>>();
 		CreateMap<PagedList<Employee>, PagedList<WorkerViewDTO>>().ReverseMap();
 	}

@@ -7,20 +7,22 @@ public class WorkerSessionContext
     : IWorkerSessionContext
 {
     private Guid? _sessionId = null;
-    private Roles? _sessionRole = null;
+    private Roles _sessionRole ;
     private string _fullName = "";
 
 
     public Guid? WorkerId => _sessionId;
 
-    public Roles? GetRole => _sessionRole;
+
 
     public string FullName => _fullName;
+
+	public Roles GetRole => _sessionRole;
 
 	public void Logout()
     {
         _sessionId = Guid.Empty;
-        _sessionRole = null;
+        _sessionRole = Roles.Recruiter;
         _fullName = "";
     }
 
