@@ -26,8 +26,8 @@ public partial class ResetWorkerPasswordForm : Form
 
 	private void InitializeTextBoxes()
 	{
-		passwordLabel.Text = _label.Password;
-		confirmedPasswdLabel.Text = _label.NewPassword;
+		passwordLabel.Text = _label.NewPassword;
+		confirmedPasswdLabel.Text = _label.RepeatNewPassword;
 		passwordTb.PasswordChar = _label.PasswordSym;
 		confirmedPasswdTb.PasswordChar = _label.PasswordSym;
 	}

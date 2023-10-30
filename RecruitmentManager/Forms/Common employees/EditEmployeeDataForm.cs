@@ -79,7 +79,7 @@ public partial class EditEmployeeDataForm : Form
 				FirstName: firstNameTb.Text,
 				LastName: lastNameTb.Text,
 				PhoneNumber: phoneNumberTb.Text,
-				BirthDate: birthDatePicker.Value);
+				BirthDate: birthDatePicker.Value.Date);
 			await _mediator.Send(command);
 			MessageBox.Show(
 				 text: "Edytowane pomyślnie dane użytkownika!",

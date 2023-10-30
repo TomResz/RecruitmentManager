@@ -180,12 +180,9 @@
 		private Label confirmedPasswdLabel;
 		private TextBox confirmedPasswdTb;
 		private PictureBox pictureBox3;
-		private Label loginLabel;
-		private Label label1;
 		private Button changePasswordBtn;
 		private CheckBox showPasswdCB;
 		private Label passwordLabel;
-		private Label emailLabel;
 		private TextBox passwordTb;
 		private TextBox emailTb;
 		private PictureBox pictureBox2;

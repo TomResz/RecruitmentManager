@@ -77,23 +77,23 @@ public partial class RegisterCandidateForm : Form
 	private async void registerBtn_Click(object sender, EventArgs e)
 	{
 		var register = new RegisterCandidateCommand(
-			 FirstName:firstNameTb.Text,
-			 LastName:lastNameTb.Text,
+			 FirstName: firstNameTb.Text,
+			 LastName: lastNameTb.Text,
 			 Email: emailTb.Text,
 			 Password: passwordTb.Text,
 			 ConfirmedPassword: confirmedPasswdTb.Text);
 		try
 		{
 			await _mediator.Send(register);
-			registerBtn.Enabled =false;
+			registerBtn.Enabled = false;
 			MessageBox.Show("Zarejestrowano użytkownika!", "Rejestracja.",
 				MessageBoxButtons.OK, MessageBoxIcon.Information);
 			ClearFields();
 		}
 		catch (Exception ex)
 		{
-			MessageBox.Show(ex.Message,"Błąd!",
-				MessageBoxButtons.OK,MessageBoxIcon.Error);
+			MessageBox.Show(ex.Message, "Błąd!",
+				MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 		finally
 		{

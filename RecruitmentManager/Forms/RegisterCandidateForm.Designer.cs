@@ -279,7 +279,8 @@
 			Controls.Add(emailTb);
 			Controls.Add(pictureBox2);
 			Controls.Add(pictureBox1);
-			MinimumSize = new Size(527, 568);
+			MaximumSize = new Size(550, 663);
+			MinimumSize = new Size(550, 663);
 			Name = "RegisterCandidateForm";
 			Text = "Formularz Rejestracji Kandydata";
 			((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

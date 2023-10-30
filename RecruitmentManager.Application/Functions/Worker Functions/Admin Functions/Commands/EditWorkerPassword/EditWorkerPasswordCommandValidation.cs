@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using RecruitmentManager.Application.Fluent_Validation_Extension;
 
 namespace RecruitmentManager.Application.Functions.Worker_Functions.Admin_Functions.Commands.EditWorkerPassword;
 
@@ -9,10 +10,7 @@ public class EditWorkerPasswordCommandValidation :
     {
         RuleFor(x => x.Password)
             .Cascade(CascadeMode.Stop)
-            .NotEmpty()
-            .WithMessage("Puste hasło!")
-            .MinimumLength(8)
-            .WithMessage("Nieprawidłowa długość hasła!")
+            .PasswordMustBeValid()
             .Equal(x => x.ConfirmedPassword)
             .WithMessage("Hasła się nie zgadzają!");
     }

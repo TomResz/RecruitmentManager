@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using RecruitmentManager.Application.Regex_Patterns;
+using RecruitmentManager.Application.Fluent_Validation_Extension;
 
 namespace RecruitmentManager.Application.Functions.Candidate_Functions.Register;
 
@@ -9,22 +9,17 @@ public class RegisterCandidateValidation
 	public RegisterCandidateValidation()
 	{
 		RuleFor(x=>x.FirstName)
-			.NotEmpty()
-			.WithMessage("Imię nie może być puste!");
+			.Cascade(CascadeMode.Stop)
+			.NameMustBeValid("imię");
 		RuleFor(x => x.LastName)
-			.NotEmpty()
-			.WithMessage("Nazwisko nie może być puste!");
+			.Cascade(CascadeMode.Stop)
+			.NameMustBeValid("nazwisko");
 		RuleFor(x => x.Email)
 			.Cascade(CascadeMode.Stop)
-			.NotNull()
-			.NotEmpty()
-			.WithMessage("Pusty email!")
-			.Must(email => new EmailValidation().IsValid(email) == true)
-			.WithMessage("Nieprawidłowy email!");
+			.EmailMustBeValid();
 		RuleFor(x => x.Password)
-			.NotNull()
-			.NotEmpty()
-			.WithMessage("Puste hasło!");
+			.Cascade(CascadeMode.Stop)
+			.PasswordMustBeValid();
 		RuleFor(x => x.ConfirmedPassword)
 			.Equal(x => x.Password)
 			.WithMessage("Drugie hasło nie pasuje!");

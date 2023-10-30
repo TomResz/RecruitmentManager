@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using RecruitmentManager.Application.Regex_Patterns;
+using RecruitmentManager.Application.Fluent_Validation_Extension;
 
 namespace RecruitmentManager.Application.Functions.Candidate_Functions.Login;
 
@@ -10,15 +10,9 @@ public class LoginCandidateCommandValidation
     {
         RuleFor(x => x.Email)
             .Cascade(CascadeMode.Stop)
-            .NotEmpty()
-            .WithMessage("Pusty Email!")
-            .Must(email=> new EmailValidation().IsValid(email))
-            .WithMessage("Nieprawidłowy adres Email!");
+            .EmailMustBeValid();
         RuleFor(x => x.Password)
             .Cascade(CascadeMode.Stop)
-            .NotEmpty()
-            .WithMessage("Puste hasło")
-            .MinimumLength(8)
-            .WithMessage("Nieprawidłowa długość hasła!");
+            .PasswordMustBeValid();
     }
 }
