@@ -28,10 +28,10 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CandidateManagementView));
 			candidateDGV = new DataGridView();
 			Id = new DataGridViewTextBoxColumn();
@@ -44,6 +44,7 @@
 			previousPageButton = new PictureBox();
 			nextPageButton = new PictureBox();
 			pageCounterLabel = new Label();
+			addBtn = new Button();
 			((System.ComponentModel.ISupportInitialize)candidateDGV).BeginInit();
 			mainLayout.SuspendLayout();
 			footerLayout.SuspendLayout();
@@ -58,14 +59,14 @@
 			candidateDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 			candidateDGV.BackgroundColor = SystemColors.Control;
 			candidateDGV.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = Color.Blue;
-			dataGridViewCellStyle1.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle1.ForeColor = Color.White;
-			dataGridViewCellStyle1.SelectionBackColor = Color.Blue;
-			dataGridViewCellStyle1.SelectionForeColor = Color.White;
-			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-			candidateDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle9.BackColor = Color.Blue;
+			dataGridViewCellStyle9.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle9.ForeColor = Color.White;
+			dataGridViewCellStyle9.SelectionBackColor = Color.Blue;
+			dataGridViewCellStyle9.SelectionForeColor = Color.White;
+			dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+			candidateDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
 			candidateDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			candidateDGV.Columns.AddRange(new DataGridViewColumn[] { Id, Mail, Data, PasswdReset });
 			candidateDGV.Dock = DockStyle.Fill;
@@ -90,12 +91,12 @@
 			// 
 			// Mail
 			// 
-			dataGridViewCellStyle2.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle2.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle2.ForeColor = Color.Black;
-			dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 192, 192);
-			dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-			Mail.DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle10.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle10.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle10.ForeColor = Color.Black;
+			dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle10.SelectionForeColor = Color.Black;
+			Mail.DefaultCellStyle = dataGridViewCellStyle10;
 			Mail.HeaderText = "E-Mail";
 			Mail.MinimumWidth = 6;
 			Mail.Name = "Mail";
@@ -103,12 +104,12 @@
 			// 
 			// Data
 			// 
-			dataGridViewCellStyle3.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle3.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle3.ForeColor = Color.Black;
-			dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 192, 192);
-			dataGridViewCellStyle3.SelectionForeColor = Color.Black;
-			Data.DefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle11.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle11.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle11.ForeColor = Color.Black;
+			dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle11.SelectionForeColor = Color.Black;
+			Data.DefaultCellStyle = dataGridViewCellStyle11;
 			Data.HeaderText = "Imię i nazwisko";
 			Data.MinimumWidth = 6;
 			Data.Name = "Data";
@@ -116,13 +117,13 @@
 			// 
 			// PasswdReset
 			// 
-			dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle4.BackColor = Color.Navy;
-			dataGridViewCellStyle4.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle4.ForeColor = Color.White;
-			dataGridViewCellStyle4.SelectionBackColor = Color.Navy;
-			dataGridViewCellStyle4.SelectionForeColor = Color.White;
-			PasswdReset.DefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle12.BackColor = Color.Navy;
+			dataGridViewCellStyle12.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle12.ForeColor = Color.White;
+			dataGridViewCellStyle12.SelectionBackColor = Color.Navy;
+			dataGridViewCellStyle12.SelectionForeColor = Color.White;
+			PasswdReset.DefaultCellStyle = dataGridViewCellStyle12;
 			PasswdReset.FlatStyle = FlatStyle.Flat;
 			PasswdReset.HeaderText = "Reset Hasła";
 			PasswdReset.MinimumWidth = 6;
@@ -158,6 +159,7 @@
 			footerLayout.Controls.Add(previousPageButton, 3, 0);
 			footerLayout.Controls.Add(nextPageButton, 4, 0);
 			footerLayout.Controls.Add(pageCounterLabel, 5, 0);
+			footerLayout.Controls.Add(addBtn, 1, 0);
 			footerLayout.Dock = DockStyle.Fill;
 			footerLayout.Location = new Point(3, 582);
 			footerLayout.Name = "footerLayout";
@@ -211,6 +213,19 @@
 			pageCounterLabel.TabIndex = 4;
 			pageCounterLabel.Text = "label1";
 			// 
+			// addBtn
+			// 
+			addBtn.Dock = DockStyle.Fill;
+			addBtn.FlatStyle = FlatStyle.Flat;
+			addBtn.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			addBtn.Location = new Point(817, 3);
+			addBtn.Name = "addBtn";
+			addBtn.Size = new Size(122, 63);
+			addBtn.TabIndex = 5;
+			addBtn.Text = "Dodaj";
+			addBtn.UseVisualStyleBackColor = true;
+			addBtn.Click += addBtn_Click;
+			// 
 			// CandidateManagementView
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
@@ -240,5 +255,6 @@
 		private DataGridViewTextBoxColumn Mail;
 		private DataGridViewTextBoxColumn Data;
 		private DataGridViewButtonColumn PasswdReset;
+		private Button addBtn;
 	}
 }

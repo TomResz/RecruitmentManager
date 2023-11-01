@@ -123,12 +123,12 @@ public partial class CandidateManagementView : UserControl
 
 	private void candidateDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
 	{
-		if(e.RowIndex >=0 && e.ColumnIndex == 3)
+		if (e.RowIndex >= 0 && e.ColumnIndex == 3)
 		{
 			Guid uid;
 			var id = candidateDGV.CurrentRow.Cells[0].Value.ToString();
 			var email = candidateDGV.CurrentRow.Cells[1].Value.ToString();
-			if(Guid.TryParse(id,out uid) && email is not null)
+			if (Guid.TryParse(id, out uid) && email is not null)
 			{
 				try
 				{
@@ -142,6 +142,13 @@ public partial class CandidateManagementView : UserControl
 				}
 			}
 		}
+	}
+
+	private async void addBtn_Click(object sender, EventArgs e)
+	{
+		var form = _serviceProvider.GetRequiredService<AddCandidateForm>();
+		form.ShowDialog();
+		await ReloadPage();
 	}
 }
 

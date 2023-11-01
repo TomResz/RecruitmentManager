@@ -1,7 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using RecruitmentManager.Forms;
-using RecruitmentManager.Forms.Admin;
-using RecruitmentManager.Forms.Candidate;
+using System.Reflection;
 
 namespace RecruitmentManager.DI;
 
@@ -9,17 +7,16 @@ public static class AddForms
 {
 	public static IServiceCollection AddFormsToDI(this IServiceCollection services)
 	{
-		services.AddTransient<CandidateNotLoginForm>();
-		services.AddTransient<RegisterCandidateForm>();
-		services.AddTransient<LoginCandidateForm>();
-		services.AddTransient<MainForm>();
-		services.AddTransient<LoginWorkerForm>();
-		services.AddTransient<AdminForm>();
-		services.AddTransient<AddWorkerForm>();
-		services.AddTransient<ResetWorkerPasswordForm>();
-		services.AddTransient<ResetCandidatePasswordForm>();
-		services.AddTransient<LoadingForm>();
-		services.AddTransient<EditEmployeeDataForm>();
+		var forms = Assembly
+			.GetExecutingAssembly()
+			.GetTypes()
+			.Where(x=>x.IsSubclassOf(typeof(Form)))
+			.ToList();
+		foreach (var form in forms)
+		{
+			services.AddTransient(form);
+		}
+
 		return services;
 	}
 }

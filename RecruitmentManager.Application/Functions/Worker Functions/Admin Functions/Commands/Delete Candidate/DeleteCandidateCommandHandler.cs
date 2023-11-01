@@ -23,5 +23,5 @@ public class DeleteCandidateCommandHandler
 			throw new InvalidDataException("Nieprawidłowy ID!");
         }
 		await _repository.Delete(candidate);
-    }
+    }	
 }
