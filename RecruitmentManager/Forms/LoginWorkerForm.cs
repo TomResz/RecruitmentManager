@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.Application.Functions.Worker_Functions.Login;
 using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Domain.Enums;
+using RecruitmentManager.Forms.Manager;
 using RecruitmentManager.Subtitles;
 
 namespace RecruitmentManager.Forms;
@@ -68,6 +69,9 @@ public partial class LoginWorkerForm : Form
 				case Roles.Admin:
 					OpenAdminForm();
 					break;
+				case Roles.Manager:
+					OpenManagerForm();
+					break;
 				default:
 					break;
 			}
@@ -79,6 +83,14 @@ public partial class LoginWorkerForm : Form
 						  buttons: MessageBoxButtons.OK,
 						  icon: MessageBoxIcon.Error);
 		}
+	}
+
+	private void OpenManagerForm()
+	{
+		var manager = _serviceProvider.GetRequiredService<ManagerForm>();
+		this.Hide();
+		manager.FormClosed += (s, args) => this.Close();
+		manager.Show();
 	}
 
 	private void OpenAdminForm()

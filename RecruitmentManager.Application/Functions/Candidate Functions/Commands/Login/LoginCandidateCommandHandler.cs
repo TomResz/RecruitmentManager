@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using RecruitmentManager.Application.Error_Serializer;
 using RecruitmentManager.Application.Interfaces.Repositories;
@@ -11,7 +12,6 @@ public class LoginCandidateCommandHandler
 {
 	private readonly ICandidateRepository _candidateRepository;
 	private readonly IPasswordHasher<Candidate> _passwordHasher;
-
 	public LoginCandidateCommandHandler(
 		ICandidateRepository candidateRepository,
 		IPasswordHasher<Candidate> passwordHasher)

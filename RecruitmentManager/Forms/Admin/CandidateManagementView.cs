@@ -39,13 +39,12 @@ public partial class CandidateManagementView : UserControl
 	{
 		if (candidateDGV.CurrentRow is null)
 			return;
-		Guid uid;
 		var id = candidateDGV.CurrentRow.Cells[0]?.Value.ToString();
 		if (!Guid.TryParse(id, out Guid ID))
 		{
 			return;
 		}
-		uid = ID;
+		var uid = ID;
 		var confirmationResult = MessageBox.Show(
 			  text: "Czy napewno chcesz usunąc tego użytkownika?",
 			caption: "Usuwanie użytkowników.",
@@ -125,10 +124,9 @@ public partial class CandidateManagementView : UserControl
 	{
 		if (e.RowIndex >= 0 && e.ColumnIndex == 3)
 		{
-			Guid uid;
 			var id = candidateDGV.CurrentRow.Cells[0].Value.ToString();
 			var email = candidateDGV.CurrentRow.Cells[1].Value.ToString();
-			if (Guid.TryParse(id, out uid) && email is not null)
+			if (Guid.TryParse(id, out Guid uid) && email is not null)
 			{
 				try
 				{

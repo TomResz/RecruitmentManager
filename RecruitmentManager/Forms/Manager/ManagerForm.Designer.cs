@@ -1,0 +1,231 @@
+﻿namespace RecruitmentManager.Forms.Manager
+{
+	partial class ManagerForm
+	{
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
+
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
+
+		#region Windows Form Designer generated code
+
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManagerForm));
+			mainLayout = new TableLayoutPanel();
+			tableLayoutPanel1 = new TableLayoutPanel();
+			logoutBtn = new Button();
+			tabControlLayout = new TableLayoutPanel();
+			userLabel = new Label();
+			headeLayout = new TableLayoutPanel();
+			menuStrip1 = new MenuStrip();
+			menuToolStripMenuItem = new ToolStripMenuItem();
+			dsadsToolStripMenuItem = new ToolStripMenuItem();
+			edycjaToolStripMenuItem = new ToolStripMenuItem();
+			edytujDaneToolStripMenuItem = new ToolStripMenuItem();
+			jobOffersBtn = new Button();
+			mainLayout.SuspendLayout();
+			tableLayoutPanel1.SuspendLayout();
+			tabControlLayout.SuspendLayout();
+			headeLayout.SuspendLayout();
+			menuStrip1.SuspendLayout();
+			SuspendLayout();
+			// 
+			// mainLayout
+			// 
+			mainLayout.ColumnCount = 2;
+			mainLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+			mainLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
+			mainLayout.Controls.Add(tableLayoutPanel1, 0, 0);
+			mainLayout.Dock = DockStyle.Fill;
+			mainLayout.Location = new Point(3, 38);
+			mainLayout.Name = "mainLayout";
+			mainLayout.RowCount = 1;
+			mainLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+			mainLayout.Size = new Size(1553, 558);
+			mainLayout.TabIndex = 2;
+			// 
+			// tableLayoutPanel1
+			// 
+			tableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.OutsetPartial;
+			tableLayoutPanel1.ColumnCount = 1;
+			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+			tableLayoutPanel1.Controls.Add(logoutBtn, 0, 2);
+			tableLayoutPanel1.Controls.Add(tabControlLayout, 0, 1);
+			tableLayoutPanel1.Controls.Add(userLabel, 0, 0);
+			tableLayoutPanel1.Dock = DockStyle.Fill;
+			tableLayoutPanel1.Location = new Point(0, 0);
+			tableLayoutPanel1.Margin = new Padding(0);
+			tableLayoutPanel1.Name = "tableLayoutPanel1";
+			tableLayoutPanel1.RowCount = 3;
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
+			tableLayoutPanel1.Size = new Size(310, 558);
+			tableLayoutPanel1.TabIndex = 0;
+			// 
+			// logoutBtn
+			// 
+			logoutBtn.Dock = DockStyle.Fill;
+			logoutBtn.FlatStyle = FlatStyle.Flat;
+			logoutBtn.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+			logoutBtn.Location = new Point(6, 475);
+			logoutBtn.Name = "logoutBtn";
+			logoutBtn.Size = new Size(298, 77);
+			logoutBtn.TabIndex = 0;
+			logoutBtn.Text = "Wyloguj Się";
+			logoutBtn.UseVisualStyleBackColor = true;
+			logoutBtn.Click += logoutBtn_Click;
+			// 
+			// tabControlLayout
+			// 
+			tabControlLayout.ColumnCount = 1;
+			tabControlLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+			tabControlLayout.Controls.Add(jobOffersBtn, 0, 0);
+			tabControlLayout.Dock = DockStyle.Fill;
+			tabControlLayout.Location = new Point(3, 87);
+			tabControlLayout.Margin = new Padding(0);
+			tabControlLayout.Name = "tabControlLayout";
+			tabControlLayout.RowCount = 5;
+			tabControlLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+			tabControlLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+			tabControlLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+			tabControlLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+			tabControlLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+			tabControlLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+			tabControlLayout.Size = new Size(304, 382);
+			tabControlLayout.TabIndex = 2;
+			// 
+			// userLabel
+			// 
+			userLabel.AutoSize = true;
+			userLabel.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+			userLabel.Location = new Point(6, 3);
+			userLabel.Name = "userLabel";
+			userLabel.Size = new Size(0, 32);
+			userLabel.TabIndex = 1;
+			// 
+			// headeLayout
+			// 
+			headeLayout.ColumnCount = 1;
+			headeLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+			headeLayout.Controls.Add(mainLayout, 0, 1);
+			headeLayout.Controls.Add(menuStrip1, 0, 0);
+			headeLayout.Dock = DockStyle.Fill;
+			headeLayout.Location = new Point(0, 0);
+			headeLayout.Name = "headeLayout";
+			headeLayout.RowCount = 2;
+			headeLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
+			headeLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+			headeLayout.Size = new Size(1559, 599);
+			headeLayout.TabIndex = 1;
+			// 
+			// menuStrip1
+			// 
+			menuStrip1.Dock = DockStyle.Fill;
+			menuStrip1.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
+			menuStrip1.ImageScalingSize = new Size(20, 20);
+			menuStrip1.Items.AddRange(new ToolStripItem[] { menuToolStripMenuItem, edycjaToolStripMenuItem });
+			menuStrip1.Location = new Point(0, 0);
+			menuStrip1.Name = "menuStrip1";
+			menuStrip1.Size = new Size(1559, 35);
+			menuStrip1.TabIndex = 0;
+			menuStrip1.Text = "menuStrip1";
+			// 
+			// menuToolStripMenuItem
+			// 
+			menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { dsadsToolStripMenuItem });
+			menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+			menuToolStripMenuItem.Size = new Size(72, 31);
+			menuToolStripMenuItem.Text = "Menu";
+			// 
+			// dsadsToolStripMenuItem
+			// 
+			dsadsToolStripMenuItem.Name = "dsadsToolStripMenuItem";
+			dsadsToolStripMenuItem.Size = new Size(140, 28);
+			dsadsToolStripMenuItem.Text = "dsads";
+			// 
+			// edycjaToolStripMenuItem
+			// 
+			edycjaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { edytujDaneToolStripMenuItem });
+			edycjaToolStripMenuItem.Name = "edycjaToolStripMenuItem";
+			edycjaToolStripMenuItem.Size = new Size(83, 31);
+			edycjaToolStripMenuItem.Text = "Edycja";
+			// 
+			// edytujDaneToolStripMenuItem
+			// 
+			edytujDaneToolStripMenuItem.Name = "edytujDaneToolStripMenuItem";
+			edytujDaneToolStripMenuItem.Size = new Size(200, 28);
+			edytujDaneToolStripMenuItem.Text = "Edytuj Dane";
+			edytujDaneToolStripMenuItem.Click += edytujDaneToolStripMenuItem_Click;
+			// 
+			// jobOffersBtn
+			// 
+			jobOffersBtn.BackColor = SystemColors.ButtonFace;
+			jobOffersBtn.Dock = DockStyle.Fill;
+			jobOffersBtn.FlatStyle = FlatStyle.Flat;
+			jobOffersBtn.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+			jobOffersBtn.Image = (Image)resources.GetObject("jobOffersBtn.Image");
+			jobOffersBtn.ImageAlign = ContentAlignment.MiddleLeft;
+			jobOffersBtn.Location = new Point(3, 3);
+			jobOffersBtn.Name = "jobOffersBtn";
+			jobOffersBtn.Size = new Size(298, 70);
+			jobOffersBtn.TabIndex = 1;
+			jobOffersBtn.Text = "Oferty Pracy";
+			jobOffersBtn.TextAlign = ContentAlignment.MiddleRight;
+			jobOffersBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+			jobOffersBtn.UseVisualStyleBackColor = false;
+			jobOffersBtn.Click += jobOffersBtn_Click;
+			// 
+			// ManagerForm
+			// 
+			AutoScaleDimensions = new SizeF(8F, 20F);
+			AutoScaleMode = AutoScaleMode.Font;
+			ClientSize = new Size(1559, 599);
+			Controls.Add(headeLayout);
+			Name = "ManagerForm";
+			Text = "Formularz Szefa Działu Rekrutacji";
+			mainLayout.ResumeLayout(false);
+			tableLayoutPanel1.ResumeLayout(false);
+			tableLayoutPanel1.PerformLayout();
+			tabControlLayout.ResumeLayout(false);
+			headeLayout.ResumeLayout(false);
+			headeLayout.PerformLayout();
+			menuStrip1.ResumeLayout(false);
+			menuStrip1.PerformLayout();
+			ResumeLayout(false);
+		}
+
+		#endregion
+
+		private TableLayoutPanel mainLayout;
+		private TableLayoutPanel tableLayoutPanel1;
+		private Button logoutBtn;
+		private TableLayoutPanel tabControlLayout;
+		private Label userLabel;
+		private TableLayoutPanel headeLayout;
+		private MenuStrip menuStrip1;
+		private ToolStripMenuItem menuToolStripMenuItem;
+		private ToolStripMenuItem dsadsToolStripMenuItem;
+		private ToolStripMenuItem edycjaToolStripMenuItem;
+		private ToolStripMenuItem edytujDaneToolStripMenuItem;
+		private Button jobOffersBtn;
+	}
+}

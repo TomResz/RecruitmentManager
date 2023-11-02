@@ -1,0 +1,36 @@
+﻿using AutoMapper;
+using MediatR;
+using RecruitmentManager.Application.Interfaces.Context;
+using RecruitmentManager.Application.Pagination;
+using RecruitmentManager.Domain.Entities;
+
+namespace RecruitmentManager.Application.Functions.Candidate_Functions.Queries.GetPageOfJobOffers;
+
+public class GetPageOfJobOffersQueryHandler 
+	: IRequestHandler<GetPageOfJobOffersQuery,PagedList<JobOffersViewDto>>
+{
+	private readonly IMapper _mapper;
+	private readonly IDbContext _context;
+	public GetPageOfJobOffersQueryHandler(
+		IMapper mapper,
+		IDbContext context)
+	{
+		_mapper = mapper;
+		_context = context;
+	}
+
+	public async Task<PagedList<JobOffersViewDto>> Handle(
+		GetPageOfJobOffersQuery request,
+		CancellationToken cancellationToken)
+	{
+		IQueryable<JobPosting> query = _context.Get<JobPosting>()
+			.OrderByDescending(x => x.CreatedDate)
+			.ThenByDescending(x => x.EndDate);
+		var list = await PagedList<JobPosting>.CreateByQueryAsync(
+			query, 
+			request.Page, 
+			request.PageSize);
+
+		return _mapper.Map<PagedList<JobOffersViewDto>>(list);
+	}
+}

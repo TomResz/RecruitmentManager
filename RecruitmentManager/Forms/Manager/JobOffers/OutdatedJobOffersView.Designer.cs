@@ -1,13 +1,13 @@
-﻿namespace RecruitmentManager.Forms.Candidate
+﻿namespace RecruitmentManager.Forms.Manager.JobOffers
 {
-	partial class CandidateNotLoginForm
+	partial class OutdatedJobOffersView
 	{
-		/// <summary>
+		/// <summary> 
 		/// Required designer variable.
 		/// </summary>
 		private System.ComponentModel.IContainer components = null;
 
-		/// <summary>
+		/// <summary> 
 		/// Clean up any resources being used.
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,33 +20,32 @@
 			base.Dispose(disposing);
 		}
 
-		#region Windows Form Designer generated code
+		#region Component Designer generated code
 
-		/// <summary>
-		/// Required method for Designer support - do not modify
+		/// <summary> 
+		/// Required method for Designer support - do not modify 
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent()
 		{
 			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CandidateNotLoginForm));
 			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OutdatedJobOffersView));
 			jobOffersDGV = new DataGridView();
-			mainLayout = new TableLayoutPanel();
-			footerLayout = new TableLayoutPanel();
-			pageCounterLabel = new Label();
-			nextPageButton = new PictureBox();
-			previousPageButton = new PictureBox();
-			registerBtn = new Button();
-			loginBtn = new Button();
 			Id = new DataGridViewTextBoxColumn();
 			Position = new DataGridViewTextBoxColumn();
 			AddedDate = new DataGridViewTextBoxColumn();
 			EndedDate = new DataGridViewTextBoxColumn();
 			PasswdReset = new DataGridViewButtonColumn();
+			mainLayout = new TableLayoutPanel();
+			footerLayout = new TableLayoutPanel();
+			pageCounterLabel = new Label();
+			nextPageButton = new PictureBox();
+			previousPageButton = new PictureBox();
+			button1 = new Button();
 			((System.ComponentModel.ISupportInitialize)jobOffersDGV).BeginInit();
 			mainLayout.SuspendLayout();
 			footerLayout.SuspendLayout();
@@ -81,103 +80,8 @@
 			jobOffersDGV.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			jobOffersDGV.RowTemplate.Height = 29;
 			jobOffersDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			jobOffersDGV.Size = new Size(1373, 463);
+			jobOffersDGV.Size = new Size(1193, 427);
 			jobOffersDGV.TabIndex = 0;
-			jobOffersDGV.SizeChanged += jobOffersDGV_SizeChanged;
-			// 
-			// mainLayout
-			// 
-			mainLayout.ColumnCount = 1;
-			mainLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-			mainLayout.Controls.Add(jobOffersDGV, 0, 0);
-			mainLayout.Controls.Add(footerLayout, 0, 1);
-			mainLayout.Dock = DockStyle.Fill;
-			mainLayout.Location = new Point(0, 0);
-			mainLayout.Name = "mainLayout";
-			mainLayout.RowCount = 2;
-			mainLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
-			mainLayout.Size = new Size(1379, 544);
-			mainLayout.TabIndex = 1;
-			// 
-			// footerLayout
-			// 
-			footerLayout.ColumnCount = 7;
-			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 38F));
-			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 26F));
-			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 18F));
-			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 18F));
-			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 65F));
-			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 65F));
-			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50F));
-			footerLayout.Controls.Add(pageCounterLabel, 6, 0);
-			footerLayout.Controls.Add(nextPageButton, 5, 0);
-			footerLayout.Controls.Add(previousPageButton, 4, 0);
-			footerLayout.Controls.Add(registerBtn, 3, 0);
-			footerLayout.Controls.Add(loginBtn, 2, 0);
-			footerLayout.Dock = DockStyle.Fill;
-			footerLayout.Location = new Point(3, 472);
-			footerLayout.Name = "footerLayout";
-			footerLayout.RowCount = 1;
-			footerLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			footerLayout.Size = new Size(1373, 69);
-			footerLayout.TabIndex = 1;
-			// 
-			// pageCounterLabel
-			// 
-			pageCounterLabel.Anchor = AnchorStyles.None;
-			pageCounterLabel.AutoSize = true;
-			pageCounterLabel.Location = new Point(1326, 14);
-			pageCounterLabel.Name = "pageCounterLabel";
-			pageCounterLabel.Size = new Size(42, 40);
-			pageCounterLabel.TabIndex = 4;
-			pageCounterLabel.Text = "label1";
-			// 
-			// nextPageButton
-			// 
-			nextPageButton.Image = (Image)resources.GetObject("nextPageButton.Image");
-			nextPageButton.Location = new Point(1259, 3);
-			nextPageButton.Name = "nextPageButton";
-			nextPageButton.Size = new Size(59, 63);
-			nextPageButton.TabIndex = 3;
-			nextPageButton.TabStop = false;
-			nextPageButton.Click += nextPagePB_Click;
-			// 
-			// previousPageButton
-			// 
-			previousPageButton.Image = (Image)resources.GetObject("previousPageButton.Image");
-			previousPageButton.Location = new Point(1194, 3);
-			previousPageButton.Name = "previousPageButton";
-			previousPageButton.Size = new Size(59, 63);
-			previousPageButton.TabIndex = 2;
-			previousPageButton.TabStop = false;
-			previousPageButton.Click += previousPagePB_Click;
-			// 
-			// registerBtn
-			// 
-			registerBtn.Dock = DockStyle.Fill;
-			registerBtn.FlatStyle = FlatStyle.Flat;
-			registerBtn.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-			registerBtn.Location = new Point(980, 3);
-			registerBtn.Name = "registerBtn";
-			registerBtn.Size = new Size(208, 63);
-			registerBtn.TabIndex = 5;
-			registerBtn.Text = "Zarejestruj się";
-			registerBtn.UseVisualStyleBackColor = true;
-			registerBtn.Click += registerBtn_Click;
-			// 
-			// loginBtn
-			// 
-			loginBtn.Dock = DockStyle.Fill;
-			loginBtn.FlatStyle = FlatStyle.Flat;
-			loginBtn.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-			loginBtn.Location = new Point(766, 3);
-			loginBtn.Name = "loginBtn";
-			loginBtn.Size = new Size(208, 63);
-			loginBtn.TabIndex = 6;
-			loginBtn.Text = "Zaloguj się";
-			loginBtn.UseVisualStyleBackColor = true;
-			loginBtn.Click += loginBtn_Click;
 			// 
 			// Id
 			// 
@@ -248,14 +152,90 @@
 			PasswdReset.Text = "Wyświetl szegóły!";
 			PasswdReset.UseColumnTextForButtonValue = true;
 			// 
-			// CandidateNotLoginForm
+			// mainLayout
+			// 
+			mainLayout.ColumnCount = 1;
+			mainLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+			mainLayout.Controls.Add(jobOffersDGV, 0, 0);
+			mainLayout.Controls.Add(footerLayout, 0, 1);
+			mainLayout.Dock = DockStyle.Fill;
+			mainLayout.Location = new Point(0, 0);
+			mainLayout.Name = "mainLayout";
+			mainLayout.RowCount = 2;
+			mainLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+			mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
+			mainLayout.Size = new Size(1199, 508);
+			mainLayout.TabIndex = 2;
+			// 
+			// footerLayout
+			// 
+			footerLayout.ColumnCount = 7;
+			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 38F));
+			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 26F));
+			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 18F));
+			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 18F));
+			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 65F));
+			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 65F));
+			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50F));
+			footerLayout.Controls.Add(pageCounterLabel, 6, 0);
+			footerLayout.Controls.Add(nextPageButton, 5, 0);
+			footerLayout.Controls.Add(previousPageButton, 4, 0);
+			footerLayout.Controls.Add(button1, 3, 0);
+			footerLayout.Dock = DockStyle.Fill;
+			footerLayout.Location = new Point(3, 436);
+			footerLayout.Name = "footerLayout";
+			footerLayout.RowCount = 1;
+			footerLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+			footerLayout.Size = new Size(1193, 69);
+			footerLayout.TabIndex = 1;
+			// 
+			// pageCounterLabel
+			// 
+			pageCounterLabel.AutoSize = true;
+			pageCounterLabel.Dock = DockStyle.Fill;
+			pageCounterLabel.Location = new Point(1144, 0);
+			pageCounterLabel.Name = "pageCounterLabel";
+			pageCounterLabel.Size = new Size(46, 69);
+			pageCounterLabel.TabIndex = 4;
+			pageCounterLabel.Text = "label1";
+			// 
+			// nextPageButton
+			// 
+			nextPageButton.Image = (Image)resources.GetObject("nextPageButton.Image");
+			nextPageButton.Location = new Point(1079, 3);
+			nextPageButton.Name = "nextPageButton";
+			nextPageButton.Size = new Size(59, 63);
+			nextPageButton.TabIndex = 3;
+			nextPageButton.TabStop = false;
+			// 
+			// previousPageButton
+			// 
+			previousPageButton.Image = (Image)resources.GetObject("previousPageButton.Image");
+			previousPageButton.Location = new Point(1014, 3);
+			previousPageButton.Name = "previousPageButton";
+			previousPageButton.Size = new Size(59, 63);
+			previousPageButton.TabIndex = 2;
+			previousPageButton.TabStop = false;
+			// 
+			// button1
+			// 
+			button1.Dock = DockStyle.Fill;
+			button1.FlatStyle = FlatStyle.Flat;
+			button1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			button1.Location = new Point(832, 3);
+			button1.Name = "button1";
+			button1.Size = new Size(176, 63);
+			button1.TabIndex = 5;
+			button1.Text = "Usuń";
+			button1.UseVisualStyleBackColor = true;
+			// 
+			// OutdatedJobOffersView
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(1379, 544);
 			Controls.Add(mainLayout);
-			Name = "CandidateNotLoginForm";
-			Text = "CandidateNotLoginForm";
+			Name = "OutdatedJobOffersView";
+			Size = new Size(1199, 508);
 			((System.ComponentModel.ISupportInitialize)jobOffersDGV).EndInit();
 			mainLayout.ResumeLayout(false);
 			footerLayout.ResumeLayout(false);
@@ -268,17 +248,16 @@
 		#endregion
 
 		private DataGridView jobOffersDGV;
-		private TableLayoutPanel mainLayout;
-		private TableLayoutPanel footerLayout;
-		private Label pageCounterLabel;
-		private PictureBox nextPageButton;
-		private PictureBox previousPageButton;
-		private Button registerBtn;
-		private Button loginBtn;
 		private DataGridViewTextBoxColumn Id;
 		private DataGridViewTextBoxColumn Position;
 		private DataGridViewTextBoxColumn AddedDate;
 		private DataGridViewTextBoxColumn EndedDate;
 		private DataGridViewButtonColumn PasswdReset;
+		private TableLayoutPanel mainLayout;
+		private TableLayoutPanel footerLayout;
+		private Label pageCounterLabel;
+		private PictureBox nextPageButton;
+		private PictureBox previousPageButton;
+		private Button button1;
 	}
 }

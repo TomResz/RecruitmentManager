@@ -74,26 +74,31 @@ public partial class EditEmployeeDataForm : Form
 		try
 		{
 			editDataBtn.Enabled = false;
-			var command = new EditEmployeeDataCommand
+			if (_sessionContext.WorkerId is not null)
+			{
+				var command = new EditEmployeeDataCommand
 				(Id: (Guid)_sessionContext.WorkerId,
-				FirstName: firstNameTb.Text,
-				LastName: lastNameTb.Text,
-				PhoneNumber: phoneNumberTb.Text,
-				BirthDate: birthDatePicker.Value.Date);
-			await _mediator.Send(command);
-			MessageBox.Show(
-				 text: "Edytowane pomyślnie dane użytkownika!",
-				caption: "Edycja danych.",
-				   buttons: MessageBoxButtons.OK,
-				   icon: MessageBoxIcon.Information);
+					FirstName: firstNameTb.Text,
+					LastName: lastNameTb.Text,
+					PhoneNumber: phoneNumberTb.Text.Replace(" ",""),
+					BirthDate: birthDatePicker.Value.Date);
+				await _mediator.Send(command);
 
-			var role = _sessionContext.GetRole;
 
-			_sessionContext.SetWorker((Guid)_sessionContext.WorkerId,
-				  role,
-				  firstNameTb.Text + " " + lastNameTb.Text);
-			await Task.Delay(500);
-			this.Close();
+				MessageBox.Show(
+					 text: "Edytowane pomyślnie dane użytkownika!",
+					caption: "Edycja danych.",
+					   buttons: MessageBoxButtons.OK,
+					   icon: MessageBoxIcon.Information);
+
+
+				_sessionContext.SetWorker(
+					(Guid)_sessionContext.WorkerId,
+					_sessionContext.GetRole,
+					  firstNameTb.Text + " " + lastNameTb.Text);
+				await Task.Delay(500);
+				this.Close();
+			}
 		}
 		catch (Exception ex)
 		{

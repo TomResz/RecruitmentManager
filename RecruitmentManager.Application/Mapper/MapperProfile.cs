@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using RecruitmentManager.Application.Functions.Candidate_Functions.Queries;
 using RecruitmentManager.Application.Functions.Worker_Functions.Admin_Functions.Queries;
 using RecruitmentManager.Application.Functions.Worker_Functions.Common;
 using RecruitmentManager.Application.Pagination;
@@ -30,7 +31,8 @@ public class MapperProfile : Profile
 
 		CreateMap<PagedList<Candidate>, PagedList<CandidateViewDTO>>();
 		CreateMap<PagedList<Employee>, PagedList<WorkerViewDTO>>().ReverseMap();
-	}
+		CreateMap<PagedList<JobPosting>, PagedList<JobOffersViewDto>>().ReverseMap();
+    }
 	private string MapRoleIdToRoleString(int roleId)
 	{
 		var enumType = (Roles)roleId;

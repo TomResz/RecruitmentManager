@@ -14,7 +14,7 @@ public static class LanguageExtension
 		}
 		else
 		{
-			services.AddSingleton<ISubtitles,EnglishSubtitles>();
+			services.AddSingleton<ISubtitles, EnglishSubtitles>();
 		}
 		return services;
 	}

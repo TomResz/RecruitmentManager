@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.Application.Mapper;
 using RecruitmentManager.Domain.Entities;
 using System.Reflection;
+using FluentValidation;
 
 namespace RecruitmentManager.Application;
 
