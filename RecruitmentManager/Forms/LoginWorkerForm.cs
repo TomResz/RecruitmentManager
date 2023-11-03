@@ -58,13 +58,13 @@ public partial class LoginWorkerForm : Form
 	private async void loginBtn_ClickAsync(object sender, EventArgs e)
 	{
 		var loginRequest = new LoginWorkerCommand(
-			Email: emailTb.Text, 
+			Email: emailTb.Text,
 			Password: passwordTb.Text);
 		try
 		{
 			var response = await _mediator.Send(loginRequest);
-			_workerSession.SetWorker(response.Id, response.Role,response.FullName);
-			switch(response.Role)	
+			_workerSession.SetWorker(response.Id, response.Role, response.FullName);
+			switch (response.Role)
 			{
 				case Roles.Admin:
 					OpenAdminForm();
@@ -76,7 +76,7 @@ public partial class LoginWorkerForm : Form
 					break;
 			}
 		}
-		catch(Exception ex) 
+		catch (Exception ex)
 		{
 			MessageBox.Show(text: ex.Message,
 						caption: "Logowanie się nie powiodło!",

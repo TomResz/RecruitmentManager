@@ -214,7 +214,7 @@
 			MaximumSize = new Size(1089, 331);
 			MinimumSize = new Size(1089, 331);
 			Name = "EditEmployeeDataForm";
-			Text = "EditEmployeeDataForm";
+			Text = "Edytowanie Danych Pracownika";
 			((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

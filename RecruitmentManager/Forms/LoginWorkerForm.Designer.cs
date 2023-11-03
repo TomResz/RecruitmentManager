@@ -156,7 +156,7 @@
 			MaximumSize = new Size(540, 480);
 			MinimumSize = new Size(540, 480);
 			Name = "LoginWorkerForm";
-			Text = "LoginWorkerForm";
+			Text = "Formularz Logowania Pracowników";
 			((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			ResumeLayout(false);

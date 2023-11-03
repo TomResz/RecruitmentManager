@@ -167,7 +167,7 @@
 			MaximumSize = new Size(542, 460);
 			MinimumSize = new Size(542, 460);
 			Name = "ResetWorkerPasswordForm";
-			Text = "ResetWorkerPasswordForm";
+			Text = "Formularz Resetowania Hasła";
 			((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

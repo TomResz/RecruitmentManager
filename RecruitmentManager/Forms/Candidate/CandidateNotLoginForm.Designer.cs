@@ -29,12 +29,17 @@
 		private void InitializeComponent()
 		{
 			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CandidateNotLoginForm));
 			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CandidateNotLoginForm));
 			jobOffersDGV = new DataGridView();
+			Id = new DataGridViewTextBoxColumn();
+			Position = new DataGridViewTextBoxColumn();
+			AddedDate = new DataGridViewTextBoxColumn();
+			EndedDate = new DataGridViewTextBoxColumn();
+			PasswdReset = new DataGridViewButtonColumn();
 			mainLayout = new TableLayoutPanel();
 			footerLayout = new TableLayoutPanel();
 			pageCounterLabel = new Label();
@@ -42,11 +47,6 @@
 			previousPageButton = new PictureBox();
 			registerBtn = new Button();
 			loginBtn = new Button();
-			Id = new DataGridViewTextBoxColumn();
-			Position = new DataGridViewTextBoxColumn();
-			AddedDate = new DataGridViewTextBoxColumn();
-			EndedDate = new DataGridViewTextBoxColumn();
-			PasswdReset = new DataGridViewButtonColumn();
 			((System.ComponentModel.ISupportInitialize)jobOffersDGV).BeginInit();
 			mainLayout.SuspendLayout();
 			footerLayout.SuspendLayout();
@@ -84,6 +84,75 @@
 			jobOffersDGV.Size = new Size(1373, 463);
 			jobOffersDGV.TabIndex = 0;
 			jobOffersDGV.SizeChanged += jobOffersDGV_SizeChanged;
+			// 
+			// Id
+			// 
+			Id.HeaderText = "ID";
+			Id.MinimumWidth = 6;
+			Id.Name = "Id";
+			Id.ReadOnly = true;
+			Id.Visible = false;
+			// 
+			// Position
+			// 
+			Position.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+			dataGridViewCellStyle2.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle2.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle2.ForeColor = Color.Black;
+			dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+			Position.DefaultCellStyle = dataGridViewCellStyle2;
+			Position.FillWeight = 230F;
+			Position.HeaderText = "Stanowisko";
+			Position.MinimumWidth = 6;
+			Position.Name = "Position";
+			Position.ReadOnly = true;
+			// 
+			// AddedDate
+			// 
+			AddedDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+			dataGridViewCellStyle3.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle3.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle3.ForeColor = Color.Black;
+			dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+			AddedDate.DefaultCellStyle = dataGridViewCellStyle3;
+			AddedDate.FillWeight = 280.748657F;
+			AddedDate.HeaderText = "Data Dodania";
+			AddedDate.MinimumWidth = 6;
+			AddedDate.Name = "AddedDate";
+			AddedDate.ReadOnly = true;
+			// 
+			// EndedDate
+			// 
+			dataGridViewCellStyle4.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle4.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle4.ForeColor = Color.Black;
+			dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+			EndedDate.DefaultCellStyle = dataGridViewCellStyle4;
+			EndedDate.HeaderText = "Data Zakończenia";
+			EndedDate.MinimumWidth = 6;
+			EndedDate.Name = "EndedDate";
+			EndedDate.ReadOnly = true;
+			// 
+			// PasswdReset
+			// 
+			PasswdReset.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+			dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle5.BackColor = Color.Navy;
+			dataGridViewCellStyle5.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle5.ForeColor = Color.White;
+			dataGridViewCellStyle5.SelectionBackColor = Color.Navy;
+			dataGridViewCellStyle5.SelectionForeColor = Color.White;
+			PasswdReset.DefaultCellStyle = dataGridViewCellStyle5;
+			PasswdReset.FillWeight = 250F;
+			PasswdReset.FlatStyle = FlatStyle.Popup;
+			PasswdReset.HeaderText = "Szczegóły";
+			PasswdReset.MinimumWidth = 6;
+			PasswdReset.Name = "PasswdReset";
+			PasswdReset.Text = "Wyświetl szegóły!";
+			PasswdReset.UseColumnTextForButtonValue = true;
 			// 
 			// mainLayout
 			// 
@@ -179,75 +248,6 @@
 			loginBtn.UseVisualStyleBackColor = true;
 			loginBtn.Click += loginBtn_Click;
 			// 
-			// Id
-			// 
-			Id.HeaderText = "ID";
-			Id.MinimumWidth = 6;
-			Id.Name = "Id";
-			Id.ReadOnly = true;
-			Id.Visible = false;
-			// 
-			// Position
-			// 
-			Position.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle2.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle2.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle2.ForeColor = Color.Black;
-			dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 192, 192);
-			dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-			Position.DefaultCellStyle = dataGridViewCellStyle2;
-			Position.FillWeight = 230F;
-			Position.HeaderText = "Stanowisko";
-			Position.MinimumWidth = 6;
-			Position.Name = "Position";
-			Position.ReadOnly = true;
-			// 
-			// AddedDate
-			// 
-			AddedDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle3.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle3.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle3.ForeColor = Color.Black;
-			dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 192, 192);
-			dataGridViewCellStyle3.SelectionForeColor = Color.Black;
-			AddedDate.DefaultCellStyle = dataGridViewCellStyle3;
-			AddedDate.FillWeight = 280.748657F;
-			AddedDate.HeaderText = "Data Dodania";
-			AddedDate.MinimumWidth = 6;
-			AddedDate.Name = "AddedDate";
-			AddedDate.ReadOnly = true;
-			// 
-			// EndedDate
-			// 
-			dataGridViewCellStyle4.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle4.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle4.ForeColor = Color.Black;
-			dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 192, 192);
-			dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-			EndedDate.DefaultCellStyle = dataGridViewCellStyle4;
-			EndedDate.HeaderText = "Data Zakończenia";
-			EndedDate.MinimumWidth = 6;
-			EndedDate.Name = "EndedDate";
-			EndedDate.ReadOnly = true;
-			// 
-			// PasswdReset
-			// 
-			PasswdReset.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle5.BackColor = Color.Navy;
-			dataGridViewCellStyle5.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle5.ForeColor = Color.White;
-			dataGridViewCellStyle5.SelectionBackColor = Color.Navy;
-			dataGridViewCellStyle5.SelectionForeColor = Color.White;
-			PasswdReset.DefaultCellStyle = dataGridViewCellStyle5;
-			PasswdReset.FillWeight = 250F;
-			PasswdReset.FlatStyle = FlatStyle.Popup;
-			PasswdReset.HeaderText = "Szczegóły";
-			PasswdReset.MinimumWidth = 6;
-			PasswdReset.Name = "PasswdReset";
-			PasswdReset.Text = "Wyświetl szegóły!";
-			PasswdReset.UseColumnTextForButtonValue = true;
-			// 
 			// CandidateNotLoginForm
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
@@ -255,7 +255,7 @@
 			ClientSize = new Size(1379, 544);
 			Controls.Add(mainLayout);
 			Name = "CandidateNotLoginForm";
-			Text = "CandidateNotLoginForm";
+			Text = "Ogłoszenia Pracy";
 			((System.ComponentModel.ISupportInitialize)jobOffersDGV).EndInit();
 			mainLayout.ResumeLayout(false);
 			footerLayout.ResumeLayout(false);

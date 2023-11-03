@@ -80,7 +80,7 @@ public partial class EditEmployeeDataForm : Form
 				(Id: (Guid)_sessionContext.WorkerId,
 					FirstName: firstNameTb.Text,
 					LastName: lastNameTb.Text,
-					PhoneNumber: phoneNumberTb.Text.Replace(" ",""),
+					PhoneNumber: phoneNumberTb.Text.Replace(" ", ""),
 					BirthDate: birthDatePicker.Value.Date);
 				await _mediator.Send(command);
 

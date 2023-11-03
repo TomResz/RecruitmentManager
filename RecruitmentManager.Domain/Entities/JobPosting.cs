@@ -13,6 +13,6 @@ public class JobPosting
     public ICollection<RecruitmentStage> RecruitmentStages { get; set; }
     public ICollection<JobApplication> JobApplications { get; set; }
     public ICollection<SelectedCandidatesToJob> SelectedCandidatesToJobs { get; set; }
-    public Guid AddedByEmployeeId { get; set; }
+    public Guid EmployeeId { get; set; }
     public Employee Employee { get; set; }
 }

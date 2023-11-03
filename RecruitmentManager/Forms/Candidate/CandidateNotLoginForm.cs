@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using RecruitmentManager.Application.Functions.Candidate_Functions.Queries;
-using RecruitmentManager.Application.Functions.Candidate_Functions.Queries.GetPageOfJobOffers;
+using RecruitmentManager.Application.Functions.Common.Queries;
+using RecruitmentManager.Application.Functions.Common.Queries.GetPageOfJobOffers.Active;
 using RecruitmentManager.Application.Pagination;
 using RecruitmentManager.Controls_Extensions;
 
@@ -24,7 +24,7 @@ public partial class CandidateNotLoginForm : Form
 		_serviceProvider = serviceProvider;
 		_mediator = mediator;
 		InitializeComponent();
-		ChangeSize();
+		jobOffersDGV.ApplyJobOfferSettings();
 		this.Load += LoadJobOffers;
 	}
 
@@ -33,7 +33,7 @@ public partial class CandidateNotLoginForm : Form
 
 	private async Task ReloadPage()
 	{
-		_jobPagedList = await _mediator.Send(new GetPageOfJobOffersQuery(_pageNumber, _pageSize));
+		_jobPagedList = await _mediator.Send(new GetPageOfCurrentJobOffersQuery(_pageNumber, _pageSize));
 		if (_jobPagedList.Items.Count is 0)
 		{
 			jobOffersDGV.Visible = false;
@@ -46,8 +46,8 @@ public partial class CandidateNotLoginForm : Form
 			{
 				item.Id,
 				item.Title,
-				item.CreatedDate.ToShortDateString(),
-				item.EndDate.ToShortDateString()
+				item.CreatedDate.ToString("HH:mm dd/MM/yyyy"),
+				item.EndDate.ToString("HH:mm dd/MM/yyyy")
 			});
 		pageCounterLabel.SetPageCounter(_jobPagedList);
 	}
@@ -86,19 +86,6 @@ public partial class CandidateNotLoginForm : Form
 		form.Show();
 	}
 
-	private void jobOffersDGV_SizeChanged(object sender, EventArgs e) => ChangeSize();
+	private void jobOffersDGV_SizeChanged(object sender, EventArgs e) => jobOffersDGV.ApplyJobOfferSettings();
 
-	private void ChangeSize()
-	{
-		jobOffersDGV.Columns[1].Width = (int)(jobOffersDGV.Width * 0.5);
-		jobOffersDGV.Columns[2].Width = (int)(jobOffersDGV.Width * 0.15);
-		jobOffersDGV.Columns[3].Width = (int)(jobOffersDGV.Width * 0.15);
-		jobOffersDGV.Columns[4].Width = (int)(jobOffersDGV.Width * 0.2);
-		jobOffersDGV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-		jobOffersDGV.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-		jobOffersDGV.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-		jobOffersDGV.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-		jobOffersDGV.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-		jobOffersDGV.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-	}
 }

@@ -38,7 +38,7 @@ public partial class ResetCandidatePasswordForm : Form
 
 	private void confirmedPasswdTb_TextChanged(object sender, EventArgs e)
 		=> confirmedPasswdLabel.Text = string.IsNullOrEmpty(confirmedPasswdTb.Text)
-		? _label.RepeatNewPassword: "";
+		? _label.RepeatNewPassword : "";
 
 	private void showPasswdCB_CheckedChanged(object sender, EventArgs e)
 	{
@@ -61,7 +61,7 @@ public partial class ResetCandidatePasswordForm : Form
 			Password: passwordTb.Text,
 			ConfirmedPassword: confirmedPasswdTb.Text);
 
-		var confirmation = MessageBox.Show("Czy napewno chcesz zmienić hasło?","Zmiana hasła.",
+		var confirmation = MessageBox.Show("Czy napewno chcesz zmienić hasło?", "Zmiana hasła.",
 			MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 		if (confirmation == DialogResult.No)
 			return;
@@ -73,12 +73,12 @@ public partial class ResetCandidatePasswordForm : Form
 				MessageBoxButtons.OK, MessageBoxIcon.Information);
 			this.Close();
 		}
-		catch(Exception ex)
+		catch (Exception ex)
 		{
 			MessageBox.Show(
 				text: ex.Message,
 				caption: "Błąd.",
-				buttons: MessageBoxButtons.OK, 
+				buttons: MessageBoxButtons.OK,
 				   icon: MessageBoxIcon.Error);
 		}
 	}

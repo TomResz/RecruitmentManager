@@ -6,6 +6,6 @@ public static class LabelExtension
 {
 	public static void SetPageCounter<T>(
 		this Label label,
-		PagedList<T> list) 
+		PagedList<T> list) where T : class
 		=> label.Text = $@"{list.Page}/{list.PageTotalCount}";
 }

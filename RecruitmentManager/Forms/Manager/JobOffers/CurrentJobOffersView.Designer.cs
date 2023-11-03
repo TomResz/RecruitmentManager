@@ -28,11 +28,11 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CurrentJobOffersView));
 			jobOffersDGV = new DataGridView();
 			Id = new DataGridViewTextBoxColumn();
@@ -42,12 +42,12 @@
 			PasswdReset = new DataGridViewButtonColumn();
 			mainLayout = new TableLayoutPanel();
 			footerLayout = new TableLayoutPanel();
-			pageCounterLabel = new Label();
 			nextPageButton = new PictureBox();
 			previousPageButton = new PictureBox();
 			button1 = new Button();
 			addBtn = new Button();
 			editBtn = new Button();
+			pageCounterLabel = new Label();
 			((System.ComponentModel.ISupportInitialize)jobOffersDGV).BeginInit();
 			mainLayout.SuspendLayout();
 			footerLayout.SuspendLayout();
@@ -62,14 +62,14 @@
 			jobOffersDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 			jobOffersDGV.BackgroundColor = SystemColors.Control;
 			jobOffersDGV.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle16.BackColor = Color.Blue;
-			dataGridViewCellStyle16.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle16.ForeColor = Color.White;
-			dataGridViewCellStyle16.SelectionBackColor = Color.Blue;
-			dataGridViewCellStyle16.SelectionForeColor = Color.White;
-			dataGridViewCellStyle16.WrapMode = DataGridViewTriState.True;
-			jobOffersDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle1.BackColor = Color.Blue;
+			dataGridViewCellStyle1.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle1.ForeColor = Color.White;
+			dataGridViewCellStyle1.SelectionBackColor = Color.Blue;
+			dataGridViewCellStyle1.SelectionForeColor = Color.White;
+			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+			jobOffersDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			jobOffersDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			jobOffersDGV.Columns.AddRange(new DataGridViewColumn[] { Id, Position, AddedDate, EndedDate, PasswdReset });
 			jobOffersDGV.Dock = DockStyle.Fill;
@@ -96,12 +96,12 @@
 			// Position
 			// 
 			Position.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle17.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle17.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle17.ForeColor = Color.Black;
-			dataGridViewCellStyle17.SelectionBackColor = Color.FromArgb(0, 192, 192);
-			dataGridViewCellStyle17.SelectionForeColor = Color.Black;
-			Position.DefaultCellStyle = dataGridViewCellStyle17;
+			dataGridViewCellStyle2.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle2.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle2.ForeColor = Color.Black;
+			dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+			Position.DefaultCellStyle = dataGridViewCellStyle2;
 			Position.FillWeight = 230F;
 			Position.HeaderText = "Stanowisko";
 			Position.MinimumWidth = 6;
@@ -111,12 +111,12 @@
 			// AddedDate
 			// 
 			AddedDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle18.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle18.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle18.ForeColor = Color.Black;
-			dataGridViewCellStyle18.SelectionBackColor = Color.FromArgb(0, 192, 192);
-			dataGridViewCellStyle18.SelectionForeColor = Color.Black;
-			AddedDate.DefaultCellStyle = dataGridViewCellStyle18;
+			dataGridViewCellStyle3.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle3.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle3.ForeColor = Color.Black;
+			dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+			AddedDate.DefaultCellStyle = dataGridViewCellStyle3;
 			AddedDate.FillWeight = 280.748657F;
 			AddedDate.HeaderText = "Data Dodania";
 			AddedDate.MinimumWidth = 6;
@@ -125,12 +125,12 @@
 			// 
 			// EndedDate
 			// 
-			dataGridViewCellStyle19.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle19.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle19.ForeColor = Color.Black;
-			dataGridViewCellStyle19.SelectionBackColor = Color.FromArgb(0, 192, 192);
-			dataGridViewCellStyle19.SelectionForeColor = Color.Black;
-			EndedDate.DefaultCellStyle = dataGridViewCellStyle19;
+			dataGridViewCellStyle4.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle4.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle4.ForeColor = Color.Black;
+			dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+			EndedDate.DefaultCellStyle = dataGridViewCellStyle4;
 			EndedDate.HeaderText = "Data Zakończenia";
 			EndedDate.MinimumWidth = 6;
 			EndedDate.Name = "EndedDate";
@@ -139,13 +139,13 @@
 			// PasswdReset
 			// 
 			PasswdReset.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle20.BackColor = Color.Navy;
-			dataGridViewCellStyle20.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle20.ForeColor = Color.White;
-			dataGridViewCellStyle20.SelectionBackColor = Color.Navy;
-			dataGridViewCellStyle20.SelectionForeColor = Color.White;
-			PasswdReset.DefaultCellStyle = dataGridViewCellStyle20;
+			dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle5.BackColor = Color.Navy;
+			dataGridViewCellStyle5.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle5.ForeColor = Color.White;
+			dataGridViewCellStyle5.SelectionBackColor = Color.Navy;
+			dataGridViewCellStyle5.SelectionForeColor = Color.White;
+			PasswdReset.DefaultCellStyle = dataGridViewCellStyle5;
 			PasswdReset.FillWeight = 250F;
 			PasswdReset.FlatStyle = FlatStyle.Popup;
 			PasswdReset.HeaderText = "Szczegóły";
@@ -178,13 +178,13 @@
 			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 18F));
 			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 65F));
 			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 65F));
-			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50F));
-			footerLayout.Controls.Add(pageCounterLabel, 6, 0);
+			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 65F));
 			footerLayout.Controls.Add(nextPageButton, 5, 0);
 			footerLayout.Controls.Add(previousPageButton, 4, 0);
 			footerLayout.Controls.Add(button1, 3, 0);
 			footerLayout.Controls.Add(addBtn, 1, 0);
 			footerLayout.Controls.Add(editBtn, 2, 0);
+			footerLayout.Controls.Add(pageCounterLabel, 6, 0);
 			footerLayout.Dock = DockStyle.Fill;
 			footerLayout.Location = new Point(3, 510);
 			footerLayout.Name = "footerLayout";
@@ -193,20 +193,10 @@
 			footerLayout.Size = new Size(1199, 69);
 			footerLayout.TabIndex = 1;
 			// 
-			// pageCounterLabel
-			// 
-			pageCounterLabel.AutoSize = true;
-			pageCounterLabel.Dock = DockStyle.Fill;
-			pageCounterLabel.Location = new Point(1150, 0);
-			pageCounterLabel.Name = "pageCounterLabel";
-			pageCounterLabel.Size = new Size(46, 69);
-			pageCounterLabel.TabIndex = 4;
-			pageCounterLabel.Text = "label1";
-			// 
 			// nextPageButton
 			// 
 			nextPageButton.Image = (Image)resources.GetObject("nextPageButton.Image");
-			nextPageButton.Location = new Point(1085, 3);
+			nextPageButton.Location = new Point(1069, 3);
 			nextPageButton.Name = "nextPageButton";
 			nextPageButton.Size = new Size(59, 63);
 			nextPageButton.TabIndex = 3;
@@ -216,7 +206,7 @@
 			// previousPageButton
 			// 
 			previousPageButton.Image = (Image)resources.GetObject("previousPageButton.Image");
-			previousPageButton.Location = new Point(1020, 3);
+			previousPageButton.Location = new Point(1004, 3);
 			previousPageButton.Name = "previousPageButton";
 			previousPageButton.Size = new Size(59, 63);
 			previousPageButton.TabIndex = 2;
@@ -228,9 +218,9 @@
 			button1.Dock = DockStyle.Fill;
 			button1.FlatStyle = FlatStyle.Flat;
 			button1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			button1.Location = new Point(837, 3);
+			button1.Location = new Point(824, 3);
 			button1.Name = "button1";
-			button1.Size = new Size(177, 63);
+			button1.Size = new Size(174, 63);
 			button1.TabIndex = 5;
 			button1.Text = "Usuń";
 			button1.UseVisualStyleBackColor = true;
@@ -241,9 +231,9 @@
 			addBtn.Dock = DockStyle.Fill;
 			addBtn.FlatStyle = FlatStyle.Flat;
 			addBtn.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			addBtn.Location = new Point(471, 3);
+			addBtn.Location = new Point(464, 3);
 			addBtn.Name = "addBtn";
-			addBtn.Size = new Size(177, 63);
+			addBtn.Size = new Size(174, 63);
 			addBtn.TabIndex = 6;
 			addBtn.Text = "Dodaj";
 			addBtn.UseVisualStyleBackColor = true;
@@ -254,13 +244,23 @@
 			editBtn.Dock = DockStyle.Fill;
 			editBtn.FlatStyle = FlatStyle.Flat;
 			editBtn.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			editBtn.Location = new Point(654, 3);
+			editBtn.Location = new Point(644, 3);
 			editBtn.Name = "editBtn";
-			editBtn.Size = new Size(177, 63);
+			editBtn.Size = new Size(174, 63);
 			editBtn.TabIndex = 7;
 			editBtn.Text = "Edytuj";
 			editBtn.UseVisualStyleBackColor = true;
 			editBtn.Click += editBtn_Click;
+			// 
+			// pageCounterLabel
+			// 
+			pageCounterLabel.Anchor = AnchorStyles.Left;
+			pageCounterLabel.AutoSize = true;
+			pageCounterLabel.Location = new Point(1134, 24);
+			pageCounterLabel.Name = "pageCounterLabel";
+			pageCounterLabel.Size = new Size(50, 20);
+			pageCounterLabel.TabIndex = 4;
+			pageCounterLabel.Text = "label1";
 			// 
 			// CurrentJobOffersView
 			// 

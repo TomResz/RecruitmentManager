@@ -4,14 +4,15 @@ using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Application.Pagination;
 using RecruitmentManager.Domain.Entities;
 
-namespace RecruitmentManager.Application.Functions.Candidate_Functions.Queries.GetPageOfJobOffers;
+namespace RecruitmentManager.Application.Functions.Common.Queries.GetPageOfJobOffers.NotActive;
 
-public class GetPageOfJobOffersQueryHandler 
-	: IRequestHandler<GetPageOfJobOffersQuery,PagedList<JobOffersViewDto>>
+public class GetPageOfNotActiveJobOffersQueryHandler
+	: IRequestHandler<GetPageOfNotActiveJobOffersQuery,PagedList<JobOffersViewDto>>
 {
 	private readonly IMapper _mapper;
 	private readonly IDbContext _context;
-	public GetPageOfJobOffersQueryHandler(
+
+	public GetPageOfNotActiveJobOffersQueryHandler(
 		IMapper mapper,
 		IDbContext context)
 	{
@@ -20,15 +21,17 @@ public class GetPageOfJobOffersQueryHandler
 	}
 
 	public async Task<PagedList<JobOffersViewDto>> Handle(
-		GetPageOfJobOffersQuery request,
+		GetPageOfNotActiveJobOffersQuery request,
 		CancellationToken cancellationToken)
 	{
 		IQueryable<JobPosting> query = _context.Get<JobPosting>()
+			.Where(x => x.EndDate  < DateTime.Now)
 			.OrderByDescending(x => x.CreatedDate)
-			.ThenByDescending(x => x.EndDate);
+			.ThenByDescending(x => x.EndDate)
+			.AsQueryable();
 		var list = await PagedList<JobPosting>.CreateByQueryAsync(
-			query, 
-			request.Page, 
+			query,
+			request.Page,
 			request.PageSize);
 
 		return _mapper.Map<PagedList<JobOffersViewDto>>(list);

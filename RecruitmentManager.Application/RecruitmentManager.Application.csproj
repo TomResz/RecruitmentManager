@@ -18,4 +18,9 @@
     <ProjectReference Include="..\RecruitmentManager.Domain\RecruitmentManager.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Functions\Candidate Functions\Queries\" />
+    <Folder Include="Functions\Common\Commands\" />
+  </ItemGroup>
+
 </Project>

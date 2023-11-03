@@ -76,7 +76,7 @@
 			MaximumSize = new Size(407, 312);
 			MinimumSize = new Size(407, 312);
 			Name = "LoadingForm";
-			Text = "LoadingForm";
+			Text = "Ładowanie programu ...";
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			ResumeLayout(false);
 			PerformLayout();

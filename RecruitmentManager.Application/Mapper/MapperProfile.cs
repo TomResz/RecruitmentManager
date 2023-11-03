@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
-using RecruitmentManager.Application.Functions.Candidate_Functions.Queries;
+using RecruitmentManager.Application.Functions.Common.Queries;
 using RecruitmentManager.Application.Functions.Worker_Functions.Admin_Functions.Queries;
 using RecruitmentManager.Application.Functions.Worker_Functions.Common;
+using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions;
+using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Commands.CreateJobOffer;
 using RecruitmentManager.Application.Pagination;
 using RecruitmentManager.Domain.Entities;
 using RecruitmentManager.Domain.Enums;
@@ -28,10 +30,16 @@ public class MapperProfile : Profile
 			.ForMember(dest => dest.BirthDate, o => o.MapFrom(src => src.EmployeeData.BirthDate))
 			.ForMember(dest => dest.PhoneNumber, o => o.MapFrom(src => src.EmployeeData.PhoneNumber))
 			.ReverseMap();
+		CreateMap<Employee, RecruiterDto>()
+			.ForMember(dest => dest.FirstName, o => o.MapFrom(src => src.EmployeeData.FirstName))
+			.ForMember(dest => dest.LastName, o => o.MapFrom(src => src.EmployeeData.LastName))
+			.ReverseMap();
 
 		CreateMap<PagedList<Candidate>, PagedList<CandidateViewDTO>>();
 		CreateMap<PagedList<Employee>, PagedList<WorkerViewDTO>>().ReverseMap();
+		CreateMap<JobPosting, JobOffersViewDto>().ReverseMap();
 		CreateMap<PagedList<JobPosting>, PagedList<JobOffersViewDto>>().ReverseMap();
+		CreateMap<RecruitmentStagesDto,RecruitmentStage>().ReverseMap();
     }
 	private string MapRoleIdToRoleString(int roleId)
 	{
