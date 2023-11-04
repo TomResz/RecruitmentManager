@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Application.Pagination;
 using RecruitmentManager.Domain.Entities;
@@ -25,10 +26,10 @@ public class GetPageOfNotActiveJobOffersQueryHandler
 		CancellationToken cancellationToken)
 	{
 		IQueryable<JobPosting> query = _context.Get<JobPosting>()
-			.Where(x => x.EndDate  < DateTime.Now)
+			.Where(x => x.EndDate < DateTime.Now)
 			.OrderByDescending(x => x.CreatedDate)
 			.ThenByDescending(x => x.EndDate)
-			.AsQueryable();
+			.AsNoTracking();
 		var list = await PagedList<JobPosting>.CreateByQueryAsync(
 			query,
 			request.Page,

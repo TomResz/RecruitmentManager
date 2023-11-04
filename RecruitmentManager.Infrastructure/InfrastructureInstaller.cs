@@ -24,9 +24,11 @@ public static class InfrastructureInstaller
         services.AddScoped<ICandidateRepository,CandidateRepository>(); 
         services.AddScoped<IEmployeeRepository,EmployeeRepository>();
         services.AddScoped<IJobPostingRepository,JobPostingRepository>();
+        services.AddScoped<IRecruitmentStageRepository,RecruitmentStageRepository>();
         services.AddSingleton<ICandidateSessionContext, CandidateSessionContext>();
         services.AddSingleton<IWorkerSessionContext, WorkerSessionContext>();
         services.AddSingleton<IUserDataToEditContext,UserDataToEditContext>();
+        services.AddSingleton<IJobOfferContext, JobOfferContext>();
         services.ScanForDbSeeders();
         services.AddTransient<MainSeeder>();
         return services;

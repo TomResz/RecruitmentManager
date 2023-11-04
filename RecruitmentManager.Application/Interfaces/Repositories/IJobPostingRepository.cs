@@ -2,7 +2,9 @@
 
 namespace RecruitmentManager.Application.Interfaces.Repositories;
 
-public interface IJobPostingRepository
+public interface IJobPostingRepository : IAsyncRepository<JobPosting>
 {
 	Task AddAsync(JobPosting entity);
+	Task<JobPosting?> GetFullDataByIdAsync(Guid id);
+	Task UpdateWithRecruitmentStage(JobPosting entity);
 }

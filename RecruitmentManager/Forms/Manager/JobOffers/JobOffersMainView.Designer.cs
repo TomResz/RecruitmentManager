@@ -28,62 +28,96 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			tabControl = new TabControl();
-			actual = new TabPage();
-			outofdate = new TabPage();
-			tabControl.SuspendLayout();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JobOffersMainView));
+			mainLayout = new TableLayoutPanel();
+			headerLayout = new TableLayoutPanel();
+			completedBtn = new Button();
+			activeBtn = new Button();
+			mainLayout.SuspendLayout();
+			headerLayout.SuspendLayout();
 			SuspendLayout();
 			// 
-			// tabControl
+			// mainLayout
 			// 
-			tabControl.Controls.Add(actual);
-			tabControl.Controls.Add(outofdate);
-			tabControl.Dock = DockStyle.Fill;
-			tabControl.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-			tabControl.Location = new Point(0, 0);
-			tabControl.Name = "tabControl";
-			tabControl.SelectedIndex = 0;
-			tabControl.Size = new Size(1154, 522);
-			tabControl.TabIndex = 0;
-			tabControl.Selected += tabControl_Selected;
+			mainLayout.ColumnCount = 1;
+			mainLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+			mainLayout.Controls.Add(headerLayout, 0, 0);
+			mainLayout.Dock = DockStyle.Fill;
+			mainLayout.Location = new Point(0, 0);
+			mainLayout.Name = "mainLayout";
+			mainLayout.RowCount = 2;
+			mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 85F));
+			mainLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+			mainLayout.Size = new Size(1154, 522);
+			mainLayout.TabIndex = 0;
 			// 
-			// actual
+			// headerLayout
 			// 
-			actual.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-			actual.Location = new Point(4, 40);
-			actual.Name = "actual";
-			actual.Padding = new Padding(3);
-			actual.Size = new Size(1146, 478);
-			actual.TabIndex = 0;
-			actual.Text = "Aktualne";
-			actual.UseVisualStyleBackColor = true;
+			headerLayout.ColumnCount = 3;
+			headerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+			headerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+			headerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
+			headerLayout.Controls.Add(completedBtn, 1, 0);
+			headerLayout.Controls.Add(activeBtn, 0, 0);
+			headerLayout.Dock = DockStyle.Fill;
+			headerLayout.Location = new Point(3, 3);
+			headerLayout.Name = "headerLayout";
+			headerLayout.RowCount = 1;
+			headerLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+			headerLayout.Size = new Size(1148, 79);
+			headerLayout.TabIndex = 0;
 			// 
-			// outofdate
+			// completedBtn
 			// 
-			outofdate.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-			outofdate.Location = new Point(4, 40);
-			outofdate.Name = "outofdate";
-			outofdate.Padding = new Padding(3);
-			outofdate.Size = new Size(1146, 478);
-			outofdate.TabIndex = 1;
-			outofdate.Text = "Nieaktualne";
-			outofdate.UseVisualStyleBackColor = true;
+			completedBtn.Dock = DockStyle.Fill;
+			completedBtn.FlatStyle = FlatStyle.Flat;
+			completedBtn.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			completedBtn.Image = (Image)resources.GetObject("completedBtn.Image");
+			completedBtn.ImageAlign = ContentAlignment.MiddleLeft;
+			completedBtn.Location = new Point(229, 0);
+			completedBtn.Margin = new Padding(0);
+			completedBtn.Name = "completedBtn";
+			completedBtn.Size = new Size(229, 79);
+			completedBtn.TabIndex = 1;
+			completedBtn.Text = "Nieaktywne";
+			completedBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+			completedBtn.UseVisualStyleBackColor = true;
+			completedBtn.Click += completedBtn_Click;
+			// 
+			// activeBtn
+			// 
+			activeBtn.Dock = DockStyle.Fill;
+			activeBtn.FlatStyle = FlatStyle.Flat;
+			activeBtn.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			activeBtn.Image = (Image)resources.GetObject("activeBtn.Image");
+			activeBtn.ImageAlign = ContentAlignment.MiddleLeft;
+			activeBtn.Location = new Point(0, 0);
+			activeBtn.Margin = new Padding(0);
+			activeBtn.Name = "activeBtn";
+			activeBtn.Size = new Size(229, 79);
+			activeBtn.TabIndex = 0;
+			activeBtn.Text = "Aktywne";
+			activeBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+			activeBtn.UseVisualStyleBackColor = true;
+			activeBtn.Click += activeBtn_Click;
 			// 
 			// JobOffersMainView
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			Controls.Add(tabControl);
+			Controls.Add(mainLayout);
 			Name = "JobOffersMainView";
 			Size = new Size(1154, 522);
-			tabControl.ResumeLayout(false);
+			mainLayout.ResumeLayout(false);
+			headerLayout.ResumeLayout(false);
 			ResumeLayout(false);
 		}
 
 		#endregion
 
-		private TabControl tabControl;
-		private TabPage actual;
-		private TabPage outofdate;
+		private TableLayoutPanel mainLayout;
+		private TableLayoutPanel headerLayout;
+		private Button activeBtn;
+		private Button completedBtn;
 	}
 }

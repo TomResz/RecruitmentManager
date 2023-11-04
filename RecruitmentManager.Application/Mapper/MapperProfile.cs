@@ -3,7 +3,8 @@ using RecruitmentManager.Application.Functions.Common.Queries;
 using RecruitmentManager.Application.Functions.Worker_Functions.Admin_Functions.Queries;
 using RecruitmentManager.Application.Functions.Worker_Functions.Common;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions;
-using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Commands.CreateJobOffer;
+using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Commands.UpdateJobOffer;
+using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Queries.GetJobOfferDetailsToEdit;
 using RecruitmentManager.Application.Pagination;
 using RecruitmentManager.Domain.Entities;
 using RecruitmentManager.Domain.Enums;
@@ -35,6 +36,13 @@ public class MapperProfile : Profile
 			.ForMember(dest => dest.LastName, o => o.MapFrom(src => src.EmployeeData.LastName))
 			.ReverseMap();
 
+		CreateMap<RecruitmentStage, RecruitmentStageWithEmployeeDto>()
+			.ForMember(dest => dest.FullName, opt => opt.MapFrom(src =>
+				src.Employee.EmployeeData.FirstName + " " + src.Employee.EmployeeData.LastName));
+
+		CreateMap<JobOfferDetailsToEditDto, JobPosting>().ReverseMap();
+		CreateMap<RecruitmentStagesToEditDto, RecruitmentStage>().ReverseMap();
+		CreateMap<UpdateJobOfferCommand, JobPosting>().ReverseMap();
 		CreateMap<PagedList<Candidate>, PagedList<CandidateViewDTO>>();
 		CreateMap<PagedList<Employee>, PagedList<WorkerViewDTO>>().ReverseMap();
 		CreateMap<JobPosting, JobOffersViewDto>().ReverseMap();

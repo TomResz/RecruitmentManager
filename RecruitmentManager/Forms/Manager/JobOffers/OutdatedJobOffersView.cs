@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using RecruitmentManager.Application.Functions.Common.Queries;
 using RecruitmentManager.Application.Functions.Common.Queries.GetPageOfJobOffers.NotActive;
-using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Application.Pagination;
 using RecruitmentManager.Controls_Extensions;
 
@@ -22,33 +21,34 @@ public partial class OutdatedJobOffersView : UserControl
 		InitializeComponent();
 		jobOffersDGV.ApplyJobOfferSettings();
 		jobOffersDGV.SizeChanged += (s, args) => jobOffersDGV.ApplyJobOfferSettings();
-		this.Load += FirstLoad;
+		this.Load += OutdatedJobOffersView_Load;
 	}
 
-	private async void FirstLoad(
+	private async void OutdatedJobOffersView_Load(
 		object? sender,
 		EventArgs e)
 		=> await ReloadPage();
-
-	private async Task ReloadPage()
+	public async Task ReloadPage()
 	{
 		var query = new GetPageOfNotActiveJobOffersQuery(Page, PageSize);
 		_jobOfferList = await _mediator.Send(query);
-		if (_jobOfferList.Items.Count is 0)
+
+
+		if (jobOffersDGV.Rows.Count != 0)
 		{
-			jobOffersDGV.Visible = false;
-			pageCounterLabel.Text = "1/1";
+			jobOffersDGV.Rows.Clear();
 			return;
 		}
-		jobOffersDGV.Fill(_jobOfferList.Items, row => new object[]
+		jobOffersDGV.Fill(_jobOfferList.Items, item => new object[]
 		{
-			row.Id,
-			row.Title,
-			row.CreatedDate.ToString("HH:mm dd/MM/yyyy"),
-			row.EndDate.ToString("HH:mm dd/MM/yyyy")
+			item.Id,
+			item.Title,
+			item.CreatedDate.ToString("HH:mm dd/MM/yyyy"),
+			item.EndDate.ToString("HH:mm dd/MM/yyyy")
 		});
 		pageCounterLabel.SetPageCounter(_jobOfferList);
 	}
+
 
 	private async void nextPageButton_Click(object sender, EventArgs e)
 	{

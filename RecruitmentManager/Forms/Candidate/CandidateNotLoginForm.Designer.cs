@@ -83,6 +83,7 @@
 			jobOffersDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			jobOffersDGV.Size = new Size(1373, 463);
 			jobOffersDGV.TabIndex = 0;
+			jobOffersDGV.CellContentClick += jobOffersDGV_CellContentClick;
 			jobOffersDGV.SizeChanged += jobOffersDGV_SizeChanged;
 			// 
 			// Id

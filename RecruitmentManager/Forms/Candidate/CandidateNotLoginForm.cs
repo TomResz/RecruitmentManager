@@ -2,8 +2,10 @@
 using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.Application.Functions.Common.Queries;
 using RecruitmentManager.Application.Functions.Common.Queries.GetPageOfJobOffers.Active;
+using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Application.Pagination;
 using RecruitmentManager.Controls_Extensions;
+using RecruitmentManager.Forms.Common;
 
 namespace RecruitmentManager.Forms.Candidate;
 
@@ -14,15 +16,17 @@ public partial class CandidateNotLoginForm : Form
 
 	private PagedList<JobOffersViewDto> _jobPagedList;
 
-
+	private readonly IJobOfferContext _jobOfferContext;
 	private readonly IServiceProvider _serviceProvider;
 	private readonly IMediator _mediator;
 	public CandidateNotLoginForm(
 		IServiceProvider serviceProvider,
-		IMediator mediator)
+		IMediator mediator,
+		IJobOfferContext jobOfferContext)
 	{
 		_serviceProvider = serviceProvider;
 		_mediator = mediator;
+		_jobOfferContext = jobOfferContext;
 		InitializeComponent();
 		jobOffersDGV.ApplyJobOfferSettings();
 		this.Load += LoadJobOffers;
@@ -88,4 +92,22 @@ public partial class CandidateNotLoginForm : Form
 
 	private void jobOffersDGV_SizeChanged(object sender, EventArgs e) => jobOffersDGV.ApplyJobOfferSettings();
 
+	private void jobOffersDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+	{
+		if (e is not { RowIndex: >= 0, ColumnIndex: 4 }) return;
+		try
+		{
+			if (jobOffersDGV.CurrentRow is not null &&
+			    Guid.TryParse(jobOffersDGV.CurrentRow.Cells[0].Value.ToString(), out Guid uid))
+			{
+				_jobOfferContext.SetId(uid);
+				var form = _serviceProvider.GetRequiredService<ShowJobOfferDetailsForm>();
+				form.ShowDialog();
+			}
+		}
+		finally
+		{
+			_jobOfferContext.Clear();
+		}
+	}
 }
