@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using RecruitmentManager.Application.Error_Serializer;
 using RecruitmentManager.Application.Interfaces.Repositories;
 using RecruitmentManager.Domain.Entities;
+using RecruitmentManager.Domain.Entities.Candidate_Elements;
 
 namespace RecruitmentManager.Application.Functions.Candidate_Functions.Register;
 
@@ -45,7 +46,8 @@ public class RegisterCandidateCommandHandler
 			{
 				FirstName = request.FirstName,
 				LastName = request.LastName,
-			}
+			},
+			ProfilePicture = new ProfilePicture()
 		};
 		var passwordHash = _passwordHasher.HashPassword(candidate, request.Password);
 		candidate.PasswordHash = passwordHash;

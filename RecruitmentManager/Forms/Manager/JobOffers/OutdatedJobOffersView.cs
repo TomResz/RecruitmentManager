@@ -19,6 +19,7 @@ public partial class OutdatedJobOffersView : UserControl
 	{
 		_mediator = mediator;
 		InitializeComponent();
+		jobOffersDGV.Visible = false;
 		jobOffersDGV.ApplyJobOfferSettings();
 		jobOffersDGV.SizeChanged += (s, args) => jobOffersDGV.ApplyJobOfferSettings();
 		this.Load += OutdatedJobOffersView_Load;
@@ -33,12 +34,7 @@ public partial class OutdatedJobOffersView : UserControl
 		var query = new GetPageOfNotActiveJobOffersQuery(Page, PageSize);
 		_jobOfferList = await _mediator.Send(query);
 
-
-		if (jobOffersDGV.Rows.Count != 0)
-		{
-			jobOffersDGV.Rows.Clear();
-			return;
-		}
+		jobOffersDGV.Visible = _jobOfferList.Items.Count is not 0;
 		jobOffersDGV.Fill(_jobOfferList.Items, item => new object[]
 		{
 			item.Id,

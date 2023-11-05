@@ -19,7 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Functions\Candidate Functions\Queries\" />
     <Folder Include="Functions\Common\Commands\" />
     <Folder Include="Functions\Worker Functions\Common\Queries\GetJobOfferDetails\" />
     <Folder Include="Functions\Worker Functions\Manager Functions\Commands\CompleteJobOffer\" />

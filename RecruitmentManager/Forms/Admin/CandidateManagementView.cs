@@ -24,10 +24,11 @@ public partial class CandidateManagementView : UserControl
 		IServiceProvider serviceProvider)
 	{
 		InitializeComponent();
-		Load += CandidateManagementView_Load;
 		_mediator = mediator;
 		_userDataToEditContext = userDataToEditContext;
 		_serviceProvider = serviceProvider;
+		candidateDGV.Visible = false;
+		Load += CandidateManagementView_Load;
 	}
 
 	private async void CandidateManagementView_Load(object? sender, EventArgs e)
@@ -95,6 +96,7 @@ public partial class CandidateManagementView : UserControl
 		_candidatePageList = await _mediator.Send(command);
 		LoadDataGridView();
 		SetLabel();
+		candidateDGV.Visible = _candidatePageList.Items.Count is not 0;
 	}
 
 	private void SetLabel()

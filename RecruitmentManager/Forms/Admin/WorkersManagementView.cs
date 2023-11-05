@@ -24,6 +24,7 @@ public partial class WorkersManagementView : UserControl
 		IUserDataToEditContext workerDataToEditContext)
 	{
 		InitializeComponent();
+		workersDGV.Visible = false;
 		_serviceProvider = serviceProvider;
 		_mediator = mediator;
 		Load += WorkersManagementView_Load;
@@ -67,6 +68,7 @@ public partial class WorkersManagementView : UserControl
 	{
 		var pageRequest = new GetPageOfWorkersQuery(_page, _pageSize);
 		_workersPagedList = await _mediator.Send(pageRequest);
+		workersDGV.Visible = _workersPagedList.Items.Count is not 0;
 	}
 
 	private void RefreshPageCounter()

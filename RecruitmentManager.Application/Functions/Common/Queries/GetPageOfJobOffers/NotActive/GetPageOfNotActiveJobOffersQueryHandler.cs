@@ -25,8 +25,9 @@ public class GetPageOfNotActiveJobOffersQueryHandler
 		GetPageOfNotActiveJobOffersQuery request,
 		CancellationToken cancellationToken)
 	{
+		var date = DateTime.Now;
 		IQueryable<JobPosting> query = _context.Get<JobPosting>()
-			.Where(x => x.EndDate < DateTime.Now)
+			.Where(x => x.EndDate < date)
 			.OrderByDescending(x => x.CreatedDate)
 			.ThenByDescending(x => x.EndDate)
 			.AsNoTracking();

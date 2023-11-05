@@ -8,6 +8,7 @@ public class Candidate
 	public string Email { get; set; }
 	public string PasswordHash { get; set; }
 	public CandidateData CandidateData { get; set; }
+	public ProfilePicture ProfilePicture { get; set; }
 	public ICollection<Experience> Experiences { get; set; }
 	public ICollection<KnowledgeOfLanguage> KnowledgeOfLanguages { get; set; }
 	public ICollection<Skill> Skills { get; set; }

@@ -28,6 +28,7 @@ public partial class CandidateNotLoginForm : Form
 		_mediator = mediator;
 		_jobOfferContext = jobOfferContext;
 		InitializeComponent();
+		jobOffersDGV.Visible = false;
 		jobOffersDGV.ApplyJobOfferSettings();
 		this.Load += LoadJobOffers;
 	}
@@ -38,13 +39,12 @@ public partial class CandidateNotLoginForm : Form
 	private async Task ReloadPage()
 	{
 		_jobPagedList = await _mediator.Send(new GetPageOfCurrentJobOffersQuery(_pageNumber, _pageSize));
+		jobOffersDGV.Visible = _jobPagedList.Items.Count is not 0;
 		if (_jobPagedList.Items.Count is 0)
 		{
-			jobOffersDGV.Visible = false;
 			pageCounterLabel.Text = "1/1";
 			return;
 		}
-
 		jobOffersDGV.Fill(_jobPagedList.Items,
 			item => new object[]
 			{
