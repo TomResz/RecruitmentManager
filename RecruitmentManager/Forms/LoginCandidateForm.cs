@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.Application.Functions.Candidate_Functions.Login;
 using RecruitmentManager.Application.Interfaces.Context;
+using RecruitmentManager.Forms.Candidate;
 using RecruitmentManager.Subtitles;
 
 namespace RecruitmentManager;
@@ -65,7 +66,10 @@ public partial class LoginCandidateForm : Form
 		{
 			var id = await _mediator.Send(loginCommand);
 			_candidateSessionContext.SetId(id);
-			MessageBox.Show("Zalogowano!");
+			var form = _serviceProvider.GetRequiredService<CandidateLoggedInForm>();
+			this.Hide();
+			form.FormClosed += (s, args) => this.Close();
+			form.Show();
 		}
 		catch (Exception ex)
 		{

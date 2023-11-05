@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RecruitmentManager.Infrastructure.EF.Context;
 
@@ -11,9 +12,11 @@ using RecruitmentManager.Infrastructure.EF.Context;
 namespace RecruitmentManager.Infrastructure.Migrations
 {
     [DbContext(typeof(RecruitmentManagerDbContext))]
-    partial class RecruitmentManagerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231105115714_AddedProfilePictureEntityToCandidateEntity")]
+    partial class AddedProfilePictureEntityToCandidateEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,7 +41,7 @@ namespace RecruitmentManager.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Candidates", (string)null);
+                    b.ToTable("Candidates");
                 });
 
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.Candidate_Elements.CandidateData", b =>
@@ -65,7 +68,7 @@ namespace RecruitmentManager.Infrastructure.Migrations
 
                     b.HasKey("CandidateId");
 
-                    b.ToTable("CandidateData", (string)null);
+                    b.ToTable("CandidateData");
                 });
 
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.Candidate_Elements.Education", b =>
@@ -102,7 +105,7 @@ namespace RecruitmentManager.Infrastructure.Migrations
 
                     b.HasIndex("LevelOfEducationId");
 
-                    b.ToTable("Education", (string)null);
+                    b.ToTable("Education");
                 });
 
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.Candidate_Elements.Experience", b =>
@@ -135,7 +138,7 @@ namespace RecruitmentManager.Infrastructure.Migrations
 
                     b.HasIndex("CandidateId");
 
-                    b.ToTable("Experiences", (string)null);
+                    b.ToTable("Experiences");
                 });
 
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.Candidate_Elements.KnowledgeOfLanguage", b =>
@@ -160,7 +163,7 @@ namespace RecruitmentManager.Infrastructure.Migrations
 
                     b.HasIndex("LanguageProficiencyLevelId");
 
-                    b.ToTable("KnowledgeOfLanguages", (string)null);
+                    b.ToTable("KnowledgeOfLanguages");
                 });
 
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.Candidate_Elements.LanguageProficiencyLevel", b =>
@@ -174,7 +177,7 @@ namespace RecruitmentManager.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("LanguageProficiencies", (string)null);
+                    b.ToTable("LanguageProficiencies");
                 });
 
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.Candidate_Elements.LevelOfEducation", b =>
@@ -188,7 +191,7 @@ namespace RecruitmentManager.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("LevelOfEducations", (string)null);
+                    b.ToTable("LevelOfEducations");
                 });
 
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.Candidate_Elements.ProfilePicture", b =>
@@ -201,7 +204,7 @@ namespace RecruitmentManager.Infrastructure.Migrations
 
                     b.HasKey("CandidateId");
 
-                    b.ToTable("ProfilePictures", (string)null);
+                    b.ToTable("ProfilePictures");
                 });
 
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.Candidate_Elements.Skill", b =>
@@ -221,7 +224,7 @@ namespace RecruitmentManager.Infrastructure.Migrations
 
                     b.HasIndex("CandidateId");
 
-                    b.ToTable("Skills", (string)null);
+                    b.ToTable("Skills");
                 });
 
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.Employee", b =>
@@ -245,7 +248,7 @@ namespace RecruitmentManager.Infrastructure.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("Employees", (string)null);
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.EmployeeData", b =>
@@ -269,7 +272,7 @@ namespace RecruitmentManager.Infrastructure.Migrations
 
                     b.HasKey("EmployeeId");
 
-                    b.ToTable("EmployeeData", (string)null);
+                    b.ToTable("EmployeeData");
                 });
 
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.JobApplication", b =>
@@ -293,7 +296,7 @@ namespace RecruitmentManager.Infrastructure.Migrations
 
                     b.HasIndex("JobPostingId");
 
-                    b.ToTable("JobApplications", (string)null);
+                    b.ToTable("JobApplications");
                 });
 
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.JobPosting", b =>
@@ -326,7 +329,7 @@ namespace RecruitmentManager.Infrastructure.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("JobPostings", (string)null);
+                    b.ToTable("JobPostings");
                 });
 
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.RecruitmentStage", b =>
@@ -357,7 +360,7 @@ namespace RecruitmentManager.Infrastructure.Migrations
 
                     b.HasIndex("JobPostingId");
 
-                    b.ToTable("RecruitmentStages", (string)null);
+                    b.ToTable("RecruitmentStages");
                 });
 
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.Role", b =>
@@ -371,7 +374,7 @@ namespace RecruitmentManager.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles", (string)null);
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.SelectedCandidatesToJob", b =>
@@ -392,7 +395,7 @@ namespace RecruitmentManager.Infrastructure.Migrations
 
                     b.HasIndex("JobPostingId");
 
-                    b.ToTable("SelectedCandidatesToJobs", (string)null);
+                    b.ToTable("SelectedCandidatesToJobs");
                 });
 
             modelBuilder.Entity("RecruitmentManager.Domain.Entities.Candidate_Elements.CandidateData", b =>

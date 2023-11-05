@@ -1,4 +1,4 @@
-﻿namespace RecruitmentManager.Domain.Entities;
+﻿namespace RecruitmentManager.Domain.Entities.Candidate_Elements;
 
 public class LanguageProficiencyLevel
 {

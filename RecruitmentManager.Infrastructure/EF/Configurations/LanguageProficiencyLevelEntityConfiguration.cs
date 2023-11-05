@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using RecruitmentManager.Domain.Entities;
+using RecruitmentManager.Domain.Entities.Candidate_Elements;
 
 namespace RecruitmentManager.Infrastructure.EF.Configurations;
 

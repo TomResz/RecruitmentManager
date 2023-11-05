@@ -24,8 +24,10 @@ public class GetPageOfCurrentJobOffersQueryHandler
         GetPageOfCurrentJobOffersQuery request,
         CancellationToken cancellationToken)
     {
-        IQueryable<JobPosting> query = _context.Get<JobPosting>()
-            .Where(x => x.EndDate >= DateTime.Now)
+	    var date = DateTime.Now;
+
+		IQueryable<JobPosting> query = _context.Get<JobPosting>()
+            .Where(x => x.EndDate >= date)
             .OrderByDescending(x => x.CreatedDate)
             .ThenByDescending(x => x.EndDate)
             .AsNoTracking();

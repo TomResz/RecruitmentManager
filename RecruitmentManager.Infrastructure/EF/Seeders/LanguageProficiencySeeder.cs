@@ -1,4 +1,5 @@
 ﻿using RecruitmentManager.Domain.Entities;
+using RecruitmentManager.Domain.Entities.Candidate_Elements;
 using RecruitmentManager.Infrastructure.EF.Context;
 using RecruitmentManager.Infrastructure.EF.Seeders.Interface;
 

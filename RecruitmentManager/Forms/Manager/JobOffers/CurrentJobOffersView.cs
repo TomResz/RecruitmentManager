@@ -32,6 +32,7 @@ public partial class CurrentJobOffersView : UserControl
 		_serviceProvider = serviceProvider;
 		_jobOfferContext = jobOfferContext;
 		InitializeComponent();
+		jobOffersDGV.Visible = false;
 		jobOffersDGV.ApplyJobOfferSettings();
 		jobOffersDGV.SizeChanged += (s, args) => jobOffersDGV.ApplyJobOfferSettings();
 		this.Load += LoadPage;
@@ -49,6 +50,8 @@ public partial class CurrentJobOffersView : UserControl
 			pageCounterLabel.Text = "1/1";
 			return;
 		}
+
+		jobOffersDGV.Visible = _jobOfferList.Items.Count is not 0;
 		jobOffersDGV.Fill(_jobOfferList.Items, row => new object[]
 		{
 			row.Id,

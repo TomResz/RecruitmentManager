@@ -22,7 +22,7 @@ public class RecruitmentManagerDbContext : DbContext, IDbContext
 	public DbSet<RecruitmentStage> RecruitmentStages { get; set; }
     public DbSet<JobApplication> JobApplications { get; set; }
     public DbSet<SelectedCandidatesToJob> SelectedCandidatesToJobs { get; set; }
-
+    public DbSet<ProfilePicture> ProfilePictures { get; set; }
     public RecruitmentManagerDbContext(
 		DbContextOptions<RecruitmentManagerDbContext> options)
 		: base(options)
