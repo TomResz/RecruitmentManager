@@ -14,6 +14,15 @@ public class CandidateRepository : AsyncRepository<Candidate>, ICandidateReposit
 		_context = context;
 	}
 
+
+	public async Task<Candidate?> GetFullData(Guid Id, CancellationToken cancellationToken = default)
+	{
+		return await _context
+			.Candidates
+			.Include(x => x.CandidateData)
+			.Include(x => x.ProfilePicture)
+			.FirstOrDefaultAsync(x => x.Id == Id, cancellationToken);
+	}
 	public async Task<Candidate?> GetByEmailAsync(string email)
 	{
 		return await _context

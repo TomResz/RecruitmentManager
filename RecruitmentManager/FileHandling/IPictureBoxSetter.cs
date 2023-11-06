@@ -2,5 +2,5 @@
 
 public interface IPictureBoxSetter
 {
-	void Set(byte[] bytes,PictureBox pictureBox);	
+	void Set(byte[]? bytes,PictureBox pictureBox);	
 }

@@ -21,6 +21,7 @@ public class GetCandidateLoadingDataQueryHandler
 		CancellationToken cancellationToken)
 	{
 		var response = await _context.Get<ProfilePicture>()
+			.AsNoTracking()
 			.Include(x => x.Candidate)
 			.ThenInclude(x => x.CandidateData)
 			.Where(x => x.CandidateId == request.CandidateId)

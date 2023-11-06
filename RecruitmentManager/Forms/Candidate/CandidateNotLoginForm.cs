@@ -60,7 +60,7 @@ public partial class CandidateNotLoginForm : Form
 	{
 		if (_jobPagedList.HasPreviousPage)
 		{
-			_pageNumber++;
+			_pageNumber--;
 			await ReloadPage();
 		}
 	}
@@ -69,7 +69,7 @@ public partial class CandidateNotLoginForm : Form
 	{
 		if (_jobPagedList.HasNextPage)
 		{
-			_pageNumber--;
+			_pageNumber++;
 			await ReloadPage();
 		}
 	}

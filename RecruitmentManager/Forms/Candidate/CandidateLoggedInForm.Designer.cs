@@ -33,6 +33,7 @@
 			mainLayout = new TableLayoutPanel();
 			leftLayout = new TableLayoutPanel();
 			profilePicturePB = new PictureBox();
+			logoutBtn = new Button();
 			headeLayout = new TableLayoutPanel();
 			menuStrip1 = new MenuStrip();
 			menuToolStripMenuItem = new ToolStripMenuItem();
@@ -67,12 +68,13 @@
 			leftLayout.ColumnCount = 1;
 			leftLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
 			leftLayout.Controls.Add(profilePicturePB, 0, 0);
+			leftLayout.Controls.Add(logoutBtn, 0, 2);
 			leftLayout.Dock = DockStyle.Fill;
 			leftLayout.Location = new Point(3, 3);
 			leftLayout.Name = "leftLayout";
 			leftLayout.RowCount = 3;
-			leftLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 120F));
-			leftLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+			leftLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+			leftLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 75F));
 			leftLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 100F));
 			leftLayout.Size = new Size(280, 570);
 			leftLayout.TabIndex = 0;
@@ -83,11 +85,24 @@
 			profilePicturePB.Image = (Image)resources.GetObject("profilePicturePB.Image");
 			profilePicturePB.Location = new Point(6, 6);
 			profilePicturePB.Name = "profilePicturePB";
-			profilePicturePB.Size = new Size(268, 114);
+			profilePicturePB.Size = new Size(268, 108);
 			profilePicturePB.SizeMode = PictureBoxSizeMode.CenterImage;
 			profilePicturePB.TabIndex = 0;
 			profilePicturePB.TabStop = false;
 			profilePicturePB.Click += profilePicture_Click;
+			// 
+			// logoutBtn
+			// 
+			logoutBtn.Dock = DockStyle.Fill;
+			logoutBtn.FlatStyle = FlatStyle.Flat;
+			logoutBtn.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+			logoutBtn.Location = new Point(6, 469);
+			logoutBtn.Name = "logoutBtn";
+			logoutBtn.Size = new Size(268, 95);
+			logoutBtn.TabIndex = 1;
+			logoutBtn.Text = "Wyloguj się";
+			logoutBtn.UseVisualStyleBackColor = true;
+			logoutBtn.Click += logoutBtn_Click_1;
 			// 
 			// headeLayout
 			// 
@@ -139,8 +154,9 @@
 			// edytujDaneToolStripMenuItem
 			// 
 			edytujDaneToolStripMenuItem.Name = "edytujDaneToolStripMenuItem";
-			edytujDaneToolStripMenuItem.Size = new Size(200, 28);
+			edytujDaneToolStripMenuItem.Size = new Size(224, 28);
 			edytujDaneToolStripMenuItem.Text = "Edytuj Dane";
+			edytujDaneToolStripMenuItem.Click += edytujDaneToolStripMenuItem_Click;
 			// 
 			// CandidateLoggedInForm
 			// 
@@ -172,5 +188,6 @@
 		private TableLayoutPanel leftLayout;
 		private PictureBox profilePicturePB;
 		private ToolTip toolTip1;
+		private Button logoutBtn;
 	}
 }

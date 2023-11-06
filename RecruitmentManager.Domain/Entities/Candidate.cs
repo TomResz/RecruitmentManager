@@ -13,5 +13,6 @@ public class Candidate
 	public ICollection<KnowledgeOfLanguage> KnowledgeOfLanguages { get; set; }
 	public ICollection<Skill> Skills { get; set; }
     public ICollection<JobApplication> JobApplications { get; set; }
+    public ICollection<Hobby> Hobbies { get; set; }
     public ICollection<SelectedCandidatesToJob> SelectedCandidatesToJobs { get; set; }
 }

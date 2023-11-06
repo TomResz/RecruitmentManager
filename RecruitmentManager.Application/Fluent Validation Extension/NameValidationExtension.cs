@@ -10,6 +10,7 @@ public static class NameValidationExtension
 		string fieldNameToMessage)
 	{
 		return ruleBuilder
+			.NotNull()
 			.NotEmpty().WithMessage($"Puste {fieldNameToMessage}!")
 			.Matches(Pattern).WithMessage($"Nieprawidłowe {fieldNameToMessage}!");
 	}

@@ -28,26 +28,35 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditCandidateData));
 			editDataBtn = new Button();
 			birthDatePicker = new DateTimePicker();
-			pictureBox3 = new PictureBox();
+			birthDatePB = new PictureBox();
 			phoneNumberLabel = new Label();
 			phoneNumberTb = new TextBox();
-			pictureBox2 = new PictureBox();
+			phoneNumberPB = new PictureBox();
 			firstNameLabel = new Label();
 			firstNameTb = new TextBox();
-			pictureBox5 = new PictureBox();
+			firstNamePb = new PictureBox();
 			lastNameLabel = new Label();
 			lastNameTb = new TextBox();
-			pictureBox4 = new PictureBox();
+			lastNamePB = new PictureBox();
 			emailTb = new TextBox();
-			pictureBox1 = new PictureBox();
-			((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-			((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-			((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-			((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+			emailPB = new PictureBox();
+			cityLabel = new Label();
+			cityTb = new TextBox();
+			cityPB = new PictureBox();
+			setProfilePictureBtn = new Button();
+			profilePicturePB = new PictureBox();
+			toolTip1 = new ToolTip(components);
+			((System.ComponentModel.ISupportInitialize)birthDatePB).BeginInit();
+			((System.ComponentModel.ISupportInitialize)phoneNumberPB).BeginInit();
+			((System.ComponentModel.ISupportInitialize)firstNamePb).BeginInit();
+			((System.ComponentModel.ISupportInitialize)lastNamePB).BeginInit();
+			((System.ComponentModel.ISupportInitialize)emailPB).BeginInit();
+			((System.ComponentModel.ISupportInitialize)cityPB).BeginInit();
+			((System.ComponentModel.ISupportInitialize)profilePicturePB).BeginInit();
 			SuspendLayout();
 			// 
 			// editDataBtn
@@ -59,7 +68,9 @@
 			editDataBtn.Size = new Size(515, 66);
 			editDataBtn.TabIndex = 70;
 			editDataBtn.Text = "Edytuj Dane";
+			editDataBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
 			editDataBtn.UseVisualStyleBackColor = true;
+			editDataBtn.Click += editDataBtn_Click;
 			// 
 			// birthDatePicker
 			// 
@@ -70,14 +81,14 @@
 			birthDatePicker.Size = new Size(421, 30);
 			birthDatePicker.TabIndex = 69;
 			// 
-			// pictureBox3
+			// birthDatePB
 			// 
-			pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-			pictureBox3.Location = new Point(12, 186);
-			pictureBox3.Name = "pictureBox3";
-			pictureBox3.Size = new Size(88, 81);
-			pictureBox3.TabIndex = 68;
-			pictureBox3.TabStop = false;
+			birthDatePB.Image = (Image)resources.GetObject("birthDatePB.Image");
+			birthDatePB.Location = new Point(12, 186);
+			birthDatePB.Name = "birthDatePB";
+			birthDatePB.Size = new Size(88, 81);
+			birthDatePB.TabIndex = 68;
+			birthDatePB.TabStop = false;
 			// 
 			// phoneNumberLabel
 			// 
@@ -99,15 +110,16 @@
 			phoneNumberTb.Name = "phoneNumberTb";
 			phoneNumberTb.Size = new Size(421, 42);
 			phoneNumberTb.TabIndex = 66;
+			phoneNumberTb.TextChanged += phoneNumberTb_TextChanged;
 			// 
-			// pictureBox2
+			// phoneNumberPB
 			// 
-			pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-			pictureBox2.Location = new Point(545, 99);
-			pictureBox2.Name = "pictureBox2";
-			pictureBox2.Size = new Size(88, 81);
-			pictureBox2.TabIndex = 65;
-			pictureBox2.TabStop = false;
+			phoneNumberPB.Image = (Image)resources.GetObject("phoneNumberPB.Image");
+			phoneNumberPB.Location = new Point(545, 99);
+			phoneNumberPB.Name = "phoneNumberPB";
+			phoneNumberPB.Size = new Size(88, 81);
+			phoneNumberPB.TabIndex = 65;
+			phoneNumberPB.TabStop = false;
 			// 
 			// firstNameLabel
 			// 
@@ -129,15 +141,16 @@
 			firstNameTb.Name = "firstNameTb";
 			firstNameTb.Size = new Size(421, 42);
 			firstNameTb.TabIndex = 63;
+			firstNameTb.TextChanged += firstNameTb_TextChanged;
 			// 
-			// pictureBox5
+			// firstNamePb
 			// 
-			pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-			pictureBox5.Location = new Point(12, 12);
-			pictureBox5.Name = "pictureBox5";
-			pictureBox5.Size = new Size(88, 81);
-			pictureBox5.TabIndex = 62;
-			pictureBox5.TabStop = false;
+			firstNamePb.Image = (Image)resources.GetObject("firstNamePb.Image");
+			firstNamePb.Location = new Point(12, 12);
+			firstNamePb.Name = "firstNamePb";
+			firstNamePb.Size = new Size(88, 81);
+			firstNamePb.TabIndex = 62;
+			firstNamePb.TabStop = false;
 			// 
 			// lastNameLabel
 			// 
@@ -159,15 +172,16 @@
 			lastNameTb.Name = "lastNameTb";
 			lastNameTb.Size = new Size(421, 42);
 			lastNameTb.TabIndex = 60;
+			lastNameTb.TextChanged += lastNameTb_TextChanged;
 			// 
-			// pictureBox4
+			// lastNamePB
 			// 
-			pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-			pictureBox4.Location = new Point(12, 99);
-			pictureBox4.Name = "pictureBox4";
-			pictureBox4.Size = new Size(88, 81);
-			pictureBox4.TabIndex = 59;
-			pictureBox4.TabStop = false;
+			lastNamePB.Image = (Image)resources.GetObject("lastNamePB.Image");
+			lastNamePB.Location = new Point(12, 99);
+			lastNamePB.Name = "lastNamePB";
+			lastNamePB.Size = new Size(88, 81);
+			lastNamePB.TabIndex = 59;
+			lastNamePB.TabStop = false;
 			// 
 			// emailTb
 			// 
@@ -179,41 +193,106 @@
 			emailTb.Size = new Size(421, 42);
 			emailTb.TabIndex = 58;
 			// 
-			// pictureBox1
+			// emailPB
 			// 
-			pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-			pictureBox1.Location = new Point(545, 12);
-			pictureBox1.Name = "pictureBox1";
-			pictureBox1.Size = new Size(88, 81);
-			pictureBox1.TabIndex = 57;
-			pictureBox1.TabStop = false;
+			emailPB.Image = (Image)resources.GetObject("emailPB.Image");
+			emailPB.Location = new Point(545, 12);
+			emailPB.Name = "emailPB";
+			emailPB.Size = new Size(88, 81);
+			emailPB.TabIndex = 57;
+			emailPB.TabStop = false;
+			// 
+			// cityLabel
+			// 
+			cityLabel.AutoSize = true;
+			cityLabel.Enabled = false;
+			cityLabel.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point);
+			cityLabel.Location = new Point(649, 213);
+			cityLabel.Name = "cityLabel";
+			cityLabel.Size = new Size(85, 34);
+			cityLabel.TabIndex = 73;
+			cityLabel.Text = "label1";
+			// 
+			// cityTb
+			// 
+			cityTb.BackColor = SystemColors.Control;
+			cityTb.BorderStyle = BorderStyle.FixedSingle;
+			cityTb.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point);
+			cityTb.Location = new Point(639, 211);
+			cityTb.Name = "cityTb";
+			cityTb.Size = new Size(421, 42);
+			cityTb.TabIndex = 72;
+			cityTb.TextChanged += cityTb_TextChanged;
+			// 
+			// cityPB
+			// 
+			cityPB.Image = (Image)resources.GetObject("cityPB.Image");
+			cityPB.Location = new Point(545, 186);
+			cityPB.Name = "cityPB";
+			cityPB.Size = new Size(88, 81);
+			cityPB.TabIndex = 71;
+			cityPB.TabStop = false;
+			// 
+			// setProfilePictureBtn
+			// 
+			setProfilePictureBtn.FlatStyle = FlatStyle.Flat;
+			setProfilePictureBtn.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Point);
+			setProfilePictureBtn.Location = new Point(545, 285);
+			setProfilePictureBtn.Name = "setProfilePictureBtn";
+			setProfilePictureBtn.Size = new Size(515, 66);
+			setProfilePictureBtn.TabIndex = 74;
+			setProfilePictureBtn.Text = "Wybierz zdjęcie";
+			setProfilePictureBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+			setProfilePictureBtn.UseVisualStyleBackColor = true;
+			setProfilePictureBtn.Click += button1_Click;
+			// 
+			// profilePicturePB
+			// 
+			profilePicturePB.BorderStyle = BorderStyle.Fixed3D;
+			profilePicturePB.Location = new Point(1076, 37);
+			profilePicturePB.Margin = new Padding(0);
+			profilePicturePB.Name = "profilePicturePB";
+			profilePicturePB.Size = new Size(316, 311);
+			profilePicturePB.SizeMode = PictureBoxSizeMode.Zoom;
+			profilePicturePB.TabIndex = 75;
+			profilePicturePB.TabStop = false;
+			profilePicturePB.Click += profilePicturePB_Click;
 			// 
 			// EditCandidateData
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(1473, 357);
+			ClientSize = new Size(1401, 357);
+			Controls.Add(profilePicturePB);
+			Controls.Add(setProfilePictureBtn);
+			Controls.Add(cityLabel);
+			Controls.Add(cityTb);
+			Controls.Add(cityPB);
 			Controls.Add(editDataBtn);
 			Controls.Add(birthDatePicker);
-			Controls.Add(pictureBox3);
+			Controls.Add(birthDatePB);
 			Controls.Add(phoneNumberLabel);
 			Controls.Add(phoneNumberTb);
-			Controls.Add(pictureBox2);
+			Controls.Add(phoneNumberPB);
 			Controls.Add(firstNameLabel);
 			Controls.Add(firstNameTb);
-			Controls.Add(pictureBox5);
+			Controls.Add(firstNamePb);
 			Controls.Add(lastNameLabel);
 			Controls.Add(lastNameTb);
-			Controls.Add(pictureBox4);
+			Controls.Add(lastNamePB);
 			Controls.Add(emailTb);
-			Controls.Add(pictureBox1);
+			Controls.Add(emailPB);
+			MaximumSize = new Size(1419, 404);
+			MinimumSize = new Size(1419, 404);
 			Name = "EditCandidateData";
-			Text = "EditCandidateData";
-			((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-			((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-			((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-			((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+			Text = "Edytuj Dane";
+			((System.ComponentModel.ISupportInitialize)birthDatePB).EndInit();
+			((System.ComponentModel.ISupportInitialize)phoneNumberPB).EndInit();
+			((System.ComponentModel.ISupportInitialize)firstNamePb).EndInit();
+			((System.ComponentModel.ISupportInitialize)lastNamePB).EndInit();
+			((System.ComponentModel.ISupportInitialize)emailPB).EndInit();
+			((System.ComponentModel.ISupportInitialize)cityPB).EndInit();
+			((System.ComponentModel.ISupportInitialize)profilePicturePB).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -222,17 +301,23 @@
 
 		private Button editDataBtn;
 		private DateTimePicker birthDatePicker;
-		private PictureBox pictureBox3;
+		private PictureBox birthDatePB;
 		private Label phoneNumberLabel;
 		private TextBox phoneNumberTb;
-		private PictureBox pictureBox2;
+		private PictureBox phoneNumberPB;
 		private Label firstNameLabel;
 		private TextBox firstNameTb;
-		private PictureBox pictureBox5;
+		private PictureBox firstNamePb;
 		private Label lastNameLabel;
 		private TextBox lastNameTb;
-		private PictureBox pictureBox4;
+		private PictureBox lastNamePB;
 		private TextBox emailTb;
-		private PictureBox pictureBox1;
+		private PictureBox emailPB;
+		private Label cityLabel;
+		private TextBox cityTb;
+		private PictureBox cityPB;
+		private Button setProfilePictureBtn;
+		private PictureBox profilePicturePB;
+		private ToolTip toolTip1;
 	}
 }

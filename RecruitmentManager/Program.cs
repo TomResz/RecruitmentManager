@@ -11,6 +11,7 @@ internal static class Program
 	[STAThread]
 	static void Main()
 	{
+		System.Windows.Forms.Application.ThreadException += Application_ThreadException;
 		System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
 
 		ApplicationConfiguration.Initialize();
@@ -21,5 +22,11 @@ internal static class Program
 			.Services;
 		var form = ServiceProvider.GetRequiredService<LoadingForm>();
 		System.Windows.Forms.Application.Run(form);
+	}
+
+	private static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
+	{
+		MessageBox.Show("Coœ posz³o nie tak...","B³¹d!",
+			MessageBoxButtons.OK,MessageBoxIcon.Error);
 	}
 }
