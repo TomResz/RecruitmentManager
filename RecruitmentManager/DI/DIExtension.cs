@@ -10,7 +10,7 @@ namespace RecruitmentManager.DI;
 public static class DIExtension
 {
 	private static string connectionString = 
-		ConfigurationManager.ConnectionStrings["AzureDb"].ConnectionString;
+		ConfigurationManager.ConnectionStrings["LocalDb"].ConnectionString;
 
 	public static IHostBuilder CreateHostBuilder()
 	{

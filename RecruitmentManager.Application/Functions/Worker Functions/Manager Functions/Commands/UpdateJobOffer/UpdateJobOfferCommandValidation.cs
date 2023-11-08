@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using RecruitmentManager.Application.Fluent_Validation_Extension;
+using RecruitmentManager.Application.Functions.DTOs;
 
 namespace RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Commands.UpdateJobOffer;
 

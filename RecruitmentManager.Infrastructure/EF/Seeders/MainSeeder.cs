@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using RecruitmentManager.Infrastructure.EF.Context;
 using RecruitmentManager.Infrastructure.EF.Seeders.Interface;
 
 namespace RecruitmentManager.Infrastructure.EF.Seeders;

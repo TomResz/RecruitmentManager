@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
-using RecruitmentManager.Application.Functions.Common.Queries;
+using RecruitmentManager.Application.Functions.DTOs;
 using RecruitmentManager.Application.Functions.Worker_Functions.Admin_Functions.Queries;
 using RecruitmentManager.Application.Functions.Worker_Functions.Common;
-using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Commands.UpdateJobOffer;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Queries.GetJobOfferDetailsToEdit;
 using RecruitmentManager.Application.Pagination;
@@ -39,6 +38,12 @@ public class MapperProfile : Profile
 		CreateMap<RecruitmentStage, RecruitmentStageWithEmployeeDto>()
 			.ForMember(dest => dest.FullName, opt => opt.MapFrom(src =>
 				src.Employee.EmployeeData.FirstName + " " + src.Employee.EmployeeData.LastName));
+
+		CreateMap<JobPosting, JobOffersWhereCandidateAppliedViewDto>()
+			.ForMember(dest => dest.AddedDate, opt => opt.MapFrom(src =>
+				src.JobApplications.Select(x => x.AddedDate).FirstOrDefault()))
+			.ForMember(dest => dest.InterviewQualified, opt => opt.MapFrom(src =>
+				src.JobApplications.Select(x => x.InterviewQualified).FirstOrDefault()));
 
 		CreateMap<JobOfferDetailsToEditDto, JobPosting>().ReverseMap();
 		CreateMap<RecruitmentStagesToEditDto, RecruitmentStage>().ReverseMap();

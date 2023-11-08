@@ -1,6 +1,6 @@
 ﻿using MediatR;
-using RecruitmentManager.Application.Functions.Common.Queries;
 using RecruitmentManager.Application.Functions.Common.Queries.GetPageOfJobOffers.NotActive;
+using RecruitmentManager.Application.Functions.DTOs;
 using RecruitmentManager.Application.Pagination;
 using RecruitmentManager.Controls_Extensions;
 

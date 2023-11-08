@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using RecruitmentManager.Application.Functions.Common.Queries;
 using RecruitmentManager.Application.Functions.Common.Queries.GetPageOfJobOffers.Active;
+using RecruitmentManager.Application.Functions.DTOs;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Commands.CompleteJobOffer;
 using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Application.Pagination;

@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.Application.Functions.Candidate_Functions.Queries.GetCandidateLoadingData;
 using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.FileHandling;
+using RecruitmentManager.Forms.Candidate.JobOfferViews;
 
 namespace RecruitmentManager.Forms.Candidate;
 
@@ -12,8 +13,11 @@ public partial class CandidateLoggedInForm : Form
 	private readonly ICandidateSessionContext _candidateSessionContext;
 	private readonly IPictureBoxSetter _pictureBoxSetter;
 	private readonly IMediator _mediator;
-
+	private UserControl _currentControl;
 	private string FullName;
+
+
+
 	public CandidateLoggedInForm(
 		IServiceProvider serviceProvider,
 		ICandidateSessionContext candidateSessionContext,
@@ -26,6 +30,8 @@ public partial class CandidateLoggedInForm : Form
 		_pictureBoxSetter = pictureBoxSetter;
 		InitializeComponent();
 		this.Load += CandidateLoggedInForm_Load;
+		var initForm = _serviceProvider.GetRequiredService<CandidateJobOfferMainView>();
+		ShowControl(initForm);
 		profilePicturePB.MouseHover += (
 			s,
 			args) => toolTip1.Show(FullName, profilePicturePB);
@@ -69,5 +75,19 @@ public partial class CandidateLoggedInForm : Form
 		form.ShowDialog();
 		await LoadControls();
 	}
-
+	public void ShowControl(UserControl controlToShow)
+	{
+		if (_currentControl != controlToShow)
+		{
+			if (_currentControl != null)
+				_currentControl.Visible = false;
+			if (!mainLayout.Controls.Contains(controlToShow))
+			{
+				controlToShow.Dock = DockStyle.Fill;
+				mainLayout.Controls.Add(controlToShow, 1, 0);
+			}
+			controlToShow.Visible = true;
+			_currentControl = controlToShow;
+		}
+	}
 }

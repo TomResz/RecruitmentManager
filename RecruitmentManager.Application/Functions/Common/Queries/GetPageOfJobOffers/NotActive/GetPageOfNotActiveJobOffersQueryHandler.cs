@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using RecruitmentManager.Application.Functions.DTOs;
 using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Application.Pagination;
 using RecruitmentManager.Domain.Entities;

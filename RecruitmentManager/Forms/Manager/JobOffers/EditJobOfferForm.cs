@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions;
+using RecruitmentManager.Application.Functions.DTOs;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Commands.UpdateJobOffer;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Queries.GetJobOfferDetailsToEdit;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Queries.RecruiterList;

@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using RecruitmentManager.Application.Functions.DTOs;
 using RecruitmentManager.Application.Interfaces.Repositories;
 
 namespace RecruitmentManager.Application.Functions.Candidate_Functions.Queries.GetCandidateDataToEdit;

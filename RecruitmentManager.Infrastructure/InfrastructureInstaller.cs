@@ -25,7 +25,8 @@ public static class InfrastructureInstaller
         services.AddScoped<IEmployeeRepository,EmployeeRepository>();
         services.AddScoped<IJobPostingRepository,JobPostingRepository>();
         services.AddScoped<IRecruitmentStageRepository,RecruitmentStageRepository>();
-        services.AddSingleton<ICandidateSessionContext, CandidateSessionContext>();
+        services.AddScoped<IJobApplicationRepository, JobApplicationRepositoryRepository>();
+		services.AddSingleton<ICandidateSessionContext, CandidateSessionContext>();
         services.AddSingleton<IWorkerSessionContext, WorkerSessionContext>();
         services.AddSingleton<IUserDataToEditContext,UserDataToEditContext>();
         services.AddSingleton<IJobOfferContext, JobOfferContext>();

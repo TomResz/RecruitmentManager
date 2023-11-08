@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using RecruitmentManager.Application.Functions.DTOs;
 
 namespace RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions;
 

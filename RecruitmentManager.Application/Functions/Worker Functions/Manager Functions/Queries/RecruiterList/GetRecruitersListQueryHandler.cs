@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using RecruitmentManager.Application.Functions.DTOs;
 using RecruitmentManager.Application.Interfaces.Repositories;
 using RecruitmentManager.Domain.Enums;
 

@@ -1,6 +1,4 @@
-﻿using DocumentFormat.OpenXml.InkML;
-using DocumentFormat.OpenXml.Office2016.Drawing.Command;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using RecruitmentManager.Application.Interfaces.Repositories;
 using RecruitmentManager.Domain.Entities;
 using RecruitmentManager.Infrastructure.EF.Context;
@@ -84,5 +82,26 @@ public class JobPostingRepository
 				throw;
 			}
 		}
+	}
+
+	public async Task<List<JobPosting>> GetWithJobApplicationWhereDidNotApply(
+		Guid candidateId)
+	{
+		return await _context
+			.JobPostings
+			.Include(x => x.JobApplications)
+			.Where(x => x.JobApplications.All(y => y.CandidateId != candidateId))
+			.AsNoTracking()
+			.ToListAsync();
+	}
+
+	public async Task<List<JobPosting>> GetWithJobApplicationWhereApply(
+		Guid candidateId)
+	{
+		return await _context
+			.JobPostings
+			.Include(x => x.JobApplications)
+			.Where(x => x.JobApplications.Any(x => x.CandidateId == candidateId))
+			.ToListAsync();
 	}
 }

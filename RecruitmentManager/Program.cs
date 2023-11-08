@@ -1,7 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.DI;
 using RecruitmentManager.Forms;
-using RecruitmentManager.Infrastructure.EF.Seeders;
 
 namespace RecruitmentManager;
 

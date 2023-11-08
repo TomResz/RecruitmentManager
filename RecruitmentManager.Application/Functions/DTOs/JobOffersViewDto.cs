@@ -1,4 +1,4 @@
-﻿namespace RecruitmentManager.Application.Functions.Common.Queries;
+﻿namespace RecruitmentManager.Application.Functions.DTOs;
 
 public class JobOffersViewDto
 {
