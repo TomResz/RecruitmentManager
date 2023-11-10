@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using RecruitmentManager.Application.Interfaces.Repositories;
+using RecruitmentManager.Shared.Exceptions;
 
 namespace RecruitmentManager.Application.Functions.Worker_Functions.Common.Queries;
 
@@ -25,7 +26,7 @@ public class GetEmployeeDataQueryHandler
 		var employee = await _repository.GetByIdFullDataAsync(request.Id);
 		if( employee is null)
 		{
-			throw new InvalidDataException(
+			throw new NotFoundException(
 				"Nie znaleziono takiego użytkownika!");
 		}
 		var mapped= _mapper.Map<EmployeeDataDto>(employee);

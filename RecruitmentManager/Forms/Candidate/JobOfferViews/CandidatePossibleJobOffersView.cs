@@ -70,7 +70,7 @@ public partial class CandidatePossibleJobOffersView : UserControl
 
 	private async void jobOffersDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
 	{
-		if(jobOffersDGV.CurrentRow is null)
+		if (jobOffersDGV.CurrentRow is null)
 			return;
 		if (e is { ColumnIndex: 5, RowIndex: >= 0 })
 		{
@@ -82,7 +82,7 @@ public partial class CandidatePossibleJobOffersView : UserControl
 				return;
 			await ApplyToJobOffer(jobPostingId, candidateId);
 		}
-		else if (e is {ColumnIndex: 4 , RowIndex: >= 0})
+		else if (e is { ColumnIndex: 4, RowIndex: >= 0 })
 		{
 			var jobPostingId = Guid.Parse(jobOffersDGV.CurrentRow.Cells[0].Value.ToString() ?? string.Empty);
 			OpenJobOfferDetailsView(jobPostingId);

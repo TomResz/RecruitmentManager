@@ -2,6 +2,7 @@
 using RecruitmentManager.Application.Error_Serializer;
 using RecruitmentManager.Application.Interfaces.Repositories;
 using RecruitmentManager.Domain.Entities;
+using RecruitmentManager.Shared.Exceptions;
 
 namespace RecruitmentManager.Application.Functions.Worker_Functions.Common.Commands.EditEmployeeData;
 
@@ -23,13 +24,13 @@ public class EditEmployeeDataCommandHandler
 		var result = await validation.ValidateAsync(request, cancellationToken);
 		if(!result.IsValid)
 		{
-			throw new InvalidOperationException(FVErrorSerializer.SerializeToString(
+			throw new BadRequestException(FVErrorSerializer.SerializeToString(
 				result.Errors));
 		}
 		var employee = await _repository.GetById(request.Id);
         if (employee is null)
         {
-			throw new ArgumentException(nameof(request.Id));
+			throw new NotFoundException(nameof(request.Id));
         }
 		employee.EmployeeData.FirstName = request.FirstName;
 		employee.EmployeeData.LastName = request.LastName;

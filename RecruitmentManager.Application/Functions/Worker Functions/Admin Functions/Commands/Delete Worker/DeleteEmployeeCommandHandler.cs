@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Application.Interfaces.Repositories;
+using RecruitmentManager.Shared.Exceptions;
 
 namespace RecruitmentManager.Application.Functions.Worker_Functions.Admin_Functions.Commands.Delete_Worker;
 
@@ -21,12 +22,12 @@ public class DeleteEmployeeCommandHandler
 	{
 		if(request.Id == _sessionContext.WorkerId)
 		{
-			throw new InvalidDataException("Nie można siebie samego usunąć :-(\r\n😢😢😢");
+			throw new BadRequestException("Nie można siebie samego usunąć :-(\r\n😢😢😢");
 		}
 		var entity = await _repository.GetById(request.Id);
 		if(entity is null)
 		{
-			throw new InvalidDataException("Nieznany błąd!");
+			throw new NotFoundException("Nieznany błąd!");
 		}
 		await _repository.Delete(entity);
 	}

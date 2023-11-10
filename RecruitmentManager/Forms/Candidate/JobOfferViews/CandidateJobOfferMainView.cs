@@ -6,6 +6,8 @@ public partial class CandidateJobOfferMainView : UserControl
 {
 	private readonly IServiceProvider _serviceProvider;
 	private UserControl _currentControl;
+
+
 	public CandidateJobOfferMainView(
 		IServiceProvider serviceProvider)
 	{
@@ -32,6 +34,13 @@ public partial class CandidateJobOfferMainView : UserControl
 	}
 	private void activeJobOffersBtn_Click(object sender, EventArgs e)
 	{
+		var form = _serviceProvider.GetRequiredService<CandidatePossibleJobOffersView>();
+		ShowControl(form);
+	}
 
+	private void myApplicationsBtn_Click(object sender, EventArgs e)
+	{
+		var form = _serviceProvider.GetRequiredService<CandidateApplicationsJobOffersView>();
+		ShowControl(form);
 	}
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using RecruitmentManager.Application.Error_Serializer;
 using RecruitmentManager.Application.Interfaces.Repositories;
 using RecruitmentManager.Domain.Entities;
+using RecruitmentManager.Shared.Exceptions;
 
 namespace RecruitmentManager.Application.Functions.Worker_Functions.Admin_Functions.Commands.EditWorkerPassword;
 
@@ -27,13 +28,13 @@ public class EditWorkerPasswordCommandHandler
 		var resultOfValidation = validate.Validate(request);
 		if(!resultOfValidation.IsValid)
 		{
-			throw new ArgumentException(
+			throw new BadRequestException(
 				 FVErrorSerializer.SerializeToString(resultOfValidation.Errors));
 		}
 		var worker = await _employeeRepository.GetById(request.Id);
 		if (worker is null) 
 		{
-			throw new ArgumentException("Error 404");
+			throw new NotFoundException("Error 404");
 		}
 		var passwordHash = _passwordHasher.HashPassword(worker, request.Password);	
 		worker.PasswordHash = passwordHash;

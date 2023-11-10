@@ -4,6 +4,7 @@ using RecruitmentManager.Application.Error_Serializer;
 using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Application.Interfaces.Repositories;
 using RecruitmentManager.Domain.Entities;
+using RecruitmentManager.Shared.Exceptions;
 
 namespace RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Commands.CreateJobOffer;
 
@@ -31,12 +32,12 @@ public class CreateJobOfferCommandHandler
 		var resultOfValidation = await validation.ValidateAsync(request, cancellationToken);
 		if (!resultOfValidation.IsValid)
 		{
-			throw new ArgumentException(FVErrorSerializer
+			throw new BadRequestException(FVErrorSerializer
 				.SerializeToString(resultOfValidation.Errors));
 		}
 
 		Guid workerId = _workerSessionContext.WorkerId 
-		                ?? throw new InvalidDataException(nameof(_workerSessionContext.WorkerId));
+		                ?? throw new NotFoundException(nameof(_workerSessionContext.WorkerId));
 
 		var stages = _mapper.Map<List<RecruitmentStage>>(request.RecruitmentStagesDtos);
 		var jobOffer = new JobPosting()

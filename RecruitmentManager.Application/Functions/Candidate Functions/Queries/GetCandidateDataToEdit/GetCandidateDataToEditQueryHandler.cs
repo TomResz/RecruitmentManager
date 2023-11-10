@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using RecruitmentManager.Application.Functions.DTOs;
 using RecruitmentManager.Application.Interfaces.Repositories;
+using RecruitmentManager.Shared.Exceptions;
 
 namespace RecruitmentManager.Application.Functions.Candidate_Functions.Queries.GetCandidateDataToEdit;
 
@@ -21,7 +22,7 @@ public class GetCandidateDataToEditQueryHandler
 	{
 		var candidate = await _candidateRepository.GetFullData(request.CandidateId, cancellationToken);
 		if(candidate is null)
-			throw new ArgumentNullException(nameof(candidate));
+			throw new NotFoundException(nameof(candidate));
 		return new CandidateDataToEditDTO(
 			id: candidate.Id,
 			firstName: candidate.CandidateData.FirstName,

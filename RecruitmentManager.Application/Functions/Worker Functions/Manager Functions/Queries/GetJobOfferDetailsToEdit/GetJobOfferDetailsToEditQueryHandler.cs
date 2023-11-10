@@ -2,6 +2,7 @@
 using AutoMapper;
 using MediatR;
 using RecruitmentManager.Application.Interfaces.Repositories;
+using RecruitmentManager.Shared.Exceptions;
 
 namespace RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Queries.GetJobOfferDetailsToEdit;
 
@@ -24,7 +25,7 @@ public class GetJobOfferDetailsToEditQueryHandler
 	{
 		var jobOffer = await _jobPostingRepository.GetFullDataByIdAsync(request.id);
 		if (jobOffer is null)
-			throw new ArgumentNullException(nameof(jobOffer));
+			throw new NotFoundException(nameof(jobOffer));
 		var stages = _mapper.Map<List<RecruitmentStageWithEmployeeDto>>(jobOffer.RecruitmentStages);
 		var jobOfferView = _mapper.Map<JobOfferDetailsToEditDto>(jobOffer);
 

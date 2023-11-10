@@ -2,6 +2,7 @@
 using RecruitmentManager.Application.Error_Serializer;
 using RecruitmentManager.Application.Interfaces.Repositories;
 using RecruitmentManager.Domain.Entities;
+using RecruitmentManager.Shared.Exceptions;
 
 namespace RecruitmentManager.Application.Functions.Candidate_Functions.Commands.UpdateData;
 
@@ -31,7 +32,7 @@ public class UpdateCandidateDataCommandHandler
 		}
 		var candidate = await _candidateRepository.GetFullData(request.DataToEditDto.Id, cancellationToken);
 		if(candidate is null)
-			throw new ArgumentNullException(nameof(candidate));
+			throw new NotFoundException(nameof(candidate));
 		candidate.ProfilePicture.Image = request.DataToEditDto.Picture;
 		candidate.Email = request.DataToEditDto.Email;
 		candidate.CandidateData.FirstName = request.DataToEditDto.FirstName;

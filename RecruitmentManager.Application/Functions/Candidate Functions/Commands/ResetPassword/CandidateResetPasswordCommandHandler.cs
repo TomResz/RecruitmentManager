@@ -4,6 +4,7 @@ using RecruitmentManager.Application.Error_Serializer;
 using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Application.Interfaces.Repositories;
 using RecruitmentManager.Domain.Entities;
+using RecruitmentManager.Shared.Exceptions;
 
 namespace RecruitmentManager.Application.Functions.Candidate_Functions.Commands.ResetPassword.ResetPassword;
 
@@ -28,11 +29,11 @@ public class CandidateResetPasswordCommandHandler
 		var resultOfValidation = validation.Validate(request);	
 		if(!resultOfValidation.IsValid)
 		{
-			throw new InvalidDataException(FVErrorSerializer
+			throw new BadRequestException(FVErrorSerializer
 				.SerializeToString(resultOfValidation.Errors));
 		}
 		var candidate = await _repository.GetById(request.CandidateId) 
-			?? throw new ArgumentNullException("ERROR 404");
+			?? throw new NotFoundException("ERROR 404");
 
 		candidate.PasswordHash = _passwordHasher.HashPassword(candidate, request.Password);
 		await _repository.Update(candidate);

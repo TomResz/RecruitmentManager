@@ -4,7 +4,7 @@ public class CandidateRating
 {
     public Guid Id { get; set; } = Guid.NewGuid();
     public DateTime InterviewDate { get; set; }
-    public int Grade { get; set; }
+    public int? Grade { get; set; }
     public string? Notes { get; set; }
     public Guid RecruitmentStageId { get; set; }
     public RecruitmentStage RecruitmentStage { get; set; }

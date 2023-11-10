@@ -4,6 +4,7 @@ using RecruitmentManager.Application.Error_Serializer;
 using RecruitmentManager.Application.Interfaces.Repositories;
 using RecruitmentManager.Domain.Entities;
 using RecruitmentManager.Domain.Enums;
+using RecruitmentManager.Shared.Exceptions;
 
 namespace RecruitmentManager.Application.Functions.Worker_Functions.Login;
 
@@ -29,19 +30,19 @@ public class LoginWorkerCommandHandler
 		var result  = await validation.ValidateAsync(request, cancellationToken);
 		if(!result.IsValid)
 		{
-			throw new ArgumentException(
+			throw new BadRequestException(
 				 FVErrorSerializer.SerializeToString(result.Errors));
 		}
 		var employee = await _repository.GetByEmailAsync(request.Email);
 		if( employee is null)
 		{
-			throw new ArgumentException("Nieprawidłowy adres email!");
+			throw new BadRequestException("Nieprawidłowy adres email!");
 		}
 		var passwordValidation = _passwordHasher.
 			VerifyHashedPassword(employee, employee.PasswordHash, request.Password);
 		if(passwordValidation == PasswordVerificationResult.Failed)
 		{
-			throw new ArgumentException("Nieprawidłowe hasło!");
+			throw new BadRequestException("Nieprawidłowe hasło!");
 		}
 		return new LoginWorkerResponse(employee.Id, 
 			 string.Join(" ",employee.EmployeeData.FirstName,employee.EmployeeData.LastName)

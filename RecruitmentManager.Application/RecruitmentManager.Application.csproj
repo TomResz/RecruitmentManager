@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RecruitmentManager.Domain\RecruitmentManager.Domain.csproj" />
+    <ProjectReference Include="..\RecruitmentManager.Shared\RecruitmentManager.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

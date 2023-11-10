@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using RecruitmentManager.Application.Error_Serializer;
 using RecruitmentManager.Application.Interfaces.Repositories;
 using RecruitmentManager.Domain.Entities;
+using RecruitmentManager.Shared.Exceptions;
 
 namespace RecruitmentManager.Application.Functions.Candidate_Functions.Login;
 
@@ -34,13 +35,13 @@ public class LoginCandidateCommandHandler
 		var user = await _candidateRepository.GetByEmailAsync(request.Email);
 		if(user is null)
 		{
-			throw new InvalidDataException("Nieprawidłowy adres email!");
+			throw new BadRequestException("Nieprawidłowy adres email!");
 		}
 		var passwordVerification = _passwordHasher.VerifyHashedPassword(user: user,
 			  hashedPassword: user.PasswordHash,providedPassword: request.Password);
 		if(passwordVerification == PasswordVerificationResult.Failed)
 		{
-			throw new InvalidDataException("Nieprawidłowe hasło!");
+			throw new BadRequestException("Nieprawidłowe hasło!");
 		}
 		return user.Id;
 	}

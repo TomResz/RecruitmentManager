@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using RecruitmentManager.Application.Error_Serializer;
 using RecruitmentManager.Application.Interfaces.Repositories;
 using RecruitmentManager.Domain.Entities;
+using RecruitmentManager.Shared.Exceptions;
 
 namespace RecruitmentManager.Application.Functions.Worker_Functions.Admin_Functions.Commands.CreateWorker;
 
@@ -26,13 +27,13 @@ public class CreateWorkerCommandHandler
 		var result = validation.Validate(request);
 		if (!result.IsValid)
 		{
-			throw new InvalidDataException(FVErrorSerializer.SerializeToString(
+			throw new BadRequestException(FVErrorSerializer.SerializeToString(
 				result.Errors));	
 		}
 		var employeeWithUniqueEmail = await _employeeRepository.GetByEmailAsync(request.Email);
 		if(employeeWithUniqueEmail is  not null)
 		{
-			throw new InvalidDataException("Email jest już zajęty");
+			throw new BadRequestException("Email jest już zajęty");
 		}
 
 		var id = Guid.NewGuid();

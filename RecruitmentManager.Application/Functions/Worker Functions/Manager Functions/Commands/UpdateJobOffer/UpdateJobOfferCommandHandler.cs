@@ -3,6 +3,7 @@ using MediatR;
 using RecruitmentManager.Application.Error_Serializer;
 using RecruitmentManager.Application.Interfaces.Repositories;
 using RecruitmentManager.Domain.Entities;
+using RecruitmentManager.Shared.Exceptions;
 
 namespace RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Commands.UpdateJobOffer;
 
@@ -27,14 +28,14 @@ public class UpdateJobOfferCommandHandler
 		var resultOfValidation = await validation.ValidateAsync(request, cancellationToken);
 		if (!resultOfValidation.IsValid)
 		{
-			throw new ArgumentException(FVErrorSerializer.SerializeToString(
+			throw new BadRequestException(FVErrorSerializer.SerializeToString(
 				resultOfValidation.Errors));
 		}
 
 		var originalOffer = await _postingRepository.GetFullDataByIdAsync(request.Id);
 
 		if (originalOffer is null)
-			throw new ArgumentNullException("Coś poszło nie tak...");
+			throw new NotFoundException("Coś poszło nie tak...");
 
 		originalOffer.CreatedDate = request.CreatedDate;
 		originalOffer.EndDate = request.EndDate;

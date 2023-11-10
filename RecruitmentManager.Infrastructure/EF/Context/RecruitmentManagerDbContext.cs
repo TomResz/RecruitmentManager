@@ -24,6 +24,7 @@ public class RecruitmentManagerDbContext : DbContext, IDbContext
     public DbSet<SelectedCandidatesToJob> SelectedCandidatesToJobs { get; set; }
     public DbSet<ProfilePicture> ProfilePictures { get; set; }
     public DbSet<Hobby> Hobbies { get; set; }
+    public DbSet<CandidateRating> CandidateRatings { get; set; }
     public RecruitmentManagerDbContext(
 		DbContextOptions<RecruitmentManagerDbContext> options)
 		: base(options)

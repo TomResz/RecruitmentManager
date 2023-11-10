@@ -82,6 +82,7 @@
 			myApplicationsBtn.Text = "Moje Aplikacje";
 			myApplicationsBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
 			myApplicationsBtn.UseVisualStyleBackColor = true;
+			myApplicationsBtn.Click += myApplicationsBtn_Click;
 			// 
 			// activeJobOffersBtn
 			// 

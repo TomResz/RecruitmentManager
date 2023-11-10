@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Domain.Entities.Candidate_Elements;
+using RecruitmentManager.Shared.Exceptions;
 
 namespace RecruitmentManager.Application.Functions.Candidate_Functions.Queries.GetCandidateLoadingData;
 
@@ -27,7 +28,7 @@ public class GetCandidateLoadingDataQueryHandler
 			.Where(x => x.CandidateId == request.CandidateId)
 			.FirstOrDefaultAsync(cancellationToken);
 		if (response is null)
-			throw new ArgumentException("Nie znaleziono użytkownika!");
+			throw new NotFoundException("Nie znaleziono użytkownika!");
 		string fullName = response.Candidate.CandidateData.FirstName + " " + response.Candidate.CandidateData.LastName;
 		return new(fullName,response.Image);
 	}

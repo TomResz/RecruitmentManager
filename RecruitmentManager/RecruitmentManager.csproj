@@ -26,6 +26,7 @@
   <ItemGroup>
     <ProjectReference Include="..\RecruitmentManager.Application\RecruitmentManager.Application.csproj" />
     <ProjectReference Include="..\RecruitmentManager.Infrastructure\RecruitmentManager.Infrastructure.csproj" />
+    <ProjectReference Include="..\RecruitmentManager.Shared\RecruitmentManager.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

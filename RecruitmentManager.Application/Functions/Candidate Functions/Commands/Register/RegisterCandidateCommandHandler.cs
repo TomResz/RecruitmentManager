@@ -4,6 +4,7 @@ using RecruitmentManager.Application.Error_Serializer;
 using RecruitmentManager.Application.Interfaces.Repositories;
 using RecruitmentManager.Domain.Entities;
 using RecruitmentManager.Domain.Entities.Candidate_Elements;
+using RecruitmentManager.Shared.Exceptions;
 
 namespace RecruitmentManager.Application.Functions.Candidate_Functions.Register;
 
@@ -29,13 +30,13 @@ public class RegisterCandidateCommandHandler
 		var result = await validation.ValidateAsync(request, cancellationToken);
 		if (!result.IsValid)
 		{
-			throw new InvalidDataException(
+			throw new BadRequestException(
 				FVErrorSerializer.SerializeToString(result.Errors));
 		}
 		var user = await _candidateRepository.GetByEmailAsync(request.Email);
 		if (user is not null)
 		{
-			throw new InvalidDataException("Email jest już zajęty!");
+			throw new NotFoundException("Email jest już zajęty!");
 		}
 
 		var candidate = new Candidate

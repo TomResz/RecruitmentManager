@@ -2,6 +2,7 @@
 using RecruitmentManager.Application.Interfaces.Repositories;
 using RecruitmentManager.Domain.Entities;
 using System.Data;
+using RecruitmentManager.Shared.Exceptions;
 
 namespace RecruitmentManager.Application.Functions.Candidate_Functions.Commands.ApplyForJobPosting;
 
@@ -22,7 +23,7 @@ public class ApplyForJobPostingCommandHandler
 		var exists = await _jobApplicationRepository.Exists(request.JobPostingId, request.CandidateId);
 		if (exists)
 		{
-			throw new DataException("Już aplikowałeś do tej oferty pracy!");
+			throw new BadRequestException("Już aplikowałeś do tej oferty pracy!");
 		}
 		var date = DateTime.Now;
 		var jobApplication = new JobApplication()
