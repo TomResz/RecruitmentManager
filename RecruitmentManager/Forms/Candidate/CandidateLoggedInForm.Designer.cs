@@ -34,6 +34,11 @@
 			leftLayout = new TableLayoutPanel();
 			profilePicturePB = new PictureBox();
 			logoutBtn = new Button();
+			navigationBarLayout = new TableLayoutPanel();
+			jobOfferBtn = new Button();
+			interviewBtn = new Button();
+			editDataBtn = new Button();
+			newsBtn = new Button();
 			headeLayout = new TableLayoutPanel();
 			menuStrip1 = new MenuStrip();
 			menuToolStripMenuItem = new ToolStripMenuItem();
@@ -44,6 +49,7 @@
 			mainLayout.SuspendLayout();
 			leftLayout.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)profilePicturePB).BeginInit();
+			navigationBarLayout.SuspendLayout();
 			headeLayout.SuspendLayout();
 			menuStrip1.SuspendLayout();
 			SuspendLayout();
@@ -69,6 +75,7 @@
 			leftLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
 			leftLayout.Controls.Add(profilePicturePB, 0, 0);
 			leftLayout.Controls.Add(logoutBtn, 0, 2);
+			leftLayout.Controls.Add(navigationBarLayout, 0, 1);
 			leftLayout.Dock = DockStyle.Fill;
 			leftLayout.Location = new Point(3, 3);
 			leftLayout.Name = "leftLayout";
@@ -93,6 +100,7 @@
 			// 
 			// logoutBtn
 			// 
+			logoutBtn.BackColor = SystemColors.GradientActiveCaption;
 			logoutBtn.Dock = DockStyle.Fill;
 			logoutBtn.FlatStyle = FlatStyle.Flat;
 			logoutBtn.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
@@ -101,8 +109,88 @@
 			logoutBtn.Size = new Size(268, 95);
 			logoutBtn.TabIndex = 1;
 			logoutBtn.Text = "Wyloguj się";
-			logoutBtn.UseVisualStyleBackColor = true;
+			logoutBtn.UseVisualStyleBackColor = false;
 			logoutBtn.Click += logoutBtn_Click_1;
+			// 
+			// navigationBarLayout
+			// 
+			navigationBarLayout.ColumnCount = 1;
+			navigationBarLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+			navigationBarLayout.Controls.Add(jobOfferBtn, 0, 3);
+			navigationBarLayout.Controls.Add(interviewBtn, 0, 2);
+			navigationBarLayout.Controls.Add(editDataBtn, 0, 1);
+			navigationBarLayout.Controls.Add(newsBtn, 0, 0);
+			navigationBarLayout.Dock = DockStyle.Fill;
+			navigationBarLayout.Location = new Point(3, 120);
+			navigationBarLayout.Margin = new Padding(0);
+			navigationBarLayout.Name = "navigationBarLayout";
+			navigationBarLayout.RowCount = 4;
+			navigationBarLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+			navigationBarLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+			navigationBarLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+			navigationBarLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+			navigationBarLayout.Size = new Size(274, 343);
+			navigationBarLayout.TabIndex = 2;
+			// 
+			// jobOfferBtn
+			// 
+			jobOfferBtn.Dock = DockStyle.Fill;
+			jobOfferBtn.FlatStyle = FlatStyle.Flat;
+			jobOfferBtn.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			jobOfferBtn.Image = (Image)resources.GetObject("jobOfferBtn.Image");
+			jobOfferBtn.Location = new Point(3, 258);
+			jobOfferBtn.Name = "jobOfferBtn";
+			jobOfferBtn.Size = new Size(268, 82);
+			jobOfferBtn.TabIndex = 3;
+			jobOfferBtn.Text = "Oferty Pracy";
+			jobOfferBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+			jobOfferBtn.UseVisualStyleBackColor = true;
+			jobOfferBtn.Click += jobOfferBtn_Click;
+			// 
+			// interviewBtn
+			// 
+			interviewBtn.Dock = DockStyle.Fill;
+			interviewBtn.FlatStyle = FlatStyle.Flat;
+			interviewBtn.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			interviewBtn.Image = (Image)resources.GetObject("interviewBtn.Image");
+			interviewBtn.Location = new Point(3, 173);
+			interviewBtn.Name = "interviewBtn";
+			interviewBtn.Size = new Size(268, 79);
+			interviewBtn.TabIndex = 2;
+			interviewBtn.Text = "Rozmowy Rekrutacyjne";
+			interviewBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+			interviewBtn.UseVisualStyleBackColor = true;
+			interviewBtn.Click += interviewBtn_Click;
+			// 
+			// editDataBtn
+			// 
+			editDataBtn.Dock = DockStyle.Fill;
+			editDataBtn.FlatStyle = FlatStyle.Flat;
+			editDataBtn.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			editDataBtn.Image = (Image)resources.GetObject("editDataBtn.Image");
+			editDataBtn.Location = new Point(3, 88);
+			editDataBtn.Name = "editDataBtn";
+			editDataBtn.Size = new Size(268, 79);
+			editDataBtn.TabIndex = 1;
+			editDataBtn.Text = "Edycja Danych";
+			editDataBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+			editDataBtn.UseVisualStyleBackColor = true;
+			editDataBtn.Click += editDataBtn_Click;
+			// 
+			// newsBtn
+			// 
+			newsBtn.Dock = DockStyle.Fill;
+			newsBtn.FlatStyle = FlatStyle.Flat;
+			newsBtn.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			newsBtn.Image = (Image)resources.GetObject("newsBtn.Image");
+			newsBtn.Location = new Point(3, 3);
+			newsBtn.Name = "newsBtn";
+			newsBtn.Size = new Size(268, 79);
+			newsBtn.TabIndex = 0;
+			newsBtn.Text = "Aktualności";
+			newsBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+			newsBtn.UseVisualStyleBackColor = true;
+			newsBtn.Click += newsBtn_Click;
 			// 
 			// headeLayout
 			// 
@@ -154,7 +242,7 @@
 			// edytujDaneToolStripMenuItem
 			// 
 			edytujDaneToolStripMenuItem.Name = "edytujDaneToolStripMenuItem";
-			edytujDaneToolStripMenuItem.Size = new Size(224, 28);
+			edytujDaneToolStripMenuItem.Size = new Size(200, 28);
 			edytujDaneToolStripMenuItem.Text = "Edytuj Dane";
 			edytujDaneToolStripMenuItem.Click += edytujDaneToolStripMenuItem_Click;
 			// 
@@ -169,6 +257,7 @@
 			mainLayout.ResumeLayout(false);
 			leftLayout.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)profilePicturePB).EndInit();
+			navigationBarLayout.ResumeLayout(false);
 			headeLayout.ResumeLayout(false);
 			headeLayout.PerformLayout();
 			menuStrip1.ResumeLayout(false);
@@ -189,5 +278,10 @@
 		private PictureBox profilePicturePB;
 		private ToolTip toolTip1;
 		private Button logoutBtn;
+		private TableLayoutPanel navigationBarLayout;
+		private Button newsBtn;
+		private Button jobOfferBtn;
+		private Button interviewBtn;
+		private Button editDataBtn;
 	}
 }

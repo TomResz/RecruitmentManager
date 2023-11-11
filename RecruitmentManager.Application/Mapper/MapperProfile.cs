@@ -6,6 +6,7 @@ using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Function
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Queries.GetJobOfferDetailsToEdit;
 using RecruitmentManager.Application.Pagination;
 using RecruitmentManager.Domain.Entities;
+using RecruitmentManager.Domain.Entities.Candidate_Elements;
 using RecruitmentManager.Domain.Enums;
 
 namespace RecruitmentManager.Application.Mapper;
@@ -44,7 +45,7 @@ public class MapperProfile : Profile
 				src.JobApplications.Select(x => x.AddedDate).FirstOrDefault()))
 			.ForMember(dest => dest.InterviewQualified, opt => opt.MapFrom(src =>
 				src.JobApplications.Select(x => x.InterviewQualified).FirstOrDefault()));
-
+		CreateMap<ExperienceDTO, Experience>().ReverseMap();
 		CreateMap<JobOfferDetailsToEditDto, JobPosting>().ReverseMap();
 		CreateMap<RecruitmentStagesToEditDto, RecruitmentStage>().ReverseMap();
 		CreateMap<UpdateJobOfferCommand, JobPosting>().ReverseMap();

@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.Application.Functions.Candidate_Functions.Queries.GetCandidateLoadingData;
 using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.FileHandling;
+using RecruitmentManager.Forms.Candidate.DataDictionary;
 using RecruitmentManager.Forms.Candidate.JobOfferViews;
 
 namespace RecruitmentManager.Forms.Candidate;
@@ -32,9 +33,7 @@ public partial class CandidateLoggedInForm : Form
 		this.Load += CandidateLoggedInForm_Load;
 		var initForm = _serviceProvider.GetRequiredService<CandidateJobOfferMainView>();
 		ShowControl(initForm);
-		profilePicturePB.MouseHover += (
-			s,
-			args) => toolTip1.Show(FullName, profilePicturePB);
+		profilePicturePB.MouseHover += (s, args) => toolTip1.Show(FullName, profilePicturePB);
 	}
 
 	private async void CandidateLoggedInForm_Load(object? sender, EventArgs e)
@@ -89,5 +88,27 @@ public partial class CandidateLoggedInForm : Form
 			controlToShow.Visible = true;
 			_currentControl = controlToShow;
 		}
+	}
+
+	private void newsBtn_Click(object sender, EventArgs e)
+	{
+
+	}
+
+	private void editDataBtn_Click(object sender, EventArgs e)
+	{
+		var uc = _serviceProvider.GetRequiredService<CandidateDataDictionaryView>();
+		ShowControl(uc);
+	}
+
+	private void interviewBtn_Click(object sender, EventArgs e)
+	{
+
+	}
+
+	private void jobOfferBtn_Click(object sender, EventArgs e)
+	{
+		var view = _serviceProvider.GetRequiredService<CandidateJobOfferMainView>();
+		ShowControl(view);
 	}
 }
