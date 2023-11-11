@@ -3,6 +3,7 @@ using RecruitmentManager.Application.Functions.Candidate_Functions.Commands.Lang
 using RecruitmentManager.Application.Functions.Candidate_Functions.Commands.Language_actions.Delete;
 using RecruitmentManager.Application.Functions.Candidate_Functions.Commands.Language_actions.Update;
 using RecruitmentManager.Application.Functions.Candidate_Functions.Queries.GetLanguagesList;
+using RecruitmentManager.Application.Functions.Common.Queries.GetLanguageItem;
 using RecruitmentManager.Controls_Extensions;
 using RecruitmentManager.Domain.Enums;
 
@@ -18,7 +19,20 @@ public partial class CandidateLanguageKnowledgeView : UserControl
 		languageDGV.SizeChanged += (s, args) => ChangeSize();
 		this.Load += CandidateLanguageKnowledgeView_Load;
 		ActivePictureBoxes();
+		languageDGV.CellClick += LanguageDGV_CellClick;
 		
+	}
+
+	private async void LanguageDGV_CellClick(object? sender, DataGridViewCellEventArgs e)
+	{
+		if(languageDGV.CurrentRow is null)
+			return;
+		if (!Guid.TryParse(languageDGV.CurrentRow.Cells[0].Value.ToString(), out var id))
+			return;
+		var query = new GetLanguageItemQuery(id);
+		var response = await _mediator.Send(query);
+		languageComboBox.SelectedItem = response.Language;
+		levelOfKnowledgeComboBox.SelectedItem = ConvertLevelIdToString(response.LanguageProficiencyLevelId);
 	}
 
 	private void ActivePictureBoxes()

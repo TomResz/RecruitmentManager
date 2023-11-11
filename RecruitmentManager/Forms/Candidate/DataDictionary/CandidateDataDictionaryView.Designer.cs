@@ -104,6 +104,7 @@
 			hobbiesTabBtn.Text = "Zainteresowania";
 			hobbiesTabBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
 			hobbiesTabBtn.UseVisualStyleBackColor = true;
+			hobbiesTabBtn.Click += hobbiesTabBtn_Click;
 			// 
 			// skillTabBtn
 			// 
@@ -118,6 +119,7 @@
 			skillTabBtn.Text = "Umiejętności";
 			skillTabBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
 			skillTabBtn.UseVisualStyleBackColor = true;
+			skillTabBtn.Click += skillTabBtn_Click;
 			// 
 			// educationTabBtn
 			// 
@@ -132,6 +134,7 @@
 			educationTabBtn.Text = "Edukacja";
 			educationTabBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
 			educationTabBtn.UseVisualStyleBackColor = true;
+			educationTabBtn.Click += educationTabBtn_Click;
 			// 
 			// experienceBtn
 			// 

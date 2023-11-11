@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 using RecruitmentManager.Application.Interfaces.Repositories;
 using RecruitmentManager.Infrastructure.EF.Context;
 
@@ -23,6 +24,14 @@ public class AsyncRepository<T> : IAsyncRepository<T> where T : class
 	{
 		_context.Set<T>().Remove(entity);
 		await _context.SaveChangesAsync();
+	}
+
+	public async Task<List<T>?> GetListByPredicateAsync(Expression<Func<T, bool>> predicate)
+	{
+		return await _context
+			.Set<T>()
+			.Where(predicate)
+			.ToListAsync();
 	}
 
 	public async Task<List<T>?> GetAllAsync()

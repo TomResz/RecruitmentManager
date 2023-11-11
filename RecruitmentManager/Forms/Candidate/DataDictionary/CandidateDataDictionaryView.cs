@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using RecruitmentManager.Forms.Candidate.JobOfferViews;
 
 namespace RecruitmentManager.Forms.Candidate.DataDictionary;
 
@@ -39,6 +38,24 @@ public partial class CandidateDataDictionaryView : UserControl
 	private void languageKnowledgeTabBtn_Click(object sender, EventArgs e)
 	{
 		var uc = _serviceProvider.GetRequiredService<CandidateLanguageKnowledgeView>();
+		ShowControl(uc);
+	}
+
+	private void hobbiesTabBtn_Click(object sender, EventArgs e)
+	{
+		var uc = _serviceProvider.GetRequiredService<CandidateHobbyView>();
+		ShowControl(uc);
+	}
+
+	private void educationTabBtn_Click(object sender, EventArgs e)
+	{
+		var uc = _serviceProvider.GetRequiredService<CandidateEducationView>();
+		ShowControl(uc);
+	}
+
+	private void skillTabBtn_Click(object sender, EventArgs e)
+	{
+		var uc = _serviceProvider.GetRequiredService<CandidateSkillsView>();
 		ShowControl(uc);
 	}
 }

@@ -20,14 +20,25 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Functions\Candidate Functions\Commands\Education actions\Add\" />
+    <Folder Include="Functions\Candidate Functions\Commands\Education actions\Delete\" />
+    <Folder Include="Functions\Candidate Functions\Commands\Education actions\Update\" />
     <Folder Include="Functions\Candidate Functions\Commands\Experience actions\Delete\" />
+    <Folder Include="Functions\Candidate Functions\Commands\Hobbies action\Add\" />
+    <Folder Include="Functions\Candidate Functions\Commands\Hobbies action\Edit\" />
     <Folder Include="Functions\Candidate Functions\Commands\Language actions\Add\" />
     <Folder Include="Functions\Candidate Functions\Commands\Language actions\Delete\" />
     <Folder Include="Functions\Candidate Functions\Commands\Language actions\Update\" />
+    <Folder Include="Functions\Candidate Functions\Commands\Skill CRUD\Delete\" />
+    <Folder Include="Functions\Candidate Functions\Commands\Skill CRUD\Update\" />
     <Folder Include="Functions\Candidate Functions\Queries\GetExperienceList\" />
     <Folder Include="Functions\Candidate Functions\Queries\GetLanguagesList\" />
+    <Folder Include="Functions\Candidate Functions\Queries\GetHobbiesList\" />
+    <Folder Include="Functions\Candidate Functions\Queries\GetEducationsList\" />
+    <Folder Include="Functions\Candidate Functions\Queries\GetSkillsList\" />
     <Folder Include="Functions\Common\Commands\" />
     <Folder Include="Functions\Common\Queries\GetExperienceItem\" />
+    <Folder Include="Functions\Common\Queries\GetEducationItem\" />
     <Folder Include="Functions\Worker Functions\Common\Queries\GetJobOfferDetails\" />
     <Folder Include="Functions\Worker Functions\Manager Functions\Commands\CompleteJobOffer\" />
   </ItemGroup>
