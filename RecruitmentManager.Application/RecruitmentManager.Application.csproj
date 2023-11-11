@@ -21,7 +21,11 @@
 
   <ItemGroup>
     <Folder Include="Functions\Candidate Functions\Commands\Experience actions\Delete\" />
+    <Folder Include="Functions\Candidate Functions\Commands\Language actions\Add\" />
+    <Folder Include="Functions\Candidate Functions\Commands\Language actions\Delete\" />
+    <Folder Include="Functions\Candidate Functions\Commands\Language actions\Update\" />
     <Folder Include="Functions\Candidate Functions\Queries\GetExperienceList\" />
+    <Folder Include="Functions\Candidate Functions\Queries\GetLanguagesList\" />
     <Folder Include="Functions\Common\Commands\" />
     <Folder Include="Functions\Common\Queries\GetExperienceItem\" />
     <Folder Include="Functions\Worker Functions\Common\Queries\GetJobOfferDetails\" />

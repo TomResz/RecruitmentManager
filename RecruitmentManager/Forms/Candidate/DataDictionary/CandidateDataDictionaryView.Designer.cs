@@ -89,6 +89,7 @@
 			languageKnowledgeTabBtn.Text = "Znajomość Języka";
 			languageKnowledgeTabBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
 			languageKnowledgeTabBtn.UseVisualStyleBackColor = true;
+			languageKnowledgeTabBtn.Click += languageKnowledgeTabBtn_Click;
 			// 
 			// hobbiesTabBtn
 			// 

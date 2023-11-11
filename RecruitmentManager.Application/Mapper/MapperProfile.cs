@@ -46,6 +46,7 @@ public class MapperProfile : Profile
 			.ForMember(dest => dest.InterviewQualified, opt => opt.MapFrom(src =>
 				src.JobApplications.Select(x => x.InterviewQualified).FirstOrDefault()));
 		CreateMap<ExperienceDTO, Experience>().ReverseMap();
+		CreateMap<KnowledgeOfLanguage, KnowledgeOfLanguageDTO>().ReverseMap();
 		CreateMap<JobOfferDetailsToEditDto, JobPosting>().ReverseMap();
 		CreateMap<RecruitmentStagesToEditDto, RecruitmentStage>().ReverseMap();
 		CreateMap<UpdateJobOfferCommand, JobPosting>().ReverseMap();
