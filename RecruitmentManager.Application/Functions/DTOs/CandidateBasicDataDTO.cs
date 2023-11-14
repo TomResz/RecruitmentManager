@@ -1,13 +1,13 @@
 ﻿namespace RecruitmentManager.Application.Functions.DTOs;
 
-public class CandidateDataToEditDTO
+public class CandidateBasicDataDTO
 {
-    public CandidateDataToEditDTO()
+    public CandidateBasicDataDTO()
     {
 
     }
 
-    public CandidateDataToEditDTO(
+    public CandidateBasicDataDTO(
         Guid id,
         string firstName,
         string lastName,

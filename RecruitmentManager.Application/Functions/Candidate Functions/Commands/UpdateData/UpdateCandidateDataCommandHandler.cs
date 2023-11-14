@@ -30,16 +30,16 @@ public class UpdateCandidateDataCommandHandler
 			throw new InvalidDataException(FVErrorSerializer.SerializeToString(
 				result.Errors));
 		}
-		var candidate = await _candidateRepository.GetFullData(request.DataToEditDto.Id, cancellationToken);
+		var candidate = await _candidateRepository.GetFullData(request.BasicDataDto.Id, cancellationToken);
 		if(candidate is null)
 			throw new NotFoundException(nameof(candidate));
-		candidate.ProfilePicture.Image = request.DataToEditDto.Picture;
-		candidate.Email = request.DataToEditDto.Email;
-		candidate.CandidateData.FirstName = request.DataToEditDto.FirstName;
-		candidate.CandidateData.LastName = request.DataToEditDto.LastName;
-		candidate.CandidateData.City = request.DataToEditDto.City;
-		candidate.CandidateData.PhoneNumber = request.DataToEditDto.PhoneNumber;
-		candidate.CandidateData.BirthDate = request.DataToEditDto.DateOfBirth;
+		candidate.ProfilePicture.Image = request.BasicDataDto.Picture;
+		candidate.Email = request.BasicDataDto.Email;
+		candidate.CandidateData.FirstName = request.BasicDataDto.FirstName;
+		candidate.CandidateData.LastName = request.BasicDataDto.LastName;
+		candidate.CandidateData.City = request.BasicDataDto.City;
+		candidate.CandidateData.PhoneNumber = request.BasicDataDto.PhoneNumber;
+		candidate.CandidateData.BirthDate = request.BasicDataDto.DateOfBirth;
 		await _asyncRepository.Update(candidate);
 	}
 }

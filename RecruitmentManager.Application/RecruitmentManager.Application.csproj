@@ -39,6 +39,7 @@
     <Folder Include="Functions\Common\Commands\" />
     <Folder Include="Functions\Common\Queries\GetExperienceItem\" />
     <Folder Include="Functions\Common\Queries\GetEducationItem\" />
+    <Folder Include="Functions\Common\Queries\GetCandidateDataQuery\" />
     <Folder Include="Functions\Worker Functions\Common\Queries\GetJobOfferDetails\" />
     <Folder Include="Functions\Worker Functions\Manager Functions\Commands\CompleteJobOffer\" />
   </ItemGroup>

@@ -29,6 +29,8 @@ public static class InfrastructureInstaller
         services.AddScoped<IKnowledgeOfLanguageRepository,KnowledgeOfLanguageRepository>();
         services.AddScoped<IHobbyRepository,HobbyRepository>();
         services.AddScoped<IEducationRepository, EducationRepository>();
+        services.AddScoped<IExperienceRepository,ExperienceRepository>();
+        services.AddScoped<ISkillRepository,SkillRepository>();
 		services.AddSingleton<ICandidateSessionContext, CandidateSessionContext>();
         services.AddSingleton<IWorkerSessionContext, WorkerSessionContext>();
         services.AddSingleton<IUserDataToEditContext,UserDataToEditContext>();

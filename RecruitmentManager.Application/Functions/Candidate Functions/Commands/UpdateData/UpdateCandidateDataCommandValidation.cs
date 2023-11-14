@@ -8,24 +8,24 @@ public class UpdateCandidateDataCommandValidation
 {
 	public UpdateCandidateDataCommandValidation()
 	{
-		RuleFor(x => x.DataToEditDto.Picture)
+		RuleFor(x => x.BasicDataDto.Picture)
 			.ProfilePictureMustBeValid();
-		RuleFor(x => x.DataToEditDto.DateOfBirth)
+		RuleFor(x => x.BasicDataDto.DateOfBirth)
 			.Must(x => x.Value <= DateTime.Now.AddYears(-16).Date)
 			.WithMessage("Nieprawidłowy wiek (dopuszczalny dopiero od 16 lat)!");
-		RuleFor(x => x.DataToEditDto.Email)
+		RuleFor(x => x.BasicDataDto.Email)
 			.Cascade(CascadeMode.Stop)
 			.EmailMustBeValid();
-		RuleFor(x => x.DataToEditDto.FirstName)
+		RuleFor(x => x.BasicDataDto.FirstName)
 			.Cascade(CascadeMode.Stop)
 			.NameMustBeValid("imię");
-		RuleFor(x => x.DataToEditDto.LastName)
+		RuleFor(x => x.BasicDataDto.LastName)
 			.Cascade(CascadeMode.Stop)
 			.NameMustBeValid("nazwisko");
-		RuleFor(x => x.DataToEditDto.City)
+		RuleFor(x => x.BasicDataDto.City)
 			.Cascade(CascadeMode.Stop)
 			.NameMustBeValid("miejscowość zamieszkania");
-		RuleFor(x => x.DataToEditDto.PhoneNumber)
+		RuleFor(x => x.BasicDataDto.PhoneNumber)
 			.Cascade(CascadeMode.Stop)
 			.PhoneNumberMustBeValid();
 

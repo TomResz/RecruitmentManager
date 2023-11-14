@@ -64,7 +64,7 @@ public partial class EditCandidateData : Form
 		phoneNumberLabel.Text = _subtitles.PhoneNumber;
 		cityLabel.Text = "Miejscowość zamieszkania";
 	}
-	private void InitializeControls(CandidateDataToEditDTO response)
+	private void InitializeControls(CandidateBasicDataDTO response)
 	{
 		firstNameTb.Text = response.FirstName;
 		lastNameTb.Text = response.LastName;
@@ -84,7 +84,7 @@ public partial class EditCandidateData : Form
 		try
 		{
 			editDataBtn.Enabled = false;
-			var command = new CandidateDataToEditDTO(
+			var command = new CandidateBasicDataDTO(
 				Id,
 				firstNameTb.Text,
 				lastNameTb.Text,
