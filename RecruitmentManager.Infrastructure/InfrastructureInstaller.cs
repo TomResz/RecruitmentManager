@@ -25,7 +25,7 @@ public static class InfrastructureInstaller
         services.AddScoped<IEmployeeRepository,EmployeeRepository>();
         services.AddScoped<IJobPostingRepository,JobPostingRepository>();
         services.AddScoped<IRecruitmentStageRepository,RecruitmentStageRepository>();
-        services.AddScoped<IJobApplicationRepository, JobApplicationRepositoryRepository>();
+        services.AddScoped<IJobApplicationRepository, JobApplicationRepository>();
         services.AddScoped<IKnowledgeOfLanguageRepository,KnowledgeOfLanguageRepository>();
         services.AddScoped<IHobbyRepository,HobbyRepository>();
         services.AddScoped<IEducationRepository, EducationRepository>();
@@ -33,8 +33,9 @@ public static class InfrastructureInstaller
         services.AddScoped<ISkillRepository,SkillRepository>();
 		services.AddSingleton<ICandidateSessionContext, CandidateSessionContext>();
         services.AddSingleton<IWorkerSessionContext, WorkerSessionContext>();
-        services.AddSingleton<IUserDataToEditContext,UserDataToEditContext>();
+        services.AddSingleton<IUserBasicDataContext,UserBasicDataContext>();
         services.AddSingleton<IJobOfferContext, JobOfferContext>();
+        services.AddSingleton<ICandidateContext, CandidateContext>();
         services.ScanForDbSeeders();
         services.AddTransient<MainSeeder>();
         return services;

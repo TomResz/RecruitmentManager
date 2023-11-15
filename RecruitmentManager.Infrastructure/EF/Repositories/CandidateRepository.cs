@@ -15,7 +15,7 @@ public class CandidateRepository : AsyncRepository<Candidate>, ICandidateReposit
 	}
 
 
-	public async Task<Candidate?> GetFullData(Guid Id, CancellationToken cancellationToken = default)
+	public async Task<Candidate?> GetFullWithPBData(Guid Id, CancellationToken cancellationToken = default)
 	{
 		return await _context
 			.Candidates
@@ -23,6 +23,25 @@ public class CandidateRepository : AsyncRepository<Candidate>, ICandidateReposit
 			.Include(x => x.ProfilePicture)
 			.FirstOrDefaultAsync(x => x.Id == Id, cancellationToken);
 	}
+
+	public async Task<List<Candidate>> GetByJobPostingId(Guid jobPostingId)
+	{
+		return await _context
+			.Candidates
+			.Include(x=>x.CandidateData)
+			.Include(x => x.JobApplications)
+			.Where(x => x.JobApplications.Any(y=>y.JobPostingId == jobPostingId))
+			.ToListAsync();
+	}
+
+	public async Task<Candidate?> GetFullData(Guid CandidateId, CancellationToken cancellationToken = default)
+	{
+		return await _context
+			.Candidates
+			.Include(x => x.CandidateData)
+			.FirstOrDefaultAsync(x => x.Id == CandidateId, cancellationToken: cancellationToken);
+	}
+
 	public async Task<Candidate?> GetByEmailAsync(string email)
 	{
 		return await _context

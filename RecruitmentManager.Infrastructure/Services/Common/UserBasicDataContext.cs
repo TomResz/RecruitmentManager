@@ -2,8 +2,8 @@
 
 namespace RecruitmentManager.Infrastructure.Services.Common;
 
-public class UserDataToEditContext
-    : IUserDataToEditContext
+public class UserBasicDataContext
+    : IUserBasicDataContext
 {
     private Guid _uid = Guid.Empty;
     private string _email = string.Empty;

@@ -33,6 +33,7 @@
 			tableLayoutPanel1 = new TableLayoutPanel();
 			logoutBtn = new Button();
 			tabControlLayout = new TableLayoutPanel();
+			jobOffersBtn = new Button();
 			userLabel = new Label();
 			headeLayout = new TableLayoutPanel();
 			menuStrip1 = new MenuStrip();
@@ -40,7 +41,7 @@
 			dsadsToolStripMenuItem = new ToolStripMenuItem();
 			edycjaToolStripMenuItem = new ToolStripMenuItem();
 			edytujDaneToolStripMenuItem = new ToolStripMenuItem();
-			jobOffersBtn = new Button();
+			registrationsBtn = new Button();
 			mainLayout.SuspendLayout();
 			tableLayoutPanel1.SuspendLayout();
 			tabControlLayout.SuspendLayout();
@@ -99,6 +100,7 @@
 			tabControlLayout.ColumnCount = 1;
 			tabControlLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
 			tabControlLayout.Controls.Add(jobOffersBtn, 0, 0);
+			tabControlLayout.Controls.Add(registrationsBtn, 0, 1);
 			tabControlLayout.Dock = DockStyle.Fill;
 			tabControlLayout.Location = new Point(3, 87);
 			tabControlLayout.Margin = new Padding(0);
@@ -112,6 +114,24 @@
 			tabControlLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
 			tabControlLayout.Size = new Size(304, 382);
 			tabControlLayout.TabIndex = 2;
+			// 
+			// jobOffersBtn
+			// 
+			jobOffersBtn.BackColor = SystemColors.ButtonFace;
+			jobOffersBtn.Dock = DockStyle.Fill;
+			jobOffersBtn.FlatStyle = FlatStyle.Flat;
+			jobOffersBtn.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+			jobOffersBtn.Image = (Image)resources.GetObject("jobOffersBtn.Image");
+			jobOffersBtn.ImageAlign = ContentAlignment.MiddleLeft;
+			jobOffersBtn.Location = new Point(3, 3);
+			jobOffersBtn.Name = "jobOffersBtn";
+			jobOffersBtn.Size = new Size(298, 70);
+			jobOffersBtn.TabIndex = 1;
+			jobOffersBtn.Text = "Oferty Pracy";
+			jobOffersBtn.TextAlign = ContentAlignment.MiddleRight;
+			jobOffersBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+			jobOffersBtn.UseVisualStyleBackColor = false;
+			jobOffersBtn.Click += jobOffersBtn_Click;
 			// 
 			// userLabel
 			// 
@@ -176,23 +196,20 @@
 			edytujDaneToolStripMenuItem.Text = "Edytuj Dane";
 			edytujDaneToolStripMenuItem.Click += edytujDaneToolStripMenuItem_Click;
 			// 
-			// jobOffersBtn
+			// registrationsBtn
 			// 
-			jobOffersBtn.BackColor = SystemColors.ButtonFace;
-			jobOffersBtn.Dock = DockStyle.Fill;
-			jobOffersBtn.FlatStyle = FlatStyle.Flat;
-			jobOffersBtn.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-			jobOffersBtn.Image = (Image)resources.GetObject("jobOffersBtn.Image");
-			jobOffersBtn.ImageAlign = ContentAlignment.MiddleLeft;
-			jobOffersBtn.Location = new Point(3, 3);
-			jobOffersBtn.Name = "jobOffersBtn";
-			jobOffersBtn.Size = new Size(298, 70);
-			jobOffersBtn.TabIndex = 1;
-			jobOffersBtn.Text = "Oferty Pracy";
-			jobOffersBtn.TextAlign = ContentAlignment.MiddleRight;
-			jobOffersBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
-			jobOffersBtn.UseVisualStyleBackColor = false;
-			jobOffersBtn.Click += jobOffersBtn_Click;
+			registrationsBtn.Dock = DockStyle.Fill;
+			registrationsBtn.FlatStyle = FlatStyle.Flat;
+			registrationsBtn.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+			registrationsBtn.Image = (Image)resources.GetObject("registrationsBtn.Image");
+			registrationsBtn.Location = new Point(3, 79);
+			registrationsBtn.Name = "registrationsBtn";
+			registrationsBtn.Size = new Size(298, 70);
+			registrationsBtn.TabIndex = 2;
+			registrationsBtn.Text = "Zgłoszenia";
+			registrationsBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+			registrationsBtn.UseVisualStyleBackColor = true;
+			registrationsBtn.Click += registrationsBtn_Click;
 			// 
 			// ManagerForm
 			// 
@@ -227,5 +244,6 @@
 		private ToolStripMenuItem edycjaToolStripMenuItem;
 		private ToolStripMenuItem edytujDaneToolStripMenuItem;
 		private Button jobOffersBtn;
+		private Button registrationsBtn;
 	}
 }

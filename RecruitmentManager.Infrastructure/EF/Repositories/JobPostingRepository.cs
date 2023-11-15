@@ -16,6 +16,7 @@ public class JobPostingRepository
 		_context = context;
 	}
 
+
 	public async Task AddAsync(JobPosting entity)
 	{
 		await _context.JobPostings.AddAsync(entity);

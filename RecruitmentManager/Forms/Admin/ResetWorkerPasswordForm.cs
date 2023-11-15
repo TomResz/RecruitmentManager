@@ -8,18 +8,18 @@ namespace RecruitmentManager.Forms;
 public partial class ResetWorkerPasswordForm : Form
 {
 	private readonly IMediator _mediator;
-	private readonly IUserDataToEditContext _workerDataToEditContext;
+	private readonly IUserBasicDataContext _workerBasicDataContext;
 	private readonly ISubtitles _label;
 	public ResetWorkerPasswordForm(
 		IMediator mediator,
-		IUserDataToEditContext workerDataToEditContext,
+		IUserBasicDataContext workerBasicDataContext,
 		ISubtitles label)
 	{
 		InitializeComponent();
 		_mediator = mediator;
-		_workerDataToEditContext = workerDataToEditContext;
+		_workerBasicDataContext = workerBasicDataContext;
 		emailTb.ReadOnly = true;
-		emailTb.Text = _workerDataToEditContext.GetEmail;
+		emailTb.Text = _workerBasicDataContext.GetEmail;
 		_label = label;
 		InitializeTextBoxes();
 	}
@@ -62,7 +62,7 @@ public partial class ResetWorkerPasswordForm : Form
 		{
 			try
 			{
-				var command = new EditWorkerPasswordCommand(_workerDataToEditContext.GetId,
+				var command = new EditWorkerPasswordCommand(_workerBasicDataContext.GetId,
 					passwordTb.Text, confirmedPasswdTb.Text);
 				await _mediator.Send(command);
 				MessageBox.Show("Hasło zostało zmienione!", "Zmiana hasła.",

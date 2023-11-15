@@ -10,18 +10,18 @@ public partial class ResetCandidatePasswordForm : Form
 
 
 	private readonly IMediator _mediator;
-	private readonly IUserDataToEditContext _userDataToEditContext;
+	private readonly IUserBasicDataContext _userBasicDataContext;
 	private readonly ISubtitles _label;
 	public ResetCandidatePasswordForm(
 		IMediator mediator,
-		IUserDataToEditContext userDataToEditContext,
+		IUserBasicDataContext userBasicDataContext,
 		ISubtitles label)
 	{
 		InitializeComponent();
 		_label = label;
 		_mediator = mediator;
-		_userDataToEditContext = userDataToEditContext;
-		emailTb.Text = _userDataToEditContext.GetEmail;
+		_userBasicDataContext = userBasicDataContext;
+		emailTb.Text = _userBasicDataContext.GetEmail;
 		emailTb.ReadOnly = true;
 		InitializeTextBoxes();
 	}
@@ -57,7 +57,7 @@ public partial class ResetCandidatePasswordForm : Form
 	private async void changePasswordBtn_Click(object sender, EventArgs e)
 	{
 		var command = new CandidateResetPasswordCommand(
-			CandidateId: _userDataToEditContext.GetId,
+			CandidateId: _userBasicDataContext.GetId,
 			Password: passwordTb.Text,
 			ConfirmedPassword: confirmedPasswdTb.Text);
 

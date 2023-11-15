@@ -39,7 +39,7 @@ public class GetCandidateDataQueryHandler
 		GetCandidateDataQuery request,
 		CancellationToken cancellationToken)
 	{
-		var candidate = await _candidateRepository.GetFullData(request.CandidateId, cancellationToken);
+		var candidate = await _candidateRepository.GetFullWithPBData(request.CandidateId, cancellationToken);
 		if (candidate is null)
 			throw new NotFoundException(nameof(candidate));
 		var candidateData = new CandidateBasicDataDTO(
