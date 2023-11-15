@@ -307,6 +307,7 @@
 			profilePicturePB.Location = new Point(772, 3);
 			profilePicturePB.Name = "profilePicturePB";
 			profilePicturePB.Size = new Size(409, 525);
+			profilePicturePB.SizeMode = PictureBoxSizeMode.StretchImage;
 			profilePicturePB.TabIndex = 1;
 			profilePicturePB.TabStop = false;
 			// 

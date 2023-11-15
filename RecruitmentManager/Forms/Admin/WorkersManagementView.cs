@@ -14,21 +14,21 @@ public partial class WorkersManagementView : UserControl
 
 	private readonly IMediator _mediator;
 	private readonly IServiceProvider _serviceProvider;
-	private readonly IUserDataToEditContext _workerDataToEditContext;
+	private readonly IUserBasicDataContext _workerBasicDataContext;
 	private int _page = 1;
 	private int _pageSize = 10;
 
 	public WorkersManagementView(
 		IServiceProvider serviceProvider,
 		IMediator mediator,
-		IUserDataToEditContext workerDataToEditContext)
+		IUserBasicDataContext workerBasicDataContext)
 	{
 		InitializeComponent();
 		workersDGV.Visible = false;
 		_serviceProvider = serviceProvider;
 		_mediator = mediator;
 		Load += WorkersManagementView_Load;
-		_workerDataToEditContext = workerDataToEditContext;
+		_workerBasicDataContext = workerBasicDataContext;
 	}
 
 	private async void WorkersManagementView_Load(object? sender, EventArgs e)
@@ -144,7 +144,7 @@ public partial class WorkersManagementView : UserControl
 			if (Guid.TryParse(id, out Guid uid) && email is not null)
 			{
 				ID = uid;
-				_workerDataToEditContext.SetData(ID, email);
+				_workerBasicDataContext.SetData(ID, email);
 				try
 				{
 					var form = _serviceProvider.GetRequiredService<ResetWorkerPasswordForm>();
@@ -152,7 +152,7 @@ public partial class WorkersManagementView : UserControl
 				}
 				finally
 				{
-					_workerDataToEditContext.Clear();
+					_workerBasicDataContext.Clear();
 				}
 			}
 

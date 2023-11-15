@@ -1,6 +1,6 @@
 ﻿namespace RecruitmentManager.Application.Interfaces.Context;
 
-public interface IUserDataToEditContext
+public interface IUserBasicDataContext
 {
 	Guid GetId { get; }
 	string GetEmail { get; }

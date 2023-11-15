@@ -42,6 +42,7 @@
     <Folder Include="Functions\Common\Queries\GetCandidateDataQuery\" />
     <Folder Include="Functions\Worker Functions\Common\Queries\GetJobOfferDetails\" />
     <Folder Include="Functions\Worker Functions\Manager Functions\Commands\CompleteJobOffer\" />
+    <Folder Include="Functions\Worker Functions\Manager Functions\Queries\GetCandidatesForOffer\" />
   </ItemGroup>
 
 </Project>

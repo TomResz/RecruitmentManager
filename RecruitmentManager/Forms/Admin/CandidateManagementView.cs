@@ -12,7 +12,7 @@ public partial class CandidateManagementView : UserControl
 {
 	private PagedList<CandidateViewDTO> _candidatePageList;
 	private readonly IMediator _mediator;
-	private readonly IUserDataToEditContext _userDataToEditContext;
+	private readonly IUserBasicDataContext _userBasicDataContext;
 	private readonly IServiceProvider _serviceProvider;
 
 	private int _page = 1;
@@ -20,12 +20,12 @@ public partial class CandidateManagementView : UserControl
 
 	public CandidateManagementView(
 		IMediator mediator,
-		IUserDataToEditContext userDataToEditContext,
+		IUserBasicDataContext userBasicDataContext,
 		IServiceProvider serviceProvider)
 	{
 		InitializeComponent();
 		_mediator = mediator;
-		_userDataToEditContext = userDataToEditContext;
+		_userBasicDataContext = userBasicDataContext;
 		_serviceProvider = serviceProvider;
 		candidateDGV.Visible = false;
 		Load += CandidateManagementView_Load;
@@ -132,13 +132,13 @@ public partial class CandidateManagementView : UserControl
 			{
 				try
 				{
-					_userDataToEditContext.SetData(uid, email);
+					_userBasicDataContext.SetData(uid, email);
 					var form = _serviceProvider.GetRequiredService<ResetCandidatePasswordForm>();
 					form.ShowDialog();
 				}
 				finally
 				{
-					_userDataToEditContext.Clear();
+					_userBasicDataContext.Clear();
 				}
 			}
 		}

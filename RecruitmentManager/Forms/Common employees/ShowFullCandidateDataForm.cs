@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using RecruitmentManager.Application.Functions.Common.Queries.GetCandidateDataQuery;
 using RecruitmentManager.Application.Functions.DTOs;
+using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Controls_Extensions;
 using RecruitmentManager.Domain.Enums;
 using RecruitmentManager.FileHandling;
@@ -11,18 +12,23 @@ public partial class ShowFullCandidateDataForm : Form
 {
 	private readonly IMediator _mediator;
 	private readonly IPictureBoxSetter _pictureBoxSetter;
-	public ShowFullCandidateDataForm(IMediator mediator,
-		IPictureBoxSetter pictureBoxSetter)
+	private readonly ICandidateContext _candidateContext;
+	public ShowFullCandidateDataForm(
+		IMediator mediator,
+		IPictureBoxSetter pictureBoxSetter,
+		ICandidateContext candidateContext)
 	{
 		_mediator = mediator;
 		_pictureBoxSetter = pictureBoxSetter;
+		_candidateContext = candidateContext;
 		InitializeComponent();
 		this.Load += ShowFullCandidateDataForm_Load;
+		AddLabelsToPBs();
 	}
 
 	private async void ShowFullCandidateDataForm_Load(object? sender, EventArgs e)
 	{
-		var query = new GetCandidateDataQuery(Guid.NewGuid());
+		var query = new GetCandidateDataQuery(_candidateContext.Id);
 		var response = await _mediator.Send(query);
 		LoadProfileData(response.Data);
 		LoadExperience(response.Experiences);
@@ -31,13 +37,22 @@ public partial class ShowFullCandidateDataForm : Form
 		LoadSkills(response.Skills);
 		LoadLanguages(response.KnowledgeOfLanguages);
 	}
+	private void AddLabelsToPBs()
+	{
+		var toolTip = new ToolTip();
+		namePB.MouseHover += (s, args) => toolTip.Show("Imię i nazwisko", namePB);
+		emailPB.MouseHover += (s, args) => toolTip.Show("Email", emailPB);
+		birthDatePB.MouseHover += (s, args) => toolTip.Show("Data urodzenia", birthDatePB);
+		cityPB.MouseHover += (s, args) => toolTip.Show("Miejscowość zamieszkania", cityPB);
+		phoneNumberPB.MouseHover += (s, args) => toolTip.Show("Numer telefonu", phoneNumberPB);
 
+	}
 	private void LoadProfileData(CandidateBasicDataDTO candidateData)
 	{
 		nameTextBox.Text = candidateData.FirstName + " " + candidateData.LastName;
 		emailTextBox.Text = candidateData.Email;
 		phoneNumberTextBox.Text = candidateData.PhoneNumber;
-		birthDatePB.Text = candidateData.DateOfBirth.HasValue
+		birthDateTextBox.Text = candidateData.DateOfBirth.HasValue
 				? candidateData.DateOfBirth.Value.ToString("dd-MM-yyyy") : string.Empty;
 		cityTextBox.Text = candidateData.City;
 		_pictureBoxSetter.Set(candidateData.Picture, profilePicturePB);
@@ -59,7 +74,7 @@ public partial class ShowFullCandidateDataForm : Form
 		experienceDGV.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 	}
 
-	private readonly Func<int,string> _getTypeOfEducation = levelOfEducation =>
+	private readonly Func<int, string> _getTypeOfEducation = levelOfEducation =>
 		levelOfEducation switch
 		{
 			1 => "Podstawowe",
@@ -115,7 +130,7 @@ public partial class ShowFullCandidateDataForm : Form
 			(int)LanguageLevel.C1 => "C1",
 			_ => "C2",
 		};
-		languageDGV.Fill(languages,item=> new object[]
+		languageDGV.Fill(languages, item => new object[]
 		{
 			item.Id,
 			item.Language,

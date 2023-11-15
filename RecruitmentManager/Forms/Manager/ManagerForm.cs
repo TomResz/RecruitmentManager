@@ -2,6 +2,7 @@
 using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Forms.Admin;
 using RecruitmentManager.Forms.Manager.JobOffers;
+using RecruitmentManager.Forms.Manager.Registrations;
 
 namespace RecruitmentManager.Forms.Manager;
 
@@ -46,7 +47,8 @@ public partial class ManagerForm : Form
 
 	private void jobOffersBtn_Click(object sender, EventArgs e)
 	{
-
+		var form = _serviceProvider.GetRequiredService<JobOffersMainView>();
+		ShowControl(form);
 	}
 	public void ShowControl(UserControl controlToShow)
 	{
@@ -62,5 +64,11 @@ public partial class ManagerForm : Form
 			controlToShow.Visible = true;
 			_currentControl = controlToShow;
 		}
+	}
+
+	private void registrationsBtn_Click(object sender, EventArgs e)
+	{
+		var uc = _serviceProvider.GetRequiredService<ManagerRegistrationsView>();
+		ShowControl(uc);
 	}
 }

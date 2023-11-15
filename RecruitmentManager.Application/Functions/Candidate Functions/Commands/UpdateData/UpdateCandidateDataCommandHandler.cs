@@ -30,7 +30,7 @@ public class UpdateCandidateDataCommandHandler
 			throw new InvalidDataException(FVErrorSerializer.SerializeToString(
 				result.Errors));
 		}
-		var candidate = await _candidateRepository.GetFullData(request.BasicDataDto.Id, cancellationToken);
+		var candidate = await _candidateRepository.GetFullWithPBData(request.BasicDataDto.Id, cancellationToken);
 		if(candidate is null)
 			throw new NotFoundException(nameof(candidate));
 		candidate.ProfilePicture.Image = request.BasicDataDto.Picture;
