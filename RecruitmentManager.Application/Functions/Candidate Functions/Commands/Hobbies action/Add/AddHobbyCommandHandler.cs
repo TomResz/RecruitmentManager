@@ -11,11 +11,14 @@ public class AddHobbyCommandHandler : IRequestHandler<AddHobbyCommand>
 {
 	private readonly IAsyncRepository<Hobby> _hobbyRepository;
 	private readonly ICandidateSessionContext _candidateSessionContext;
+	private readonly IErrorSerializer _errorSerializer;
 	public AddHobbyCommandHandler(IAsyncRepository<Hobby> hobbyRepository, 
-		ICandidateSessionContext candidateSessionContext)
+		ICandidateSessionContext candidateSessionContext, 
+		IErrorSerializer errorSerializer)
 	{
 		_hobbyRepository = hobbyRepository;
 		_candidateSessionContext = candidateSessionContext;
+		_errorSerializer = errorSerializer;
 	}
 
 	public async Task Handle(AddHobbyCommand request, CancellationToken cancellationToken)
@@ -24,8 +27,7 @@ public class AddHobbyCommandHandler : IRequestHandler<AddHobbyCommand>
 		var resultOfVal = await validation.ValidateAsync(request, cancellationToken);
 		if (!resultOfVal.IsValid)
 		{
-			throw new BadRequestException(FVErrorSerializer.SerializeToString(
-				resultOfVal.Errors));
+			throw new BadRequestException(_errorSerializer.Serialize(resultOfVal.Errors));
 		}
 
 		var candidateId = _candidateSessionContext.CandidateId ??

@@ -10,10 +10,13 @@ public class EditEmployeeDataCommandHandler
 	: IRequestHandler<EditEmployeeDataCommand>
 {
 	private readonly IEmployeeRepository _repository;
+	private readonly IErrorSerializer _errorSerializer;
 
-	public EditEmployeeDataCommandHandler(IEmployeeRepository repository)
+	public EditEmployeeDataCommandHandler(IEmployeeRepository repository, 
+		IErrorSerializer errorSerializer)
 	{
 		_repository = repository;
+		_errorSerializer = errorSerializer;
 	}
 
 	public async Task Handle(
@@ -24,8 +27,7 @@ public class EditEmployeeDataCommandHandler
 		var result = await validation.ValidateAsync(request, cancellationToken);
 		if(!result.IsValid)
 		{
-			throw new BadRequestException(FVErrorSerializer.SerializeToString(
-				result.Errors));
+			throw new BadRequestException(_errorSerializer.Serialize(result.Errors));
 		}
 		var employee = await _repository.GetById(request.Id);
         if (employee is null)

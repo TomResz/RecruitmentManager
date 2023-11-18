@@ -13,13 +13,15 @@ public class LoginWorkerCommandHandler
 {
 	private readonly IEmployeeRepository _repository;
 	private readonly IPasswordHasher<Employee> _passwordHasher;
-
+	private readonly IErrorSerializer _errorSerializer;
 	public LoginWorkerCommandHandler(
 		IEmployeeRepository repository,
-		IPasswordHasher<Employee> passwordHasher)
+		IPasswordHasher<Employee> passwordHasher, 
+		IErrorSerializer errorSerializer)
 	{
 		_repository = repository;
 		_passwordHasher = passwordHasher;
+		_errorSerializer = errorSerializer;
 	}
 
 	public async Task<LoginWorkerResponse> Handle(
@@ -30,8 +32,7 @@ public class LoginWorkerCommandHandler
 		var result  = await validation.ValidateAsync(request, cancellationToken);
 		if(!result.IsValid)
 		{
-			throw new BadRequestException(
-				 FVErrorSerializer.SerializeToString(result.Errors));
+			throw new BadRequestException(_errorSerializer.Serialize(result.Errors));
 		}
 		var employee = await _repository.GetByEmailAsync(request.Email);
 		if( employee is null)

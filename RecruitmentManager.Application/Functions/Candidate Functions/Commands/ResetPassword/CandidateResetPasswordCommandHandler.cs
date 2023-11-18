@@ -13,12 +13,15 @@ public class CandidateResetPasswordCommandHandler
 {
 	private readonly ICandidateRepository _repository;
 	private readonly IPasswordHasher<Candidate> _passwordHasher;
+	private readonly IErrorSerializer _errorSerializer;
 	public CandidateResetPasswordCommandHandler(
 		ICandidateRepository repository,
-		IPasswordHasher<Candidate> passwordHasher)
+		IPasswordHasher<Candidate> passwordHasher,
+		IErrorSerializer errorSerializer)
 	{
 		_repository = repository;
 		_passwordHasher = passwordHasher;
+		_errorSerializer = errorSerializer;
 	}
 
 	public async Task Handle(
@@ -29,8 +32,7 @@ public class CandidateResetPasswordCommandHandler
 		var resultOfValidation = validation.Validate(request);	
 		if(!resultOfValidation.IsValid)
 		{
-			throw new BadRequestException(FVErrorSerializer
-				.SerializeToString(resultOfValidation.Errors));
+			throw new BadRequestException(_errorSerializer.Serialize(resultOfValidation.Errors));
 		}
 		var candidate = await _repository.GetById(request.CandidateId) 
 			?? throw new NotFoundException("ERROR 404");

@@ -14,14 +14,17 @@ public class CreateJobOfferCommandHandler
 	private readonly IMapper _mapper;
 	private readonly IWorkerSessionContext _workerSessionContext;
 	private readonly IJobPostingRepository _jobPostingRepository;
+	private readonly IErrorSerializer _errorSerializer;
 	public CreateJobOfferCommandHandler(
 		IMapper mapper,
 		IWorkerSessionContext workerSessionContext,
-		IJobPostingRepository jobPostingRepository)
+		IJobPostingRepository jobPostingRepository, 
+		IErrorSerializer errorSerializer)
 	{
 		_mapper = mapper;
 		_workerSessionContext = workerSessionContext;
 		_jobPostingRepository = jobPostingRepository;
+		_errorSerializer = errorSerializer;
 	}
 
 	public async Task Handle(
@@ -32,8 +35,7 @@ public class CreateJobOfferCommandHandler
 		var resultOfValidation = await validation.ValidateAsync(request, cancellationToken);
 		if (!resultOfValidation.IsValid)
 		{
-			throw new BadRequestException(FVErrorSerializer
-				.SerializeToString(resultOfValidation.Errors));
+			throw new BadRequestException(_errorSerializer.Serialize(resultOfValidation.Errors));
 		}
 
 		Guid workerId = _workerSessionContext.WorkerId 

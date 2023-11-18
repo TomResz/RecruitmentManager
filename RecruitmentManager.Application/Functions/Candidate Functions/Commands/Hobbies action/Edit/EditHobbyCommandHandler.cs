@@ -10,9 +10,12 @@ public class EditHobbyCommandHandler
 	: IRequestHandler<EditHobbyCommand>
 {
 	private readonly IAsyncRepository<Hobby> _hobbyRepository;
-	public EditHobbyCommandHandler(IAsyncRepository<Hobby> hobbyRepository)
+	private readonly IErrorSerializer _errorSerializer;
+	public EditHobbyCommandHandler(IAsyncRepository<Hobby> hobbyRepository, 
+		IErrorSerializer errorSerializer)
 	{
 		_hobbyRepository = hobbyRepository;
+		_errorSerializer = errorSerializer;
 	}
 
 	public async Task Handle(EditHobbyCommand request, CancellationToken cancellationToken)
@@ -21,8 +24,7 @@ public class EditHobbyCommandHandler
 		var resultOfVal = await validation.ValidateAsync(request, cancellationToken);
 		if (!resultOfVal.IsValid)
 		{
-			throw new BadRequestException(FVErrorSerializer.SerializeToString(
-				resultOfVal.Errors));
+			throw new BadRequestException(_errorSerializer.Serialize(resultOfVal.Errors));
 		}
 
 		var itemToEdit = await _hobbyRepository.GetById(request.HobbyId);

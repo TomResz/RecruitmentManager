@@ -12,12 +12,15 @@ public class EditWorkerPasswordCommandHandler
 {
 	private readonly IEmployeeRepository _employeeRepository;
 	private readonly IPasswordHasher<Employee> _passwordHasher;
+	private readonly IErrorSerializer _errorSerializer;
 	public EditWorkerPasswordCommandHandler(
 		IEmployeeRepository employeeRepository,
-		IPasswordHasher<Employee> passwordHasher)
+		IPasswordHasher<Employee> passwordHasher, 
+		IErrorSerializer errorSerializer)
 	{
 		_employeeRepository = employeeRepository;
 		_passwordHasher = passwordHasher;
+		_errorSerializer = errorSerializer;
 	}
 
 	public async Task Handle(
@@ -29,7 +32,7 @@ public class EditWorkerPasswordCommandHandler
 		if(!resultOfValidation.IsValid)
 		{
 			throw new BadRequestException(
-				 FVErrorSerializer.SerializeToString(resultOfValidation.Errors));
+				 _errorSerializer.Serialize(resultOfValidation.Errors));
 		}
 		var worker = await _employeeRepository.GetById(request.Id);
 		if (worker is null) 

@@ -11,12 +11,15 @@ public class UpdateCandidateDataCommandHandler
 {
 	private readonly IAsyncRepository<Candidate> _asyncRepository;
 	private readonly ICandidateRepository _candidateRepository;
+	private readonly IErrorSerializer _errorSerializer;
 	public UpdateCandidateDataCommandHandler(
 		IAsyncRepository<Candidate> asyncRepository,
-		ICandidateRepository candidateRepository)
+		ICandidateRepository candidateRepository, 
+		IErrorSerializer errorSerializer)
 	{
 		_asyncRepository = asyncRepository;
 		_candidateRepository = candidateRepository;
+		_errorSerializer = errorSerializer;
 	}
 
 	public async Task Handle(
@@ -27,8 +30,7 @@ public class UpdateCandidateDataCommandHandler
 		var result = await validate.ValidateAsync(request, cancellationToken);
 		if (!result.IsValid)
 		{
-			throw new InvalidDataException(FVErrorSerializer.SerializeToString(
-				result.Errors));
+			throw new InvalidDataException(_errorSerializer.Serialize(result.Errors));
 		}
 		var candidate = await _candidateRepository.GetFullWithPBData(request.BasicDataDto.Id, cancellationToken);
 		if(candidate is null)
