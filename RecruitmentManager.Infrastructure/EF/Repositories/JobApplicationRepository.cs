@@ -5,12 +5,12 @@ using RecruitmentManager.Infrastructure.EF.Context;
 
 namespace RecruitmentManager.Infrastructure.EF.Repositories;
 
-public class JobApplicationRepository : IJobApplicationRepository
+public class JobApplicationRepository : AsyncRepository<JobApplication>,IJobApplicationRepository
 {
 	private readonly RecruitmentManagerDbContext _context;
 
 	public JobApplicationRepository(
-		RecruitmentManagerDbContext context)
+		RecruitmentManagerDbContext context) : base(context)
 	{
 		_context = context;
 	}

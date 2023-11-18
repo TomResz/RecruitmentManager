@@ -2,7 +2,7 @@
 
 namespace RecruitmentManager.Application.Interfaces.Repositories;
 
-public interface IRecruitmentStageRepository
+public interface IRecruitmentStageRepository : IAsyncRepository<RecruitmentStage>
 {
 	Task<List<RecruitmentStage>> GetByJobPostingId(Guid jobPostingId);
 }

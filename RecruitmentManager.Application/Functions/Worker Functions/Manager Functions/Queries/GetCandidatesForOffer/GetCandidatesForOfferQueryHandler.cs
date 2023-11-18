@@ -25,6 +25,7 @@ public class GetCandidatesForOfferQueryHandler
 			Id = x.Id,
 			FirstName = x.CandidateData.FirstName,
 			LastName = x.CandidateData.LastName,
+			IsQualificated = x.JobApplications.Select(y=>y.InterviewQualified).FirstOrDefault()
 		}).ToList();
 	}
 }

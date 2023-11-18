@@ -2,7 +2,7 @@
 
 namespace RecruitmentManager.Application.Interfaces.Repositories;
 
-public interface IJobApplicationRepository
+public interface IJobApplicationRepository : IAsyncRepository<JobApplication>
 {
 	Task<bool> Exists(Guid jobPostingId, Guid candidateId);
 	Task Add(JobApplication jobApplication);

@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.Application.Functions.Common.Queries.GetPageOfJobOffers.NotActive;
 using RecruitmentManager.Application.Functions.DTOs;
+using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Events;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Queries.GetCandidatesForOffer;
 using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Application.Pagination;
@@ -29,6 +30,9 @@ public partial class ManagerRegistrationsView : UserControl
 		_serviceProvider = serviceProvider;
 		InitializeComponent();
 		AddActions();
+		UserViewChangeSize();
+		JobOffersChangeSize();
+		usersView.Visible = false;
 	}
 
 	private void AddActions()
@@ -42,8 +46,10 @@ public partial class ManagerRegistrationsView : UserControl
 
 	private void UserViewChangeSize()
 	{
-		usersView.Columns[1].Width = (int)(usersView.Width * 0.7);
-		usersView.Columns[2].Width = (int)(usersView.Width * 0.3);
+		usersView.Columns[1].Width = (int)(usersView.Width * 0.30);
+		usersView.Columns[2].Width = (int)(usersView.Width * 0.30);
+		usersView.Columns[3].Width = (int)(usersView.Width * 0.20);
+		usersView.Columns[4].Width = (int)(usersView.Width * 0.20);
 	}
 	private void JobOffersChangeSize()
 	{
@@ -53,28 +59,52 @@ public partial class ManagerRegistrationsView : UserControl
 	}
 
 
-	private void UsersView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+	private async void UsersView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
 	{
-		if (e is not { RowIndex: >= 0, ColumnIndex: 2 })
+		if (usersView.CurrentRow is null || jobOffersDGV.CurrentRow is null ||
+			!Guid.TryParse(usersView.CurrentRow.Cells[0].Value.ToString(), out var candidateId) ||
+			!Guid.TryParse(jobOffersDGV.CurrentRow.Cells[0].Value.ToString(), out var jobOfferId))
 			return;
+		if (e is { RowIndex: >= 0, ColumnIndex: 3 })
+		{
+			try
+			{
+				_candidateContext.SetId(candidateId);
+				var form = _serviceProvider.GetRequiredService<ShowFullCandidateDataForm>();
+				form.ShowDialog();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message, "Błąd!", MessageBoxButtons.OK,
+					MessageBoxIcon.Error);
+			}
+			finally
+			{
+				_candidateContext.Logout();
+			}
+		}
+		else if (e is { RowIndex: >= 0, ColumnIndex: 4 })
+		{
+			if (usersView.CurrentRow.Cells[2].Value.ToString() == "Tak")
+				return;
 
-		if (usersView.CurrentRow is null ||
-			 !Guid.TryParse(usersView.CurrentRow.Cells[0].Value.ToString(), out var id))
-			return;
-		try
-		{
-			_candidateContext.SetId(id);
-			var form = _serviceProvider.GetRequiredService<ShowFullCandidateDataForm>();
-			form.ShowDialog();
-		}
-		catch (Exception ex)
-		{
-			MessageBox.Show(ex.Message, "Błąd!", MessageBoxButtons.OK,
-				MessageBoxIcon.Error);
-		}
-		finally
-		{
-			_candidateContext.Logout();
+
+			var confirmation = MessageBox.Show("Czy chcesz zakwalifikować tego kandydata do rozmowy kwalifikacyjnej?",
+				"Pytanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			if (confirmation == DialogResult.No)
+				return;
+
+			try
+			{
+				var command = new QualifyToInterviewEvent(candidateId, jobOfferId);
+				await _mediator.Publish(command);
+				await ReloadPage();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message, "Błąd", MessageBoxButtons.OK,
+					MessageBoxIcon.Error);
+			}
 		}
 	}
 
@@ -99,10 +129,13 @@ public partial class ManagerRegistrationsView : UserControl
 
 	private void FillUserDgv(List<CandidateDTO> response)
 	{
+		usersView.Visible = response.Count is not 0;
 		usersView.Fill(response, item => new object[]
 		{
 			item.Id,
 			item.FirstName + " " + item.LastName,
+			item.IsQualificated ? "Tak" : "Nie"
+
 		});
 		usersView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 		usersView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;

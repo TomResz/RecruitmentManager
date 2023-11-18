@@ -3,6 +3,7 @@ using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Forms.Admin;
 using RecruitmentManager.Forms.Manager.JobOffers;
 using RecruitmentManager.Forms.Manager.Registrations;
+using RecruitmentManager.Forms.Manager.StagesSetup;
 
 namespace RecruitmentManager.Forms.Manager;
 
@@ -69,6 +70,12 @@ public partial class ManagerForm : Form
 	private void registrationsBtn_Click(object sender, EventArgs e)
 	{
 		var uc = _serviceProvider.GetRequiredService<ManagerRegistrationsView>();
+		ShowControl(uc);
+	}
+
+	private void stagesBtn_Click(object sender, EventArgs e)
+	{
+		var uc = _serviceProvider.GetRequiredService<StagesSetupView>();
 		ShowControl(uc);
 	}
 }

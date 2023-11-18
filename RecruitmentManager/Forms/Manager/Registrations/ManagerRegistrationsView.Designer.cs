@@ -36,6 +36,8 @@
 			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
 			tableLayoutPanel = new TableLayoutPanel();
 			mainLayout = new TableLayoutPanel();
 			jobOffersDGV = new DataGridView();
@@ -50,7 +52,9 @@
 			usersView = new DataGridView();
 			dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
 			dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+			qualificatedoo = new DataGridViewTextBoxColumn();
 			DetailsBtn = new DataGridViewButtonColumn();
+			qulifactedbtn = new DataGridViewButtonColumn();
 			tableLayoutPanel.SuspendLayout();
 			mainLayout.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)jobOffersDGV).BeginInit();
@@ -64,8 +68,8 @@
 			// 
 			tableLayoutPanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.OutsetDouble;
 			tableLayoutPanel.ColumnCount = 2;
-			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
 			tableLayoutPanel.Controls.Add(mainLayout, 0, 0);
 			tableLayoutPanel.Controls.Add(usersView, 1, 0);
 			tableLayoutPanel.Dock = DockStyle.Fill;
@@ -73,7 +77,6 @@
 			tableLayoutPanel.Name = "tableLayoutPanel";
 			tableLayoutPanel.RowCount = 1;
 			tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
 			tableLayoutPanel.Size = new Size(1226, 582);
 			tableLayoutPanel.TabIndex = 0;
 			// 
@@ -89,7 +92,7 @@
 			mainLayout.RowCount = 2;
 			mainLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
 			mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
-			mainLayout.Size = new Size(602, 570);
+			mainLayout.Size = new Size(480, 570);
 			mainLayout.TabIndex = 3;
 			// 
 			// jobOffersDGV
@@ -119,7 +122,7 @@
 			jobOffersDGV.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			jobOffersDGV.RowTemplate.Height = 29;
 			jobOffersDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			jobOffersDGV.Size = new Size(596, 489);
+			jobOffersDGV.Size = new Size(474, 489);
 			jobOffersDGV.TabIndex = 0;
 			// 
 			// Id
@@ -191,14 +194,14 @@
 			footerLayout.Name = "footerLayout";
 			footerLayout.RowCount = 1;
 			footerLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			footerLayout.Size = new Size(596, 69);
+			footerLayout.Size = new Size(474, 69);
 			footerLayout.TabIndex = 1;
 			// 
 			// pageCounterLabel
 			// 
 			pageCounterLabel.Anchor = AnchorStyles.Left;
 			pageCounterLabel.AutoSize = true;
-			pageCounterLabel.Location = new Point(533, 24);
+			pageCounterLabel.Location = new Point(411, 24);
 			pageCounterLabel.Name = "pageCounterLabel";
 			pageCounterLabel.Size = new Size(50, 20);
 			pageCounterLabel.TabIndex = 4;
@@ -207,7 +210,7 @@
 			// nextPageButton
 			// 
 			nextPageButton.Image = (Image)resources.GetObject("nextPageButton.Image");
-			nextPageButton.Location = new Point(468, 3);
+			nextPageButton.Location = new Point(346, 3);
 			nextPageButton.Name = "nextPageButton";
 			nextPageButton.Size = new Size(59, 63);
 			nextPageButton.TabIndex = 3;
@@ -217,7 +220,7 @@
 			// previousPageButton
 			// 
 			previousPageButton.Image = (Image)resources.GetObject("previousPageButton.Image");
-			previousPageButton.Location = new Point(403, 3);
+			previousPageButton.Location = new Point(281, 3);
 			previousPageButton.Name = "previousPageButton";
 			previousPageButton.Size = new Size(59, 63);
 			previousPageButton.TabIndex = 2;
@@ -240,10 +243,10 @@
 			dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
 			usersView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			usersView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			usersView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, DetailsBtn });
+			usersView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, qualificatedoo, DetailsBtn, qulifactedbtn });
 			usersView.Dock = DockStyle.Fill;
 			usersView.EnableHeadersVisualStyles = false;
-			usersView.Location = new Point(617, 6);
+			usersView.Location = new Point(495, 6);
 			usersView.MultiSelect = false;
 			usersView.Name = "usersView";
 			usersView.RowHeadersVisible = false;
@@ -251,7 +254,7 @@
 			usersView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			usersView.RowTemplate.Height = 29;
 			usersView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			usersView.Size = new Size(603, 570);
+			usersView.Size = new Size(725, 570);
 			usersView.TabIndex = 2;
 			// 
 			// dataGridViewTextBoxColumn1
@@ -277,16 +280,29 @@
 			dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
 			dataGridViewTextBoxColumn2.ReadOnly = true;
 			// 
+			// qualificatedoo
+			// 
+			dataGridViewCellStyle7.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle7.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle7.ForeColor = Color.Black;
+			dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle7.SelectionForeColor = Color.Black;
+			qualificatedoo.DefaultCellStyle = dataGridViewCellStyle7;
+			qualificatedoo.HeaderText = "Kwalifikacja do rozmowy rekrutacyjnej";
+			qualificatedoo.MinimumWidth = 6;
+			qualificatedoo.Name = "qualificatedoo";
+			qualificatedoo.ReadOnly = true;
+			// 
 			// DetailsBtn
 			// 
 			DetailsBtn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle7.BackColor = Color.Navy;
-			dataGridViewCellStyle7.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle7.ForeColor = Color.White;
-			dataGridViewCellStyle7.SelectionBackColor = Color.Navy;
-			dataGridViewCellStyle7.SelectionForeColor = Color.White;
-			DetailsBtn.DefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle8.BackColor = Color.Navy;
+			dataGridViewCellStyle8.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle8.ForeColor = Color.White;
+			dataGridViewCellStyle8.SelectionBackColor = Color.Navy;
+			dataGridViewCellStyle8.SelectionForeColor = Color.White;
+			DetailsBtn.DefaultCellStyle = dataGridViewCellStyle8;
 			DetailsBtn.FillWeight = 250F;
 			DetailsBtn.FlatStyle = FlatStyle.Popup;
 			DetailsBtn.HeaderText = "Szczegóły";
@@ -294,6 +310,22 @@
 			DetailsBtn.Name = "DetailsBtn";
 			DetailsBtn.Text = "Wyświetl szczegóły!";
 			DetailsBtn.UseColumnTextForButtonValue = true;
+			// 
+			// qulifactedbtn
+			// 
+			dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle9.BackColor = Color.Navy;
+			dataGridViewCellStyle9.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle9.ForeColor = Color.White;
+			dataGridViewCellStyle9.SelectionBackColor = Color.Navy;
+			dataGridViewCellStyle9.SelectionForeColor = Color.White;
+			qulifactedbtn.DefaultCellStyle = dataGridViewCellStyle9;
+			qulifactedbtn.FlatStyle = FlatStyle.Popup;
+			qulifactedbtn.HeaderText = "Kwalifikacja";
+			qulifactedbtn.MinimumWidth = 6;
+			qulifactedbtn.Name = "qulifactedbtn";
+			qulifactedbtn.Text = "Zakwalifikuj";
+			qulifactedbtn.UseColumnTextForButtonValue = true;
 			// 
 			// ManagerRegistrationsView
 			// 
@@ -329,6 +361,8 @@
 		private DataGridViewTextBoxColumn EndedDate;
 		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
 		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+		private DataGridViewTextBoxColumn qualificatedoo;
 		private DataGridViewButtonColumn DetailsBtn;
+		private DataGridViewButtonColumn qulifactedbtn;
 	}
 }
