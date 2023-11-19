@@ -1,10 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.Application.Interfaces.Context;
+using RecruitmentManager.Forms.Recruiter.Stages;
 
 namespace RecruitmentManager.Forms.Recruiter;
 
 public partial class RecruiterMainForm : Form
 {
+	private UserControl _currentControl;
 	private readonly IWorkerSessionContext _sessionContext;
 	private readonly IServiceProvider _serviceProvider;
 	public RecruiterMainForm(IWorkerSessionContext sessionContext, IServiceProvider serviceProvider)
@@ -12,6 +14,8 @@ public partial class RecruiterMainForm : Form
 		_sessionContext = sessionContext;
 		_serviceProvider = serviceProvider;
 		InitializeComponent();
+		var uc = _serviceProvider.GetRequiredService<StagesMainView>();
+		ShowControl(uc);
 		userLabel.Text = _sessionContext.FullName;
 	}
 
@@ -30,6 +34,22 @@ public partial class RecruiterMainForm : Form
 
 	private void interviewsBtn_Click(object sender, EventArgs e)
 	{
-
+		var uc = _serviceProvider.GetRequiredService<StagesMainView>();
+		ShowControl(uc);
+	}
+	public void ShowControl(UserControl controlToShow)
+	{
+		if (_currentControl != controlToShow)
+		{
+			if (_currentControl is not null)
+				_currentControl.Visible = false;
+			if (!mainLayout.Controls.Contains(controlToShow))
+			{
+				controlToShow.Dock = DockStyle.Fill;
+				mainLayout.Controls.Add(controlToShow, 1, 0);
+			}
+			controlToShow.Visible = true;
+			_currentControl = controlToShow;
+		}
 	}
 }

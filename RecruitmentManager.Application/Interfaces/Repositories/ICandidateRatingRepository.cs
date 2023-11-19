@@ -8,4 +8,5 @@ public interface ICandidateRatingRepository : IAsyncRepository<CandidateRating>
 	Task<List<CandidateRating>> GetNotSetInterview();
 	Task<List<CandidateRating>> GetSetInterviewByRecruiterId(Guid recruiterId);
 	Task<List<CandidateRating>> GetByRecruiterId(Guid recruiterId);
+	Task<List<CandidateRating>> GetAllWithDate();
 }

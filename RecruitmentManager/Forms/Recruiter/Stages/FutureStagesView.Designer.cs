@@ -1,6 +1,6 @@
-﻿namespace RecruitmentManager.Forms.Manager.StagesSetup
+﻿namespace RecruitmentManager.Forms.Recruiter.Stages
 {
-	partial class StagesSetupView
+	partial class FutureStagesView
 	{
 		/// <summary> 
 		/// Required designer variable.
@@ -29,41 +29,25 @@
 		private void InitializeComponent()
 		{
 			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FutureStagesView));
 			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-			tableLayoutPanel = new TableLayoutPanel();
+			DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
 			stagesDgv = new DataGridView();
+			tableLayoutPanel = new TableLayoutPanel();
+			pictureBox1 = new PictureBox();
 			Id = new DataGridViewTextBoxColumn();
 			Position = new DataGridViewTextBoxColumn();
 			RecruitmentStageName = new DataGridViewTextBoxColumn();
 			CandidateData = new DataGridViewTextBoxColumn();
 			DateTimeSU = new DataGridViewTextBoxColumn();
-			tableLayoutPanel1 = new TableLayoutPanel();
-			datePicker = new DateTimePicker();
-			UpdateBtn = new Button();
-			toCheckCB = new CheckBox();
-			tableLayoutPanel.SuspendLayout();
+			Details = new DataGridViewButtonColumn();
 			((System.ComponentModel.ISupportInitialize)stagesDgv).BeginInit();
-			tableLayoutPanel1.SuspendLayout();
+			tableLayoutPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			SuspendLayout();
-			// 
-			// tableLayoutPanel
-			// 
-			tableLayoutPanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.OutsetDouble;
-			tableLayoutPanel.ColumnCount = 2;
-			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 75F));
-			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-			tableLayoutPanel.Controls.Add(stagesDgv, 0, 0);
-			tableLayoutPanel.Controls.Add(tableLayoutPanel1, 1, 0);
-			tableLayoutPanel.Dock = DockStyle.Fill;
-			tableLayoutPanel.Location = new Point(0, 0);
-			tableLayoutPanel.Name = "tableLayoutPanel";
-			tableLayoutPanel.RowCount = 1;
-			tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			tableLayoutPanel.Size = new Size(1319, 607);
-			tableLayoutPanel.TabIndex = 0;
 			// 
 			// stagesDgv
 			// 
@@ -81,10 +65,10 @@
 			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
 			stagesDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			stagesDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			stagesDgv.Columns.AddRange(new DataGridViewColumn[] { Id, Position, RecruitmentStageName, CandidateData, DateTimeSU });
+			stagesDgv.Columns.AddRange(new DataGridViewColumn[] { Id, Position, RecruitmentStageName, CandidateData, DateTimeSU, Details });
 			stagesDgv.Dock = DockStyle.Fill;
 			stagesDgv.EnableHeadersVisualStyles = false;
-			stagesDgv.Location = new Point(6, 6);
+			stagesDgv.Location = new Point(3, 3);
 			stagesDgv.MultiSelect = false;
 			stagesDgv.Name = "stagesDgv";
 			stagesDgv.RowHeadersVisible = false;
@@ -92,8 +76,32 @@
 			stagesDgv.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			stagesDgv.RowTemplate.Height = 29;
 			stagesDgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			stagesDgv.Size = new Size(976, 595);
-			stagesDgv.TabIndex = 1;
+			stagesDgv.Size = new Size(1169, 513);
+			stagesDgv.TabIndex = 2;
+			// 
+			// tableLayoutPanel
+			// 
+			tableLayoutPanel.ColumnCount = 2;
+			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
+			tableLayoutPanel.Controls.Add(stagesDgv, 0, 0);
+			tableLayoutPanel.Controls.Add(pictureBox1, 1, 0);
+			tableLayoutPanel.Dock = DockStyle.Fill;
+			tableLayoutPanel.Location = new Point(0, 0);
+			tableLayoutPanel.Name = "tableLayoutPanel";
+			tableLayoutPanel.RowCount = 1;
+			tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+			tableLayoutPanel.Size = new Size(1275, 519);
+			tableLayoutPanel.TabIndex = 1;
+			// 
+			// pictureBox1
+			// 
+			pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+			pictureBox1.Location = new Point(1178, 3);
+			pictureBox1.Name = "pictureBox1";
+			pictureBox1.Size = new Size(94, 95);
+			pictureBox1.TabIndex = 0;
+			pictureBox1.TabStop = false;
 			// 
 			// Id
 			// 
@@ -157,86 +165,45 @@
 			DateTimeSU.Name = "DateTimeSU";
 			DateTimeSU.ReadOnly = true;
 			// 
-			// tableLayoutPanel1
+			// Details
 			// 
-			tableLayoutPanel1.ColumnCount = 1;
-			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-			tableLayoutPanel1.Controls.Add(datePicker, 0, 2);
-			tableLayoutPanel1.Controls.Add(UpdateBtn, 0, 3);
-			tableLayoutPanel1.Controls.Add(toCheckCB, 0, 1);
-			tableLayoutPanel1.Dock = DockStyle.Fill;
-			tableLayoutPanel1.Location = new Point(988, 3);
-			tableLayoutPanel1.Margin = new Padding(0);
-			tableLayoutPanel1.Name = "tableLayoutPanel1";
-			tableLayoutPanel1.RowCount = 4;
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-			tableLayoutPanel1.Size = new Size(328, 601);
-			tableLayoutPanel1.TabIndex = 0;
+			dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle6.BackColor = Color.FromArgb(0, 0, 192);
+			dataGridViewCellStyle6.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle6.ForeColor = Color.White;
+			dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 0, 192);
+			dataGridViewCellStyle6.SelectionForeColor = Color.White;
+			Details.DefaultCellStyle = dataGridViewCellStyle6;
+			Details.FlatStyle = FlatStyle.Popup;
+			Details.HeaderText = "Szczegóły kandydata";
+			Details.MinimumWidth = 6;
+			Details.Name = "Details";
+			Details.Text = "Szczegóły kandydata";
+			Details.UseColumnTextForButtonValue = true;
 			// 
-			// datePicker
-			// 
-			datePicker.Dock = DockStyle.Fill;
-			datePicker.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			datePicker.Location = new Point(3, 363);
-			datePicker.Name = "datePicker";
-			datePicker.Size = new Size(322, 34);
-			datePicker.TabIndex = 0;
-			// 
-			// UpdateBtn
-			// 
-			UpdateBtn.Dock = DockStyle.Fill;
-			UpdateBtn.FlatStyle = FlatStyle.Flat;
-			UpdateBtn.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-			UpdateBtn.Location = new Point(3, 483);
-			UpdateBtn.Name = "UpdateBtn";
-			UpdateBtn.Size = new Size(322, 115);
-			UpdateBtn.TabIndex = 1;
-			UpdateBtn.Text = "Aktualizuj";
-			UpdateBtn.UseVisualStyleBackColor = true;
-			UpdateBtn.Click += UpdateBtn_Click;
-			// 
-			// toCheckCB
-			// 
-			toCheckCB.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-			toCheckCB.AutoSize = true;
-			toCheckCB.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-			toCheckCB.Location = new Point(3, 243);
-			toCheckCB.Name = "toCheckCB";
-			toCheckCB.Size = new Size(322, 36);
-			toCheckCB.TabIndex = 2;
-			toCheckCB.Text = "Do zatwierdzenia";
-			toCheckCB.UseVisualStyleBackColor = true;
-			toCheckCB.CheckedChanged += toCheckCB_CheckedChanged;
-			// 
-			// StagesSetupView
+			// FutureStagesView
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			Controls.Add(tableLayoutPanel);
-			Name = "StagesSetupView";
-			Size = new Size(1319, 607);
-			tableLayoutPanel.ResumeLayout(false);
+			Name = "FutureStagesView";
+			Size = new Size(1275, 519);
 			((System.ComponentModel.ISupportInitialize)stagesDgv).EndInit();
-			tableLayoutPanel1.ResumeLayout(false);
-			tableLayoutPanel1.PerformLayout();
+			tableLayoutPanel.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			ResumeLayout(false);
 		}
 
 		#endregion
 
-		private TableLayoutPanel tableLayoutPanel;
-		private TableLayoutPanel tableLayoutPanel1;
-		private DateTimePicker datePicker;
 		private DataGridView stagesDgv;
+		private TableLayoutPanel tableLayoutPanel;
+		private PictureBox pictureBox1;
 		private DataGridViewTextBoxColumn Id;
 		private DataGridViewTextBoxColumn Position;
 		private DataGridViewTextBoxColumn RecruitmentStageName;
 		private DataGridViewTextBoxColumn CandidateData;
 		private DataGridViewTextBoxColumn DateTimeSU;
-		private Button UpdateBtn;
-		private CheckBox toCheckCB;
+		private DataGridViewButtonColumn Details;
 	}
 }
