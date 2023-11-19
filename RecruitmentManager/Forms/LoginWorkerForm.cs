@@ -4,6 +4,7 @@ using RecruitmentManager.Application.Functions.Worker_Functions.Login;
 using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Domain.Enums;
 using RecruitmentManager.Forms.Manager;
+using RecruitmentManager.Forms.Recruiter;
 using RecruitmentManager.Subtitles;
 
 namespace RecruitmentManager.Forms;
@@ -72,7 +73,8 @@ public partial class LoginWorkerForm : Form
 				case Roles.Manager:
 					OpenManagerForm();
 					break;
-				default:
+				case Roles.Recruiter:
+					OpenRecruiterForm();
 					break;
 			}
 		}
@@ -83,6 +85,14 @@ public partial class LoginWorkerForm : Form
 						  buttons: MessageBoxButtons.OK,
 						  icon: MessageBoxIcon.Error);
 		}
+	}
+
+	private void OpenRecruiterForm()
+	{
+		var recruiter = _serviceProvider.GetRequiredService<RecruiterMainForm>();
+		this.Hide();
+		recruiter.FormClosed += (s, args) => this.Close();
+		recruiter.Show();
 	}
 
 	private void OpenManagerForm()

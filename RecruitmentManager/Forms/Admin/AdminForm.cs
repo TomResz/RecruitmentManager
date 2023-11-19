@@ -25,11 +25,9 @@ public partial class AdminForm : Form
 		_serviceProvider = serviceProvider;
 		Init();
 		_workerSessionContext = workerSessionContext;
-		SetLabel();
+		userLabel.Text = _workerSessionContext.FullName;
 	}
 
-	private void SetLabel()
-		=> userLabel.Text = "Zalogowano:\r\n" + _workerSessionContext.FullName;
 
 
 	private void Init()
@@ -92,6 +90,5 @@ public partial class AdminForm : Form
 	{
 		var form = _serviceProvider.GetRequiredService<EditEmployeeDataForm>();
 		form.ShowDialog();
-		SetLabel();
 	}
 }

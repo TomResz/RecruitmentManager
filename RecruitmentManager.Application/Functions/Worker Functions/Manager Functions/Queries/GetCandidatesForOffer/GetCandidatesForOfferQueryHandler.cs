@@ -19,7 +19,6 @@ public class GetCandidatesForOfferQueryHandler
 		CancellationToken cancellationToken)
 	{
 		var candidates = await _candidateRepository.GetByJobPostingId(request.JobPostingId);
-
 		return candidates.Select(x => new CandidateDTO()
 		{
 			Id = x.Id,
