@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.Application.Interfaces.Context;
+using RecruitmentManager.Forms.Recruiter.Assessment;
 using RecruitmentManager.Forms.Recruiter.Stages;
 
 namespace RecruitmentManager.Forms.Recruiter;
@@ -51,5 +52,11 @@ public partial class RecruiterMainForm : Form
 			controlToShow.Visible = true;
 			_currentControl = controlToShow;
 		}
+	}
+
+	private void AssessmentBtn_Click(object sender, EventArgs e)
+	{
+		var uc = _serviceProvider.GetRequiredService<AssessmentMainView>();
+		ShowControl(uc);
 	}
 }

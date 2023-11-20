@@ -33,6 +33,7 @@
 			tableLayoutPanel1 = new TableLayoutPanel();
 			logoutBtn = new Button();
 			tabControlLayout = new TableLayoutPanel();
+			interviewsBtn = new Button();
 			userLabel = new Label();
 			headeLayout = new TableLayoutPanel();
 			menuStrip1 = new MenuStrip();
@@ -40,7 +41,7 @@
 			dsadsToolStripMenuItem = new ToolStripMenuItem();
 			edycjaToolStripMenuItem = new ToolStripMenuItem();
 			edytujDaneToolStripMenuItem = new ToolStripMenuItem();
-			interviewsBtn = new Button();
+			AssessmentBtn = new Button();
 			mainLayout.SuspendLayout();
 			tableLayoutPanel1.SuspendLayout();
 			tabControlLayout.SuspendLayout();
@@ -100,6 +101,7 @@
 			tabControlLayout.ColumnCount = 1;
 			tabControlLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
 			tabControlLayout.Controls.Add(interviewsBtn, 0, 0);
+			tabControlLayout.Controls.Add(AssessmentBtn, 0, 1);
 			tabControlLayout.Dock = DockStyle.Fill;
 			tabControlLayout.Location = new Point(0, 100);
 			tabControlLayout.Margin = new Padding(0);
@@ -113,6 +115,22 @@
 			tabControlLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
 			tabControlLayout.Size = new Size(318, 471);
 			tabControlLayout.TabIndex = 2;
+			// 
+			// interviewsBtn
+			// 
+			interviewsBtn.Dock = DockStyle.Fill;
+			interviewsBtn.FlatStyle = FlatStyle.Flat;
+			interviewsBtn.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			interviewsBtn.Image = (Image)resources.GetObject("interviewsBtn.Image");
+			interviewsBtn.ImageAlign = ContentAlignment.MiddleLeft;
+			interviewsBtn.Location = new Point(3, 3);
+			interviewsBtn.Name = "interviewsBtn";
+			interviewsBtn.Size = new Size(312, 88);
+			interviewsBtn.TabIndex = 0;
+			interviewsBtn.Text = "Aktualne Rozmowy Kwalifikacyjne";
+			interviewsBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+			interviewsBtn.UseVisualStyleBackColor = true;
+			interviewsBtn.Click += interviewsBtn_Click;
 			// 
 			// userLabel
 			// 
@@ -176,21 +194,21 @@
 			edytujDaneToolStripMenuItem.Size = new Size(200, 28);
 			edytujDaneToolStripMenuItem.Text = "Edytuj Dane";
 			// 
-			// interviewsBtn
+			// AssessmentBtn
 			// 
-			interviewsBtn.Dock = DockStyle.Fill;
-			interviewsBtn.FlatStyle = FlatStyle.Flat;
-			interviewsBtn.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			interviewsBtn.Image = (Image)resources.GetObject("interviewsBtn.Image");
-			interviewsBtn.ImageAlign = ContentAlignment.MiddleLeft;
-			interviewsBtn.Location = new Point(3, 3);
-			interviewsBtn.Name = "interviewsBtn";
-			interviewsBtn.Size = new Size(312, 88);
-			interviewsBtn.TabIndex = 0;
-			interviewsBtn.Text = "Aktualne Rozmowy Kwalifikacyjne";
-			interviewsBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
-			interviewsBtn.UseVisualStyleBackColor = true;
-			interviewsBtn.Click += interviewsBtn_Click;
+			AssessmentBtn.Dock = DockStyle.Fill;
+			AssessmentBtn.FlatStyle = FlatStyle.Flat;
+			AssessmentBtn.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			AssessmentBtn.Image = (Image)resources.GetObject("AssessmentBtn.Image");
+			AssessmentBtn.ImageAlign = ContentAlignment.MiddleLeft;
+			AssessmentBtn.Location = new Point(3, 97);
+			AssessmentBtn.Name = "AssessmentBtn";
+			AssessmentBtn.Size = new Size(312, 88);
+			AssessmentBtn.TabIndex = 1;
+			AssessmentBtn.Text = "Oceny Kandydatów";
+			AssessmentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+			AssessmentBtn.UseVisualStyleBackColor = true;
+			AssessmentBtn.Click += AssessmentBtn_Click;
 			// 
 			// RecruiterMainForm
 			// 
@@ -199,7 +217,7 @@
 			ClientSize = new Size(1600, 714);
 			Controls.Add(headeLayout);
 			Name = "RecruiterMainForm";
-			Text = "RecruiterMainForm";
+			Text = "Formularz Rekrutera";
 			mainLayout.ResumeLayout(false);
 			tableLayoutPanel1.ResumeLayout(false);
 			tableLayoutPanel1.PerformLayout();
@@ -225,5 +243,6 @@
 		private ToolStripMenuItem edycjaToolStripMenuItem;
 		private ToolStripMenuItem edytujDaneToolStripMenuItem;
 		private Button interviewsBtn;
+		private Button AssessmentBtn;
 	}
 }

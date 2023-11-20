@@ -1,6 +1,6 @@
 ﻿namespace RecruitmentManager.Forms.Recruiter.Stages
 {
-	partial class CurrentStagesView
+	partial class PastStagesView
 	{
 		/// <summary> 
 		/// Required designer variable.
@@ -29,15 +29,13 @@
 		private void InitializeComponent()
 		{
 			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CurrentStagesView));
 			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-			tableLayoutPanel = new TableLayoutPanel();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PastStagesView));
 			stagesDgv = new DataGridView();
-			pictureBox1 = new PictureBox();
 			Id = new DataGridViewTextBoxColumn();
 			candidateid = new DataGridViewTextBoxColumn();
 			Position = new DataGridViewTextBoxColumn();
@@ -45,25 +43,12 @@
 			CandidateData = new DataGridViewTextBoxColumn();
 			DateTimeSU = new DataGridViewTextBoxColumn();
 			Details = new DataGridViewButtonColumn();
-			tableLayoutPanel.SuspendLayout();
+			tableLayoutPanel = new TableLayoutPanel();
+			pictureBox1 = new PictureBox();
 			((System.ComponentModel.ISupportInitialize)stagesDgv).BeginInit();
+			tableLayoutPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			SuspendLayout();
-			// 
-			// tableLayoutPanel
-			// 
-			tableLayoutPanel.ColumnCount = 2;
-			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
-			tableLayoutPanel.Controls.Add(stagesDgv, 0, 0);
-			tableLayoutPanel.Controls.Add(pictureBox1, 1, 0);
-			tableLayoutPanel.Dock = DockStyle.Fill;
-			tableLayoutPanel.Location = new Point(0, 0);
-			tableLayoutPanel.Name = "tableLayoutPanel";
-			tableLayoutPanel.RowCount = 1;
-			tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			tableLayoutPanel.Size = new Size(1450, 587);
-			tableLayoutPanel.TabIndex = 0;
 			// 
 			// stagesDgv
 			// 
@@ -92,17 +77,8 @@
 			stagesDgv.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			stagesDgv.RowTemplate.Height = 29;
 			stagesDgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			stagesDgv.Size = new Size(1344, 581);
+			stagesDgv.Size = new Size(1186, 621);
 			stagesDgv.TabIndex = 3;
-			// 
-			// pictureBox1
-			// 
-			pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-			pictureBox1.Location = new Point(1353, 3);
-			pictureBox1.Name = "pictureBox1";
-			pictureBox1.Size = new Size(94, 95);
-			pictureBox1.TabIndex = 0;
-			pictureBox1.TabStop = false;
 			// 
 			// Id
 			// 
@@ -190,30 +166,53 @@
 			Details.Text = "Szczegóły kandydata";
 			Details.UseColumnTextForButtonValue = true;
 			// 
-			// CurrentStagesView
+			// tableLayoutPanel
+			// 
+			tableLayoutPanel.ColumnCount = 2;
+			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
+			tableLayoutPanel.Controls.Add(stagesDgv, 0, 0);
+			tableLayoutPanel.Controls.Add(pictureBox1, 1, 0);
+			tableLayoutPanel.Dock = DockStyle.Fill;
+			tableLayoutPanel.Location = new Point(0, 0);
+			tableLayoutPanel.Name = "tableLayoutPanel";
+			tableLayoutPanel.RowCount = 1;
+			tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+			tableLayoutPanel.Size = new Size(1292, 627);
+			tableLayoutPanel.TabIndex = 1;
+			// 
+			// pictureBox1
+			// 
+			pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+			pictureBox1.Location = new Point(1195, 3);
+			pictureBox1.Name = "pictureBox1";
+			pictureBox1.Size = new Size(94, 95);
+			pictureBox1.TabIndex = 0;
+			pictureBox1.TabStop = false;
+			// 
+			// PastStagesView
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			Controls.Add(tableLayoutPanel);
-			Name = "CurrentStagesView";
-			Size = new Size(1450, 587);
-			tableLayoutPanel.ResumeLayout(false);
+			Name = "PastStagesView";
+			Size = new Size(1292, 627);
 			((System.ComponentModel.ISupportInitialize)stagesDgv).EndInit();
+			tableLayoutPanel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			ResumeLayout(false);
 		}
 
 		#endregion
-
-		private TableLayoutPanel tableLayoutPanel;
-		private PictureBox pictureBox1;
 		private DataGridView stagesDgv;
 		private DataGridViewTextBoxColumn Id;
-		private DataGridViewTextBoxColumn candidateid;
 		private DataGridViewTextBoxColumn Position;
 		private DataGridViewTextBoxColumn RecruitmentStageName;
 		private DataGridViewTextBoxColumn CandidateData;
 		private DataGridViewTextBoxColumn DateTimeSU;
 		private DataGridViewButtonColumn Details;
+		private DataGridViewTextBoxColumn candidateid;
+		private TableLayoutPanel tableLayoutPanel;
+		private PictureBox pictureBox1;
 	}
 }

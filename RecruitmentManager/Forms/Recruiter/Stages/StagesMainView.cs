@@ -33,8 +33,5 @@ public partial class StagesMainView : UserControl
 
 	private void futureBtn_Click(object sender, EventArgs e) => ShowControl(_serviceProvider.GetRequiredService<FutureStagesView>());
 
-	private void pastBtn_Click(object sender, EventArgs e)
-	{
-
-	}
+	private void pastBtn_Click(object sender, EventArgs e) => ShowControl(_serviceProvider.GetRequiredService<PastStagesView>());
 }

@@ -28,56 +28,27 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FutureStagesView));
+			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
 			DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-			stagesDgv = new DataGridView();
 			tableLayoutPanel = new TableLayoutPanel();
 			pictureBox1 = new PictureBox();
+			stagesDgv = new DataGridView();
 			Id = new DataGridViewTextBoxColumn();
+			candidateid = new DataGridViewTextBoxColumn();
 			Position = new DataGridViewTextBoxColumn();
 			RecruitmentStageName = new DataGridViewTextBoxColumn();
 			CandidateData = new DataGridViewTextBoxColumn();
 			DateTimeSU = new DataGridViewTextBoxColumn();
 			Details = new DataGridViewButtonColumn();
-			((System.ComponentModel.ISupportInitialize)stagesDgv).BeginInit();
 			tableLayoutPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+			((System.ComponentModel.ISupportInitialize)stagesDgv).BeginInit();
 			SuspendLayout();
-			// 
-			// stagesDgv
-			// 
-			stagesDgv.AllowUserToAddRows = false;
-			stagesDgv.AllowUserToDeleteRows = false;
-			stagesDgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-			stagesDgv.BackgroundColor = SystemColors.Control;
-			stagesDgv.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = Color.Blue;
-			dataGridViewCellStyle1.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle1.ForeColor = Color.White;
-			dataGridViewCellStyle1.SelectionBackColor = Color.Blue;
-			dataGridViewCellStyle1.SelectionForeColor = Color.White;
-			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-			stagesDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-			stagesDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			stagesDgv.Columns.AddRange(new DataGridViewColumn[] { Id, Position, RecruitmentStageName, CandidateData, DateTimeSU, Details });
-			stagesDgv.Dock = DockStyle.Fill;
-			stagesDgv.EnableHeadersVisualStyles = false;
-			stagesDgv.Location = new Point(3, 3);
-			stagesDgv.MultiSelect = false;
-			stagesDgv.Name = "stagesDgv";
-			stagesDgv.RowHeadersVisible = false;
-			stagesDgv.RowHeadersWidth = 51;
-			stagesDgv.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-			stagesDgv.RowTemplate.Height = 29;
-			stagesDgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			stagesDgv.Size = new Size(1169, 513);
-			stagesDgv.TabIndex = 2;
 			// 
 			// tableLayoutPanel
 			// 
@@ -103,6 +74,36 @@
 			pictureBox1.TabIndex = 0;
 			pictureBox1.TabStop = false;
 			// 
+			// stagesDgv
+			// 
+			stagesDgv.AllowUserToAddRows = false;
+			stagesDgv.AllowUserToDeleteRows = false;
+			stagesDgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+			stagesDgv.BackgroundColor = SystemColors.Control;
+			stagesDgv.BorderStyle = BorderStyle.None;
+			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle1.BackColor = Color.Blue;
+			dataGridViewCellStyle1.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle1.ForeColor = Color.White;
+			dataGridViewCellStyle1.SelectionBackColor = Color.Blue;
+			dataGridViewCellStyle1.SelectionForeColor = Color.White;
+			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+			stagesDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			stagesDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			stagesDgv.Columns.AddRange(new DataGridViewColumn[] { Id, candidateid, Position, RecruitmentStageName, CandidateData, DateTimeSU, Details });
+			stagesDgv.Dock = DockStyle.Fill;
+			stagesDgv.EnableHeadersVisualStyles = false;
+			stagesDgv.Location = new Point(3, 3);
+			stagesDgv.MultiSelect = false;
+			stagesDgv.Name = "stagesDgv";
+			stagesDgv.RowHeadersVisible = false;
+			stagesDgv.RowHeadersWidth = 51;
+			stagesDgv.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+			stagesDgv.RowTemplate.Height = 29;
+			stagesDgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+			stagesDgv.Size = new Size(1169, 513);
+			stagesDgv.TabIndex = 4;
+			// 
 			// Id
 			// 
 			Id.HeaderText = "ID";
@@ -110,6 +111,14 @@
 			Id.Name = "Id";
 			Id.ReadOnly = true;
 			Id.Visible = false;
+			// 
+			// candidateid
+			// 
+			candidateid.HeaderText = "id kandydata";
+			candidateid.MinimumWidth = 6;
+			candidateid.Name = "candidateid";
+			candidateid.ReadOnly = true;
+			candidateid.Visible = false;
 			// 
 			// Position
 			// 
@@ -188,9 +197,9 @@
 			Controls.Add(tableLayoutPanel);
 			Name = "FutureStagesView";
 			Size = new Size(1275, 519);
-			((System.ComponentModel.ISupportInitialize)stagesDgv).EndInit();
 			tableLayoutPanel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+			((System.ComponentModel.ISupportInitialize)stagesDgv).EndInit();
 			ResumeLayout(false);
 		}
 
@@ -205,5 +214,6 @@
 		private DataGridViewTextBoxColumn CandidateData;
 		private DataGridViewTextBoxColumn DateTimeSU;
 		private DataGridViewButtonColumn Details;
+		private DataGridViewTextBoxColumn candidateid;
 	}
 }

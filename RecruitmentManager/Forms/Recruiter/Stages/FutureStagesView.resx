@@ -120,6 +120,9 @@
   <metadata name="Id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="candidateid.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="Position.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -139,7 +142,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAACMlJREFUeF7tnGesdUUZhT+QbqUGESFopASkJAhSpGjAFn4QkR4gSAkgQYEPEhAE
+        DwAACw8BkvkDpQAACMlJREFUeF7tnGesdUUZhT+QbqUGESFopASkJAhSpGjAFn4QkR4gSAkgQYEPEhAE
         RCnBBBUQQUMJ/MBAAgI/KCqgoKCE3kFAQTpEqjR1PeSsZGUz+55z7t1zzrnmruTJzX1nl9lz9sy8887M
         njenOZX0AbG52FtsJ5YUcypoTXGP+G/withXTLw+LL4iDhFnievEw+Kf4l+Ch3ldvCgeEqSfK+aLrcRH
         xaBaVnDdLKhkezFxWkf8UPxJvC1KGR+Ud8SfxbFiLTGVfiB8Hm8ThX5v2PiRJkJLCd6eO4Qz1w8Kkjfq

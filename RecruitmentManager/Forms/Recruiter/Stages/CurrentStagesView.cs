@@ -1,20 +1,30 @@
 ﻿using MediatR;
 using RecruitmentManager.Application.Functions.Worker_Functions.Recruiter.Queries.GetInterviews;
-using RecruitmentManager.Controls_Extensions;
+using RecruitmentManager.Application.Interfaces.Context;
 
 namespace RecruitmentManager.Forms.Recruiter.Stages;
 
 public partial class CurrentStagesView : UserControl
 {
 	private readonly IMediator _mediator;
-	public CurrentStagesView(IMediator mediator)
+	private readonly ICandidateContext _candidateContext;
+	private readonly IServiceProvider _serviceProvider;
+	public CurrentStagesView(
+		IMediator mediator,
+		ICandidateContext candidateContext, 
+		IServiceProvider serviceProvider)
 	{
 		_mediator = mediator;
+		_candidateContext = candidateContext;
+		_serviceProvider = serviceProvider;
 		InitializeComponent();
-		DgvSizeSetup();
-		stagesDgv.SizeChanged += (s, args) => DgvSizeSetup();
+		stagesDgv.JobStagesChangeSize();
+		stagesDgv.SizeChanged += (s, args) => stagesDgv.JobStagesChangeSize();
+		stagesDgv.AttachCustomClickEvent(_serviceProvider, _candidateContext);
 		this.Load += CurrentStagesView_Load;
 	}
+
+
 
 	private async void CurrentStagesView_Load(object? sender, EventArgs e) => await LoadData();
 
@@ -22,24 +32,7 @@ public partial class CurrentStagesView : UserControl
 	{
 		var query = new GetInterviewsByInterviewPredicateQuery(InterviewPredicate.Current);
 		var response = await _mediator.Send(query);
-		stagesDgv.Fill(response, item => new object[]
-		{
-			item.Id,
-			item.JobTitle,
-			item.StageName,
-			item.CandidateFullName,
-			item.Date.HasValue ? item.Date.Value.ToString("dd-MM-yyyy HH:mm") : "Brak"
-		});
+		stagesDgv.FillJobStagesDgv(response);
 	}
 
-	private void DgvSizeSetup()
-	{
-		stagesDgv.Columns[1].Width = (int)(stagesDgv.Width * 0.2);
-		stagesDgv.Columns[2].Width = (int)(stagesDgv.Width * 0.2);
-		stagesDgv.Columns[3].Width = (int)(stagesDgv.Width * 0.2);
-		stagesDgv.Columns[4].Width = (int)(stagesDgv.Width * 0.2);
-		stagesDgv.Columns[5].Width = (int)(stagesDgv.Width * 0.2);
-		stagesDgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-		stagesDgv.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-	}
 }

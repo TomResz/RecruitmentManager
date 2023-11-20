@@ -7,7 +7,7 @@ using RecruitmentManager.Shared.Exceptions;
 namespace RecruitmentManager.Application.Functions.Worker_Functions.Recruiter.Queries.GetInterviews;
 
 public class GetInterviewsByInterviewPredicateQueryHandler
-	: IRequestHandler<GetInterviewsByInterviewPredicateQuery, List<InterviewDto>>
+	: IRequestHandler<GetInterviewsByInterviewPredicateQuery, List<InterviewWithCandidateIdDto>>
 {
 	private readonly ICandidateRatingRepository _candidateRatingRepository;
 	private readonly IWorkerSessionContext _workerSessionContext;
@@ -19,7 +19,7 @@ public class GetInterviewsByInterviewPredicateQueryHandler
 		_workerSessionContext = workerSessionContext;
 	}
 
-	public async Task<List<InterviewDto>> Handle(
+	public async Task<List<InterviewWithCandidateIdDto>> Handle(
 		GetInterviewsByInterviewPredicateQuery request,
 		CancellationToken cancellationToken)
 	{
@@ -45,13 +45,14 @@ public class GetInterviewsByInterviewPredicateQueryHandler
 			_ => interviews
 		};
 
-		return interviews.Select(x => new InterviewDto()
+		return interviews.Select(x => new InterviewWithCandidateIdDto()
 		{
 			Id = x.Id,
 			Date = x.InterviewDate,
 			StageName = x.RecruitmentStage.StageName,
 			CandidateFullName = x.Candidate.CandidateData.FirstName + ' ' + x.Candidate.CandidateData.LastName,
-			JobTitle = x.RecruitmentStage.JobPosting.Title
-		}).ToList();
+			JobTitle = x.RecruitmentStage.JobPosting.Title,
+			CandidateId = x.CandidateId,
+		}).OrderBy(x=>x.Date).ToList();
 	}
 }

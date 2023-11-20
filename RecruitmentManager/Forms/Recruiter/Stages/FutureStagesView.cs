@@ -1,18 +1,22 @@
 ﻿using MediatR;
 using RecruitmentManager.Application.Functions.Worker_Functions.Recruiter.Queries.GetInterviews;
-using RecruitmentManager.Controls_Extensions;
+using RecruitmentManager.Application.Interfaces.Context;
 
 namespace RecruitmentManager.Forms.Recruiter.Stages;
 
 public partial class FutureStagesView : UserControl
 {
 	private readonly IMediator _mediator;
-	public FutureStagesView(IMediator mediator)
+	private readonly IServiceProvider _serviceProvider;
+	private readonly ICandidateContext _candidateContext;
+	public FutureStagesView(IMediator mediator, IServiceProvider serviceProvider, ICandidateContext candidateContext)
 	{
 		_mediator = mediator;
+		_serviceProvider = serviceProvider;
+		_candidateContext = candidateContext;
 		InitializeComponent();
-		DgvSizeSetup();
-		stagesDgv.SizeChanged += (s, args) => DgvSizeSetup();
+		stagesDgv.AttachCustomClickEvent(_serviceProvider,_candidateContext);
+		stagesDgv.SizeChanged += (s, args) => stagesDgv.JobStagesChangeSize();
 		this.Load += CurrentStagesView_Load;
 	}
 	private async void CurrentStagesView_Load(object? sender, EventArgs e) => await LoadData();
@@ -21,24 +25,8 @@ public partial class FutureStagesView : UserControl
 	{
 		var query = new GetInterviewsByInterviewPredicateQuery(InterviewPredicate.Future);
 		var response = await _mediator.Send(query);
-		stagesDgv.Fill(response, item => new object[]
-		{
-			item.Id,
-			item.JobTitle,
-			item.StageName,
-			item.CandidateFullName,
-			item.Date.HasValue ? item.Date.Value.ToString("dd-MM-yyyy HH:mm") : "Brak"
-		});
+		stagesDgv.FillJobStagesDgv(response);
 	}
 
-	private void DgvSizeSetup()
-	{
-		stagesDgv.Columns[1].Width = (int)(stagesDgv.Width * 0.2);
-		stagesDgv.Columns[2].Width = (int)(stagesDgv.Width * 0.2);
-		stagesDgv.Columns[3].Width = (int)(stagesDgv.Width * 0.2);
-		stagesDgv.Columns[4].Width = (int)(stagesDgv.Width * 0.2);
-		stagesDgv.Columns[5].Width = (int)(stagesDgv.Width * 0.2);
-		stagesDgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-		stagesDgv.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-	}
+
 }
