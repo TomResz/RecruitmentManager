@@ -13,13 +13,15 @@ public class RegisterCandidateCommandHandler
 {
 	private readonly ICandidateRepository _candidateRepository;
 	private readonly IPasswordHasher<Candidate> _passwordHasher;
-
+	private readonly IErrorSerializer _errorSerializer;
 	public RegisterCandidateCommandHandler(
 		ICandidateRepository candidateRepository,
-		IPasswordHasher<Candidate> passwordHasher)
+		IPasswordHasher<Candidate> passwordHasher,
+		IErrorSerializer errorSerializer)
 	{
 		_candidateRepository = candidateRepository;
 		_passwordHasher = passwordHasher;
+		_errorSerializer = errorSerializer;
 	}
 
 	public async Task Handle(
@@ -30,8 +32,7 @@ public class RegisterCandidateCommandHandler
 		var result = await validation.ValidateAsync(request, cancellationToken);
 		if (!result.IsValid)
 		{
-			throw new BadRequestException(
-				FVErrorSerializer.SerializeToString(result.Errors));
+			throw new BadRequestException(_errorSerializer.Serialize(result.Errors));
 		}
 		var user = await _candidateRepository.GetByEmailAsync(request.Email);
 		if (user is not null)

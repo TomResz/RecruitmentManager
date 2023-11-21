@@ -12,13 +12,16 @@ public class AddExperienceCommandHandler
 {
 	private readonly IAsyncRepository<Experience> _repository;
 	private readonly ICandidateSessionContext _candidateSessionContext;
+	private readonly IErrorSerializer _errorSerializer;
 
 	public AddExperienceCommandHandler(
 		IAsyncRepository<Experience> repository,
-		ICandidateSessionContext candidateSessionContext)
+		ICandidateSessionContext candidateSessionContext, 
+		IErrorSerializer errorSerializer)
 	{
 		_repository = repository;
 		_candidateSessionContext = candidateSessionContext;
+		_errorSerializer = errorSerializer;
 	}
 
 	public async Task Handle(AddExperienceCommand request,
@@ -28,7 +31,7 @@ public class AddExperienceCommandHandler
 		var result = await validation.ValidateAsync(request, cancellationToken);
 		if (!result.IsValid)
 		{
-			throw new BadRequestException(FVErrorSerializer.SerializeToString(result.Errors));
+			throw new BadRequestException(_errorSerializer.Serialize(result.Errors));
 		}
 
 		var candidateId = _candidateSessionContext.CandidateId 

@@ -28,11 +28,11 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			DataGridViewCellStyle dataGridViewCellStyle21 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle22 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle23 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle24 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle25 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
 			tableLayoutPanel = new TableLayoutPanel();
 			stagesDgv = new DataGridView();
 			Id = new DataGridViewTextBoxColumn();
@@ -43,6 +43,7 @@
 			tableLayoutPanel1 = new TableLayoutPanel();
 			datePicker = new DateTimePicker();
 			UpdateBtn = new Button();
+			toCheckCB = new CheckBox();
 			tableLayoutPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)stagesDgv).BeginInit();
 			tableLayoutPanel1.SuspendLayout();
@@ -71,14 +72,14 @@
 			stagesDgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 			stagesDgv.BackgroundColor = SystemColors.Control;
 			stagesDgv.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle21.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle21.BackColor = Color.Blue;
-			dataGridViewCellStyle21.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle21.ForeColor = Color.White;
-			dataGridViewCellStyle21.SelectionBackColor = Color.Blue;
-			dataGridViewCellStyle21.SelectionForeColor = Color.White;
-			dataGridViewCellStyle21.WrapMode = DataGridViewTriState.True;
-			stagesDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle1.BackColor = Color.Blue;
+			dataGridViewCellStyle1.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle1.ForeColor = Color.White;
+			dataGridViewCellStyle1.SelectionBackColor = Color.Blue;
+			dataGridViewCellStyle1.SelectionForeColor = Color.White;
+			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+			stagesDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			stagesDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			stagesDgv.Columns.AddRange(new DataGridViewColumn[] { Id, Position, RecruitmentStageName, CandidateData, DateTimeSU });
 			stagesDgv.Dock = DockStyle.Fill;
@@ -105,12 +106,12 @@
 			// Position
 			// 
 			Position.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle22.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle22.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle22.ForeColor = Color.Black;
-			dataGridViewCellStyle22.SelectionBackColor = Color.FromArgb(0, 192, 192);
-			dataGridViewCellStyle22.SelectionForeColor = Color.Black;
-			Position.DefaultCellStyle = dataGridViewCellStyle22;
+			dataGridViewCellStyle2.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle2.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle2.ForeColor = Color.Black;
+			dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+			Position.DefaultCellStyle = dataGridViewCellStyle2;
 			Position.FillWeight = 230F;
 			Position.HeaderText = "Stanowisko";
 			Position.MinimumWidth = 6;
@@ -119,12 +120,12 @@
 			// 
 			// RecruitmentStageName
 			// 
-			dataGridViewCellStyle23.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle23.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle23.ForeColor = Color.Black;
-			dataGridViewCellStyle23.SelectionBackColor = Color.FromArgb(0, 192, 192);
-			dataGridViewCellStyle23.SelectionForeColor = Color.Black;
-			RecruitmentStageName.DefaultCellStyle = dataGridViewCellStyle23;
+			dataGridViewCellStyle3.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle3.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle3.ForeColor = Color.Black;
+			dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+			RecruitmentStageName.DefaultCellStyle = dataGridViewCellStyle3;
 			RecruitmentStageName.HeaderText = "Etap Rekrutacyjny";
 			RecruitmentStageName.MinimumWidth = 6;
 			RecruitmentStageName.Name = "RecruitmentStageName";
@@ -132,12 +133,12 @@
 			// 
 			// CandidateData
 			// 
-			dataGridViewCellStyle24.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle24.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle24.ForeColor = Color.Black;
-			dataGridViewCellStyle24.SelectionBackColor = Color.FromArgb(0, 192, 192);
-			dataGridViewCellStyle24.SelectionForeColor = Color.Black;
-			CandidateData.DefaultCellStyle = dataGridViewCellStyle24;
+			dataGridViewCellStyle4.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle4.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle4.ForeColor = Color.Black;
+			dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+			CandidateData.DefaultCellStyle = dataGridViewCellStyle4;
 			CandidateData.HeaderText = "Kandydat";
 			CandidateData.MinimumWidth = 6;
 			CandidateData.Name = "CandidateData";
@@ -145,12 +146,12 @@
 			// 
 			// DateTimeSU
 			// 
-			dataGridViewCellStyle25.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle25.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle25.ForeColor = Color.Black;
-			dataGridViewCellStyle25.SelectionBackColor = Color.FromArgb(0, 192, 192);
-			dataGridViewCellStyle25.SelectionForeColor = Color.Black;
-			DateTimeSU.DefaultCellStyle = dataGridViewCellStyle25;
+			dataGridViewCellStyle5.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle5.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle5.ForeColor = Color.Black;
+			dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle5.SelectionForeColor = Color.Black;
+			DateTimeSU.DefaultCellStyle = dataGridViewCellStyle5;
 			DateTimeSU.HeaderText = "Data";
 			DateTimeSU.MinimumWidth = 6;
 			DateTimeSU.Name = "DateTimeSU";
@@ -160,14 +161,16 @@
 			// 
 			tableLayoutPanel1.ColumnCount = 1;
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-			tableLayoutPanel1.Controls.Add(datePicker, 0, 1);
-			tableLayoutPanel1.Controls.Add(UpdateBtn, 0, 2);
+			tableLayoutPanel1.Controls.Add(datePicker, 0, 2);
+			tableLayoutPanel1.Controls.Add(UpdateBtn, 0, 3);
+			tableLayoutPanel1.Controls.Add(toCheckCB, 0, 1);
 			tableLayoutPanel1.Dock = DockStyle.Fill;
 			tableLayoutPanel1.Location = new Point(988, 3);
 			tableLayoutPanel1.Margin = new Padding(0);
 			tableLayoutPanel1.Name = "tableLayoutPanel1";
-			tableLayoutPanel1.RowCount = 3;
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
+			tableLayoutPanel1.RowCount = 4;
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
 			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
 			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
 			tableLayoutPanel1.Size = new Size(328, 601);
@@ -195,6 +198,19 @@
 			UpdateBtn.UseVisualStyleBackColor = true;
 			UpdateBtn.Click += UpdateBtn_Click;
 			// 
+			// toCheckCB
+			// 
+			toCheckCB.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			toCheckCB.AutoSize = true;
+			toCheckCB.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+			toCheckCB.Location = new Point(3, 243);
+			toCheckCB.Name = "toCheckCB";
+			toCheckCB.Size = new Size(322, 36);
+			toCheckCB.TabIndex = 2;
+			toCheckCB.Text = "Do zatwierdzenia";
+			toCheckCB.UseVisualStyleBackColor = true;
+			toCheckCB.CheckedChanged += toCheckCB_CheckedChanged;
+			// 
 			// StagesSetupView
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
@@ -205,6 +221,7 @@
 			tableLayoutPanel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)stagesDgv).EndInit();
 			tableLayoutPanel1.ResumeLayout(false);
+			tableLayoutPanel1.PerformLayout();
 			ResumeLayout(false);
 		}
 
@@ -220,5 +237,6 @@
 		private DataGridViewTextBoxColumn CandidateData;
 		private DataGridViewTextBoxColumn DateTimeSU;
 		private Button UpdateBtn;
+		private CheckBox toCheckCB;
 	}
 }

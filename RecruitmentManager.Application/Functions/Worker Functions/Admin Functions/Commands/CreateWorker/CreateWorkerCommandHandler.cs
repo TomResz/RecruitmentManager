@@ -12,13 +12,16 @@ public class CreateWorkerCommandHandler
 {
 	private readonly IEmployeeRepository _employeeRepository;
 	private readonly IPasswordHasher<Employee> _passwordHasher;
+	private readonly IErrorSerializer _errorSerializer;
 
 	public CreateWorkerCommandHandler(
 		IEmployeeRepository employeeRepository, 
-		IPasswordHasher<Employee> passwordHasher)
+		IPasswordHasher<Employee> passwordHasher, 
+		IErrorSerializer errorSerializer)
 	{
 		_employeeRepository = employeeRepository;
 		_passwordHasher = passwordHasher;
+		_errorSerializer = errorSerializer;
 	}
 
 	public async Task Handle(CreateWorkerCommand request, CancellationToken cancellationToken)
@@ -27,8 +30,7 @@ public class CreateWorkerCommandHandler
 		var result = validation.Validate(request);
 		if (!result.IsValid)
 		{
-			throw new BadRequestException(FVErrorSerializer.SerializeToString(
-				result.Errors));	
+			throw new BadRequestException(_errorSerializer.Serialize(result.Errors));	
 		}
 		var employeeWithUniqueEmail = await _employeeRepository.GetByEmailAsync(request.Email);
 		if(employeeWithUniqueEmail is  not null)

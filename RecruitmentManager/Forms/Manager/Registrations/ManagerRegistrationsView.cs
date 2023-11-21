@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.Application.Functions.Common.Queries.GetPageOfJobOffers.NotActive;
 using RecruitmentManager.Application.Functions.DTOs;
+using RecruitmentManager.Application.Functions.Worker_Functions.Common.Queries.GetInterviewData;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Events;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Queries.GetCandidatesForOffer;
 using RecruitmentManager.Application.Interfaces.Context;
@@ -98,7 +99,7 @@ public partial class ManagerRegistrationsView : UserControl
 			{
 				var command = new QualifyToInterviewEvent(candidateId, jobOfferId);
 				await _mediator.Publish(command);
-				await ReloadPage();
+				await ReloadUsers(jobOfferId);
 			}
 			catch (Exception ex)
 			{
@@ -110,21 +111,25 @@ public partial class ManagerRegistrationsView : UserControl
 
 	private async void JobOffersDGV_CellClick(object? sender, DataGridViewCellEventArgs e)
 	{
-		if (jobOffersDGV.CurrentRow is null)
-			return;
-		if (!Guid.TryParse(jobOffersDGV.CurrentRow.Cells[0].Value.ToString(), out var Id))
+		if (jobOffersDGV.CurrentRow is null ||
+		    !Guid.TryParse(jobOffersDGV.CurrentRow.Cells[0].Value.ToString(), out var Id))
 			return;
 		try
 		{
-			var query = new GetCandidatesForOfferQuery(Id);
-			var response = await _mediator.Send(query);
-			FillUserDgv(response);
+			await ReloadUsers(Id);
 		}
 		catch (Exception ex)
 		{
 			MessageBox.Show(ex.Message, "Błąd!", MessageBoxButtons.OK,
 				MessageBoxIcon.Error);
 		}
+	}
+
+	private async Task ReloadUsers(Guid Id)
+	{
+		var query = new GetCandidatesForOfferQuery(Id);
+		var response = await _mediator.Send(query);
+		FillUserDgv(response);
 	}
 
 	private void FillUserDgv(List<CandidateDTO> response)

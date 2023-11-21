@@ -53,6 +53,9 @@ namespace RecruitmentManager.Infrastructure.Migrations
                     b.Property<int?>("Grade")
                         .HasColumnType("int");
 
+                    b.Property<bool?>("HasResigned")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime?>("InterviewDate")
                         .HasColumnType("datetime2");
 

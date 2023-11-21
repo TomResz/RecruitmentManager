@@ -8,7 +8,7 @@ namespace RecruitmentManager.Infrastructure.EF.Repositories;
 public class CandidateRepository : AsyncRepository<Candidate>, ICandidateRepository
 {
 	private readonly RecruitmentManagerDbContext _context;
-	public CandidateRepository(RecruitmentManagerDbContext context) 
+	public CandidateRepository(RecruitmentManagerDbContext context)
 		: base(context)
 	{
 		_context = context;
@@ -26,12 +26,27 @@ public class CandidateRepository : AsyncRepository<Candidate>, ICandidateReposit
 
 	public async Task<List<Candidate>> GetByJobPostingId(Guid jobPostingId)
 	{
-		return await _context
-			.Candidates
-			.Include(x=>x.CandidateData)
-			.Include(x => x.JobApplications)
-			.Where(x => x.JobApplications.Any(y=>y.JobPostingId == jobPostingId))
+		var candidates = await _context
+			.JobApplications
+			.AsQueryable()
+			.AsNoTracking()
+			.Where(x => x.JobPostingId == jobPostingId)
+			.Include(x => x.JobPosting)
+			.Include(x => x.Candidate)
+			.ThenInclude(x => x.CandidateData)
+			.Select(x => new Candidate
+			{
+				Id = x.CandidateId,
+				CandidateData = x.Candidate.CandidateData,
+				JobApplications = x.Candidate.JobApplications
+					.Where(y => y.JobPostingId == jobPostingId)
+					.ToList(),
+				Email = x.Candidate.Email,
+				PasswordHash = x.Candidate.PasswordHash,
+			})
 			.ToListAsync();
+
+		return candidates;
 	}
 
 	public async Task<Candidate?> GetFullData(Guid CandidateId, CancellationToken cancellationToken = default)

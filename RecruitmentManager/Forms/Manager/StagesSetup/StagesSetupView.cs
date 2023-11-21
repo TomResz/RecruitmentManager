@@ -1,6 +1,8 @@
 ﻿using MediatR;
+using RecruitmentManager.Application.Functions.DTOs;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Commands.SetDateOfInterview;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Queries.GetNotSetInterviews;
+using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Queries.GetSetInterviews;
 using RecruitmentManager.Controls_Extensions;
 using DateTimePickerFormat = System.Windows.Forms.DateTimePickerFormat;
 
@@ -40,8 +42,12 @@ public partial class StagesSetupView : UserControl
 
 	private async Task PageReload()
 	{
-		var query = new GetNotSetInterviewsQuery();
-		var response = await _mediator.Send(query);
+		List<InterviewDto> response;
+		if (!toCheckCB.Checked)
+			response = await _mediator.Send(new GetSetInterviewsQuery());
+		else
+			response = await _mediator.Send(new GetNotSetInterviewsQuery());
+
 		stagesDgv.Fill(response, item => new object[]
 		{
 			item.Id,
@@ -54,15 +60,15 @@ public partial class StagesSetupView : UserControl
 
 	private async void UpdateBtn_Click(object sender, EventArgs e)
 	{
-		if(stagesDgv.CurrentRow is null ||
-		   !Guid.TryParse(stagesDgv.CurrentRow.Cells[0].Value.ToString(),out var id) ||
+		if (stagesDgv.CurrentRow is null ||
+		   !Guid.TryParse(stagesDgv.CurrentRow.Cells[0].Value.ToString(), out var id) ||
 		   DateTime.TryParse(stagesDgv.CurrentRow.Cells[4].Value.ToString(), out var date))
 			return;
 		try
 		{
-			var command = new SetDateOfInterviewCommand(id,datePicker.Value);
+			var command = new SetDateOfInterviewCommand(id, datePicker.Value);
 			await _mediator.Send(command);
-			MessageBox.Show("Dodano godzinę rozmowy!","Dodawanie",MessageBoxButtons.OK,
+			MessageBox.Show("Dodano godzinę rozmowy!", "Dodawanie", MessageBoxButtons.OK,
 				MessageBoxIcon.Information);
 			await PageReload();
 		}
@@ -71,4 +77,6 @@ public partial class StagesSetupView : UserControl
 			MessageBox.Show(ex.Message, "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 	}
+
+	private async void toCheckCB_CheckedChanged(object sender, EventArgs e) => await PageReload();
 }

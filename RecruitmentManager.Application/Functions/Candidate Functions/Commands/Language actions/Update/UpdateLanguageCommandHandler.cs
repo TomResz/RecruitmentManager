@@ -10,10 +10,13 @@ public class UpdateLanguageCommandHandler
 	: IRequestHandler<UpdateLanguageCommand>
 {
 	private readonly IAsyncRepository<KnowledgeOfLanguage> _asyncRepository;
+	private readonly IErrorSerializer _errorSerializer;
 
-	public UpdateLanguageCommandHandler(IAsyncRepository<KnowledgeOfLanguage> asyncRepository)
+	public UpdateLanguageCommandHandler(IAsyncRepository<KnowledgeOfLanguage> asyncRepository,
+		IErrorSerializer errorSerializer)
 	{
 		_asyncRepository = asyncRepository;
+		_errorSerializer = errorSerializer;
 	}
 
 	public async Task Handle(UpdateLanguageCommand request, CancellationToken cancellationToken)
@@ -22,7 +25,7 @@ public class UpdateLanguageCommandHandler
 		var resultOfVal = await validation.ValidateAsync(request, cancellationToken);
 		if (!resultOfVal.IsValid)
 		{
-			throw new BadRequestException(FVErrorSerializer.SerializeToString(resultOfVal.Errors));
+			throw new BadRequestException(_errorSerializer.Serialize(resultOfVal.Errors));
 		}
 		var entity = await _asyncRepository.GetById(request.Id);
 		if (entity is null)

@@ -12,12 +12,15 @@ public class UpdateJobOfferCommandHandler
 {
 	private readonly IMapper _mapper;
 	private readonly IJobPostingRepository _postingRepository;
+	private readonly IErrorSerializer _errorSerializer;
 	public UpdateJobOfferCommandHandler(
 		IMapper mapper,
-		IJobPostingRepository postingRepository)
+		IJobPostingRepository postingRepository,
+		IErrorSerializer errorSerializer)
 	{
 		_mapper = mapper;
 		_postingRepository = postingRepository;
+		_errorSerializer = errorSerializer;
 	}
 
 	public async Task Handle(
@@ -28,8 +31,7 @@ public class UpdateJobOfferCommandHandler
 		var resultOfValidation = await validation.ValidateAsync(request, cancellationToken);
 		if (!resultOfValidation.IsValid)
 		{
-			throw new BadRequestException(FVErrorSerializer.SerializeToString(
-				resultOfValidation.Errors));
+			throw new BadRequestException(_errorSerializer.Serialize(resultOfValidation.Errors));
 		}
 
 		var originalOffer = await _postingRepository.GetFullDataByIdAsync(request.Id);

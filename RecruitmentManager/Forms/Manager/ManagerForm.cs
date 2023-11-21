@@ -22,7 +22,7 @@ public partial class ManagerForm : Form
 		InitializeComponent();
 		_sessionContext = sessionContext;
 		_serviceProvider = serviceProvider;
-
+		userLabel.Text = _sessionContext.FullName;
 		_mainView = _serviceProvider.GetRequiredService<JobOffersMainView>();
 		ShowControl(_mainView);
 	}
@@ -78,4 +78,5 @@ public partial class ManagerForm : Form
 		var uc = _serviceProvider.GetRequiredService<StagesSetupView>();
 		ShowControl(uc);
 	}
+
 }

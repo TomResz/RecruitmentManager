@@ -12,10 +12,12 @@ public class AddLanguageCommandHandler
 {
 	private readonly IAsyncRepository<KnowledgeOfLanguage> _asyncRepository;
 	private readonly ICandidateSessionContext _candidateSessionContext;
-	public AddLanguageCommandHandler(IAsyncRepository<KnowledgeOfLanguage> asyncRepository, ICandidateSessionContext candidateSessionContext)
+	private readonly IErrorSerializer _errorSerializer;
+	public AddLanguageCommandHandler(IAsyncRepository<KnowledgeOfLanguage> asyncRepository, ICandidateSessionContext candidateSessionContext, IErrorSerializer errorSerializer)
 	{
 		_asyncRepository = asyncRepository;
 		_candidateSessionContext = candidateSessionContext;
+		_errorSerializer = errorSerializer;
 	}
 
 	public async Task Handle(AddLanguageCommand request, CancellationToken cancellationToken)
@@ -24,7 +26,7 @@ public class AddLanguageCommandHandler
 		var result = await validation.ValidateAsync(request, cancellationToken);
 		if (!result.IsValid)
 		{
-			throw new BadRequestException(FVErrorSerializer.SerializeToString(result.Errors));
+			throw new BadRequestException(_errorSerializer.Serialize(result.Errors));
 		}
 
 		var candidateId = _candidateSessionContext.CandidateId 

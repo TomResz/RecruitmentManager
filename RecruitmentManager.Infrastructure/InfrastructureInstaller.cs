@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using RecruitmentManager.Application.Error_Serializer;
 using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Application.Interfaces.Repositories;
 using RecruitmentManager.Infrastructure.EF.Context;
@@ -39,6 +40,7 @@ public static class InfrastructureInstaller
         services.AddSingleton<ICandidateContext, CandidateContext>();
         services.ScanForDbSeeders();
         services.AddTransient<MainSeeder>();
+        services.AddScoped<IErrorSerializer, ErrorSerializer>();
         return services;
     }
 

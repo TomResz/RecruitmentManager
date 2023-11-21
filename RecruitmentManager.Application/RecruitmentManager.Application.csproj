@@ -43,9 +43,9 @@
     <Folder Include="Functions\Worker Functions\Common\Queries\GetJobOfferDetails\" />
     <Folder Include="Functions\Worker Functions\Manager Functions\Commands\CompleteJobOffer\" />
     <Folder Include="Functions\Worker Functions\Manager Functions\Commands\CreateRatingsForCandidate\" />
-    <Folder Include="Functions\Worker Functions\Manager Functions\Commands\SetDateOfInterview\" />
     <Folder Include="Functions\Worker Functions\Manager Functions\Queries\GetCandidatesForOffer\" />
     <Folder Include="Functions\Worker Functions\Manager Functions\Queries\GetNotSetInterviews\" />
+    <Folder Include="Functions\Worker Functions\Manager Functions\Queries\GetSetInterviews\" />
   </ItemGroup>
 
 </Project>

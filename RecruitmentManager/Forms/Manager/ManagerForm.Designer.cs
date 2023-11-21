@@ -34,6 +34,7 @@
 			logoutBtn = new Button();
 			tabControlLayout = new TableLayoutPanel();
 			jobOffersBtn = new Button();
+			stagesBtn = new Button();
 			registrationsBtn = new Button();
 			userLabel = new Label();
 			headeLayout = new TableLayoutPanel();
@@ -42,7 +43,6 @@
 			dsadsToolStripMenuItem = new ToolStripMenuItem();
 			edycjaToolStripMenuItem = new ToolStripMenuItem();
 			edytujDaneToolStripMenuItem = new ToolStripMenuItem();
-			stagesBtn = new Button();
 			mainLayout.SuspendLayout();
 			tableLayoutPanel1.SuspendLayout();
 			tabControlLayout.SuspendLayout();
@@ -66,13 +66,13 @@
 			// 
 			// tableLayoutPanel1
 			// 
-			tableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.OutsetPartial;
 			tableLayoutPanel1.ColumnCount = 1;
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
 			tableLayoutPanel1.Controls.Add(logoutBtn, 0, 2);
 			tableLayoutPanel1.Controls.Add(tabControlLayout, 0, 1);
 			tableLayoutPanel1.Controls.Add(userLabel, 0, 0);
 			tableLayoutPanel1.Dock = DockStyle.Fill;
+			tableLayoutPanel1.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
 			tableLayoutPanel1.Location = new Point(0, 0);
 			tableLayoutPanel1.Margin = new Padding(0);
 			tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -80,6 +80,7 @@
 			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
 			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
 			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
 			tableLayoutPanel1.Size = new Size(310, 558);
 			tableLayoutPanel1.TabIndex = 0;
 			// 
@@ -88,9 +89,9 @@
 			logoutBtn.Dock = DockStyle.Fill;
 			logoutBtn.FlatStyle = FlatStyle.Flat;
 			logoutBtn.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-			logoutBtn.Location = new Point(6, 475);
+			logoutBtn.Location = new Point(3, 476);
 			logoutBtn.Name = "logoutBtn";
-			logoutBtn.Size = new Size(298, 77);
+			logoutBtn.Size = new Size(304, 79);
 			logoutBtn.TabIndex = 0;
 			logoutBtn.Text = "Wyloguj Się";
 			logoutBtn.UseVisualStyleBackColor = true;
@@ -101,10 +102,10 @@
 			tabControlLayout.ColumnCount = 1;
 			tabControlLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
 			tabControlLayout.Controls.Add(jobOffersBtn, 0, 0);
-			tabControlLayout.Controls.Add(registrationsBtn, 0, 1);
 			tabControlLayout.Controls.Add(stagesBtn, 0, 2);
+			tabControlLayout.Controls.Add(registrationsBtn, 0, 1);
 			tabControlLayout.Dock = DockStyle.Fill;
-			tabControlLayout.Location = new Point(3, 87);
+			tabControlLayout.Location = new Point(0, 83);
 			tabControlLayout.Margin = new Padding(0);
 			tabControlLayout.Name = "tabControlLayout";
 			tabControlLayout.RowCount = 5;
@@ -114,7 +115,7 @@
 			tabControlLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
 			tabControlLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
 			tabControlLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-			tabControlLayout.Size = new Size(304, 382);
+			tabControlLayout.Size = new Size(310, 390);
 			tabControlLayout.TabIndex = 2;
 			// 
 			// jobOffersBtn
@@ -127,7 +128,7 @@
 			jobOffersBtn.ImageAlign = ContentAlignment.MiddleLeft;
 			jobOffersBtn.Location = new Point(3, 3);
 			jobOffersBtn.Name = "jobOffersBtn";
-			jobOffersBtn.Size = new Size(298, 70);
+			jobOffersBtn.Size = new Size(304, 72);
 			jobOffersBtn.TabIndex = 1;
 			jobOffersBtn.Text = "Oferty Pracy";
 			jobOffersBtn.TextAlign = ContentAlignment.MiddleRight;
@@ -135,15 +136,32 @@
 			jobOffersBtn.UseVisualStyleBackColor = false;
 			jobOffersBtn.Click += jobOffersBtn_Click;
 			// 
+			// stagesBtn
+			// 
+			stagesBtn.Dock = DockStyle.Fill;
+			stagesBtn.FlatStyle = FlatStyle.Flat;
+			stagesBtn.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			stagesBtn.Image = (Image)resources.GetObject("stagesBtn.Image");
+			stagesBtn.ImageAlign = ContentAlignment.MiddleLeft;
+			stagesBtn.Location = new Point(3, 159);
+			stagesBtn.Name = "stagesBtn";
+			stagesBtn.Size = new Size(304, 72);
+			stagesBtn.TabIndex = 3;
+			stagesBtn.Text = "Ustawienia Etapów dla Kandydatów";
+			stagesBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+			stagesBtn.UseVisualStyleBackColor = true;
+			stagesBtn.Click += stagesBtn_Click;
+			// 
 			// registrationsBtn
 			// 
 			registrationsBtn.Dock = DockStyle.Fill;
 			registrationsBtn.FlatStyle = FlatStyle.Flat;
 			registrationsBtn.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
 			registrationsBtn.Image = (Image)resources.GetObject("registrationsBtn.Image");
-			registrationsBtn.Location = new Point(3, 79);
+			registrationsBtn.ImageAlign = ContentAlignment.MiddleLeft;
+			registrationsBtn.Location = new Point(3, 81);
 			registrationsBtn.Name = "registrationsBtn";
-			registrationsBtn.Size = new Size(298, 70);
+			registrationsBtn.Size = new Size(304, 72);
 			registrationsBtn.TabIndex = 2;
 			registrationsBtn.Text = "Zgłoszenia";
 			registrationsBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -154,7 +172,7 @@
 			// 
 			userLabel.AutoSize = true;
 			userLabel.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-			userLabel.Location = new Point(6, 3);
+			userLabel.Location = new Point(3, 0);
 			userLabel.Name = "userLabel";
 			userLabel.Size = new Size(0, 32);
 			userLabel.TabIndex = 1;
@@ -213,21 +231,6 @@
 			edytujDaneToolStripMenuItem.Text = "Edytuj Dane";
 			edytujDaneToolStripMenuItem.Click += edytujDaneToolStripMenuItem_Click;
 			// 
-			// stagesBtn
-			// 
-			stagesBtn.Dock = DockStyle.Fill;
-			stagesBtn.FlatStyle = FlatStyle.Flat;
-			stagesBtn.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			stagesBtn.Image = (Image)resources.GetObject("stagesBtn.Image");
-			stagesBtn.Location = new Point(3, 155);
-			stagesBtn.Name = "stagesBtn";
-			stagesBtn.Size = new Size(298, 70);
-			stagesBtn.TabIndex = 3;
-			stagesBtn.Text = "Ustawienia Etapów dla Kandydatów";
-			stagesBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
-			stagesBtn.UseVisualStyleBackColor = true;
-			stagesBtn.Click += stagesBtn_Click;
-			// 
 			// ManagerForm
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
@@ -251,7 +254,6 @@
 
 		private TableLayoutPanel mainLayout;
 		private TableLayoutPanel tableLayoutPanel1;
-		private Button logoutBtn;
 		private TableLayoutPanel tabControlLayout;
 		private Label userLabel;
 		private TableLayoutPanel headeLayout;
@@ -263,5 +265,6 @@
 		private Button jobOffersBtn;
 		private Button registrationsBtn;
 		private Button stagesBtn;
+		private Button logoutBtn;
 	}
 }

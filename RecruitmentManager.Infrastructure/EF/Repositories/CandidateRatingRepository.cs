@@ -53,11 +53,25 @@ public class CandidateRatingRepository : AsyncRepository<CandidateRating>,ICandi
 	{
 		return await _context
 			.CandidateRatings
-			.Where(x=>x.InterviewDate != null)
+			.Where(x=>x.InterviewDate != null && x.RecruitmentStage.EmployeeId == recruiterId)
 			.Include(x => x.RecruitmentStage)
+			.ThenInclude(x=>x.JobPosting)
 			.ThenInclude(x => x.Employee)
 			.Include(x=>x.Candidate)
 			.ThenInclude(x=>x.CandidateData)
+			.AsNoTracking()
+			.ToListAsync();
+	}
+
+	public async Task<List<CandidateRating>> GetAllWithDate()
+	{
+		return await _context
+			.CandidateRatings
+			.Where(x => x.InterviewDate != null)
+			.Include(x => x.Candidate)
+			.ThenInclude(x => x.CandidateData)
+			.Include(x => x.RecruitmentStage)
+			.ThenInclude(x => x.JobPosting)
 			.AsNoTracking()
 			.ToListAsync();
 	}
