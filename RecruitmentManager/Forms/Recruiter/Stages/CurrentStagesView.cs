@@ -20,7 +20,7 @@ public partial class CurrentStagesView : UserControl
 		InitializeComponent();
 		stagesDgv.JobStagesChangeSize();
 		stagesDgv.SizeChanged += (s, args) => stagesDgv.JobStagesChangeSize();
-		stagesDgv.AttachCustomClickEvent(_serviceProvider, _candidateContext);
+		stagesDgv.StagesCustomClickEvent(_serviceProvider, _candidateContext);
 		this.Load += CurrentStagesView_Load;
 	}
 

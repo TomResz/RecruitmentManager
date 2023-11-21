@@ -6,7 +6,7 @@ namespace RecruitmentManager.Forms.Recruiter.Stages;
 
 public static class DataGridViewEventExtension
 {
-	public static void AttachCustomClickEvent(
+	public static void StagesCustomClickEvent(
 		this DataGridView dataGridView, 
 		IServiceProvider serviceProvider, 
 		ICandidateContext candidateContext) =>

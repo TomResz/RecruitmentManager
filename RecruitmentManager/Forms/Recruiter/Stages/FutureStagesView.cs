@@ -15,7 +15,7 @@ public partial class FutureStagesView : UserControl
 		_serviceProvider = serviceProvider;
 		_candidateContext = candidateContext;
 		InitializeComponent();
-		stagesDgv.AttachCustomClickEvent(_serviceProvider,_candidateContext);
+		stagesDgv.StagesCustomClickEvent(_serviceProvider,_candidateContext);
 		stagesDgv.SizeChanged += (s, args) => stagesDgv.JobStagesChangeSize();
 		this.Load += CurrentStagesView_Load;
 	}
