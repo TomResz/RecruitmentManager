@@ -4,9 +4,11 @@ namespace RecruitmentManager.Application.Interfaces.Repositories;
 
 public interface ICandidateRatingRepository : IAsyncRepository<CandidateRating>
 {
-	Task AddRange(IEnumerable<CandidateRating>  candidateRatings);
+	Task AddRange(IEnumerable<CandidateRating> candidateRatings);
 	Task<List<CandidateRating>> GetNotSetInterview();
 	Task<List<CandidateRating>> GetSetInterviewByRecruiterId(Guid recruiterId);
 	Task<List<CandidateRating>> GetByRecruiterId(Guid recruiterId);
 	Task<List<CandidateRating>> GetAllWithDate();
+	Task<bool> ExistsInterviewsForCandidateDuringThisTime(CandidateRating candidateRating, DateTime date);
+	Task<bool> ExistsInterviewsForRecruiterDuringThisTime(CandidateRating candidateRating, DateTime date);
 }

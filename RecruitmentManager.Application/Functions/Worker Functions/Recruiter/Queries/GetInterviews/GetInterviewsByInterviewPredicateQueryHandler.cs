@@ -42,6 +42,9 @@ public class GetInterviewsByInterviewPredicateQueryHandler
 			InterviewPredicate.Past => interviews
 				.Where(x => x.InterviewDate <= currentDate)
 				.ToList(),
+			InterviewPredicate.TwoDays => interviews
+				.Where(x=>x.InterviewDate >= currentDate.AddDays(-2) && x.InterviewDate <= currentDate.AddDays(2))
+				.ToList(),
 			_ => interviews
 		};
 

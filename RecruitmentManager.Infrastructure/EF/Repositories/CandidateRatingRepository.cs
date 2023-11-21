@@ -75,4 +75,43 @@ public class CandidateRatingRepository : AsyncRepository<CandidateRating>,ICandi
 			.AsNoTracking()
 			.ToListAsync();
 	}
+
+	public async Task<bool> ExistsInterviewsForCandidateDuringThisTime(CandidateRating candidateRating, DateTime date)
+	{
+		DateTime startTime = date.AddHours(-1).AddSeconds(-1);
+		DateTime endTime = date.AddHours(1).AddSeconds(-1);
+
+		bool existsInterviews = await _context
+			.CandidateRatings
+			.AnyAsync(cr =>
+				cr.CandidateId == candidateRating.CandidateId &&
+				cr.InterviewDate.HasValue &&
+				cr.InterviewDate.Value >= startTime &&
+				cr.InterviewDate.Value <= endTime &&
+				cr.Id != candidateRating.Id);
+		return existsInterviews;
+	}
+
+	public async Task<bool> ExistsInterviewsForRecruiterDuringThisTime(CandidateRating candidateRating, DateTime date)
+	{
+		DateTime startTime = date.AddHours(-1).AddSeconds(-1);
+		DateTime endTime = date.AddHours(1).AddSeconds(-1);
+
+		var employeeId = await _context
+			.RecruitmentStages
+			.Where(x=>x.Id == candidateRating.RecruitmentStageId)
+			.AsNoTracking()
+			.Select(x => x.EmployeeId)
+			.FirstOrDefaultAsync();
+
+		var mettingsAtThisTime = await _context
+			.CandidateRatings
+			.Include(x => x.RecruitmentStage)
+			.AnyAsync(x => x.RecruitmentStage.EmployeeId == employeeId &&
+			               x.InterviewDate.HasValue &&
+			               x.InterviewDate.Value >= startTime &&
+			               x.InterviewDate.Value <= endTime &&
+			               x.Id != candidateRating.Id);
+		return mettingsAtThisTime;
+	}
 }

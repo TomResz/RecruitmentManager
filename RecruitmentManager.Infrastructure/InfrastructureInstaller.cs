@@ -38,6 +38,7 @@ public static class InfrastructureInstaller
         services.AddSingleton<IUserBasicDataContext,UserBasicDataContext>();
         services.AddSingleton<IJobOfferContext, JobOfferContext>();
         services.AddSingleton<ICandidateContext, CandidateContext>();
+        services.AddSingleton<IAssessmentCandidate, AssessmentCandidate>();
         services.ScanForDbSeeders();
         services.AddTransient<MainSeeder>();
         services.AddScoped<IErrorSerializer, ErrorSerializer>();

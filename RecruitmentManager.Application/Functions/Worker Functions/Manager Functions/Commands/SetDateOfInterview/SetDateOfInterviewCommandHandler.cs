@@ -23,13 +23,24 @@ public class SetDateOfInterviewCommandHandler : IRequestHandler<SetDateOfIntervi
 		{
 			throw new BadRequestException(_errorSerializer.Serialize(result.Errors));
 		}
-		var entity = await _candidateRatingRepository.GetById(request.CandidateRatingId);
-		if (entity is null)
+		var candidateRating = await _candidateRatingRepository.GetById(request.CandidateRatingId);
+		if (candidateRating is null)
 		{
 			throw new NotFoundException("Interview not found!");
 		}
 
-		entity.InterviewDate = request.Date;
-		await _candidateRatingRepository.Update(entity);
+		var mettingsExists = await _candidateRatingRepository.ExistsInterviewsForRecruiterDuringThisTime(candidateRating, request.Date);
+		if (mettingsExists)
+		{
+			throw new BadRequestException("Istnieją spotkania dla rekrutera w tym czasie!");
+		}
+
+		var interviewExists = await _candidateRatingRepository.ExistsInterviewsForCandidateDuringThisTime(candidateRating, request.Date);
+		if (interviewExists)
+		{
+			throw new BadRequestException("Istnieją spotkania dla kandydata w tym czasie!");
+		}
+		candidateRating.InterviewDate = request.Date;
+		await _candidateRatingRepository.Update(candidateRating);
 	}
 }

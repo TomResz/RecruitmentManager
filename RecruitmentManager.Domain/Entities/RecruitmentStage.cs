@@ -11,4 +11,5 @@ public class RecruitmentStage
     public JobPosting JobPosting { get; set; }
     public Guid EmployeeId { get; set; }
     public Employee Employee { get; set; }
+    public ICollection<CandidateRating> CandidateRatings { get; set; }
 }

@@ -22,13 +22,14 @@ public static class DGVAssessmentExtension
 	{
 		if (!(sender is DataGridView dataGridView) ||
 		    dataGridView.CurrentRow is null ||
-		    !Guid.TryParse(dataGridView.CurrentRow.Cells[1].Value.ToString(), out var result))
+		    !Guid.TryParse(dataGridView.CurrentRow.Cells[1].Value.ToString(), out var candidateId) ||
+		    !Guid.TryParse(dataGridView.CurrentRow.Cells[0].Value.ToString(),out var jobApplicationId))
 			return;
-		if (e.RowIndex >= 0 || e.ColumnIndex is 6)
+		if (e is { RowIndex: >= 0, ColumnIndex: 6 })
 		{
 			try
 			{
-				candidateContext.SetId(result);
+				candidateContext.SetId(candidateId);
 				var form = serviceProvider.GetRequiredService<ShowFullCandidateDataForm>();
 				form.ShowDialog();
 			}
@@ -41,9 +42,22 @@ public static class DGVAssessmentExtension
 				candidateContext.Logout();
 			}
 		}
-		else if (e.RowIndex >= 0 || e.ColumnIndex is 7)
+		else if (e is { RowIndex: >= 0, ColumnIndex: 7 })
 		{
-
+			try
+			{
+				assessmentCandidate.Set(candidateId,jobApplicationId);
+				var form = serviceProvider.GetRequiredService<RateCandidateForm>();
+				form.ShowDialog();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+			finally
+			{
+				assessmentCandidate.Clear();
+			}
 		}
 
 	}

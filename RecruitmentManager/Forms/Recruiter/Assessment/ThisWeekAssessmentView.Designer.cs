@@ -188,18 +188,19 @@
 			dataGridViewCellStyle7.SelectionBackColor = Color.Navy;
 			dataGridViewCellStyle7.SelectionForeColor = Color.White;
 			RateBtn.DefaultCellStyle = dataGridViewCellStyle7;
+			RateBtn.FlatStyle = FlatStyle.Popup;
 			RateBtn.HeaderText = "Oceń Kandydata";
 			RateBtn.MinimumWidth = 6;
 			RateBtn.Name = "RateBtn";
 			RateBtn.Text = "Oceń";
 			RateBtn.UseColumnTextForButtonValue = true;
 			// 
-			// ThisWeekAssesmentView
+			// ThisWeekAssessmentView
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			Controls.Add(tableLayoutPanel);
-			Name = "ThisWeekAssesmentView";
+			Name = "ThisWeekAssessmentView";
 			Size = new Size(1296, 533);
 			((System.ComponentModel.ISupportInitialize)stagesDgv).EndInit();
 			tableLayoutPanel.ResumeLayout(false);
