@@ -7,4 +7,5 @@ public class InterviewDto
 	public string StageName { get; set; }
 	public string JobTitle { get; set; }
 	public DateTime? Date { get; set; }
+	public bool HasResigned { get; set; } = false;
 }

@@ -4,6 +4,7 @@ using RecruitmentManager.Application.Functions.Candidate_Functions.Queries.GetCa
 using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.FileHandling;
 using RecruitmentManager.Forms.Candidate.DataDictionary;
+using RecruitmentManager.Forms.Candidate.Interviews;
 using RecruitmentManager.Forms.Candidate.JobOfferViews;
 
 namespace RecruitmentManager.Forms.Candidate;
@@ -103,7 +104,7 @@ public partial class CandidateLoggedInForm : Form
 
 	private void interviewBtn_Click(object sender, EventArgs e)
 	{
-
+		ShowControl(_serviceProvider.GetRequiredService<CandidateInterviewMainView>());
 	}
 
 	private void jobOfferBtn_Click(object sender, EventArgs e)

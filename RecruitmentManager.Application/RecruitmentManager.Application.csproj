@@ -36,6 +36,7 @@
     <Folder Include="Functions\Candidate Functions\Queries\GetHobbiesList\" />
     <Folder Include="Functions\Candidate Functions\Queries\GetEducationsList\" />
     <Folder Include="Functions\Candidate Functions\Queries\GetSkillsList\" />
+    <Folder Include="Functions\Candidate Functions\Queries\GetCandidateInterviews\" />
     <Folder Include="Functions\Common\Commands\" />
     <Folder Include="Functions\Common\Queries\GetExperienceItem\" />
     <Folder Include="Functions\Common\Queries\GetEducationItem\" />
@@ -46,6 +47,9 @@
     <Folder Include="Functions\Worker Functions\Manager Functions\Queries\GetCandidatesForOffer\" />
     <Folder Include="Functions\Worker Functions\Manager Functions\Queries\GetNotSetInterviews\" />
     <Folder Include="Functions\Worker Functions\Manager Functions\Queries\GetSetInterviews\" />
+    <Folder Include="Functions\Worker Functions\Recruiter\Commands\CancelInterviewsForCandidateApplication\" />
+    <Folder Include="Functions\Worker Functions\Recruiter\Commands\RateCandidate\" />
+    <Folder Include="Functions\Worker Functions\Recruiter\Events\" />
   </ItemGroup>
 
 </Project>

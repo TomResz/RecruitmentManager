@@ -93,7 +93,7 @@
 			profilePicturePB.Location = new Point(6, 6);
 			profilePicturePB.Name = "profilePicturePB";
 			profilePicturePB.Size = new Size(268, 108);
-			profilePicturePB.SizeMode = PictureBoxSizeMode.CenterImage;
+			profilePicturePB.SizeMode = PictureBoxSizeMode.Zoom;
 			profilePicturePB.TabIndex = 0;
 			profilePicturePB.TabStop = false;
 			profilePicturePB.Click += profilePicture_Click;

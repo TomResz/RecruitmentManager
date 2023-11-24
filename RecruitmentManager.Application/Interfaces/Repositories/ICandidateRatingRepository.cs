@@ -11,4 +11,7 @@ public interface ICandidateRatingRepository : IAsyncRepository<CandidateRating>
 	Task<List<CandidateRating>> GetAllWithDate();
 	Task<bool> ExistsInterviewsForCandidateDuringThisTime(CandidateRating candidateRating, DateTime date);
 	Task<bool> ExistsInterviewsForRecruiterDuringThisTime(CandidateRating candidateRating, DateTime date);
+	Task<List<CandidateRating>> GetRatingsForCandidateApplicationTask(Guid candidateRatingId,Guid candidateId);
+	Task<List<CandidateRating>> GetFullDataByCandidateId(Guid candidateId);
+	Task UpdateRange(List<CandidateRating> candidates);
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using RecruitmentManager.Application.Interfaces.Repositories;
 using RecruitmentManager.Domain.Entities;
 using RecruitmentManager.Infrastructure.EF.Context;
@@ -113,5 +114,44 @@ public class CandidateRatingRepository : AsyncRepository<CandidateRating>,ICandi
 			               x.InterviewDate.Value <= endTime &&
 			               x.Id != candidateRating.Id);
 		return mettingsAtThisTime;
+	}
+
+	public async Task<List<CandidateRating>> GetRatingsForCandidateApplicationTask(Guid candidateRatingId, Guid candidateId)
+	{
+		var jobPostingId = await _context.CandidateRatings
+			.Include(x => x.RecruitmentStage)
+			.ThenInclude(x => x.JobPosting)
+			.Where(x=>x.CandidateId == candidateId && x.Id == candidateRatingId)
+			.Select(x=>x.RecruitmentStage.JobPosting.Id)
+			.FirstOrDefaultAsync();
+		var list = await _context
+			.CandidateRatings
+			.Include(x => x.RecruitmentStage)
+			.ThenInclude(x => x.JobPosting)
+			.Where(x => x.RecruitmentStage.JobPosting.Id == jobPostingId
+			            && x.CandidateId == candidateId)
+			.ToListAsync();
+		return list;
+
+	}
+
+	public async Task<List<CandidateRating>> GetFullDataByCandidateId(Guid candidateId)
+	{
+		return await _context
+			.CandidateRatings
+			.Where(x => x.InterviewDate != null && 
+			            x.CandidateId == candidateId)
+			.Include(x => x.Candidate)
+			.ThenInclude(x => x.CandidateData)
+			.Include(x => x.RecruitmentStage)
+			.ThenInclude(x => x.JobPosting)
+			.AsNoTracking()
+			.ToListAsync();
+	}
+
+	public async Task UpdateRange(List<CandidateRating> candidates)
+	{
+		_context.UpdateRange(candidates);
+		await _context.SaveChangesAsync();
 	}
 }
