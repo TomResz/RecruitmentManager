@@ -12,7 +12,7 @@ using RecruitmentManager.Forms.Common_employees;
 
 namespace RecruitmentManager.Forms.Manager.Registrations;
 
-public partial class ManagerRegistrationsView : UserControl
+public partial class ManagerCurrentsRegistrationsView : UserControl
 {
 	private const int PageSize = 15;
 	private int Page = 1;
@@ -21,7 +21,7 @@ public partial class ManagerRegistrationsView : UserControl
 	private readonly ICandidateContext _candidateContext;
 	private PagedList<JobOffersViewDto> _jobs;
 
-	public ManagerRegistrationsView(
+	public ManagerCurrentsRegistrationsView(
 		IMediator mediator,
 		ICandidateContext candidateContext,
 		IServiceProvider serviceProvider)

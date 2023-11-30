@@ -69,7 +69,7 @@ public partial class ManagerForm : Form
 
 	private void registrationsBtn_Click(object sender, EventArgs e)
 	{
-		var uc = _serviceProvider.GetRequiredService<ManagerRegistrationsView>();
+		var uc = _serviceProvider.GetRequiredService<ManagerMainRegistrationView>();
 		ShowControl(uc);
 	}
 

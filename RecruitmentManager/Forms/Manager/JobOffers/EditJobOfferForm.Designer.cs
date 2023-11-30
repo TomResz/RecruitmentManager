@@ -29,17 +29,17 @@
 		private void InitializeComponent()
 		{
 			components = new System.ComponentModel.Container();
-			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle21 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle22 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle23 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle24 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle25 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle26 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle27 = new DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditJobOfferForm));
-			DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle28 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle29 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle30 = new DataGridViewCellStyle();
 			addRecruitmentStageBtn = new Button();
 			Data = new DataGridViewTextBoxColumn();
 			secondPageLeftLayout = new TableLayoutPanel();
@@ -129,12 +129,12 @@
 			// 
 			// Data
 			// 
-			dataGridViewCellStyle1.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle1.ForeColor = Color.Black;
-			dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-			Data.DefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle21.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle21.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle21.ForeColor = Color.Black;
+			dataGridViewCellStyle21.SelectionBackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle21.SelectionForeColor = Color.Black;
+			Data.DefaultCellStyle = dataGridViewCellStyle21;
 			Data.HeaderText = "Imię i nazwisko";
 			Data.MinimumWidth = 6;
 			Data.Name = "Data";
@@ -162,14 +162,14 @@
 			recruitmentStagesDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 			recruitmentStagesDGV.BackgroundColor = SystemColors.Control;
 			recruitmentStagesDGV.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = Color.Blue;
-			dataGridViewCellStyle2.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle2.ForeColor = Color.White;
-			dataGridViewCellStyle2.SelectionBackColor = Color.Blue;
-			dataGridViewCellStyle2.SelectionForeColor = Color.White;
-			dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-			recruitmentStagesDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle22.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle22.BackColor = Color.Blue;
+			dataGridViewCellStyle22.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle22.ForeColor = Color.White;
+			dataGridViewCellStyle22.SelectionBackColor = Color.Blue;
+			dataGridViewCellStyle22.SelectionForeColor = Color.White;
+			dataGridViewCellStyle22.WrapMode = DataGridViewTriState.True;
+			recruitmentStagesDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
 			recruitmentStagesDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			recruitmentStagesDGV.Columns.AddRange(new DataGridViewColumn[] { id_recruitmentstages, dataGridViewTextBoxColumn1, Order, Weight, NameColumn, EndedDate, PasswdReset });
 			recruitmentStagesDGV.Dock = DockStyle.Fill;
@@ -206,12 +206,12 @@
 			// Order
 			// 
 			Order.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle3.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle3.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle3.ForeColor = Color.Black;
-			dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 192, 192);
-			dataGridViewCellStyle3.SelectionForeColor = Color.Black;
-			Order.DefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle23.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle23.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle23.ForeColor = Color.Black;
+			dataGridViewCellStyle23.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle23.SelectionForeColor = Color.Black;
+			Order.DefaultCellStyle = dataGridViewCellStyle23;
 			Order.FillWeight = 230F;
 			Order.HeaderText = "Kolejność";
 			Order.MinimumWidth = 6;
@@ -221,12 +221,12 @@
 			// Weight
 			// 
 			Weight.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle4.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle4.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle4.ForeColor = Color.Black;
-			dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 192, 192);
-			dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-			Weight.DefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle24.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle24.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle24.ForeColor = Color.Black;
+			dataGridViewCellStyle24.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle24.SelectionForeColor = Color.Black;
+			Weight.DefaultCellStyle = dataGridViewCellStyle24;
 			Weight.FillWeight = 280.748657F;
 			Weight.HeaderText = "Waga";
 			Weight.MinimumWidth = 6;
@@ -235,12 +235,12 @@
 			// 
 			// NameColumn
 			// 
-			dataGridViewCellStyle5.BackColor = Color.FromArgb(192, 255, 255);
-			dataGridViewCellStyle5.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle5.ForeColor = Color.Black;
-			dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 192, 192);
-			dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-			NameColumn.DefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle25.BackColor = Color.FromArgb(192, 255, 255);
+			dataGridViewCellStyle25.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle25.ForeColor = Color.Black;
+			dataGridViewCellStyle25.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle25.SelectionForeColor = Color.Black;
+			NameColumn.DefaultCellStyle = dataGridViewCellStyle25;
 			NameColumn.HeaderText = "Nazwa";
 			NameColumn.MinimumWidth = 6;
 			NameColumn.Name = "NameColumn";
@@ -248,12 +248,12 @@
 			// 
 			// EndedDate
 			// 
-			dataGridViewCellStyle6.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle6.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle6.ForeColor = Color.Black;
-			dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 192, 192);
-			dataGridViewCellStyle6.SelectionForeColor = Color.Black;
-			EndedDate.DefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle26.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle26.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle26.ForeColor = Color.Black;
+			dataGridViewCellStyle26.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle26.SelectionForeColor = Color.Black;
+			EndedDate.DefaultCellStyle = dataGridViewCellStyle26;
 			EndedDate.HeaderText = "Pracownik";
 			EndedDate.MinimumWidth = 6;
 			EndedDate.Name = "EndedDate";
@@ -262,13 +262,13 @@
 			// PasswdReset
 			// 
 			PasswdReset.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle7.BackColor = Color.Navy;
-			dataGridViewCellStyle7.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle7.ForeColor = Color.White;
-			dataGridViewCellStyle7.SelectionBackColor = Color.Navy;
-			dataGridViewCellStyle7.SelectionForeColor = Color.White;
-			PasswdReset.DefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle27.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle27.BackColor = Color.Navy;
+			dataGridViewCellStyle27.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle27.ForeColor = Color.White;
+			dataGridViewCellStyle27.SelectionBackColor = Color.Navy;
+			dataGridViewCellStyle27.SelectionForeColor = Color.White;
+			PasswdReset.DefaultCellStyle = dataGridViewCellStyle27;
 			PasswdReset.FillWeight = 250F;
 			PasswdReset.FlatStyle = FlatStyle.Popup;
 			PasswdReset.HeaderText = "Usuwanie";
@@ -410,12 +410,12 @@
 			// 
 			// Mail
 			// 
-			dataGridViewCellStyle8.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle8.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle8.ForeColor = Color.Black;
-			dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle8.SelectionForeColor = Color.Black;
-			Mail.DefaultCellStyle = dataGridViewCellStyle8;
+			dataGridViewCellStyle28.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle28.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle28.ForeColor = Color.Black;
+			dataGridViewCellStyle28.SelectionBackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle28.SelectionForeColor = Color.Black;
+			Mail.DefaultCellStyle = dataGridViewCellStyle28;
 			Mail.HeaderText = "E-Mail";
 			Mail.MinimumWidth = 6;
 			Mail.Name = "Mail";
@@ -702,14 +702,14 @@
 			recruiterDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 			recruiterDGV.BackgroundColor = SystemColors.Control;
 			recruiterDGV.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle9.BackColor = Color.Blue;
-			dataGridViewCellStyle9.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle9.ForeColor = Color.White;
-			dataGridViewCellStyle9.SelectionBackColor = Color.Blue;
-			dataGridViewCellStyle9.SelectionForeColor = Color.White;
-			dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-			recruiterDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+			dataGridViewCellStyle29.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle29.BackColor = Color.Blue;
+			dataGridViewCellStyle29.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle29.ForeColor = Color.White;
+			dataGridViewCellStyle29.SelectionBackColor = Color.Blue;
+			dataGridViewCellStyle29.SelectionForeColor = Color.White;
+			dataGridViewCellStyle29.WrapMode = DataGridViewTriState.True;
+			recruiterDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
 			recruiterDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			recruiterDGV.Columns.AddRange(new DataGridViewColumn[] { Id, Checkbox, Mail, Data });
 			recruiterDGV.Dock = DockStyle.Fill;
@@ -725,9 +725,9 @@
 			// 
 			// Id
 			// 
-			dataGridViewCellStyle10.SelectionBackColor = Color.White;
-			dataGridViewCellStyle10.SelectionForeColor = Color.Black;
-			Id.DefaultCellStyle = dataGridViewCellStyle10;
+			dataGridViewCellStyle30.SelectionBackColor = Color.White;
+			dataGridViewCellStyle30.SelectionForeColor = Color.Black;
+			Id.DefaultCellStyle = dataGridViewCellStyle30;
 			Id.HeaderText = "ID";
 			Id.MinimumWidth = 6;
 			Id.Name = "Id";

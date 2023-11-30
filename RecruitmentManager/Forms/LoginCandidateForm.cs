@@ -25,7 +25,16 @@ public partial class LoginCandidateForm : Form
 		_candidateSessionContext = candidateSessionContext;
 		_label = label;
 		InitializeTextBoxesAndLabels();
+		InitialToolTipActions();
 	}
+	private void InitialToolTipActions()
+	{
+		var tooltip = new ToolTip();
+		emailTb.MouseHover += (s, args) => tooltip.Show("Tu należy wpisać adres email!", emailTb);
+		passwordTb.MouseHover += (s, args) => tooltip.Show("Tu należy wpisać hasło!", passwordTb);
+	}
+
+
 
 	private void InitializeTextBoxesAndLabels()
 	{

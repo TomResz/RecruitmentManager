@@ -1,6 +1,6 @@
-﻿namespace RecruitmentManager.Forms.Candidate.Interviews
+﻿namespace RecruitmentManager.Forms.Manager.Registrations
 {
-	partial class CandidateInterviewMainView
+	partial class ManagerMainRegistrationView
 	{
 		/// <summary> 
 		/// Required designer variable.
@@ -28,10 +28,10 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CandidateInterviewMainView));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManagerMainRegistrationView));
 			mainLayout = new TableLayoutPanel();
 			headerLayout = new TableLayoutPanel();
-			pastBtn = new Button();
+			endedBtn = new Button();
 			currentBtn = new Button();
 			mainLayout.SuspendLayout();
 			headerLayout.SuspendLayout();
@@ -48,67 +48,66 @@
 			mainLayout.RowCount = 2;
 			mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 85F));
 			mainLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			mainLayout.Size = new Size(1112, 555);
-			mainLayout.TabIndex = 2;
+			mainLayout.Size = new Size(1115, 516);
+			mainLayout.TabIndex = 1;
 			// 
 			// headerLayout
 			// 
-			headerLayout.ColumnCount = 5;
-			headerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-			headerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-			headerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-			headerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-			headerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-			headerLayout.Controls.Add(pastBtn, 0, 0);
+			headerLayout.ColumnCount = 3;
+			headerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+			headerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+			headerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+			headerLayout.Controls.Add(endedBtn, 1, 0);
 			headerLayout.Controls.Add(currentBtn, 0, 0);
 			headerLayout.Dock = DockStyle.Fill;
-			headerLayout.Location = new Point(0, 0);
-			headerLayout.Margin = new Padding(0);
+			headerLayout.Location = new Point(3, 3);
 			headerLayout.Name = "headerLayout";
 			headerLayout.RowCount = 1;
 			headerLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			headerLayout.Size = new Size(1112, 85);
+			headerLayout.Size = new Size(1109, 79);
 			headerLayout.TabIndex = 0;
 			// 
-			// pastBtn
+			// endedBtn
 			// 
-			pastBtn.Dock = DockStyle.Fill;
-			pastBtn.FlatStyle = FlatStyle.Flat;
-			pastBtn.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
-			pastBtn.Image = (Image)resources.GetObject("pastBtn.Image");
-			pastBtn.ImageAlign = ContentAlignment.MiddleLeft;
-			pastBtn.Location = new Point(225, 3);
-			pastBtn.Name = "pastBtn";
-			pastBtn.Size = new Size(216, 79);
-			pastBtn.TabIndex = 1;
-			pastBtn.Text = "Historia";
-			pastBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
-			pastBtn.UseVisualStyleBackColor = true;
-			pastBtn.Click += pastBtn_Click;
+			endedBtn.Dock = DockStyle.Fill;
+			endedBtn.FlatStyle = FlatStyle.Flat;
+			endedBtn.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			endedBtn.Image = (Image)resources.GetObject("endedBtn.Image");
+			endedBtn.ImageAlign = ContentAlignment.MiddleLeft;
+			endedBtn.Location = new Point(332, 0);
+			endedBtn.Margin = new Padding(0);
+			endedBtn.Name = "endedBtn";
+			endedBtn.Size = new Size(332, 79);
+			endedBtn.TabIndex = 1;
+			endedBtn.Text = "Zakończony Proces Rekrutacyjny";
+			endedBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+			endedBtn.UseVisualStyleBackColor = true;
+			endedBtn.Click += endedBtn_Click;
 			// 
 			// currentBtn
 			// 
 			currentBtn.Dock = DockStyle.Fill;
 			currentBtn.FlatStyle = FlatStyle.Flat;
-			currentBtn.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
+			currentBtn.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
 			currentBtn.Image = (Image)resources.GetObject("currentBtn.Image");
 			currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
-			currentBtn.Location = new Point(3, 3);
+			currentBtn.Location = new Point(0, 0);
+			currentBtn.Margin = new Padding(0);
 			currentBtn.Name = "currentBtn";
-			currentBtn.Size = new Size(216, 79);
+			currentBtn.Size = new Size(332, 79);
 			currentBtn.TabIndex = 0;
-			currentBtn.Text = "Aktualne";
+			currentBtn.Text = "Trwa Proces Rekrutacyjny";
 			currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
 			currentBtn.UseVisualStyleBackColor = true;
 			currentBtn.Click += currentBtn_Click;
 			// 
-			// CandidateInterviewMainView
+			// ManagerMainRegistrationView
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			Controls.Add(mainLayout);
-			Name = "CandidateInterviewMainView";
-			Size = new Size(1112, 555);
+			Name = "ManagerMainRegistrationView";
+			Size = new Size(1115, 516);
 			mainLayout.ResumeLayout(false);
 			headerLayout.ResumeLayout(false);
 			ResumeLayout(false);
@@ -118,7 +117,7 @@
 
 		private TableLayoutPanel mainLayout;
 		private TableLayoutPanel headerLayout;
-		private Button pastBtn;
+		private Button endedBtn;
 		private Button currentBtn;
 	}
 }
