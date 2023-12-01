@@ -59,6 +59,9 @@ public partial class CandidateExperienceView : UserControl
 	}
 	private void PictureBoxesAction()
 	{
+		titleTextBox.MouseHover += (s, args) => toolTip1.Show("Tu należy wpisać nazwę pracy.", titleTextBox);
+		companyNamePB.MouseHover += (s, args) => toolTip1.Show("Tu należy wpisać nazwę firmy.", companyNamePB);
+		descriptionTextBox.MouseHover += (s, args) => toolTip1.Show("Opisz tą pracę.", descriptionTextBox);
 		titlePB.MouseHover += (s, args) => toolTip1.Show("Nazwa stanowiska", titlePB);
 		companyNamePB.MouseHover += (s, args) => toolTip1.Show("Nazwa firmy", companyNamePB);
 		descriptionPb.MouseHover += (s, args) => toolTip1.Show("Opis stanowiska", descriptionPb);

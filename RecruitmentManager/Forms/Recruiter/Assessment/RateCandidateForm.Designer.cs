@@ -182,7 +182,7 @@
 			ClientSize = new Size(595, 518);
 			Controls.Add(tableLayoutPanel);
 			Name = "RateCandidateForm";
-			Text = "RateCandidateForm";
+			Text = "Ocena kandydata";
 			tableLayoutPanel.ResumeLayout(false);
 			tableLayoutPanel1.ResumeLayout(false);
 			tableLayoutPanel2.ResumeLayout(false);

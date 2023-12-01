@@ -51,6 +51,7 @@ public partial class CandidateHobbyView : UserControl
 	private void ActivePictureBox()
 	{
 		var toolTip = new ToolTip();
+		descriptionTextBox.MouseHover += (s, args) => toolTip.Show("Tu należy wpisać zainteresowania.", descriptionTextBox);
 		descriptionPB.MouseHover += (s, args) => toolTip.Show("Opis zainteresowania", descriptionPB);
 	}
 

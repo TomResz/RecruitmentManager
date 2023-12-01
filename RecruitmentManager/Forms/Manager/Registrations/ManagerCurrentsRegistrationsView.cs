@@ -2,7 +2,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.Application.Functions.Common.Queries.GetPageOfJobOffers.NotActive;
 using RecruitmentManager.Application.Functions.DTOs;
-using RecruitmentManager.Application.Functions.Worker_Functions.Common.Queries.GetInterviewData;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Events;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Queries.GetCandidatesForOffer;
 using RecruitmentManager.Application.Interfaces.Context;

@@ -18,7 +18,19 @@ public partial class AddCandidateForm : Form
 		_subtitles = subtitles;
 
 		InitializeTextBoxesAndLabels();
+		InitialToolTip();
 	}
+	private void InitialToolTip()
+	{
+		var toolTip = new ToolTip();
+		firstNameTb.MouseHover += (sender, e) => { toolTip.Show("Tu należy wpisać imię.", firstNameTb); };
+		lastNameTb.MouseHover += (sender, e) => { toolTip.Show("Tu należy wpisać nazwisko", lastNameTb); };
+		emailTb.MouseHover += (sender, e) => { toolTip.Show("Tu należy wpisać email.", emailTb); };
+		passwordTb.MouseHover += (sender, e) => { toolTip.Show("Tu należy wpisać hasło.", passwordTb); };
+		confirmedPasswdTb.MouseHover += (sender, e) => { toolTip.Show("Tu należy powtórzyć hasło.", confirmedPasswdTb); };
+	}
+
+
 
 	private void InitializeTextBoxesAndLabels()
 	{
@@ -100,4 +112,6 @@ public partial class AddCandidateForm : Form
 		passwordTb.Clear();
 		confirmedPasswdTb.Clear();
 	}
+
+
 }

@@ -63,4 +63,15 @@ public class CandidateRepository : AsyncRepository<Candidate>, ICandidateReposit
 			.Candidates
 			.FirstOrDefaultAsync(x => x.Email.ToLower() == email.ToLower());
 	}
+
+	public async Task<List<Candidate>> GetListByJobPostingsWithRating(Guid JobPostingId)
+	{
+		var candidates = await _context
+			.Candidates
+			.Include(x=>x.CandidateData)
+			.Include(x=>x.CandidateRatings)
+			.Where(x=>x.CandidateRatings.Any(x=>x.RecruitmentStage.JobPostingId == JobPostingId))
+			.ToListAsync();
+		return candidates;
+	}
 }

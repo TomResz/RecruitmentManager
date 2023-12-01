@@ -18,7 +18,7 @@
     <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
     <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
     <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing"">Blue</data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
     <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
         <value>[base64 mime encoded serialized .NET Framework object]</value>
     </data>
@@ -121,7 +121,7 @@
   <data name="notesPB.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAABO9JREFUeF7tnMurHEUUxi8iRJQkS2MC+QdislAwPsjjj0i2bgOaB4jgSnEhxIiP
+        DwAACw8BkvkDpQAABO9JREFUeF7tnMurHEUUxi8iRJQkS2MC+QdislAwPsjjj0i2bgOaB4jgSnEhxIiP
         jQruQ0JQskgWLtwI0Y3rZCMus8pjFchC8PF9Q31zT3VOd/XtqamuZOoHP1Jzbk3X6ZOampq+d3rL8Ar8
         Bv4F/4b/bbA8f9bha7gPRrwNH0DviZvuffgWXMAZZQv1K/wSfr7BfgV/g7ZgL8PFS0/BMww0lpyHqg0L
         uHht8gFnVONJNMP+5AMt5p/xQeAq/BeqqvIhPApF7n418gVkrqzTMvFP+SDwD1S86ydQ5O5XI6yLcl02
@@ -148,7 +148,7 @@
   <data name="ratePB.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAABz9JREFUeF7tnHWoNUUYhz+7u7vA7sLE7kbsRuz2D1sMbFTsLlRQQcVO7AYVwW7F
+        DwAACw8BkvkDpQAABz9JREFUeF7tnHWoNUUYhz+7u7vA7sLE7kbsRuz2D1sMbFTsLlRQQcVO7AYVwW7F
         Frtbn+fDF4bl7I2zM+ee833nBw+XO3d33tnd2dl33nnnjuqrr7766quvvkZA48DCsCucDDfAc/AufAU/
         wr////R3y/27x3m85y0E1jNGanbYH+6Bb8Gb0RTrsT7rtf6e1hSwL9gr/oFWF5wL69fOPqDdntE8cBH8
         AK0uTD6H2+AE2BlWhflgOpgclD+nB8v9+y7g8bfDF9CqXtHuhTA3dK1mhgvgd6hewB9wP/jk54Uc8iZa

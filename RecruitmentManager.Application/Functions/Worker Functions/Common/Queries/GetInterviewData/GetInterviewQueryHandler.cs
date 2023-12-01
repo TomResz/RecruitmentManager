@@ -27,15 +27,17 @@ public class GetInterviewQueryHandler
 		{
 			var actualDate = DateTime.Today.Date;
 			list = list.Where(x => x.InterviewDate != null
-			                                 && x.InterviewDate.Value.Date >= actualDate)
+						&& x.InterviewDate.Value.Date >= actualDate
+						&& x.HasResigned == false)
 				.ToList();
 		}
+
 		return list.Select(x => new InterviewDto()
 		{
 			Id = x.Id,
 			Date = x.InterviewDate,
 			StageName = x.RecruitmentStage.StageName,
-			CandidateFullName = x.Candidate.CandidateData.FirstName + ' ' + x.Candidate.CandidateData.LastName,
+			CandidateFullName = $"{x.Candidate.CandidateData.FirstName} {x.Candidate.CandidateData.LastName}",
 			JobTitle = x.RecruitmentStage.JobPosting.Title
 		}).ToList();
 	}

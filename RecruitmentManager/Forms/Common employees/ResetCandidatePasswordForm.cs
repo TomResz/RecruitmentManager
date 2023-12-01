@@ -24,7 +24,15 @@ public partial class ResetCandidatePasswordForm : Form
 		emailTb.Text = _userBasicDataContext.GetEmail;
 		emailTb.ReadOnly = true;
 		InitializeTextBoxes();
+		InitToolTip();
 	}
+	private void InitToolTip()
+	{
+		var toolTip = new ToolTip();
+		passwordTb.MouseHover += (s, args) => toolTip.Show("Tu należy wpisać hasło.", passwordTb);
+		confirmedPasswdTb.MouseHover += (s, args) => toolTip.Show("Tu należy powtórzyć hasło.", confirmedPasswdTb);
+	}
+
 	private void InitializeTextBoxes()
 	{
 		passwordLabel.Text = _label.NewPassword;

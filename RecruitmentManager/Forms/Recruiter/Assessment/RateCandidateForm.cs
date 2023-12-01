@@ -19,6 +19,7 @@ public partial class RateCandidateForm : Form
 	private void ActivePictureBoxes()
 	{
 		var tip = new ToolTip();
+		noteTb.MouseHover += (s, args) => tip.Show("Tutaj należy można wpisać notatki", noteTb);
 		notesPB.MouseHover += (s, args) => tip.Show("Notatki", notesPB);
 		ratePB.MouseHover += (s, args) => tip.Show("Ocena", ratePB);
 	}

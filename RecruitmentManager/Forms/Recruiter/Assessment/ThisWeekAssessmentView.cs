@@ -28,7 +28,8 @@ public partial class ThisWeekAssessmentView : UserControl
 		this.Load += ThisWeekAssessmentView_Load;
 	}
 
-	private async void ThisWeekAssessmentView_Load(object? sender, EventArgs e) => await ReloadDgv();
+	private async void ThisWeekAssessmentView_Load(object? sender, EventArgs e) 
+		=> await ReloadDgv();
 
 	private void ChangeSize()
 	{
@@ -44,8 +45,7 @@ public partial class ThisWeekAssessmentView : UserControl
 
 	private async Task ReloadDgv()
 	{
-		var query = new GetInterviewsByInterviewPredicateQuery(InterviewPredicate.TwoDays);
-		var response = await _mediator.Send(query);
+		var response = await _mediator.Send(new GetInterviewsByInterviewPredicateQuery(InterviewPredicate.TwoDays));
 		stagesDgv.FillJobStagesDgv(response);
 	}
 }

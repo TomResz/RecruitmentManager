@@ -22,8 +22,14 @@ public partial class ResetWorkerPasswordForm : Form
 		emailTb.Text = _workerBasicDataContext.GetEmail;
 		_label = label;
 		InitializeTextBoxes();
+		InitToolTip();
 	}
-
+	private void InitToolTip()
+	{
+		var toolTip = new ToolTip();
+		passwordTb.MouseHover += (s, args) => toolTip.Show("Tu należy wpisąć hasło.", passwordTb);
+		confirmedPasswdTb.MouseHover += (s, args) => toolTip.Show("Tu należy powtórzyć hasło.", confirmedPasswdTb);
+	}
 	private void InitializeTextBoxes()
 	{
 		passwordLabel.Text = _label.NewPassword;

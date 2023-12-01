@@ -45,6 +45,7 @@ public partial class CandidateSkillsView : UserControl
 	private void InitPb()
 	{
 		var tooltip = new ToolTip();
+		descriptionTextBox.MouseHover += (s, args) => tooltip.Show("Tu należy wpisać swoje umiejętności", descriptionTextBox);
 		descriptionPB.MouseHover += ((sender, args) => tooltip.Show("Opis umiejętności", descriptionPB));
 	}
 

@@ -8,4 +8,6 @@ public interface ICandidateRepository : IAsyncRepository<Candidate>
 	Task<List<Candidate>> GetByJobPostingId(Guid jobPostingId);
 	Task<Candidate?> GetFullData(Guid CandidateId, CancellationToken cancellationToken = default);
 	Task<Candidate?> GetByEmailAsync(string email);
+
+	Task<List<Candidate>> GetListByJobPostingsWithRating(Guid JobPostingId);
 }

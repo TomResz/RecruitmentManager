@@ -44,11 +44,12 @@
 			mainLayout.Controls.Add(headerLayout, 0, 0);
 			mainLayout.Dock = DockStyle.Fill;
 			mainLayout.Location = new Point(0, 0);
+			mainLayout.Margin = new Padding(3, 2, 3, 2);
 			mainLayout.Name = "mainLayout";
 			mainLayout.RowCount = 2;
 			mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 85F));
 			mainLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			mainLayout.Size = new Size(1154, 522);
+			mainLayout.Size = new Size(1010, 392);
 			mainLayout.TabIndex = 0;
 			// 
 			// headerLayout
@@ -60,11 +61,12 @@
 			headerLayout.Controls.Add(completedBtn, 1, 0);
 			headerLayout.Controls.Add(activeBtn, 0, 0);
 			headerLayout.Dock = DockStyle.Fill;
-			headerLayout.Location = new Point(3, 3);
+			headerLayout.Location = new Point(3, 2);
+			headerLayout.Margin = new Padding(3, 2, 3, 2);
 			headerLayout.Name = "headerLayout";
 			headerLayout.RowCount = 1;
 			headerLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			headerLayout.Size = new Size(1148, 79);
+			headerLayout.Size = new Size(1004, 81);
 			headerLayout.TabIndex = 0;
 			// 
 			// completedBtn
@@ -74,10 +76,10 @@
 			completedBtn.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
 			completedBtn.Image = (Image)resources.GetObject("completedBtn.Image");
 			completedBtn.ImageAlign = ContentAlignment.MiddleLeft;
-			completedBtn.Location = new Point(229, 0);
+			completedBtn.Location = new Point(200, 0);
 			completedBtn.Margin = new Padding(0);
 			completedBtn.Name = "completedBtn";
-			completedBtn.Size = new Size(229, 79);
+			completedBtn.Size = new Size(200, 81);
 			completedBtn.TabIndex = 1;
 			completedBtn.Text = "Nieaktywne";
 			completedBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -94,7 +96,7 @@
 			activeBtn.Location = new Point(0, 0);
 			activeBtn.Margin = new Padding(0);
 			activeBtn.Name = "activeBtn";
-			activeBtn.Size = new Size(229, 79);
+			activeBtn.Size = new Size(200, 81);
 			activeBtn.TabIndex = 0;
 			activeBtn.Text = "Aktywne";
 			activeBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -103,11 +105,12 @@
 			// 
 			// JobOffersMainView
 			// 
-			AutoScaleDimensions = new SizeF(8F, 20F);
+			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			Controls.Add(mainLayout);
+			Margin = new Padding(3, 2, 3, 2);
 			Name = "JobOffersMainView";
-			Size = new Size(1154, 522);
+			Size = new Size(1010, 392);
 			mainLayout.ResumeLayout(false);
 			headerLayout.ResumeLayout(false);
 			ResumeLayout(false);

@@ -44,11 +44,12 @@
 			mainLayout.Controls.Add(headerLayout, 0, 0);
 			mainLayout.Dock = DockStyle.Fill;
 			mainLayout.Location = new Point(0, 0);
+			mainLayout.Margin = new Padding(3, 2, 3, 2);
 			mainLayout.Name = "mainLayout";
 			mainLayout.RowCount = 2;
 			mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 85F));
 			mainLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			mainLayout.Size = new Size(1115, 516);
+			mainLayout.Size = new Size(976, 387);
 			mainLayout.TabIndex = 1;
 			// 
 			// headerLayout
@@ -60,11 +61,12 @@
 			headerLayout.Controls.Add(endedBtn, 1, 0);
 			headerLayout.Controls.Add(currentBtn, 0, 0);
 			headerLayout.Dock = DockStyle.Fill;
-			headerLayout.Location = new Point(3, 3);
+			headerLayout.Location = new Point(3, 2);
+			headerLayout.Margin = new Padding(3, 2, 3, 2);
 			headerLayout.Name = "headerLayout";
 			headerLayout.RowCount = 1;
 			headerLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			headerLayout.Size = new Size(1109, 79);
+			headerLayout.Size = new Size(970, 81);
 			headerLayout.TabIndex = 0;
 			// 
 			// endedBtn
@@ -74,10 +76,10 @@
 			endedBtn.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
 			endedBtn.Image = (Image)resources.GetObject("endedBtn.Image");
 			endedBtn.ImageAlign = ContentAlignment.MiddleLeft;
-			endedBtn.Location = new Point(332, 0);
+			endedBtn.Location = new Point(291, 0);
 			endedBtn.Margin = new Padding(0);
 			endedBtn.Name = "endedBtn";
-			endedBtn.Size = new Size(332, 79);
+			endedBtn.Size = new Size(291, 81);
 			endedBtn.TabIndex = 1;
 			endedBtn.Text = "Zakończony Proces Rekrutacyjny";
 			endedBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -94,7 +96,7 @@
 			currentBtn.Location = new Point(0, 0);
 			currentBtn.Margin = new Padding(0);
 			currentBtn.Name = "currentBtn";
-			currentBtn.Size = new Size(332, 79);
+			currentBtn.Size = new Size(291, 81);
 			currentBtn.TabIndex = 0;
 			currentBtn.Text = "Trwa Proces Rekrutacyjny";
 			currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -103,11 +105,12 @@
 			// 
 			// ManagerMainRegistrationView
 			// 
-			AutoScaleDimensions = new SizeF(8F, 20F);
+			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			Controls.Add(mainLayout);
+			Margin = new Padding(3, 2, 3, 2);
 			Name = "ManagerMainRegistrationView";
-			Size = new Size(1115, 516);
+			Size = new Size(976, 387);
 			mainLayout.ResumeLayout(false);
 			headerLayout.ResumeLayout(false);
 			ResumeLayout(false);

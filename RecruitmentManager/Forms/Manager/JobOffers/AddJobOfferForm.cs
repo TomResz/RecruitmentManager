@@ -49,6 +49,11 @@ public partial class AddJobOfferForm : Form
 
 	private void InitializePictureBoxes()
 	{
+		titleTextBox.MouseHover += (s, args) => toolTip.Show("Tu należy wpisać nazwę oferty pracy.", titleTextBox);
+		descriptionTextBox.MouseHover += (s, args) => toolTip.Show("Tu należy wpisać opis oferty pracy.", descriptionTextBox);
+		stageNameTitle.MouseHover += (s, args) => toolTip.Show("Tu należy wpisać opis nazwę etapu rekrutacyjnego.", stageNameTitle);
+
+
 		titlePB.MouseHover += (
 			s,
 			args) => toolTip.Show("Tytuł", titlePB);

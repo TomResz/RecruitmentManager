@@ -26,7 +26,9 @@ public class GetInterviewsByInterviewPredicateQueryHandler
 		var id = _workerSessionContext.WorkerId ??
 				 throw new BadRequestException(nameof(_workerSessionContext.WorkerId));
 		var interviews = await _candidateRatingRepository.GetByRecruiterId(id);
-
+		interviews = interviews
+			.Where(x => !x.HasResigned)
+			.ToList();
 		var currentDate = DateTime.Now.Date;
 		interviews = request.InterviewPredicate switch
 		{
@@ -53,7 +55,7 @@ public class GetInterviewsByInterviewPredicateQueryHandler
 			Id = x.Id,
 			Date = x.InterviewDate,
 			StageName = x.RecruitmentStage.StageName,
-			CandidateFullName = x.Candidate.CandidateData.FirstName + ' ' + x.Candidate.CandidateData.LastName,
+			CandidateFullName = $"{x.Candidate.CandidateData.FirstName} {x.Candidate.CandidateData.LastName}",
 			JobTitle = x.RecruitmentStage.JobPosting.Title,
 			CandidateId = x.CandidateId,
 		}).OrderBy(x=>x.Date).ToList();

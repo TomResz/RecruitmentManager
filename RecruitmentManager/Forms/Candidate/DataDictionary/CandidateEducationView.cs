@@ -84,6 +84,8 @@ public partial class CandidateEducationView : UserControl
 
 	private void InitPictureBoxes()
 	{
+		schoolNameTextBox.MouseHover += (s, args) => toolTip1.Show("Tu należy wpisać nazwę szkoły.", schoolNameTextBox);
+		majorTextBox.MouseHover += (s, args) => toolTip1.Show("Tu należely wpisać specjalizację.", majorTextBox);
 		majorPB.MouseHover += (s, args) => toolTip1.Show("Specjalizacja", majorPB);
 		schoolPB.MouseHover += (s, args) => toolTip1.Show("Nazwa placówki edukacyjnej", schoolPB);
 		levelOfEduPb.MouseHover += (s, args) => toolTip1.Show("Poziom wykształcenia", levelOfEduPb);

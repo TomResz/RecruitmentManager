@@ -1,5 +1,6 @@
 ﻿// Ignore Spelling: Admin
 
+using DocumentFormat.OpenXml.Bibliography;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using MediatR;
 using RecruitmentManager.Application.Functions.Worker_Functions.Common;
@@ -29,8 +30,17 @@ public partial class EditEmployeeDataForm : Form
 		_subtitles = subtitles;
 
 		this.Load += EditEmployeeDataForm_Load;
+		InitToolTip();
 	}
 
+	private void InitToolTip()
+	{
+		var toolTip1 = new ToolTip();
+		emailTb.MouseHover += (s, args) => toolTip1.Show("Tu należy wpisać adres email.", emailTb);
+		firstNameTb.MouseHover += (s, args) => toolTip1.Show("Tu należy wpisać imię.", firstNameTb);
+		lastNameTb.MouseHover += (s, args) => toolTip1.Show("Tu należy wpisać nazwisko.", lastNameTb);
+		phoneNumberTb.MouseHover += (s, args) => toolTip1.Show("Tu należy wpisać numer telefonu.", phoneNumberTb);
+	}
 	private async void EditEmployeeDataForm_Load(object? sender, EventArgs e)
 	{
 		var query = new GetEmployeeDataQuery(Id: _sessionContext.WorkerId ??

@@ -41,6 +41,13 @@ public partial class EditCandidateData : Form
 
 	private void AddActionToPictureBoxes()
 	{
+		emailTb.MouseHover += (s, args) => toolTip1.Show("Tu należy wpisać adres email.", emailTb);
+		firstNameTb.MouseHover += (s, args) => toolTip1.Show("Tu należy wpisać imię.", firstNameTb);
+		lastNameTb.MouseHover += (s, args) => toolTip1.Show("Tu należy wpisać nazwisko.", lastNameTb);
+		phoneNumberTb.MouseHover += (s, args) => toolTip1.Show("Tu należy wpisać numer telefonu.", phoneNumberTb);
+		cityTb.MouseHover += (s, args) => toolTip1.Show("Tu należy wpisać miejscowość zamieszkania.", cityTb);
+
+
 		emailPB.MouseHover += (s, args) => toolTip1.Show(_subtitles.Email, emailPB);
 		firstNamePb.MouseHover += (s, args) => toolTip1.Show(_subtitles.FirstName, firstNamePb);
 		lastNamePB.MouseHover += (s, args) => toolTip1.Show(_subtitles.LastName, lastNamePB);
