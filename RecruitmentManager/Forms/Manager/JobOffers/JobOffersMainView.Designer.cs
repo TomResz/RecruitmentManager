@@ -31,6 +31,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JobOffersMainView));
 			mainLayout = new TableLayoutPanel();
 			headerLayout = new TableLayoutPanel();
+			button1 = new Button();
 			completedBtn = new Button();
 			activeBtn = new Button();
 			mainLayout.SuspendLayout();
@@ -54,10 +55,12 @@
 			// 
 			// headerLayout
 			// 
-			headerLayout.ColumnCount = 3;
+			headerLayout.ColumnCount = 4;
 			headerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
 			headerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-			headerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
+			headerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+			headerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+			headerLayout.Controls.Add(button1, 0, 0);
 			headerLayout.Controls.Add(completedBtn, 1, 0);
 			headerLayout.Controls.Add(activeBtn, 0, 0);
 			headerLayout.Dock = DockStyle.Fill;
@@ -69,6 +72,23 @@
 			headerLayout.Size = new Size(1004, 81);
 			headerLayout.TabIndex = 0;
 			// 
+			// button1
+			// 
+			button1.Dock = DockStyle.Fill;
+			button1.FlatStyle = FlatStyle.Flat;
+			button1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			button1.Image = (Image)resources.GetObject("button1.Image");
+			button1.ImageAlign = ContentAlignment.MiddleLeft;
+			button1.Location = new Point(200, 0);
+			button1.Margin = new Padding(0);
+			button1.Name = "button1";
+			button1.Size = new Size(200, 81);
+			button1.TabIndex = 2;
+			button1.Text = "Trwa Nabór Kandydatów";
+			button1.TextImageRelation = TextImageRelation.ImageBeforeText;
+			button1.UseVisualStyleBackColor = true;
+			button1.Click += button1_Click;
+			// 
 			// completedBtn
 			// 
 			completedBtn.Dock = DockStyle.Fill;
@@ -76,12 +96,12 @@
 			completedBtn.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
 			completedBtn.Image = (Image)resources.GetObject("completedBtn.Image");
 			completedBtn.ImageAlign = ContentAlignment.MiddleLeft;
-			completedBtn.Location = new Point(200, 0);
+			completedBtn.Location = new Point(400, 0);
 			completedBtn.Margin = new Padding(0);
 			completedBtn.Name = "completedBtn";
 			completedBtn.Size = new Size(200, 81);
 			completedBtn.TabIndex = 1;
-			completedBtn.Text = "Nieaktywne";
+			completedBtn.Text = "Zakończone";
 			completedBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
 			completedBtn.UseVisualStyleBackColor = true;
 			completedBtn.Click += completedBtn_Click;
@@ -122,5 +142,6 @@
 		private TableLayoutPanel headerLayout;
 		private Button activeBtn;
 		private Button completedBtn;
+		private Button button1;
 	}
 }

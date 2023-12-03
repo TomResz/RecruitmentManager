@@ -30,9 +30,15 @@ public partial class JobOffersMainView : UserControl
 		}
 	}
 
-	private void activeBtn_Click(object sender, EventArgs e) 
+	private void activeBtn_Click(object sender, EventArgs e)
 		=> ShowControl(_serviceProvider.GetRequiredService<CurrentJobOffersView>());
 
-	private void completedBtn_Click(object sender, EventArgs e) 
-		=> ShowControl(_serviceProvider.GetRequiredService<OutdatedJobOffersView>());
+	private void completedBtn_Click(object sender, EventArgs e)
+	{
+
+	}
+
+	private void button1_Click(object sender, EventArgs e)
+				=> ShowControl(_serviceProvider.GetRequiredService<OutdatedJobOffersView>());
+
 }
