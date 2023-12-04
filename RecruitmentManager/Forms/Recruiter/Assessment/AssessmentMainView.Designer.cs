@@ -32,6 +32,7 @@
 			mainLayout = new TableLayoutPanel();
 			headerLayout = new TableLayoutPanel();
 			currentBtn = new Button();
+			AllBtn = new Button();
 			mainLayout.SuspendLayout();
 			headerLayout.SuspendLayout();
 			SuspendLayout();
@@ -59,6 +60,7 @@
 			headerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
 			headerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
 			headerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+			headerLayout.Controls.Add(AllBtn, 0, 0);
 			headerLayout.Controls.Add(currentBtn, 0, 0);
 			headerLayout.Dock = DockStyle.Fill;
 			headerLayout.Location = new Point(0, 0);
@@ -86,6 +88,23 @@
 			currentBtn.UseVisualStyleBackColor = true;
 			currentBtn.Click += currentBtn_Click;
 			// 
+			// AllBtn
+			// 
+			AllBtn.Dock = DockStyle.Fill;
+			AllBtn.FlatStyle = FlatStyle.Flat;
+			AllBtn.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
+			AllBtn.Image = (Image)resources.GetObject("AllBtn.Image");
+			AllBtn.ImageAlign = ContentAlignment.MiddleLeft;
+			AllBtn.Location = new Point(233, 2);
+			AllBtn.Margin = new Padding(3, 2, 3, 2);
+			AllBtn.Name = "AllBtn";
+			AllBtn.Size = new Size(224, 81);
+			AllBtn.TabIndex = 1;
+			AllBtn.Text = "Wszystkie";
+			AllBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+			AllBtn.UseVisualStyleBackColor = true;
+			AllBtn.Click += AllBtn_Click;
+			// 
 			// AssessmentMainView
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -104,5 +123,6 @@
 		private TableLayoutPanel mainLayout;
 		private TableLayoutPanel headerLayout;
 		private Button currentBtn;
+		private Button AllBtn;
 	}
 }

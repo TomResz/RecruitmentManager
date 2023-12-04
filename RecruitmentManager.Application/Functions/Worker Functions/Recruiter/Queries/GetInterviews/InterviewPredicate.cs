@@ -6,5 +6,6 @@ public enum InterviewPredicate
 	Past = 2,
 	Future = 3,
 	Today = 4,
-	TwoDays = 5
+	TwoDays = 5,
+	All = 6
 }

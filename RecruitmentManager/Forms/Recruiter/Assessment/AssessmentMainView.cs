@@ -17,4 +17,6 @@ public partial class AssessmentMainView : UserControl
 	private void currentBtn_Click(object sender, EventArgs e)
 		=> mainLayout.ShowControl(_serviceProvider.GetRequiredService<ThisWeekAssessmentView>(), ref _userControl);
 
+	private void AllBtn_Click(object sender, EventArgs e)
+		=> mainLayout.ShowControl(_serviceProvider.GetRequiredService<AllAssessmentView>(), ref _userControl);
 }

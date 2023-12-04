@@ -134,6 +134,7 @@
 			MaximumSize = new Size(519, 182);
 			MinimumSize = new Size(519, 182);
 			Name = "JobOfferStatistics";
+			StartPosition = FormStartPosition.Manual;
 			Text = "Statystyka";
 			ResumeLayout(false);
 			PerformLayout();
