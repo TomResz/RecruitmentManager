@@ -22,7 +22,5 @@ public partial class ManagerMainRegistrationView : UserControl
 			_serviceProvider.GetRequiredService<ManagerCurrentsRegistrationsView>(), ref _currentControl);
 
 	private void endedBtn_Click(object sender, EventArgs e)
-	{
-
-	}
+		=> mainLayout.ShowControl(_serviceProvider.GetRequiredService<ManagerEndedRegistrationView>(),ref _currentControl);
 }

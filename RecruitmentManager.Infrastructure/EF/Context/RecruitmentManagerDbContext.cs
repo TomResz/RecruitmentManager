@@ -40,6 +40,6 @@ public class RecruitmentManagerDbContext : DbContext, IDbContext
 	public IQueryable<TEntity> Get<TEntity>() where TEntity : class
 	{
 		return base.Set<TEntity>().AsQueryable();
-	}
+	}	
 }
 

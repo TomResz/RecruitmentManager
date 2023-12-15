@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RecruitmentManager.Application.Functions.DTOs;
 using RecruitmentManager.Application.Interfaces.Repositories;
 using RecruitmentManager.Domain.Entities;
+using RecruitmentManager.Domain.Entities.Candidate_Elements;
 using RecruitmentManager.Infrastructure.EF.Context;
 
 namespace RecruitmentManager.Infrastructure.EF.Repositories;
@@ -64,14 +66,33 @@ public class CandidateRepository : AsyncRepository<Candidate>, ICandidateReposit
 			.FirstOrDefaultAsync(x => x.Email.ToLower() == email.ToLower());
 	}
 
-	public async Task<List<Candidate>> GetListByJobPostingsWithRating(Guid JobPostingId)
+	public async Task<List<EvaluatedCandidateDto>> GetListByJobPostingsWithRating(Guid JobPostingId)
 	{
-		var candidates = await _context
-			.Candidates
-			.Include(x=>x.CandidateData)
-			.Include(x=>x.CandidateRatings)
-			.Where(x=>x.CandidateRatings.Any(x=>x.RecruitmentStage.JobPostingId == JobPostingId))
+		var weightedGradesQuery = await _context.CandidateRatings
+			.Join(_context.Candidates, cr => cr.CandidateId, c => c.Id, (cr, c) => new { cr, c })
+			.Join(_context.CandidateData, combined => combined.c.Id, cd => cd.CandidateId, (combined, cd) => new { combined.cr, combined.c, cd })
+			.Join(_context.RecruitmentStages, combined => combined.cr.RecruitmentStageId, rs => rs.Id, (combined, rs) => new
+			{
+				combined.cr.CandidateId,
+				combined.cr.Grade,
+				rs.GradeWeight,
+				rs.JobPostingId,
+				FullName = combined.cd.FirstName + " " + combined.cd.LastName
+			})
+			.Where(wg => wg.Grade != null && wg.JobPostingId == JobPostingId)
 			.ToListAsync();
-		return candidates;
+
+		var averageGradesQuery = weightedGradesQuery
+			.GroupBy(wg => new { wg.CandidateId, wg.FullName })
+			.Select(grouped => new EvaluatedCandidateDto
+			{
+				CandidateId = grouped.Key.CandidateId,
+				AverageGrade = (double)grouped.Sum(x => x.Grade.Value * x.GradeWeight) / (double)grouped.Sum(x => x.GradeWeight),
+				FullName = grouped.Key.FullName
+			})
+			.OrderByDescending(x => x.AverageGrade)
+			.ToList();
+
+		return averageGradesQuery;
 	}
 }

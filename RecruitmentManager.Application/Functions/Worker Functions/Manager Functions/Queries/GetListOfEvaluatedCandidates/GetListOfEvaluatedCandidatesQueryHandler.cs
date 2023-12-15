@@ -8,8 +8,7 @@ internal class GetListOfEvaluatedCandidatesQueryHandler
 	: IRequestHandler<GetListOfEvaluatedCandidatesQuery, List<EvaluatedCandidateDto>>
 {
 	private readonly ICandidateRepository _candidateRepository;
-	public GetListOfEvaluatedCandidatesQueryHandler(
-		ICandidateRepository candidateRepository)
+	public GetListOfEvaluatedCandidatesQueryHandler(ICandidateRepository candidateRepository)
 	{
 		_candidateRepository = candidateRepository;
 	}
@@ -19,33 +18,7 @@ internal class GetListOfEvaluatedCandidatesQueryHandler
 		GetListOfEvaluatedCandidatesQuery request,
 		CancellationToken cancellationToken)
 	{
-		var candidates = await _candidateRepository.GetListByJobPostingsWithRating(request.JobPostingId);
-		var dtos = new List<EvaluatedCandidateDto>();
-		foreach (var candidate in candidates)
-		{
-			var totlalWeightedGrade = candidate.CandidateRatings
-				.Where(r => r.RecruitmentStage.JobPostingId == request.JobPostingId &&
-					r.Grade.HasValue &&
-					!r.HasResigned)
-				.Sum(x => x.Grade * x.RecruitmentStage.GradeWeight);
-			var totalWeight = candidate.CandidateRatings
-				.Where(r => r.RecruitmentStage.JobPostingId == request.JobPostingId &&
-					r.Grade.HasValue &&
-					!r.HasResigned)
-				.Sum(x => x.RecruitmentStage.GradeWeight);
-
-			dtos.Add(new EvaluatedCandidateDto
-			{
-				CandidateId = candidate.Id,
-				AverageGrade = (totlalWeightedGrade / (double)totalWeight) ?? 0.0,
-				FullName = $"{candidate.CandidateData.FirstName} {candidate.CandidateData.LastName}"
-			});
-		}
-
-		var sortedDtos = dtos
-			.OrderByDescending(x => x.AverageGrade)
-			.ToList();
-		
+		var sortedDtos = await _candidateRepository.GetListByJobPostingsWithRating(request.JobPostingId);
 		for(int i=0; i<sortedDtos.Count;i++)
 		{
 			if(i > 0 && (sortedDtos[i-1].AverageGrade == sortedDtos[i].AverageGrade))
