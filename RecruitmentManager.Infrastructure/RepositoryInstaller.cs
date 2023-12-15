@@ -19,6 +19,7 @@ internal static class RepositoryInstaller
 		services.AddScoped<IExperienceRepository, ExperienceRepository>();
 		services.AddScoped<ISkillRepository, SkillRepository>();
 		services.AddScoped<ICandidateRatingRepository, CandidateRatingRepository>();
+		services.AddScoped<ISelectedCandidatesToJobRepository, SelectedCandidatesToJobRepository>();
 		return services;
 	}
 }

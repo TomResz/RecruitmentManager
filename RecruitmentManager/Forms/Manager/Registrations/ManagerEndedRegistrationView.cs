@@ -1,5 +1,7 @@
 ﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.Application.Functions.DTOs;
+using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Commands.EndJobOffer;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Queries.GetListOfEvaluatedCandidates;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Queries.GetPageOfEndedJobOffers;
 using RecruitmentManager.Application.Pagination;
@@ -14,8 +16,8 @@ public partial class ManagerEndedRegistrationView : UserControl
 
 	private PagedList<JobOffersViewDto> _jobOffers;
 	private readonly IMediator _mediator;
-
-	public ManagerEndedRegistrationView(IMediator mediator)
+	private readonly IServiceProvider _serviceProvider;
+	public ManagerEndedRegistrationView(IMediator mediator, IServiceProvider serviceProvider)
 	{
 		InitializeComponent();
 		this.Load += ManagerEndedRegistrationView_Load;
@@ -23,6 +25,7 @@ public partial class ManagerEndedRegistrationView : UserControl
 		_mediator = mediator;
 		usersView.Visible = false;
 		jobOffersDGV.CellClick += JobOffersDGV_CellClick;
+		_serviceProvider = serviceProvider;
 	}
 
 	private async void JobOffersDGV_CellClick(object? sender, DataGridViewCellEventArgs e)
@@ -45,7 +48,7 @@ public partial class ManagerEndedRegistrationView : UserControl
 			x.AverageGrade
 		});
 		usersView.Visible = users.Count > 0;
-		
+
 	}
 	private async void ManagerEndedRegistrationView_Load(object? sender, EventArgs e)
 		=> await LoadPageOfJobOffers();
@@ -89,5 +92,33 @@ public partial class ManagerEndedRegistrationView : UserControl
 			--_currentPage;
 			await LoadPageOfJobOffers();
 		}
+	}
+
+	private async void selectCandidatesBtn_Click(object sender, EventArgs e)
+	{
+		if (jobOffersDGV.CurrentRow is not null &&
+			Guid.TryParse(jobOffersDGV.CurrentRow.Cells[0].Value.ToString(), out var id))
+		{
+			var form = _serviceProvider.GetRequiredService<EndRegistrationForm>();
+			await form.LoadForm(id);
+			form.ShowDialog();
+		}
+
+
+	}
+
+	private async void concludeBtn_Click(object sender, EventArgs e)
+	{
+		var confirmation = MessageBox.Show("Czy napewno chcesz zakończyć proces wybierania kandydatów dla tego ogłoszenia?",
+		"Informacja", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+		if (jobOffersDGV.CurrentRow is not null &&
+			Guid.TryParse(jobOffersDGV.CurrentRow.Cells[0].Value.ToString(), out Guid id)
+			&& confirmation == DialogResult.Yes)
+		{
+			await _mediator.Send(new EndJobOfferCommand(id));
+			await LoadPageOfJobOffers();
+		}
+
 	}
 }
