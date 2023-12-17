@@ -44,11 +44,12 @@
 			mainLayout.Controls.Add(headerLayout, 0, 0);
 			mainLayout.Dock = DockStyle.Fill;
 			mainLayout.Location = new Point(0, 0);
+			mainLayout.Margin = new Padding(3, 2, 3, 2);
 			mainLayout.Name = "mainLayout";
 			mainLayout.RowCount = 2;
-			mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 85F));
+			mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
 			mainLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			mainLayout.Size = new Size(1112, 555);
+			mainLayout.Size = new Size(973, 416);
 			mainLayout.TabIndex = 2;
 			// 
 			// headerLayout
@@ -67,7 +68,7 @@
 			headerLayout.Name = "headerLayout";
 			headerLayout.RowCount = 1;
 			headerLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			headerLayout.Size = new Size(1112, 85);
+			headerLayout.Size = new Size(973, 80);
 			headerLayout.TabIndex = 0;
 			// 
 			// pastBtn
@@ -77,9 +78,10 @@
 			pastBtn.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
 			pastBtn.Image = (Image)resources.GetObject("pastBtn.Image");
 			pastBtn.ImageAlign = ContentAlignment.MiddleLeft;
-			pastBtn.Location = new Point(225, 3);
+			pastBtn.Location = new Point(197, 2);
+			pastBtn.Margin = new Padding(3, 2, 3, 2);
 			pastBtn.Name = "pastBtn";
-			pastBtn.Size = new Size(216, 79);
+			pastBtn.Size = new Size(188, 76);
 			pastBtn.TabIndex = 1;
 			pastBtn.Text = "Historia";
 			pastBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -93,9 +95,10 @@
 			currentBtn.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
 			currentBtn.Image = (Image)resources.GetObject("currentBtn.Image");
 			currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
-			currentBtn.Location = new Point(3, 3);
+			currentBtn.Location = new Point(3, 2);
+			currentBtn.Margin = new Padding(3, 2, 3, 2);
 			currentBtn.Name = "currentBtn";
-			currentBtn.Size = new Size(216, 79);
+			currentBtn.Size = new Size(188, 76);
 			currentBtn.TabIndex = 0;
 			currentBtn.Text = "Aktualne";
 			currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -104,11 +107,12 @@
 			// 
 			// CandidateInterviewMainView
 			// 
-			AutoScaleDimensions = new SizeF(8F, 20F);
+			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			Controls.Add(mainLayout);
+			Margin = new Padding(3, 2, 3, 2);
 			Name = "CandidateInterviewMainView";
-			Size = new Size(1112, 555);
+			Size = new Size(973, 416);
 			mainLayout.ResumeLayout(false);
 			headerLayout.ResumeLayout(false);
 			ResumeLayout(false);

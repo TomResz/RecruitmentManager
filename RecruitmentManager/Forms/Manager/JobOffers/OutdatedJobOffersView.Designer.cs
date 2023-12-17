@@ -45,7 +45,6 @@
 			pageCounterLabel = new Label();
 			nextPageButton = new PictureBox();
 			previousPageButton = new PictureBox();
-			button1 = new Button();
 			((System.ComponentModel.ISupportInitialize)jobOffersDGV).BeginInit();
 			mainLayout.SuspendLayout();
 			footerLayout.SuspendLayout();
@@ -183,7 +182,6 @@
 			footerLayout.Controls.Add(pageCounterLabel, 5, 0);
 			footerLayout.Controls.Add(nextPageButton, 4, 0);
 			footerLayout.Controls.Add(previousPageButton, 3, 0);
-			footerLayout.Controls.Add(button1, 2, 0);
 			footerLayout.Dock = DockStyle.Fill;
 			footerLayout.Location = new Point(3, 327);
 			footerLayout.Margin = new Padding(3, 2, 3, 2);
@@ -225,20 +223,6 @@
 			previousPageButton.TabStop = false;
 			previousPageButton.Click += previousPageButton_Click;
 			// 
-			// button1
-			// 
-			button1.Dock = DockStyle.Fill;
-			button1.FlatStyle = FlatStyle.Flat;
-			button1.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-			button1.Location = new Point(660, 2);
-			button1.Margin = new Padding(3, 2, 3, 2);
-			button1.Name = "button1";
-			button1.Size = new Size(205, 48);
-			button1.TabIndex = 5;
-			button1.Text = "Zakończ";
-			button1.UseVisualStyleBackColor = true;
-			button1.Click += button1_Click;
-			// 
 			// OutdatedJobOffersView
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -269,6 +253,5 @@
 		private Label pageCounterLabel;
 		private PictureBox nextPageButton;
 		private PictureBox previousPageButton;
-		private Button button1;
 	}
 }

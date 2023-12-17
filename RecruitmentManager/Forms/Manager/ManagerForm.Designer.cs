@@ -39,8 +39,6 @@
 			userLabel = new Label();
 			headeLayout = new TableLayoutPanel();
 			menuStrip1 = new MenuStrip();
-			menuToolStripMenuItem = new ToolStripMenuItem();
-			dsadsToolStripMenuItem = new ToolStripMenuItem();
 			edycjaToolStripMenuItem = new ToolStripMenuItem();
 			edytujDaneToolStripMenuItem = new ToolStripMenuItem();
 			mainLayout.SuspendLayout();
@@ -57,11 +55,12 @@
 			mainLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
 			mainLayout.Controls.Add(tableLayoutPanel1, 0, 0);
 			mainLayout.Dock = DockStyle.Fill;
-			mainLayout.Location = new Point(3, 38);
+			mainLayout.Location = new Point(3, 28);
+			mainLayout.Margin = new Padding(3, 2, 3, 2);
 			mainLayout.Name = "mainLayout";
 			mainLayout.RowCount = 1;
 			mainLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			mainLayout.Size = new Size(1553, 558);
+			mainLayout.Size = new Size(1358, 419);
 			mainLayout.TabIndex = 2;
 			// 
 			// tableLayoutPanel1
@@ -80,8 +79,8 @@
 			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
 			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
 			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-			tableLayoutPanel1.Size = new Size(310, 558);
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 15F));
+			tableLayoutPanel1.Size = new Size(271, 419);
 			tableLayoutPanel1.TabIndex = 0;
 			// 
 			// logoutBtn
@@ -89,9 +88,10 @@
 			logoutBtn.Dock = DockStyle.Fill;
 			logoutBtn.FlatStyle = FlatStyle.Flat;
 			logoutBtn.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-			logoutBtn.Location = new Point(3, 476);
+			logoutBtn.Location = new Point(3, 357);
+			logoutBtn.Margin = new Padding(3, 2, 3, 2);
 			logoutBtn.Name = "logoutBtn";
-			logoutBtn.Size = new Size(304, 79);
+			logoutBtn.Size = new Size(265, 60);
 			logoutBtn.TabIndex = 0;
 			logoutBtn.Text = "Wyloguj Się";
 			logoutBtn.UseVisualStyleBackColor = true;
@@ -105,7 +105,7 @@
 			tabControlLayout.Controls.Add(stagesBtn, 0, 2);
 			tabControlLayout.Controls.Add(registrationsBtn, 0, 1);
 			tabControlLayout.Dock = DockStyle.Fill;
-			tabControlLayout.Location = new Point(0, 83);
+			tabControlLayout.Location = new Point(0, 62);
 			tabControlLayout.Margin = new Padding(0);
 			tabControlLayout.Name = "tabControlLayout";
 			tabControlLayout.RowCount = 5;
@@ -114,8 +114,8 @@
 			tabControlLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
 			tabControlLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
 			tabControlLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-			tabControlLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-			tabControlLayout.Size = new Size(310, 390);
+			tabControlLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 15F));
+			tabControlLayout.Size = new Size(271, 293);
 			tabControlLayout.TabIndex = 2;
 			// 
 			// jobOffersBtn
@@ -126,9 +126,10 @@
 			jobOffersBtn.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
 			jobOffersBtn.Image = (Image)resources.GetObject("jobOffersBtn.Image");
 			jobOffersBtn.ImageAlign = ContentAlignment.MiddleLeft;
-			jobOffersBtn.Location = new Point(3, 3);
+			jobOffersBtn.Location = new Point(3, 2);
+			jobOffersBtn.Margin = new Padding(3, 2, 3, 2);
 			jobOffersBtn.Name = "jobOffersBtn";
-			jobOffersBtn.Size = new Size(304, 72);
+			jobOffersBtn.Size = new Size(265, 54);
 			jobOffersBtn.TabIndex = 1;
 			jobOffersBtn.Text = "Oferty Pracy";
 			jobOffersBtn.TextAlign = ContentAlignment.MiddleRight;
@@ -143,9 +144,10 @@
 			stagesBtn.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
 			stagesBtn.Image = (Image)resources.GetObject("stagesBtn.Image");
 			stagesBtn.ImageAlign = ContentAlignment.MiddleLeft;
-			stagesBtn.Location = new Point(3, 159);
+			stagesBtn.Location = new Point(3, 118);
+			stagesBtn.Margin = new Padding(3, 2, 3, 2);
 			stagesBtn.Name = "stagesBtn";
-			stagesBtn.Size = new Size(304, 72);
+			stagesBtn.Size = new Size(265, 54);
 			stagesBtn.TabIndex = 3;
 			stagesBtn.Text = "Ustawienia Etapów dla Kandydatów";
 			stagesBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -159,9 +161,10 @@
 			registrationsBtn.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
 			registrationsBtn.Image = (Image)resources.GetObject("registrationsBtn.Image");
 			registrationsBtn.ImageAlign = ContentAlignment.MiddleLeft;
-			registrationsBtn.Location = new Point(3, 81);
+			registrationsBtn.Location = new Point(3, 60);
+			registrationsBtn.Margin = new Padding(3, 2, 3, 2);
 			registrationsBtn.Name = "registrationsBtn";
-			registrationsBtn.Size = new Size(304, 72);
+			registrationsBtn.Size = new Size(265, 54);
 			registrationsBtn.TabIndex = 2;
 			registrationsBtn.Text = "Zgłoszenia";
 			registrationsBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -174,7 +177,7 @@
 			userLabel.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
 			userLabel.Location = new Point(3, 0);
 			userLabel.Name = "userLabel";
-			userLabel.Size = new Size(0, 32);
+			userLabel.Size = new Size(0, 25);
 			userLabel.TabIndex = 1;
 			// 
 			// headeLayout
@@ -185,11 +188,12 @@
 			headeLayout.Controls.Add(menuStrip1, 0, 0);
 			headeLayout.Dock = DockStyle.Fill;
 			headeLayout.Location = new Point(0, 0);
+			headeLayout.Margin = new Padding(3, 2, 3, 2);
 			headeLayout.Name = "headeLayout";
 			headeLayout.RowCount = 2;
-			headeLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
+			headeLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 26F));
 			headeLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			headeLayout.Size = new Size(1559, 599);
+			headeLayout.Size = new Size(1364, 449);
 			headeLayout.TabIndex = 1;
 			// 
 			// menuStrip1
@@ -197,46 +201,35 @@
 			menuStrip1.Dock = DockStyle.Fill;
 			menuStrip1.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
 			menuStrip1.ImageScalingSize = new Size(20, 20);
-			menuStrip1.Items.AddRange(new ToolStripItem[] { menuToolStripMenuItem, edycjaToolStripMenuItem });
+			menuStrip1.Items.AddRange(new ToolStripItem[] { edycjaToolStripMenuItem });
 			menuStrip1.Location = new Point(0, 0);
 			menuStrip1.Name = "menuStrip1";
-			menuStrip1.Size = new Size(1559, 35);
+			menuStrip1.Padding = new Padding(5, 2, 0, 2);
+			menuStrip1.Size = new Size(1364, 26);
 			menuStrip1.TabIndex = 0;
 			menuStrip1.Text = "menuStrip1";
-			// 
-			// menuToolStripMenuItem
-			// 
-			menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { dsadsToolStripMenuItem });
-			menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-			menuToolStripMenuItem.Size = new Size(72, 31);
-			menuToolStripMenuItem.Text = "Menu";
-			// 
-			// dsadsToolStripMenuItem
-			// 
-			dsadsToolStripMenuItem.Name = "dsadsToolStripMenuItem";
-			dsadsToolStripMenuItem.Size = new Size(140, 28);
-			dsadsToolStripMenuItem.Text = "dsads";
 			// 
 			// edycjaToolStripMenuItem
 			// 
 			edycjaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { edytujDaneToolStripMenuItem });
 			edycjaToolStripMenuItem.Name = "edycjaToolStripMenuItem";
-			edycjaToolStripMenuItem.Size = new Size(83, 31);
+			edycjaToolStripMenuItem.Size = new Size(66, 22);
 			edycjaToolStripMenuItem.Text = "Edycja";
 			// 
 			// edytujDaneToolStripMenuItem
 			// 
 			edytujDaneToolStripMenuItem.Name = "edytujDaneToolStripMenuItem";
-			edytujDaneToolStripMenuItem.Size = new Size(200, 28);
+			edytujDaneToolStripMenuItem.Size = new Size(180, 24);
 			edytujDaneToolStripMenuItem.Text = "Edytuj Dane";
 			edytujDaneToolStripMenuItem.Click += edytujDaneToolStripMenuItem_Click;
 			// 
 			// ManagerForm
 			// 
-			AutoScaleDimensions = new SizeF(8F, 20F);
+			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(1559, 599);
+			ClientSize = new Size(1364, 449);
 			Controls.Add(headeLayout);
+			Margin = new Padding(3, 2, 3, 2);
 			Name = "ManagerForm";
 			Text = "Formularz Szefa Działu Rekrutacji";
 			mainLayout.ResumeLayout(false);
@@ -258,8 +251,6 @@
 		private Label userLabel;
 		private TableLayoutPanel headeLayout;
 		private MenuStrip menuStrip1;
-		private ToolStripMenuItem menuToolStripMenuItem;
-		private ToolStripMenuItem dsadsToolStripMenuItem;
 		private ToolStripMenuItem edycjaToolStripMenuItem;
 		private ToolStripMenuItem edytujDaneToolStripMenuItem;
 		private Button jobOffersBtn;

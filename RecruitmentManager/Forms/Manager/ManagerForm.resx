@@ -18,7 +18,7 @@
     <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
     <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
     <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing"">Blue</data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
     <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
         <value>[base64 mime encoded serialized .NET Framework object]</value>
     </data>
@@ -155,7 +155,7 @@
   <data name="stagesBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAAsNJREFUeF7tmr2KFEEURsd/RdFQ0A0WNVYzAw1NzUxE8RVkhdVMNPMVTAUfQUHE
+        DQAACw0B7QfALAAAAsNJREFUeF7tmr2KFEEURsd/RdFQ0A0WNVYzAw1NzUxE8RVkhdVMNPMVTAUfQUHE
         SMEX0MQfTDQR1MBAUEG/b92CS9HTXbfmdnVX9z1w2Jmesqr67M6407MLx3HGyF34d8Ka4rEUeCwFMhZv
         TwGPpcBjKfBYCjyWAo+lwGMp8FgKPJaCqmIdgPfge/gHys0HeZyPc8390BK5jinWsRjqJZQb7vIFtAwm
         5zbFOhZ/ouRmU70DrZDzmmIdi0+tMN8m3AOb4PFbMIx9C60Ic1JTrGPJ16i9PNACHw9j+e+sCHNSU6xj
@@ -173,7 +173,7 @@
   <data name="registrationsBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAABmtJREFUeF7tnFeoLEUQho85iwkzhmtGEEwYUMSEggkzIoo5I2bB8KSYFRVFH3xQ
+        DAAACwwBP0AiyAAABmtJREFUeF7tnFeoLEUQho85iwkzhmtGEEwYUMSEggkzIoo5I2bB8KSYFRVFH3xQ
         xMxVwZwTqIgBMUcExZwwZ/2/dQuaobu3etPszDk/fNyzvb1nuuvu6amqrp6pGc2oqrXE/uJEcazYVSwp
         ZtTVXOIg8Zb4N8Jf4mGxmZjWWl48J2JGqvKPuErMLQbWLHGeeEa8Jz5oAN+KmGFy3Cv6Ntgc4kzxu4j9
         8jZyqehLFwn7JW+IM8R+Yu8J5kERTr4U1rH1RJG2EfYLLhMslpOuBcR3Ipx8P9wmivSo4IP3C/4cmyDc

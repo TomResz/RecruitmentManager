@@ -91,7 +91,7 @@ public partial class CandidateApplicationsJobOffersView : UserControl
 			item.Id,
 			item.Title,
 			item.InterviewQualified ? "Tak" : "Nie",
-			item.AddedDate.ToString("hh:mm  dd/MM/yyyy")
+			item.AddedDate.ToString("HH:mm  dd/MM/yyyy")
 		});
 		ColorColumn();
 	}

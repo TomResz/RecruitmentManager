@@ -47,11 +47,12 @@
 			mainLayout.Controls.Add(headerLayout, 0, 0);
 			mainLayout.Dock = DockStyle.Fill;
 			mainLayout.Location = new Point(0, 0);
+			mainLayout.Margin = new Padding(3, 2, 3, 2);
 			mainLayout.Name = "mainLayout";
 			mainLayout.RowCount = 2;
-			mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 85F));
+			mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
 			mainLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			mainLayout.Size = new Size(1142, 579);
+			mainLayout.Size = new Size(999, 434);
 			mainLayout.TabIndex = 0;
 			// 
 			// headerLayout
@@ -73,7 +74,7 @@
 			headerLayout.Name = "headerLayout";
 			headerLayout.RowCount = 1;
 			headerLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			headerLayout.Size = new Size(1142, 85);
+			headerLayout.Size = new Size(999, 80);
 			headerLayout.TabIndex = 0;
 			// 
 			// languageKnowledgeTabBtn
@@ -82,9 +83,10 @@
 			languageKnowledgeTabBtn.FlatStyle = FlatStyle.Flat;
 			languageKnowledgeTabBtn.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
 			languageKnowledgeTabBtn.Image = (Image)resources.GetObject("languageKnowledgeTabBtn.Image");
-			languageKnowledgeTabBtn.Location = new Point(915, 3);
+			languageKnowledgeTabBtn.Location = new Point(799, 2);
+			languageKnowledgeTabBtn.Margin = new Padding(3, 2, 3, 2);
 			languageKnowledgeTabBtn.Name = "languageKnowledgeTabBtn";
-			languageKnowledgeTabBtn.Size = new Size(224, 79);
+			languageKnowledgeTabBtn.Size = new Size(197, 76);
 			languageKnowledgeTabBtn.TabIndex = 4;
 			languageKnowledgeTabBtn.Text = "Znajomość Języka";
 			languageKnowledgeTabBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -97,9 +99,10 @@
 			hobbiesTabBtn.FlatStyle = FlatStyle.Flat;
 			hobbiesTabBtn.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
 			hobbiesTabBtn.Image = (Image)resources.GetObject("hobbiesTabBtn.Image");
-			hobbiesTabBtn.Location = new Point(687, 3);
+			hobbiesTabBtn.Location = new Point(600, 2);
+			hobbiesTabBtn.Margin = new Padding(3, 2, 3, 2);
 			hobbiesTabBtn.Name = "hobbiesTabBtn";
-			hobbiesTabBtn.Size = new Size(222, 79);
+			hobbiesTabBtn.Size = new Size(193, 76);
 			hobbiesTabBtn.TabIndex = 3;
 			hobbiesTabBtn.Text = "Zainteresowania";
 			hobbiesTabBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -112,9 +115,10 @@
 			skillTabBtn.FlatStyle = FlatStyle.Flat;
 			skillTabBtn.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
 			skillTabBtn.Image = (Image)resources.GetObject("skillTabBtn.Image");
-			skillTabBtn.Location = new Point(459, 3);
+			skillTabBtn.Location = new Point(401, 2);
+			skillTabBtn.Margin = new Padding(3, 2, 3, 2);
 			skillTabBtn.Name = "skillTabBtn";
-			skillTabBtn.Size = new Size(222, 79);
+			skillTabBtn.Size = new Size(193, 76);
 			skillTabBtn.TabIndex = 2;
 			skillTabBtn.Text = "Umiejętności";
 			skillTabBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -127,9 +131,10 @@
 			educationTabBtn.FlatStyle = FlatStyle.Flat;
 			educationTabBtn.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
 			educationTabBtn.Image = (Image)resources.GetObject("educationTabBtn.Image");
-			educationTabBtn.Location = new Point(231, 3);
+			educationTabBtn.Location = new Point(202, 2);
+			educationTabBtn.Margin = new Padding(3, 2, 3, 2);
 			educationTabBtn.Name = "educationTabBtn";
-			educationTabBtn.Size = new Size(222, 79);
+			educationTabBtn.Size = new Size(193, 76);
 			educationTabBtn.TabIndex = 1;
 			educationTabBtn.Text = "Edukacja";
 			educationTabBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -142,9 +147,10 @@
 			experienceBtn.FlatStyle = FlatStyle.Flat;
 			experienceBtn.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
 			experienceBtn.Image = (Image)resources.GetObject("experienceBtn.Image");
-			experienceBtn.Location = new Point(3, 3);
+			experienceBtn.Location = new Point(3, 2);
+			experienceBtn.Margin = new Padding(3, 2, 3, 2);
 			experienceBtn.Name = "experienceBtn";
-			experienceBtn.Size = new Size(222, 79);
+			experienceBtn.Size = new Size(193, 76);
 			experienceBtn.TabIndex = 0;
 			experienceBtn.Text = "Doświadczenie";
 			experienceBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -153,11 +159,12 @@
 			// 
 			// CandidateDataDictionaryView
 			// 
-			AutoScaleDimensions = new SizeF(8F, 20F);
+			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			Controls.Add(mainLayout);
+			Margin = new Padding(3, 2, 3, 2);
 			Name = "CandidateDataDictionaryView";
-			Size = new Size(1142, 579);
+			Size = new Size(999, 434);
 			mainLayout.ResumeLayout(false);
 			headerLayout.ResumeLayout(false);
 			ResumeLayout(false);

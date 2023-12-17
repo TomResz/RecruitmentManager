@@ -3,5 +3,6 @@
 public enum CandidateInterviewPredicate
 {
 	Current,
-	Past
+	Past,
+	All
 }

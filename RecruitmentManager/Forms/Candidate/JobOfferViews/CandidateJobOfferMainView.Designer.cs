@@ -44,11 +44,12 @@
 			mainLayout.Controls.Add(headerLayout, 0, 0);
 			mainLayout.Dock = DockStyle.Fill;
 			mainLayout.Location = new Point(0, 0);
+			mainLayout.Margin = new Padding(3, 2, 3, 2);
 			mainLayout.Name = "mainLayout";
 			mainLayout.RowCount = 2;
-			mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 85F));
+			mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
 			mainLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			mainLayout.Size = new Size(1160, 603);
+			mainLayout.Size = new Size(1015, 452);
 			mainLayout.TabIndex = 1;
 			// 
 			// headerLayout
@@ -60,11 +61,12 @@
 			headerLayout.Controls.Add(myApplicationsBtn, 1, 0);
 			headerLayout.Controls.Add(activeJobOffersBtn, 0, 0);
 			headerLayout.Dock = DockStyle.Fill;
-			headerLayout.Location = new Point(3, 3);
+			headerLayout.Location = new Point(3, 2);
+			headerLayout.Margin = new Padding(3, 2, 3, 2);
 			headerLayout.Name = "headerLayout";
 			headerLayout.RowCount = 1;
 			headerLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			headerLayout.Size = new Size(1154, 79);
+			headerLayout.Size = new Size(1009, 76);
 			headerLayout.TabIndex = 0;
 			// 
 			// myApplicationsBtn
@@ -74,10 +76,10 @@
 			myApplicationsBtn.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
 			myApplicationsBtn.Image = (Image)resources.GetObject("myApplicationsBtn.Image");
 			myApplicationsBtn.ImageAlign = ContentAlignment.MiddleLeft;
-			myApplicationsBtn.Location = new Point(230, 0);
+			myApplicationsBtn.Location = new Point(201, 0);
 			myApplicationsBtn.Margin = new Padding(0);
 			myApplicationsBtn.Name = "myApplicationsBtn";
-			myApplicationsBtn.Size = new Size(230, 79);
+			myApplicationsBtn.Size = new Size(201, 76);
 			myApplicationsBtn.TabIndex = 1;
 			myApplicationsBtn.Text = "Moje Aplikacje";
 			myApplicationsBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -94,7 +96,7 @@
 			activeJobOffersBtn.Location = new Point(0, 0);
 			activeJobOffersBtn.Margin = new Padding(0);
 			activeJobOffersBtn.Name = "activeJobOffersBtn";
-			activeJobOffersBtn.Size = new Size(230, 79);
+			activeJobOffersBtn.Size = new Size(201, 76);
 			activeJobOffersBtn.TabIndex = 0;
 			activeJobOffersBtn.Text = "Aktualne Oferty Pracy";
 			activeJobOffersBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -103,11 +105,12 @@
 			// 
 			// CandidateJobOfferMainView
 			// 
-			AutoScaleDimensions = new SizeF(8F, 20F);
+			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			Controls.Add(mainLayout);
+			Margin = new Padding(3, 2, 3, 2);
 			Name = "CandidateJobOfferMainView";
-			Size = new Size(1160, 603);
+			Size = new Size(1015, 452);
 			mainLayout.ResumeLayout(false);
 			headerLayout.ResumeLayout(false);
 			ResumeLayout(false);

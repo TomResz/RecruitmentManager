@@ -1,6 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.DI;
 using RecruitmentManager.Forms;
+using System.Diagnostics;
 
 namespace RecruitmentManager;
 
@@ -27,5 +28,8 @@ internal static class Program
 	{
 		MessageBox.Show("Coœ posz³o nie tak...","B³¹d!",
 			MessageBoxButtons.OK,MessageBoxIcon.Error);
+#if DEBUG
+		Debug.WriteLine(e.Exception.Message);
+#endif
 	}
 }

@@ -6,6 +6,7 @@ using RecruitmentManager.FileHandling;
 using RecruitmentManager.Forms.Candidate.DataDictionary;
 using RecruitmentManager.Forms.Candidate.Interviews;
 using RecruitmentManager.Forms.Candidate.JobOfferViews;
+using RecruitmentManager.Forms.Candidate.News;
 
 namespace RecruitmentManager.Forms.Candidate;
 
@@ -17,8 +18,6 @@ public partial class CandidateLoggedInForm : Form
 	private readonly IMediator _mediator;
 	private UserControl _currentControl;
 	private string FullName;
-
-
 
 	public CandidateLoggedInForm(
 		IServiceProvider serviceProvider,
@@ -32,7 +31,7 @@ public partial class CandidateLoggedInForm : Form
 		_pictureBoxSetter = pictureBoxSetter;
 		InitializeComponent();
 		this.Load += CandidateLoggedInForm_Load;
-		var initForm = _serviceProvider.GetRequiredService<CandidateJobOfferMainView>();
+		var initForm = _serviceProvider.GetRequiredService<NewsView>();
 		ShowControl(initForm);
 		profilePicturePB.MouseHover += (s, args) => toolTip1.Show(FullName, profilePicturePB);
 	}
@@ -67,7 +66,7 @@ public partial class CandidateLoggedInForm : Form
 	}
 
 	private async void profilePicture_Click(object sender, EventArgs e) => await EditData();
-	private async void edytujDaneToolStripMenuItem_Click(object sender, EventArgs e) => await EditData();
+
 
 	private async Task EditData()
 	{
@@ -92,9 +91,7 @@ public partial class CandidateLoggedInForm : Form
 	}
 
 	private void newsBtn_Click(object sender, EventArgs e)
-	{
-
-	}
+		=> ShowControl(_serviceProvider.GetRequiredService<NewsView>());
 
 	private void editDataBtn_Click(object sender, EventArgs e)
 	{
@@ -112,4 +109,13 @@ public partial class CandidateLoggedInForm : Form
 		var view = _serviceProvider.GetRequiredService<CandidateJobOfferMainView>();
 		ShowControl(view);
 	}
+
+	private void toolStripMenuItem2_Click(object sender, EventArgs e)
+	{
+		var uc = _serviceProvider.GetRequiredService<CandidateDataDictionaryView>();
+		ShowControl(uc);
+	}
+
+	private async void toolStripMenuItem1_Click(object sender, EventArgs e)
+		=> await EditData();
 }

@@ -18,7 +18,7 @@
     <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
     <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
     <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing"">Blue</data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
     <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
         <value>[base64 mime encoded serialized .NET Framework object]</value>
     </data>
@@ -150,7 +150,7 @@
   <data name="jobOfferBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAupJREFUeF7tnL+K1FAUh6dRBPUZ7LS1FFSwsBIsbBQbtRXBSnDtxD8g+OctxAfw
+        DQAACw0B7QfALAAAAupJREFUeF7tnL+K1FAUh6dRBPUZ7LS1FFSwsBIsbBQbtRXBSnDtxD8g+OctxAfw
         AdRHsPEBFLQWRbFRf0f3Qghfsndyc3POkvvBx+wkJ8nHZdgNM8NuGo1Go9FoNOpwdx/qxp99qBsUE103
         KCa6blBMdN2gmCeBpD43QsUAofpCxQCh+kLFAKH6QsUAofpKYg7Kq9Luqu3Rno9xTt4fkSjpm52pMcfk
         e9k9zp7b9iFsQbrzfYncuUWYGvNO0rFv5BCrXKwTko5LHpfEKhfrlKTjkrafWOViHZXfJR37TR6RxGp/
@@ -168,7 +168,7 @@
   <data name="interviewBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAsNJREFUeF7tmr2KFEEURsd/RdFQ0A0WNVYzAw1NzUxE8RVkhdVMNPMVTAUfQUHE
+        DQAACw0B7QfALAAAAsNJREFUeF7tmr2KFEEURsd/RdFQ0A0WNVYzAw1NzUxE8RVkhdVMNPMVTAUfQUHE
         SMEX0MQfTDQR1MBAUEG/b92CS9HTXbfmdnVX9z1w2Jmesqr67M6407MLx3HGyF34d8Ka4rEUeCwFMhZv
         TwGPpcBjKfBYCjyWAo+lwGMp8FgKPJaCqmIdgPfge/gHys0HeZyPc8390BK5jinWsRjqJZQb7vIFtAwm
         5zbFOhZ/ouRmU70DrZDzmmIdi0+tMN8m3AOb4PFbMIx9C60Ic1JTrGPJ16i9PNACHw9j+e+sCHNSU6xj
@@ -186,7 +186,7 @@
   <data name="editDataBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAl1JREFUeF7tnDtrFkEYRj8LL+DdHyD+AAsbm4Cgf0EEwVYUJJbWdmJpLxZaiZba
+        DQAACw0B7QfALAAAAl1JREFUeF7tnDtrFkEYRj8LL+DdHyD+AAsbm4Cgf0EEwVYUJJbWdmJpLxZaiZba
         KAje75raS2MloiCEYBGi0fMIA8My++0bsh+BmefAKRKygTlMZt8PsjsxxpiNYQ5v4Bdcxu/4AM/iFjSw
         Da/j3yl+xIPYNDvwCZYCdV3EpoOdx1KYPj/gZmyWK1gK0+dpbJq1BLuHTbAH7+NnPKpvZESDfcXqUai3
         mBZ9C7tEgi1h1SjUG0wLXsXjWGIo2Ceslt34GtNiFWoep3EZ80C5V7FKSjvqHEYo7TBdfxirYz2hEt1g
@@ -202,7 +202,7 @@
   <data name="newsBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAABBlJREFUeF7tnFuoDVEYx4/Lg9xfEB4oHuTyIKEoCqGEB5EXKZciikOhPChyyYNC
+        DQAACw0B7QfALAAABBlJREFUeF7tnFuoDVEYx4/Lg9xfEB4oHuTyIKEoCqGEB5EXKZciikOhPChyyYNC
         EVIu5cElnkQuuT0QnhBKkcKDEMott/9f+9utGWvWzNpn9tlr5ny/+tU5a9aePft/9qxvzT6zdpOiKEoB
         GQyvwnsF9g5cCuvOLvinBH6FHWBd2Q9tT15EO8G6Yoa1DY4qmN9hQ8JaxoaCwdNPw8qIhuWBhuWBhuWB
         huWBhuWBGdZpeKkGz8FDcBHsCRMpU1hvjJ9r9SNMzCEtrP5wLVzfAFfDftBF3mGJO+F/pIV1A5o7aW1v
