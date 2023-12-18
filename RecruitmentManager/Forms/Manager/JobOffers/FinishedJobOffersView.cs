@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.Application.Functions.DTOs;
+using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Events.CreatePDFReport;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Queries.GetPageOfCompletedJobOffers;
 using RecruitmentManager.Application.Pagination;
 using RecruitmentManager.Controls_Extensions;
@@ -20,6 +21,7 @@ public partial class FinishedJobOffersView : UserControl
 		_mediator = mediator;
 		this.Load += FinishedJobOffersView_Load;
 		jobOffersDGV.CellClick += JobOffersDGV_CellClick;
+		jobOffersDGV.SizeChanged += (s, args) => ChangeSize();
 		_serviceProvider = serviceProvider;
 	}
 
@@ -33,6 +35,23 @@ public partial class FinishedJobOffersView : UserControl
 				var form = _serviceProvider.GetRequiredService<CandidateListForm>();
 				await form.Load(Id);
 				form.ShowDialog();
+			}
+		}
+		else if( e is { ColumnIndex: 5, RowIndex: >=0 })
+		{
+			if (jobOffersDGV.CurrentRow is not null &&
+				Guid.TryParse(jobOffersDGV.CurrentRow.Cells[0].Value.ToString(), out var Id))
+			{
+				var fileName = $"raport_{DateTime.Now.ToShortDateString()}.pdf";
+
+				var folderBrowser = new FolderBrowserDialog();
+				var result = folderBrowser.ShowDialog();
+				if(result == DialogResult.OK)
+				{
+					string filePath = folderBrowser.SelectedPath + "\\" + fileName;
+					var @event = new CreatePDFEvent(Id,filePath);
+					await _mediator.Send(@event);
+				}
 			}
 		}
 	}
@@ -58,8 +77,19 @@ public partial class FinishedJobOffersView : UserControl
 			row.CreatedDate.ToString("HH:mm dd/MM/yyyy"),
 			row.EndDate.ToString("HH:mm dd/MM/yyyy")
 		});
-		jobOffersDGV.ApplyJobOfferSettings();
+		ChangeSize();
 		pageCounterLabel.SetPageCounter(_jobOfferList);
+	}
+
+	private void ChangeSize()
+	{
+		jobOffersDGV.Columns[1].Width = (int)(jobOffersDGV.Width * 0.3);
+		jobOffersDGV.Columns[2].Width = (int)(jobOffersDGV.Width * 0.15);
+		jobOffersDGV.Columns[3].Width = (int)(jobOffersDGV.Width * 0.15);
+		jobOffersDGV.Columns[4].Width = (int)(jobOffersDGV.Width * 0.2);
+		jobOffersDGV.Columns[5].Width = (int)(jobOffersDGV.Width * 0.2);
+		jobOffersDGV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+		jobOffersDGV.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 	}
 
 	private async void previousPageButton_Click(object sender, EventArgs e)

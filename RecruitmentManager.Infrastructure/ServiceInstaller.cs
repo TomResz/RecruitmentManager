@@ -22,6 +22,8 @@ internal static class ServiceInstaller
 		services.AddTransient<IEmailSender, EmailSender>();
 		services.AddTransient<IMultipleEmailSender,MultipleEmailSender>();
 
+
+		services.AddTransient<IPdfPrinter,PDFPrinter>();
 		services.AddSingleton<ICandidateSessionContext, CandidateSessionContext>();
 		services.AddSingleton<IWorkerSessionContext, WorkerSessionContext>();
 		services.AddSingleton<IUserBasicDataContext, UserBasicDataContext>();
