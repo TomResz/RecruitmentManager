@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.Application.Functions.DTOs;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Commands.EndJobOffer;
+using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Events.CompleteRecruitmentProcess;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Queries.GetListOfEvaluatedCandidates;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Queries.GetPageOfEndedJobOffers;
 using RecruitmentManager.Application.Pagination;
@@ -116,7 +117,7 @@ public partial class ManagerEndedRegistrationView : UserControl
 			Guid.TryParse(jobOffersDGV.CurrentRow.Cells[0].Value.ToString(), out Guid id)
 			&& confirmation == DialogResult.Yes)
 		{
-			await _mediator.Send(new EndJobOfferCommand(id));
+			await _mediator.Send(new EndJobOfferEvent(id));
 			await LoadPageOfJobOffers();
 		}
 

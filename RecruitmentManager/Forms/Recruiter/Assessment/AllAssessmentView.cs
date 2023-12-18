@@ -20,7 +20,11 @@ public partial class AllAssessmentView : UserControl
 		_mediator = mediator;
 		stagesDgv.SizeChanged += (s, args) => ChangeSize();
 		this.Load += AllAssessmentView_Load;
-		stagesDgv.AssessmentCustomClickEvent(_serviceProvider, _candidateContext, _assessmentCandidate);
+		stagesDgv.AssessmentCustomClickEvent(
+			_serviceProvider,
+			_candidateContext,
+			_assessmentCandidate,
+			mediator);
 	}
 
 	private async void AllAssessmentView_Load(object? sender, EventArgs e) => await ReloadDgv();
@@ -42,4 +46,5 @@ public partial class AllAssessmentView : UserControl
 		var response = await _mediator.Send(new GetInterviewsByInterviewPredicateQuery(InterviewPredicate.All));
 		stagesDgv.FillJobStagesDgv(response);
 	}
+
 }

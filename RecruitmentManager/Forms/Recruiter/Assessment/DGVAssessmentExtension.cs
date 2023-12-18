@@ -1,6 +1,10 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
+using RecruitmentManager.Application.Functions.Worker_Functions.Recruiter.Queries.GetInterviews;
 using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Forms.Common_employees;
+using RecruitmentManager.Forms.Recruiter.Stages;
 
 namespace RecruitmentManager.Forms.Recruiter.Assessment;
 
@@ -9,16 +13,25 @@ public static class DGVAssessmentExtension
 	public static void AssessmentCustomClickEvent(
 		this DataGridView dataGridView,
 		IServiceProvider serviceProvider,
-		ICandidateContext candidateContext, IAssessmentCandidate assessmentCandidate) =>
-		dataGridView.CellContentClick += (sender, e) =>
-			CustomCellContentClick(sender, e, serviceProvider, candidateContext,assessmentCandidate);
+		ICandidateContext candidateContext,
+		IAssessmentCandidate assessmentCandidate,
+		IMediator mediator) =>
+		dataGridView.CellContentClick += async (sender, e) =>
+			await CustomCellContentClick(
+				sender,
+				e,
+				serviceProvider,
+				candidateContext,
+				assessmentCandidate,
+				mediator);
 
-	private static void CustomCellContentClick(
+	private static async Task CustomCellContentClick(
 		object? sender,
 		DataGridViewCellEventArgs e,
 		IServiceProvider serviceProvider,
 		ICandidateContext candidateContext, 
-		IAssessmentCandidate assessmentCandidate)
+		IAssessmentCandidate assessmentCandidate,
+		IMediator mediator)
 	{
 		if (!(sender is DataGridView dataGridView) ||
 		    dataGridView.CurrentRow is null ||
@@ -59,6 +72,12 @@ public static class DGVAssessmentExtension
 				assessmentCandidate.Clear();
 			}
 		}
+		await ReloadPage(dataGridView, mediator);
 
+	}
+	private static async Task ReloadPage(DataGridView view,IMediator mediator)
+	{
+		var response = await mediator.Send(new GetInterviewsByInterviewPredicateQuery(InterviewPredicate.All));
+		view.FillJobStagesDgv(response);
 	}
 }

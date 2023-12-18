@@ -28,16 +28,16 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManagerCurrentsRegistrationsView));
-			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
 			tableLayoutPanel = new TableLayoutPanel();
 			mainLayout = new TableLayoutPanel();
 			jobOffersDGV = new DataGridView();
@@ -55,6 +55,7 @@
 			qualificatedoo = new DataGridViewTextBoxColumn();
 			DetailsBtn = new DataGridViewButtonColumn();
 			qulifactedbtn = new DataGridViewButtonColumn();
+			endBtn = new Button();
 			tableLayoutPanel.SuspendLayout();
 			mainLayout.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)jobOffersDGV).BeginInit();
@@ -74,10 +75,11 @@
 			tableLayoutPanel.Controls.Add(usersView, 1, 0);
 			tableLayoutPanel.Dock = DockStyle.Fill;
 			tableLayoutPanel.Location = new Point(0, 0);
+			tableLayoutPanel.Margin = new Padding(3, 2, 3, 2);
 			tableLayoutPanel.Name = "tableLayoutPanel";
 			tableLayoutPanel.RowCount = 1;
 			tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			tableLayoutPanel.Size = new Size(1226, 582);
+			tableLayoutPanel.Size = new Size(1073, 436);
 			tableLayoutPanel.TabIndex = 0;
 			// 
 			// mainLayout
@@ -87,12 +89,13 @@
 			mainLayout.Controls.Add(jobOffersDGV, 0, 0);
 			mainLayout.Controls.Add(footerLayout, 0, 1);
 			mainLayout.Dock = DockStyle.Fill;
-			mainLayout.Location = new Point(6, 6);
+			mainLayout.Location = new Point(6, 5);
+			mainLayout.Margin = new Padding(3, 2, 3, 2);
 			mainLayout.Name = "mainLayout";
 			mainLayout.RowCount = 2;
 			mainLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
-			mainLayout.Size = new Size(480, 570);
+			mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
+			mainLayout.Size = new Size(419, 426);
 			mainLayout.TabIndex = 3;
 			// 
 			// jobOffersDGV
@@ -102,19 +105,20 @@
 			jobOffersDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 			jobOffersDGV.BackgroundColor = SystemColors.Control;
 			jobOffersDGV.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = Color.Blue;
-			dataGridViewCellStyle1.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle1.ForeColor = Color.White;
-			dataGridViewCellStyle1.SelectionBackColor = Color.Blue;
-			dataGridViewCellStyle1.SelectionForeColor = Color.White;
-			dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-			jobOffersDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle10.BackColor = Color.Blue;
+			dataGridViewCellStyle10.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle10.ForeColor = Color.White;
+			dataGridViewCellStyle10.SelectionBackColor = Color.Blue;
+			dataGridViewCellStyle10.SelectionForeColor = Color.White;
+			dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+			jobOffersDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
 			jobOffersDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			jobOffersDGV.Columns.AddRange(new DataGridViewColumn[] { Id, Position, AddedDate, EndedDate });
 			jobOffersDGV.Dock = DockStyle.Fill;
 			jobOffersDGV.EnableHeadersVisualStyles = false;
-			jobOffersDGV.Location = new Point(3, 3);
+			jobOffersDGV.Location = new Point(3, 2);
+			jobOffersDGV.Margin = new Padding(3, 2, 3, 2);
 			jobOffersDGV.MultiSelect = false;
 			jobOffersDGV.Name = "jobOffersDGV";
 			jobOffersDGV.RowHeadersVisible = false;
@@ -122,7 +126,7 @@
 			jobOffersDGV.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			jobOffersDGV.RowTemplate.Height = 29;
 			jobOffersDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			jobOffersDGV.Size = new Size(474, 489);
+			jobOffersDGV.Size = new Size(413, 366);
 			jobOffersDGV.TabIndex = 0;
 			// 
 			// Id
@@ -136,12 +140,12 @@
 			// Position
 			// 
 			Position.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle2.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle2.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle2.ForeColor = Color.Black;
-			dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 192, 192);
-			dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-			Position.DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle11.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle11.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle11.ForeColor = Color.Black;
+			dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle11.SelectionForeColor = Color.Black;
+			Position.DefaultCellStyle = dataGridViewCellStyle11;
 			Position.FillWeight = 230F;
 			Position.HeaderText = "Stanowisko";
 			Position.MinimumWidth = 6;
@@ -151,12 +155,12 @@
 			// AddedDate
 			// 
 			AddedDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle3.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle3.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle3.ForeColor = Color.Black;
-			dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 192, 192);
-			dataGridViewCellStyle3.SelectionForeColor = Color.Black;
-			AddedDate.DefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle12.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle12.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle12.ForeColor = Color.Black;
+			dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle12.SelectionForeColor = Color.Black;
+			AddedDate.DefaultCellStyle = dataGridViewCellStyle12;
 			AddedDate.FillWeight = 280.748657F;
 			AddedDate.HeaderText = "Data Dodania";
 			AddedDate.MinimumWidth = 6;
@@ -165,12 +169,12 @@
 			// 
 			// EndedDate
 			// 
-			dataGridViewCellStyle4.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle4.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle4.ForeColor = Color.Black;
-			dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 192, 192);
-			dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-			EndedDate.DefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle13.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle13.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle13.ForeColor = Color.Black;
+			dataGridViewCellStyle13.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle13.SelectionForeColor = Color.Black;
+			EndedDate.DefaultCellStyle = dataGridViewCellStyle13;
 			EndedDate.HeaderText = "Data Zakończenia";
 			EndedDate.MinimumWidth = 6;
 			EndedDate.Name = "EndedDate";
@@ -178,41 +182,44 @@
 			// 
 			// footerLayout
 			// 
-			footerLayout.ColumnCount = 7;
-			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 38F));
-			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 26F));
-			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 18F));
-			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 18F));
-			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 65F));
-			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 65F));
-			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 65F));
-			footerLayout.Controls.Add(pageCounterLabel, 6, 0);
-			footerLayout.Controls.Add(nextPageButton, 5, 0);
-			footerLayout.Controls.Add(previousPageButton, 4, 0);
+			footerLayout.ColumnCount = 6;
+			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 46.341465F));
+			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 31.7073174F));
+			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 21.95122F));
+			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 57F));
+			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 57F));
+			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 58F));
+			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+			footerLayout.Controls.Add(pageCounterLabel, 5, 0);
+			footerLayout.Controls.Add(nextPageButton, 4, 0);
+			footerLayout.Controls.Add(previousPageButton, 3, 0);
+			footerLayout.Controls.Add(endBtn, 0, 0);
 			footerLayout.Dock = DockStyle.Fill;
-			footerLayout.Location = new Point(3, 498);
+			footerLayout.Location = new Point(3, 372);
+			footerLayout.Margin = new Padding(3, 2, 3, 2);
 			footerLayout.Name = "footerLayout";
 			footerLayout.RowCount = 1;
 			footerLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			footerLayout.Size = new Size(474, 69);
+			footerLayout.Size = new Size(413, 52);
 			footerLayout.TabIndex = 1;
 			// 
 			// pageCounterLabel
 			// 
 			pageCounterLabel.Anchor = AnchorStyles.Left;
 			pageCounterLabel.AutoSize = true;
-			pageCounterLabel.Location = new Point(411, 24);
+			pageCounterLabel.Location = new Point(356, 18);
 			pageCounterLabel.Name = "pageCounterLabel";
-			pageCounterLabel.Size = new Size(50, 20);
+			pageCounterLabel.Size = new Size(38, 15);
 			pageCounterLabel.TabIndex = 4;
 			pageCounterLabel.Text = "label1";
 			// 
 			// nextPageButton
 			// 
 			nextPageButton.Image = (Image)resources.GetObject("nextPageButton.Image");
-			nextPageButton.Location = new Point(346, 3);
+			nextPageButton.Location = new Point(299, 2);
+			nextPageButton.Margin = new Padding(3, 2, 3, 2);
 			nextPageButton.Name = "nextPageButton";
-			nextPageButton.Size = new Size(59, 63);
+			nextPageButton.Size = new Size(51, 47);
 			nextPageButton.TabIndex = 3;
 			nextPageButton.TabStop = false;
 			nextPageButton.Click += nextPageButton_Click;
@@ -220,9 +227,10 @@
 			// previousPageButton
 			// 
 			previousPageButton.Image = (Image)resources.GetObject("previousPageButton.Image");
-			previousPageButton.Location = new Point(281, 3);
+			previousPageButton.Location = new Point(242, 2);
+			previousPageButton.Margin = new Padding(3, 2, 3, 2);
 			previousPageButton.Name = "previousPageButton";
-			previousPageButton.Size = new Size(59, 63);
+			previousPageButton.Size = new Size(51, 47);
 			previousPageButton.TabIndex = 2;
 			previousPageButton.TabStop = false;
 			previousPageButton.Click += previousPageButton_Click;
@@ -234,19 +242,20 @@
 			usersView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 			usersView.BackgroundColor = SystemColors.Control;
 			usersView.BorderStyle = BorderStyle.None;
-			dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle5.BackColor = Color.Blue;
-			dataGridViewCellStyle5.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle5.ForeColor = Color.White;
-			dataGridViewCellStyle5.SelectionBackColor = Color.Blue;
-			dataGridViewCellStyle5.SelectionForeColor = Color.White;
-			dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-			usersView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle14.BackColor = Color.Blue;
+			dataGridViewCellStyle14.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle14.ForeColor = Color.White;
+			dataGridViewCellStyle14.SelectionBackColor = Color.Blue;
+			dataGridViewCellStyle14.SelectionForeColor = Color.White;
+			dataGridViewCellStyle14.WrapMode = DataGridViewTriState.True;
+			usersView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
 			usersView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			usersView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, qualificatedoo, DetailsBtn, qulifactedbtn });
 			usersView.Dock = DockStyle.Fill;
 			usersView.EnableHeadersVisualStyles = false;
-			usersView.Location = new Point(495, 6);
+			usersView.Location = new Point(434, 5);
+			usersView.Margin = new Padding(3, 2, 3, 2);
 			usersView.MultiSelect = false;
 			usersView.Name = "usersView";
 			usersView.RowHeadersVisible = false;
@@ -254,7 +263,7 @@
 			usersView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			usersView.RowTemplate.Height = 29;
 			usersView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			usersView.Size = new Size(725, 570);
+			usersView.Size = new Size(633, 426);
 			usersView.TabIndex = 2;
 			// 
 			// dataGridViewTextBoxColumn1
@@ -268,12 +277,12 @@
 			// dataGridViewTextBoxColumn2
 			// 
 			dataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle6.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle6.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle6.ForeColor = Color.Black;
-			dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 192, 192);
-			dataGridViewCellStyle6.SelectionForeColor = Color.Black;
-			dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle15.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle15.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle15.ForeColor = Color.Black;
+			dataGridViewCellStyle15.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle15.SelectionForeColor = Color.Black;
+			dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle15;
 			dataGridViewTextBoxColumn2.FillWeight = 230F;
 			dataGridViewTextBoxColumn2.HeaderText = "Imię i Nazwisko";
 			dataGridViewTextBoxColumn2.MinimumWidth = 6;
@@ -282,12 +291,12 @@
 			// 
 			// qualificatedoo
 			// 
-			dataGridViewCellStyle7.BackColor = Color.FromArgb(128, 255, 255);
-			dataGridViewCellStyle7.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle7.ForeColor = Color.Black;
-			dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(0, 192, 192);
-			dataGridViewCellStyle7.SelectionForeColor = Color.Black;
-			qualificatedoo.DefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle16.BackColor = Color.FromArgb(128, 255, 255);
+			dataGridViewCellStyle16.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle16.ForeColor = Color.Black;
+			dataGridViewCellStyle16.SelectionBackColor = Color.FromArgb(0, 192, 192);
+			dataGridViewCellStyle16.SelectionForeColor = Color.Black;
+			qualificatedoo.DefaultCellStyle = dataGridViewCellStyle16;
 			qualificatedoo.HeaderText = "Kwalifikacja do rozmowy rekrutacyjnej";
 			qualificatedoo.MinimumWidth = 6;
 			qualificatedoo.Name = "qualificatedoo";
@@ -296,13 +305,13 @@
 			// DetailsBtn
 			// 
 			DetailsBtn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle8.BackColor = Color.Navy;
-			dataGridViewCellStyle8.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle8.ForeColor = Color.White;
-			dataGridViewCellStyle8.SelectionBackColor = Color.Navy;
-			dataGridViewCellStyle8.SelectionForeColor = Color.White;
-			DetailsBtn.DefaultCellStyle = dataGridViewCellStyle8;
+			dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle17.BackColor = Color.Navy;
+			dataGridViewCellStyle17.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle17.ForeColor = Color.White;
+			dataGridViewCellStyle17.SelectionBackColor = Color.Navy;
+			dataGridViewCellStyle17.SelectionForeColor = Color.White;
+			DetailsBtn.DefaultCellStyle = dataGridViewCellStyle17;
 			DetailsBtn.FillWeight = 250F;
 			DetailsBtn.FlatStyle = FlatStyle.Popup;
 			DetailsBtn.HeaderText = "Szczegóły";
@@ -313,13 +322,13 @@
 			// 
 			// qulifactedbtn
 			// 
-			dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle9.BackColor = Color.Navy;
-			dataGridViewCellStyle9.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			dataGridViewCellStyle9.ForeColor = Color.White;
-			dataGridViewCellStyle9.SelectionBackColor = Color.Navy;
-			dataGridViewCellStyle9.SelectionForeColor = Color.White;
-			qulifactedbtn.DefaultCellStyle = dataGridViewCellStyle9;
+			dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle18.BackColor = Color.Navy;
+			dataGridViewCellStyle18.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+			dataGridViewCellStyle18.ForeColor = Color.White;
+			dataGridViewCellStyle18.SelectionBackColor = Color.Navy;
+			dataGridViewCellStyle18.SelectionForeColor = Color.White;
+			qulifactedbtn.DefaultCellStyle = dataGridViewCellStyle18;
 			qulifactedbtn.FlatStyle = FlatStyle.Popup;
 			qulifactedbtn.HeaderText = "Kwalifikacja";
 			qulifactedbtn.MinimumWidth = 6;
@@ -327,13 +336,27 @@
 			qulifactedbtn.Text = "Zakwalifikuj";
 			qulifactedbtn.UseColumnTextForButtonValue = true;
 			// 
-			// ManagerRegistrationsView
+			// endBtn
 			// 
-			AutoScaleDimensions = new SizeF(8F, 20F);
+			endBtn.Dock = DockStyle.Fill;
+			endBtn.FlatStyle = FlatStyle.Flat;
+			endBtn.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+			endBtn.Location = new Point(3, 3);
+			endBtn.Name = "endBtn";
+			endBtn.Size = new Size(105, 46);
+			endBtn.TabIndex = 5;
+			endBtn.Text = "Zakończ";
+			endBtn.UseVisualStyleBackColor = true;
+			endBtn.Click += endBtn_Click;
+			// 
+			// ManagerCurrentsRegistrationsView
+			// 
+			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			Controls.Add(tableLayoutPanel);
-			Name = "ManagerRegistrationsView";
-			Size = new Size(1226, 582);
+			Margin = new Padding(3, 2, 3, 2);
+			Name = "ManagerCurrentsRegistrationsView";
+			Size = new Size(1073, 436);
 			tableLayoutPanel.ResumeLayout(false);
 			mainLayout.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)jobOffersDGV).EndInit();
@@ -364,5 +387,6 @@
 		private DataGridViewTextBoxColumn qualificatedoo;
 		private DataGridViewButtonColumn DetailsBtn;
 		private DataGridViewButtonColumn qulifactedbtn;
+		private Button endBtn;
 	}
 }

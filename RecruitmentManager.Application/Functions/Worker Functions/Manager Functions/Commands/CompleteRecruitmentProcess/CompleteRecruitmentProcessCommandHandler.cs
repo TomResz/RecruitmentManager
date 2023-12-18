@@ -8,10 +8,12 @@ internal class CompleteRecruitmentProcessCommandHandler
 	: IRequestHandler<CompleteRecruitmentProcessCommand>
 {
 	private readonly IJobPostingRepository _jobPostingRepository;
+	private readonly IMediator _mediator;
 
-	public CompleteRecruitmentProcessCommandHandler(IJobPostingRepository jobPostingRepository)
+	public CompleteRecruitmentProcessCommandHandler(IJobPostingRepository jobPostingRepository, IMediator mediator)
 	{
 		_jobPostingRepository = jobPostingRepository;
+		_mediator = mediator;
 	}
 
 	public async Task Handle(CompleteRecruitmentProcessCommand request, CancellationToken cancellationToken)
@@ -22,6 +24,7 @@ internal class CompleteRecruitmentProcessCommandHandler
 			throw new NotFoundException(nameof(jobPosting));
 		}
 		jobPosting.IsCompleted = true;
+
 		await _jobPostingRepository.Update(jobPosting);
 	}
 }

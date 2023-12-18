@@ -42,6 +42,7 @@
 			PasswdReset = new DataGridViewButtonColumn();
 			mainLayout = new TableLayoutPanel();
 			footerLayout = new TableLayoutPanel();
+			button1 = new Button();
 			pageCounterLabel = new Label();
 			nextPageButton = new PictureBox();
 			previousPageButton = new PictureBox();
@@ -179,6 +180,7 @@
 			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 57F));
 			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 59F));
 			footerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+			footerLayout.Controls.Add(button1, 0, 0);
 			footerLayout.Controls.Add(pageCounterLabel, 5, 0);
 			footerLayout.Controls.Add(nextPageButton, 4, 0);
 			footerLayout.Controls.Add(previousPageButton, 3, 0);
@@ -190,6 +192,19 @@
 			footerLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
 			footerLayout.Size = new Size(1043, 52);
 			footerLayout.TabIndex = 1;
+			// 
+			// button1
+			// 
+			button1.Dock = DockStyle.Fill;
+			button1.FlatStyle = FlatStyle.Flat;
+			button1.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
+			button1.Location = new Point(3, 3);
+			button1.Name = "button1";
+			button1.Size = new Size(440, 46);
+			button1.TabIndex = 6;
+			button1.Text = "Zakończ";
+			button1.UseVisualStyleBackColor = true;
+			button1.Click += button1_Click_1;
 			// 
 			// pageCounterLabel
 			// 
@@ -253,5 +268,6 @@
 		private Label pageCounterLabel;
 		private PictureBox nextPageButton;
 		private PictureBox previousPageButton;
+		private Button button1;
 	}
 }

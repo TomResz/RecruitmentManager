@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.Domain.Entities;
 using RecruitmentManager.Shared.Exceptions;
@@ -69,8 +68,6 @@ internal sealed class GetJobPostingResultQueryHandler
 			}
 
 		}
-
 		return responses;
-
 	}
 }

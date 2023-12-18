@@ -67,7 +67,21 @@ public partial class OutdatedJobOffersView : UserControl
 		}
 	}
 
-	private async void button1_Click(object sender, EventArgs e)
+	private async void jobOffersDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+	{
+		if (e is not { RowIndex: >= 0, ColumnIndex: 4 })
+			return;
+		if (jobOffersDGV.CurrentRow is null ||
+			!Guid.TryParse(jobOffersDGV.CurrentRow?.Cells[0].Value.ToString(), out var Id))
+		{
+			return;
+		}
+		var form = _serviceProvider.GetRequiredService<JobOfferStatistics>();
+		await form.LoadData(Id);
+		form.ShowDialog();
+	}
+
+	private async void button1_Click_1(object sender, EventArgs e)
 	{
 
 		if (jobOffersDGV.CurrentRow is null ||
@@ -82,19 +96,5 @@ public partial class OutdatedJobOffersView : UserControl
 
 		await _mediator.Send(new CompleteRecruitmentProcessCommand(Id));
 		await ReloadPage();
-	}
-
-	private async void jobOffersDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
-	{
-		if (e is not { RowIndex: >= 0, ColumnIndex: 4 })
-			return;
-		if (jobOffersDGV.CurrentRow is null ||
-			!Guid.TryParse(jobOffersDGV.CurrentRow?.Cells[0].Value.ToString(), out var Id))
-		{
-			return;
-		}
-		var form = _serviceProvider.GetRequiredService<JobOfferStatistics>();
-		await form.LoadData(Id);
-		form.ShowDialog();
 	}
 }

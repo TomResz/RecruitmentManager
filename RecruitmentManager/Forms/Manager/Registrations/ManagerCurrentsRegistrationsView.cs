@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.Application.Functions.Common.Queries.GetPageOfJobOffers.NotActive;
 using RecruitmentManager.Application.Functions.DTOs;
+using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Commands.CompleteRecruitmentProcess;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Events;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Queries.GetCandidatesForOffer;
 using RecruitmentManager.Application.Interfaces.Context;
@@ -111,7 +112,7 @@ public partial class ManagerCurrentsRegistrationsView : UserControl
 	private async void JobOffersDGV_CellClick(object? sender, DataGridViewCellEventArgs e)
 	{
 		if (jobOffersDGV.CurrentRow is null ||
-		    !Guid.TryParse(jobOffersDGV.CurrentRow.Cells[0].Value.ToString(), out var Id))
+			!Guid.TryParse(jobOffersDGV.CurrentRow.Cells[0].Value.ToString(), out var Id))
 			return;
 		try
 		{
@@ -180,5 +181,21 @@ public partial class ManagerCurrentsRegistrationsView : UserControl
 			++Page;
 			await ReloadPage();
 		}
+	}
+
+	private async void endBtn_Click(object sender, EventArgs e)
+	{
+		if (jobOffersDGV.CurrentRow is null ||
+			!Guid.TryParse(jobOffersDGV.CurrentRow?.Cells[0].Value.ToString(), out var Id))
+		{
+			return;
+		}
+		var confirmationBox = MessageBox.Show("Czy napewno zakończyć ten proces rekrutacyjny?",
+			"Proces rekrutacyjny",
+	MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+		if (confirmationBox == DialogResult.No) { return; }
+
+		await _mediator.Send(new CompleteRecruitmentProcessCommand(Id));
+		await ReloadPage();
 	}
 }

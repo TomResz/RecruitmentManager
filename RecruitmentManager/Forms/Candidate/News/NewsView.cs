@@ -17,10 +17,9 @@ public partial class NewsView : UserControl
 
 	private async void NewsView_Load(object? sender, EventArgs e)
 	{
-		List<Task> tasks = new List<Task>();
-		tasks.Add(FillStagesView());
-		tasks.Add(FillUserview());
-		await Task.WhenAll(tasks);
+		await Task.Delay(150);
+		await FillStagesView();
+		await FillUserview();
 	}
 
 	private async Task FillStagesView()

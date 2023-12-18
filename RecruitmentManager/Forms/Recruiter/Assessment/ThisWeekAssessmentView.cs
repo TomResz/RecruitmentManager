@@ -24,7 +24,11 @@ public partial class ThisWeekAssessmentView : UserControl
 		InitializeComponent();
 		ChangeSize();
 		stagesDgv.SizeChanged += ((sender, args) => ChangeSize());
-		stagesDgv.AssessmentCustomClickEvent(_serviceProvider, _candidateContext, _assessmentCandidate);
+		stagesDgv.AssessmentCustomClickEvent(
+			_serviceProvider,
+			_candidateContext,
+			_assessmentCandidate,
+			mediator);
 		this.Load += ThisWeekAssessmentView_Load;
 	}
 

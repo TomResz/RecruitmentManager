@@ -28,7 +28,9 @@ public class GetPageOfNotActiveJobOffersQueryHandler
 	{
 		var date = DateTime.Now;
 		IQueryable<JobPosting> query = _context.Get<JobPosting>()
-			.Where(x => x.EndDate < date && !x.IsCandidatesSelected) 
+			.Where(x => x.EndDate < date 
+				&& !x.IsCompleted 
+				&& !x.IsCandidatesSelected) 
 			.OrderByDescending(x => x.CreatedDate)
 			.ThenByDescending(x => x.EndDate)
 			.AsNoTracking();
