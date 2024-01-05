@@ -59,11 +59,10 @@
 			tableLayoutPanel.Controls.Add(tableLayoutPanel1, 1, 0);
 			tableLayoutPanel.Dock = DockStyle.Fill;
 			tableLayoutPanel.Location = new Point(0, 0);
-			tableLayoutPanel.Margin = new Padding(3, 2, 3, 2);
 			tableLayoutPanel.Name = "tableLayoutPanel";
 			tableLayoutPanel.RowCount = 1;
 			tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-			tableLayoutPanel.Size = new Size(1154, 455);
+			tableLayoutPanel.Size = new Size(1319, 607);
 			tableLayoutPanel.TabIndex = 0;
 			// 
 			// stagesDgv
@@ -85,8 +84,7 @@
 			stagesDgv.Columns.AddRange(new DataGridViewColumn[] { Id, Position, RecruitmentStageName, CandidateData, DateTimeSU });
 			stagesDgv.Dock = DockStyle.Fill;
 			stagesDgv.EnableHeadersVisualStyles = false;
-			stagesDgv.Location = new Point(6, 5);
-			stagesDgv.Margin = new Padding(3, 2, 3, 2);
+			stagesDgv.Location = new Point(6, 6);
 			stagesDgv.MultiSelect = false;
 			stagesDgv.Name = "stagesDgv";
 			stagesDgv.RowHeadersVisible = false;
@@ -94,7 +92,7 @@
 			stagesDgv.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			stagesDgv.RowTemplate.Height = 29;
 			stagesDgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			stagesDgv.Size = new Size(852, 445);
+			stagesDgv.Size = new Size(976, 595);
 			stagesDgv.TabIndex = 1;
 			// 
 			// Id
@@ -167,7 +165,7 @@
 			tableLayoutPanel1.Controls.Add(UpdateBtn, 0, 3);
 			tableLayoutPanel1.Controls.Add(toCheckCB, 0, 1);
 			tableLayoutPanel1.Dock = DockStyle.Fill;
-			tableLayoutPanel1.Location = new Point(864, 3);
+			tableLayoutPanel1.Location = new Point(988, 3);
 			tableLayoutPanel1.Margin = new Padding(0);
 			tableLayoutPanel1.Name = "tableLayoutPanel1";
 			tableLayoutPanel1.RowCount = 4;
@@ -175,17 +173,16 @@
 			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
 			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
 			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-			tableLayoutPanel1.Size = new Size(287, 449);
+			tableLayoutPanel1.Size = new Size(328, 601);
 			tableLayoutPanel1.TabIndex = 0;
 			// 
 			// datePicker
 			// 
 			datePicker.Dock = DockStyle.Fill;
 			datePicker.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-			datePicker.Location = new Point(3, 270);
-			datePicker.Margin = new Padding(3, 2, 3, 2);
+			datePicker.Location = new Point(3, 363);
 			datePicker.Name = "datePicker";
-			datePicker.Size = new Size(281, 29);
+			datePicker.Size = new Size(322, 34);
 			datePicker.TabIndex = 0;
 			// 
 			// UpdateBtn
@@ -193,10 +190,9 @@
 			UpdateBtn.Dock = DockStyle.Fill;
 			UpdateBtn.FlatStyle = FlatStyle.Flat;
 			UpdateBtn.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-			UpdateBtn.Location = new Point(3, 359);
-			UpdateBtn.Margin = new Padding(3, 2, 3, 2);
+			UpdateBtn.Location = new Point(3, 483);
 			UpdateBtn.Name = "UpdateBtn";
-			UpdateBtn.Size = new Size(281, 88);
+			UpdateBtn.Size = new Size(322, 115);
 			UpdateBtn.TabIndex = 1;
 			UpdateBtn.Text = "Aktualizuj";
 			UpdateBtn.UseVisualStyleBackColor = true;
@@ -207,10 +203,9 @@
 			toCheckCB.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 			toCheckCB.AutoSize = true;
 			toCheckCB.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-			toCheckCB.Location = new Point(3, 181);
-			toCheckCB.Margin = new Padding(3, 2, 3, 2);
+			toCheckCB.Location = new Point(3, 243);
 			toCheckCB.Name = "toCheckCB";
-			toCheckCB.Size = new Size(281, 29);
+			toCheckCB.Size = new Size(322, 36);
 			toCheckCB.TabIndex = 2;
 			toCheckCB.Text = "Do zatwierdzenia";
 			toCheckCB.UseVisualStyleBackColor = true;
@@ -218,12 +213,11 @@
 			// 
 			// StagesSetupView
 			// 
-			AutoScaleDimensions = new SizeF(7F, 15F);
+			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			Controls.Add(tableLayoutPanel);
-			Margin = new Padding(3, 2, 3, 2);
 			Name = "StagesSetupView";
-			Size = new Size(1154, 455);
+			Size = new Size(1319, 607);
 			tableLayoutPanel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)stagesDgv).EndInit();
 			tableLayoutPanel1.ResumeLayout(false);

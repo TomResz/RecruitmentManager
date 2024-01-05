@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using RecruitmentManager.Application.Functions.DTOs;
-using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Commands.SetDateOfInterview;
+using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Events.SetDateOfInterview;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Queries.GetNotSetInterviews;
 using RecruitmentManager.Application.Functions.Worker_Functions.Manager_Functions.Queries.GetSetInterviews;
 using RecruitmentManager.Controls_Extensions;
@@ -66,7 +66,7 @@ public partial class StagesSetupView : UserControl
 			return;
 		try
 		{
-			var command = new SetDateOfInterviewCommand(id, datePicker.Value);
+			var command = new SetDateOfInterviewEvent(id, datePicker.Value);
 			await _mediator.Send(command);
 			MessageBox.Show("Dodano godzinę rozmowy!", "Dodawanie", MessageBoxButtons.OK,
 				MessageBoxIcon.Information);

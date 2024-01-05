@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using RecruitmentManager.Application.Functions.Candidate_Functions.Queries.GetCandidateLoadingData;
 using RecruitmentManager.Application.Interfaces.Context;
 using RecruitmentManager.FileHandling;
+using RecruitmentManager.Forms.Admin;
 using RecruitmentManager.Forms.Candidate.DataDictionary;
 using RecruitmentManager.Forms.Candidate.Interviews;
 using RecruitmentManager.Forms.Candidate.JobOfferViews;
@@ -12,18 +13,21 @@ namespace RecruitmentManager.Forms.Candidate;
 
 public partial class CandidateLoggedInForm : Form
 {
+	private readonly IUserBasicDataContext _userBasicDataContext;
 	private readonly IServiceProvider _serviceProvider;
 	private readonly ICandidateSessionContext _candidateSessionContext;
 	private readonly IPictureBoxSetter _pictureBoxSetter;
 	private readonly IMediator _mediator;
 	private UserControl _currentControl;
-	private string FullName;
+	private string _fullName;
+	private string _email;
 
 	public CandidateLoggedInForm(
 		IServiceProvider serviceProvider,
 		ICandidateSessionContext candidateSessionContext,
 		IMediator mediator,
-		IPictureBoxSetter pictureBoxSetter)
+		IPictureBoxSetter pictureBoxSetter,
+		IUserBasicDataContext userBasicDataContext)
 	{
 		_serviceProvider = serviceProvider;
 		_candidateSessionContext = candidateSessionContext;
@@ -33,7 +37,8 @@ public partial class CandidateLoggedInForm : Form
 		this.Load += CandidateLoggedInForm_Load;
 		var initForm = _serviceProvider.GetRequiredService<NewsView>();
 		ShowControl(initForm);
-		profilePicturePB.MouseHover += (s, args) => toolTip1.Show(FullName, profilePicturePB);
+		profilePicturePB.MouseHover += (s, args) => toolTip1.Show(_fullName, profilePicturePB);
+		_userBasicDataContext = userBasicDataContext;
 	}
 
 	private async void CandidateLoggedInForm_Load(object? sender, EventArgs e)
@@ -44,7 +49,8 @@ public partial class CandidateLoggedInForm : Form
 		Guid id = _candidateSessionContext.CandidateId ?? throw new InvalidDataException();
 		var query = new GetCandidateLoadingDataQuery(id);
 		var response = await _mediator.Send(query);
-		FullName = response.FullName;
+		_fullName = response.FullName;
+		_email = response.Email;
 		if (response.Picture is not null)
 		{
 			_pictureBoxSetter.Set(response.Picture, profilePicturePB);
@@ -118,4 +124,19 @@ public partial class CandidateLoggedInForm : Form
 
 	private async void toolStripMenuItem1_Click(object sender, EventArgs e)
 		=> await EditData();
+
+	private void zmianaHasłaToolStripMenuItem_Click(object sender, EventArgs e)
+	{
+		try
+		{
+			_userBasicDataContext.SetData((Guid)_candidateSessionContext.CandidateId,
+				_email);
+			var form = _serviceProvider.GetRequiredService<ResetCandidatePasswordForm>();
+			form.ShowDialog();
+		}
+		finally
+		{
+			_userBasicDataContext.Clear();
+		}
+	}
 }

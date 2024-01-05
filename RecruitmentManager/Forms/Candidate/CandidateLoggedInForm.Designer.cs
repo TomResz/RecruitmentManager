@@ -45,6 +45,7 @@
 			toolStripMenuItem1 = new ToolStripMenuItem();
 			toolStripMenuItem2 = new ToolStripMenuItem();
 			toolTip1 = new ToolTip(components);
+			zmianaHasłaToolStripMenuItem = new ToolStripMenuItem();
 			mainLayout.SuspendLayout();
 			leftLayout.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)profilePicturePB).BeginInit();
@@ -230,7 +231,7 @@
 			// 
 			// edycjaToolStripMenuItem
 			// 
-			edycjaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem1, toolStripMenuItem2 });
+			edycjaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem1, toolStripMenuItem2, zmianaHasłaToolStripMenuItem });
 			edycjaToolStripMenuItem.Name = "edycjaToolStripMenuItem";
 			edycjaToolStripMenuItem.Size = new Size(121, 22);
 			edycjaToolStripMenuItem.Text = "Edycja Danych";
@@ -248,6 +249,13 @@
 			toolStripMenuItem2.Size = new Size(304, 24);
 			toolStripMenuItem2.Text = "Edytuj Informacje o Swoim Profilu";
 			toolStripMenuItem2.Click += toolStripMenuItem2_Click;
+			// 
+			// zmianaHasłaToolStripMenuItem
+			// 
+			zmianaHasłaToolStripMenuItem.Name = "zmianaHasłaToolStripMenuItem";
+			zmianaHasłaToolStripMenuItem.Size = new Size(304, 24);
+			zmianaHasłaToolStripMenuItem.Text = "Zmiana hasła";
+			zmianaHasłaToolStripMenuItem.Click += zmianaHasłaToolStripMenuItem_Click;
 			// 
 			// CandidateLoggedInForm
 			// 
@@ -286,5 +294,6 @@
 		private Button editDataBtn;
 		private ToolStripMenuItem toolStripMenuItem1;
 		private ToolStripMenuItem toolStripMenuItem2;
+		private ToolStripMenuItem zmianaHasłaToolStripMenuItem;
 	}
 }

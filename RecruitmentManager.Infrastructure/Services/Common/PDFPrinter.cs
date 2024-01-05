@@ -19,7 +19,7 @@ public class PDFPrinter : IPdfPrinter
 	{
 		using FileStream filestream = new FileStream(fullPath, FileMode.OpenOrCreate);
 
-		Document document = new Document(PageSize.A4, 15f, 15f, 75f, 75f);
+		Document document = new Document(PageSize.A4, 15f, 15f, 35f, 25f);
 		using var writer = PdfWriter.GetInstance(document, filestream);
 		var baseFont = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1257, BaseFont.NOT_EMBEDDED);
 		var fontPara = new Font(baseFont, 12, Font.NORMAL);
@@ -133,10 +133,6 @@ public class PDFPrinter : IPdfPrinter
 			}
 			document.Add(table);
 		}
-
-
-
-
 		document.Close();
 	}
 }

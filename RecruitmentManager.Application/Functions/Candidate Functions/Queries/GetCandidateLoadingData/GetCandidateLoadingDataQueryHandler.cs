@@ -30,6 +30,6 @@ public class GetCandidateLoadingDataQueryHandler
 		if (response is null)
 			throw new NotFoundException("Nie znaleziono użytkownika!");
 		string fullName = response.Candidate.CandidateData.FirstName + " " + response.Candidate.CandidateData.LastName;
-		return new(fullName,response.Image);
+		return new(fullName,response.Image,response.Candidate.Email);
 	}
 }
