@@ -10,7 +10,7 @@ namespace RecruitmentManager.DI;
 public static class DIExtension
 {
 	private static string connectionString = 
-		ConfigurationManager.ConnectionStrings["LocalDb"].ConnectionString;
+		ConfigurationManager.ConnectionStrings["productionDb"].ConnectionString;
 
 	public static IHostBuilder CreateHostBuilder()
 	{

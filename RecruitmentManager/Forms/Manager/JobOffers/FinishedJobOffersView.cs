@@ -42,7 +42,7 @@ public partial class FinishedJobOffersView : UserControl
 			if (jobOffersDGV.CurrentRow is not null &&
 				Guid.TryParse(jobOffersDGV.CurrentRow.Cells[0].Value.ToString(), out var Id))
 			{
-				var fileName = $"raport_{DateTime.Now.ToShortDateString()}.pdf";
+				var fileName = $"raport_{DateTime.Now.ToString("dd-MM-yyyy")}.pdf";
 
 				var folderBrowser = new FolderBrowserDialog();
 				var result = folderBrowser.ShowDialog();
